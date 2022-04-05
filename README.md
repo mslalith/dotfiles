@@ -11,4 +11,12 @@ brew install stow
 stow */
 ```
 
+### Install NeoVim LSP Language Servers
+```
+:LspInstall <language>
+```
+- Lua - sumneko_lua
+
+<br>
+
 This will be automated at later point
