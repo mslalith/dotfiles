@@ -12,6 +12,7 @@ require("plugins/completion")
 require("plugins/treesitter")
 require("plugins/bufferline")
 require("plugins/trouble")
+require("plugins/terminal")
 
 -- LSP
 require("plugins.lsp.lsp-installer")
