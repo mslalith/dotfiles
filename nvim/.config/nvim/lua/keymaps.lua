@@ -8,6 +8,7 @@ keymap("", "<Space>", "<Nop>", opts)
 
 -- Modes
 --   normal_mode = "n",
+-- local keymap = vim.api.nvim_set_keymap
 --   insert_mode = "i",
 --   visual_mode = "v",
 --   visual_block_mode = "x",
@@ -29,9 +30,12 @@ keymap("n", "<A-Down>", ":resize -2<CR>", opts)
 keymap("n", "<A-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- Buffers
+keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
+keymap("n", "<leader>w", ":Bdelete!<CR>", opts)
+keymap("n", "b[", ":BufferLineMovePrev<CR>", opts)
+keymap("n", "b]", ":BufferLineMoveNext<CR>", opts)
 
 -- Navigate in Editor
 keymap("n", "<leader>/", ":HopChar2<CR>", opts)
