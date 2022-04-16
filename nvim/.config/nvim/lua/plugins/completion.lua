@@ -1,12 +1,23 @@
 local lspkind = require("lspkind")
 lspkind.init()
 
+local luasnip = require("luasnip")
+require("luasnip/loaders/from_vscode").lazy_load()
+
+local check_backspace = function()
+  local col = vim.fn.col "." - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+end
+
 local cmp = require("cmp")
 cmp.setup {
   mapping = {
+		["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.close(),
+    ["<CR>"] = cmp.mapping.confirm { select = true },
     ["<C-y>"] = cmp.mapping(
       cmp.mapping.confirm {
         behavior = cmp.ConfirmBehavior.Insert,
@@ -17,9 +28,7 @@ cmp.setup {
 
     ["<C-space>"] = cmp.mapping {
       i = cmp.mapping.complete(),
-      c = function(
-        _ --[[fallback]]
-      )
+      c = function(_)
         if cmp.visible() then
           if not cmp.confirm { select = true } then
             return
@@ -29,6 +38,26 @@ cmp.setup {
         end
       end,
     },
+
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif check_backspace() then
+        fallback()
+      else
+        fallback()
+      end
+    end, { "i", "s", }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s", }),
   },
 
   sources = {
@@ -41,7 +70,7 @@ cmp.setup {
 
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
 
@@ -57,9 +86,11 @@ cmp.setup {
       },
     },
   },
+
   view = {
     entries = "native",
   },
+
   experimental = {
     ghost_text = true,
   },
