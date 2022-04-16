@@ -33,7 +33,6 @@ local packer_startup = packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- General
-  -- use 'vim-airline/vim-airline'
   use 'windwp/nvim-autopairs'
   use 'rcarriga/nvim-notify'
   use {
@@ -106,6 +105,12 @@ local packer_startup = packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+  }
+
+  -- Git
+  use {
+    'lewis6991/gitsigns.nvim',
+    -- tag = 'release' -- To use the latest release
   }
 
   -- Themes

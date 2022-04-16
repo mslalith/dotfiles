@@ -18,3 +18,6 @@ require("plugins/terminal")
 require("plugins.lsp.lsp-installer")
 require("plugins.lsp.handlers").setup()
 
+-- Git
+require("plugins.gitsigns")
+
