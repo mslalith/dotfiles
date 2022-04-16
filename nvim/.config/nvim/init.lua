@@ -11,6 +11,7 @@ require("plugins/nvim-web-devicons")
 require("plugins/completion")
 require("plugins/treesitter")
 require("plugins/bufferline")
+require("plugins/trouble")
 
 -- LSP
 require("plugins.lsp.lsp-installer")

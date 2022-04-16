@@ -55,6 +55,12 @@ local packer_startup = packer.startup(function(use)
   }
 
 
+  -- Trouble
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
+
   -- Hop
   use {
     'phaazon/hop.nvim',
