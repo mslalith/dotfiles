@@ -40,12 +40,20 @@ local packer_startup = packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  -- Bufferline
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "*",
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
+  use "moll/vim-bbye"
 
   -- Better Comments
   use {
     'numToStr/Comment.nvim',
     config = require('plugins/comment').config()
   }
+
 
   -- Hop
   use {
