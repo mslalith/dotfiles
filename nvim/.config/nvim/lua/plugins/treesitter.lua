@@ -1,5 +1,6 @@
 require("nvim-treesitter.configs").setup {
-  ensure_installed = "maintained",
+  ensure_installed = { "c", "lua", "rust", "java", "kotlin", "python" },
+  -- ensure_installed = "all",
   sync_install = false,
   ignore_install = { "" },
   highlight = {
