@@ -27,6 +27,8 @@ export EDITOR="nvim"
 # Aliases
 alias nvimrc="nvim ~/.config/nvim/init.lua"
 alias zshrc="nvim ~/.zshrc"
+alias lg="lazygit"
 alias nvimdir="cd ~/.config/nvim/lua"
+alias dotfiles="cd ~/.dotfiles"
 
 
