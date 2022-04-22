@@ -29,6 +29,7 @@ alias nvimrc="nvim ~/.config/nvim/init.lua"
 alias zshrc="nvim ~/.zshrc"
 alias lg="lazygit"
 alias x="exit"
+alias c="clear"
 alias nvimdir="cd ~/.config/nvim/lua"
 alias dotfiles="cd ~/.dotfiles"
 
