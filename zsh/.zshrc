@@ -32,5 +32,6 @@ alias x="exit"
 alias c="clear"
 alias nvimdir="cd ~/.config/nvim/lua"
 alias dotfiles="cd ~/.dotfiles"
+alias adbr="adb kill-server && adb start-server"
 
 
