@@ -57,7 +57,6 @@ function M.config()
   nvim_tree.setup {
     auto_reload_on_write = true,
     disable_netrw = false,
-    hide_root_folder = false,
     hijack_cursor = false,
     hijack_netrw = true,
     hijack_unnamed_buffer_when_opening = false,
@@ -69,6 +68,7 @@ function M.config()
     view = {
       width = 30,
       height = 30,
+      hide_root_folder = false,
       side = "left",
       preserve_window_proportions = false,
       number = false,
@@ -154,7 +154,7 @@ function M.config()
     },
     renderer = {
       indent_markers = {
-        enable = 1,
+        enable = true,
       }
     }
   }
