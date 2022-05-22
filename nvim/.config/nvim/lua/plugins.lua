@@ -94,6 +94,7 @@ local packer_startup = packer.startup(function(use)
   use "quangnguyen30192/cmp-nvim-ultisnips"
   use { 'L3MON4D3/LuaSnip' }
   use { 'saadparwaiz1/cmp_luasnip' }
+  use "rafamadriz/friendly-snippets"
 
   -- Native LSP
   use {
