@@ -3,6 +3,7 @@
 
 # install brew packages
 brew install git
+brew install lazygit
 
 # telescope.nvim dependencies
 brew install ripgrep
