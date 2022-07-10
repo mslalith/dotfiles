@@ -1,6 +1,5 @@
-# telescope.nvim dependencies
-brew install ripgrep
-brew install fd
+sh ./brew.sh
+sh ./oh-my-zsh.sh
 
 # Support for Icons & Font
 brew install --cask font-jetbrains-mono-nerd-font
