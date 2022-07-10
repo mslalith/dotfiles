@@ -1,6 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="mslalith"
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
