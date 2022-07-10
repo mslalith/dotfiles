@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="mslalith"
 
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -34,4 +34,14 @@ alias nvimdir="cd ~/.config/nvim/lua"
 alias dotfiles="cd ~/.dotfiles"
 alias adbr="adb kill-server && adb start-server"
 
+function ggacp() {
+  git add .
+  git commit -m "$1"
+  git push
+}
+
+function ggcp () {
+  git commit -m "$1"
+  git push
+}
 
