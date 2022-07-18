@@ -22,6 +22,9 @@ source $ZSH/oh-my-zsh.sh
 # thefuck completion
 eval $(thefuck --alias)
 
+# zoxide
+eval "$(zoxide init zsh)"
+
 # Map nvim as vim
 alias vim="nvim"
 export EDITOR="nvim"
