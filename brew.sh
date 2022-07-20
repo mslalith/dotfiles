@@ -6,6 +6,9 @@ brew install git
 brew install lazygit
 brew install zoxide
 
+# lf File Manager
+brew install lf
+
 # telescope.nvim dependencies
 brew install ripgrep
 brew install fd

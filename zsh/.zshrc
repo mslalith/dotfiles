@@ -19,6 +19,9 @@ source $ZSH/oh-my-zsh.sh
 # Fuzzy search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# kitty
+alias icat="kitty +kitten icat"
+
 # thefuck completion
 eval $(thefuck --alias)
 
@@ -32,6 +35,7 @@ export EDITOR="nvim"
 # Aliases
 alias nvimrc="nvim ~/.config/nvim/init.lua"
 alias zshrc="nvim ~/.zshrc"
+alias lfrc="nvim ~/.config/lf/lfrc"
 alias lg="lazygit"
 alias x="exit"
 alias c="clear"
