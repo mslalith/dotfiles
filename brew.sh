@@ -5,6 +5,9 @@
 brew install git
 brew install lazygit
 brew install zoxide
+brew install exa
+brew install bat
+brew install lsd
 
 # lf File Manager
 brew install lf
