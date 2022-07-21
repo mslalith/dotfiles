@@ -28,6 +28,9 @@ eval $(thefuck --alias)
 # zoxide
 eval "$(zoxide init zsh)"
 
+# Starship
+eval "$(starship init zsh)"
+
 # Map nvim as vim
 alias v="nvim"
 alias vim="nvim"

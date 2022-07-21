@@ -8,10 +8,9 @@ brew install zoxide
 brew install exa
 brew install bat
 brew install lsd
-
-# lf File Manager
 brew install lf
 brew install git-delta
+brew install starship
 
 # telescope.nvim dependencies
 brew install ripgrep

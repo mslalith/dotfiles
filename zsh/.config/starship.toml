@@ -1,0 +1,30 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$custom\
+$line_break\
+$jobs\
+$character"""
+
+right_format = """$cmd_duration"""
+
+
+[package]
+disabled = true
+
+[character]
+success_symbol = "[🤙🏼](bold green) "
+error_symbol = "[‼️](bold red) "
+
+[cmd_duration]
+min_time = 200
+format = "took [$duration](bold yellow)"
+
