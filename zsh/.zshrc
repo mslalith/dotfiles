@@ -29,6 +29,7 @@ eval $(thefuck --alias)
 eval "$(zoxide init zsh)"
 
 # Map nvim as vim
+alias v="nvim"
 alias vim="nvim"
 export EDITOR="nvim"
 
@@ -37,6 +38,7 @@ alias nvimrc="nvim ~/.config/nvim/init.lua"
 alias zshrc="nvim ~/.zshrc"
 alias lfrc="nvim ~/.config/lf/lfrc"
 alias lg="lazygit"
+alias ls="exa"
 alias x="exit"
 alias c="clear"
 alias nvimdir="cd ~/.config/nvim/lua"
