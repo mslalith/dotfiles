@@ -11,6 +11,7 @@ brew install lsd
 
 # lf File Manager
 brew install lf
+brew install git-delta
 
 # telescope.nvim dependencies
 brew install ripgrep
