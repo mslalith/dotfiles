@@ -37,9 +37,14 @@ alias vim="nvim"
 export EDITOR="nvim"
 
 # Aliases
+# rc files
 alias nvimrc="nvim ~/.config/nvim/init.lua"
 alias zshrc="nvim ~/.zshrc"
 alias lfrc="nvim ~/.config/lf/lfrc"
+alias yabairc="nvim ~/.config/yabai/yabairc"
+alias karabiner.json="nvim ~/.config/karabiner/karabiner.json"
+
+
 alias lg="lazygit"
 alias ls="exa"
 alias x="exit"
