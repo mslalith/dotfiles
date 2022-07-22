@@ -9,7 +9,7 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  vi-mode
+  zsh-vi-mode
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
