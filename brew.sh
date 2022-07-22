@@ -11,8 +11,7 @@ brew install lsd
 brew install lf
 brew install git-delta
 brew install starship
-
-# telescope.nvim dependencies
 brew install ripgrep
 brew install fd
+brew install jq
 
