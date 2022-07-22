@@ -45,7 +45,7 @@ alias ls="exa"
 alias x="exit"
 alias c="clear"
 alias nvimdir="cd ~/.config/nvim/lua"
-alias dotfiles="cd ~/.dotfiles"
+alias dot="cd ~/.dotfiles"
 alias adbr="adb kill-server && adb start-server"
 
 function ggacp() {
