@@ -1,0 +1,65 @@
+# Basic Settings
+set ignorecase
+set icons
+
+
+
+# Custom Functions
+cmd mkdir %{{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+  clear;
+}}
+
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+
+cmd delete %{{
+	printf "Delete $fx?(y/n) "
+	read -n1 ans
+	[[ $ans = "" || $ans = "y" ]] && rm -rf -- $fx
+  clear;
+}}
+
+
+
+# Remove some defaults
+map m
+map o
+# map "'"
+# map '"'
+map d
+map e
+
+
+
+# Custom Bindings
+map . set hidden!
+map DD delete
+map p paste
+map x cut
+map y copy
+map <enter> open
+map R reload
+map mf mkfile
+map md mkdir
+map ee $$EDITOR "$f"
+
+# map o &mimeopen $f
+# map O $mimeopen --ask $f
+
+
+
+# Navigation
+map ~ cd ~
+map gnvim cd ~/.config/nvim
+map glf cd ~/.config/lf
+map gdot cd ~/.dotfiles
+map gdown cd ~/Downloads
+
