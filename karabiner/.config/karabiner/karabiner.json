@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "Apps - right_command + k -> kitty",
+                        "description": "Apps - right_option + k -> kitty",
                         "manipulators": [
                             {
                                 "type": "basic",
@@ -24,7 +24,7 @@
                                     "key_code": "k",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command"
+                                            "right_option"
                                         ]
                                     }
                                 },
@@ -37,7 +37,7 @@
                         ]
                     },
                     {
-                        "description": "Apps - right_command + c -> Chrome",
+                        "description": "Apps - right_option + c -> Chrome",
                         "manipulators": [
                             {
                                 "type": "basic",
@@ -45,7 +45,7 @@
                                     "key_code": "c",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command"
+                                            "right_option"
                                         ]
                                     }
                                 },
@@ -58,7 +58,7 @@
                         ]
                     },
                     {
-                        "description": "Apps - right_command + b -> Brave",
+                        "description": "Apps - right_option + b -> Brave",
                         "manipulators": [
                             {
                                 "type": "basic",
@@ -66,7 +66,7 @@
                                     "key_code": "b",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command"
+                                            "right_option"
                                         ]
                                     }
                                 },
@@ -79,7 +79,7 @@
                         ]
                     },
                     {
-                        "description": "Apps - right_command + t -> Teams",
+                        "description": "Apps - right_option + t -> Teams",
                         "manipulators": [
                             {
                                 "type": "basic",
@@ -87,7 +87,7 @@
                                     "key_code": "t",
                                     "modifiers": {
                                         "mandatory": [
-                                            "right_command"
+                                            "right_option"
                                         ]
                                     }
                                 },
@@ -100,7 +100,28 @@
                         ]
                     },
                     {
-                        "description": "Apps - right_command + d -> Open Downlods directory",
+                        "description": "Apps - right_option + v -> VS Code",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Visual Studio Code'"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Navigation - right_command + d -> Open Downloads directory",
                         "manipulators": [
                             {
                                 "type": "basic",
@@ -121,7 +142,7 @@
                         ]
                     },
                     {
-                        "description": "Apps - fn + h -> Move left a Space",
+                        "description": "System - fn + h -> Move left a Space",
                         "manipulators": [
                             {
                                 "type": "basic",
@@ -145,7 +166,7 @@
                         ]
                     },
                     {
-                        "description": "Apps - fn + l -> Move right a Space",
+                        "description": "System - fn + l -> Move right a Space",
                         "manipulators": [
                             {
                                 "type": "basic",
