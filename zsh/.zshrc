@@ -44,6 +44,7 @@ alias kitty.conf="nvim ~/.config/kitty/kitty.conf"
 alias lfrc="nvim ~/.config/lf/lfrc"
 alias yabairc="nvim ~/.config/yabai/yabairc"
 alias karabiner.json="nvim ~/.config/karabiner/karabiner.json"
+alias starship.toml="nvim ~/.config/starship.toml"
 
 
 alias lg="lazygit"
