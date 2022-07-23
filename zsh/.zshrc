@@ -40,13 +40,14 @@ export EDITOR="nvim"
 # rc files
 alias nvimrc="nvim ~/.config/nvim/init.lua"
 alias zshrc="nvim ~/.zshrc"
+alias kitty.conf="nvim ~/.config/kitty/kitty.conf"
 alias lfrc="nvim ~/.config/lf/lfrc"
 alias yabairc="nvim ~/.config/yabai/yabairc"
 alias karabiner.json="nvim ~/.config/karabiner/karabiner.json"
 
 
 alias lg="lazygit"
-alias ls="exa"
+alias ls="exa -l"
 alias x="exit"
 alias c="clear"
 alias nvimdir="cd ~/.config/nvim/lua"
