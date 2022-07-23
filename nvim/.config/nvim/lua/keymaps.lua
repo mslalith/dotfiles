@@ -38,7 +38,7 @@ keymap("n", "b[", ":BufferLineMovePrev<CR>", opts)
 keymap("n", "b]", ":BufferLineMoveNext<CR>", opts)
 
 -- Navigate in Editor
-keymap("n", "<leader>/", ":HopChar2<CR>", opts)
+keymap("n", "<leader>/", ":HopWord<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader><leader>f", "<cmd>Telescope find_files<CR>", opts)
