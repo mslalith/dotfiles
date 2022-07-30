@@ -15,6 +15,8 @@ brew install starship
 brew install ripgrep
 brew install fd
 brew install jq
+brew install tldr
+brew install zellij
 
 
 # yabai
