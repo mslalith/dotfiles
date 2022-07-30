@@ -4,6 +4,7 @@
 # install brew packages
 brew install git
 brew install lazygit
+brew install gitui
 brew install zoxide
 brew install exa
 brew install bat
