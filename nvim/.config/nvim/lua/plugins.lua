@@ -101,6 +101,12 @@ local packer_startup = packer.startup(function(use)
     'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
   }
+  
+  --
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+  })
 
   -- Treesitter
   use {
