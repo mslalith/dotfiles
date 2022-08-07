@@ -22,6 +22,7 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
+keymap("n", "<F5>", ":so %<CR>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Resize with arrows
@@ -39,6 +40,7 @@ keymap("n", "b]", ":BufferLineMoveNext<CR>", opts)
 
 -- Navigate in Editor
 keymap("n", "<leader>/", ":HopWord<CR>", opts)
+keymap("n", "<leader>i", ":TroubleToggle<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader><leader>f", "<cmd>Telescope find_files<CR>", opts)
