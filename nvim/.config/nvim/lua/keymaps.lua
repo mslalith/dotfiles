@@ -23,6 +23,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<F5>", ":so %<CR>", opts)
 keymap("n", "<C-s>", ":w<CR>", opts)
+keymap("n", "<leader>`", ":nohlsearch<CR>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Resize with arrows
