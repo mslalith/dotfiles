@@ -62,8 +62,12 @@ function ggacp() {
   git push
 }
 
-function ggcp () {
+function ggcp() {
   git commit -m "$1"
   git push
+}
+
+function fz() {
+  z $(fd -t d | fzf)
 }
 
