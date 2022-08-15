@@ -26,18 +26,13 @@ cmp.setup {
       { "i", "c" }
     ),
 
-    ["<C-space>"] = cmp.mapping {
-      i = cmp.mapping.complete(),
-      c = function(_)
+    ["<C-space>"] = cmp.mapping(function (_)
         if cmp.visible() then
-          if not cmp.confirm { select = true } then
-            return
-          end
+          cmp.close()
         else
           cmp.complete()
         end
-      end,
-    },
+    end, { "i", "c" }),
 
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -90,6 +85,11 @@ cmp.setup {
       },
     },
   },
+
+  window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
 
   view = {
     entries = "native",
