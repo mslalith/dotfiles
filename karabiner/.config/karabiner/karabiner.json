@@ -282,6 +282,52 @@
                         ]
                     },
                     {
+                        "description": "yabai - fn + shift + p -> Move window to previous space",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "/opt/homebrew/bin/yabai -m window --space prev"
+                                    }
+                                ]
+
+                            }
+                        ]
+                    },
+                    {
+                        "description": "yabai - fn + shift + n -> Move window to next space",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "fn",
+                                            "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "/opt/homebrew/bin/yabai -m window --space next"
+                                    }
+                                ]
+
+                            }
+                        ]
+                    },
+                    {
                         "description": "yabai - fn + shift + enter -> Toggle fullscreen",
                         "manipulators": [
                             {
