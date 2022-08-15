@@ -44,9 +44,10 @@ keymap("n", "<leader>/", ":HopWord<CR>", opts)
 keymap("n", "<leader>i", ":TroubleToggle<CR>", opts)
 
 -- Telescope
-keymap("n", "<leader><leader>f", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<A-S-o>", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader><leader>b", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", "<leader><leader>s", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<A-S-f>", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader><leader>h", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 
