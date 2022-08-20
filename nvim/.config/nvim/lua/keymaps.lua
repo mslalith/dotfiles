@@ -40,7 +40,7 @@ keymap("n", "<leader>bh", ":BufferLineMovePrev<CR>", opts)
 keymap("n", "<leader>bl", ":BufferLineMoveNext<CR>", opts)
 
 -- Navigate in Editor
-keymap("n", "<leader>/", ":HopWord<CR>", opts)
+keymap("n", "<leader>/", ":HopWordMW<CR>", opts)
 keymap("n", "<leader>i", ":TroubleToggle<CR>", opts)
 
 -- Telescope

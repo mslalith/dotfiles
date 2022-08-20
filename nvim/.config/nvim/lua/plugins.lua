@@ -70,7 +70,7 @@ local packer_startup = packer.startup(function(use)
   -- Hop
   use {
     'phaazon/hop.nvim',
-    branch = 'v1', -- optional but strongly recommended
+    branch = 'v2', -- optional but strongly recommended
     config = require('plugins/hop').config()
   }
 
