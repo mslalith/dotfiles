@@ -81,6 +81,11 @@ local packer_startup = packer.startup(function(use)
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-telescope/telescope-media-files.nvim'
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = { {'nvim-telescope/telescope.nvim'} },
+    config = require('plugins/neoclip').config(),
+  }
 
   -- nvim-tree
   use {

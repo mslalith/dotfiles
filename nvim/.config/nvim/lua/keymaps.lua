@@ -53,6 +53,7 @@ keymap("n", "<leader><leader>s", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<A-S-f>", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader><leader>h", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+keymap("n", "<A-v>", ":Telescope neoclip plus<CR>", opts)
 
 -- Press jk fast to enter Normal mode
 keymap("i", "jk", "<ESC>", opts)
