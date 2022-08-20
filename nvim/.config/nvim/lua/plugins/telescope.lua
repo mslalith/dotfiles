@@ -8,8 +8,12 @@ telescope.load_extension("fzf")
 telescope.setup {
   defaults = {
     prompt_prefix = " ",
-    selection_caret = " ",
+    selection_caret = " ",
     path_display = { "smart" },
+    sorting_strategy = "ascending",
+    layout_config = {
+      prompt_position = "top",
+    },
     mappings = {
       i = {
         ["<C-n>"] = actions.cycle_history_next,
