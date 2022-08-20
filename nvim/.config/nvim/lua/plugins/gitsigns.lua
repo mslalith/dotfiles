@@ -11,6 +11,9 @@ require("gitsigns").setup {
     map("n", "<leader>hj", ":Gitsigns next_hunk<CR>", opts)
     map("n", "<leader>hk", ":Gitsigns prev_hunk<CR>", opts)
     map("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
+    map("n", "<leader>hd", ":Gitsigns diffthis<CR>", opts)
+    map("n", "<leader>hb", ":Gitsigns blame_line<CR>", opts)
+    map("n", "<A-S-b>", ":Gitsigns toggle_current_line_blame<CR>", opts)
   end,
 
   signs = {
