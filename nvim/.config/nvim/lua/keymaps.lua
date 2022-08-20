@@ -41,7 +41,7 @@ keymap("n", "<leader>bl", ":BufferLineMoveNext<CR>", opts)
 
 -- Navigate in Editor
 keymap("n", "<leader>/", ":HopWordMW<CR>", opts)
-keymap("n", "<leader>i", ":TroubleToggle<CR>", opts)
+keymap("n", "<leader>i", ":TroubleToggle workspace_diagnostics<CR>", opts)
 
 -- Diffview
 keymap("n", "<leader>d", ":DiffviewToggle<CR>", opts) -- this is a custom command
