@@ -122,7 +122,7 @@ local packer_startup = packer.startup(function(use)
   -- Git
   use {
     'lewis6991/gitsigns.nvim',
-    -- tag = 'release' -- To use the latest release
+    tag = 'release' -- To use the latest release
   }
 
   -- Themes
