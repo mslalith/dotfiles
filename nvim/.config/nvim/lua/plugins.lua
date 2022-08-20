@@ -55,11 +55,16 @@ local packer_startup = packer.startup(function(use)
     config = require('plugins/comment').config()
   }
 
-
   -- Trouble
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
+  }
+
+  -- Session
+  use {
+    'rmagatti/auto-session',
+    config = require('plugins/auto-session').config()
   }
 
   -- Hop
@@ -101,7 +106,7 @@ local packer_startup = packer.startup(function(use)
     'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
   }
-  
+
   --
   use({
     "jose-elias-alvarez/null-ls.nvim",
