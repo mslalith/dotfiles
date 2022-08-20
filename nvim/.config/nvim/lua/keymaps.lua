@@ -43,6 +43,9 @@ keymap("n", "<leader>bl", ":BufferLineMoveNext<CR>", opts)
 keymap("n", "<leader>/", ":HopWordMW<CR>", opts)
 keymap("n", "<leader>i", ":TroubleToggle<CR>", opts)
 
+-- Diffview
+keymap("n", "<leader>d", ":DiffviewToggle<CR>", opts) -- this is a custom command
+
 -- Telescope
 keymap("n", "<A-S-o>", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader><leader>b", "<cmd>Telescope buffers<CR>", opts)
@@ -76,4 +79,16 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+
+-- Custom Commands
+vim.api.nvim_create_user_command("DiffviewToggle", function(e)
+  local view = require("diffview.lib").get_current_view()
+
+  if view then
+    vim.cmd("DiffviewClose")
+  else
+    vim.cmd("DiffviewOpen " .. e.args)
+  end
+end, { nargs = "*" })
 
