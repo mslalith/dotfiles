@@ -26,6 +26,7 @@ require("plugins/nvim-transparent")
 
 -- LSP
 require("plugins.mason")
+require("plugins.lsp.commands")
 require("plugins.lsp.handlers").setup()
 require("plugins.lsp.null-ls")
 
