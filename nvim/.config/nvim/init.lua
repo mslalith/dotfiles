@@ -30,6 +30,7 @@ require("plugins/nvim-tree")
 require("plugins/aerial")
 require("plugins/neoclip")
 require("plugins/nvim-transparent")
+require("plugins/impatient")
 
 -- Git
 require("plugins.gitsigns")

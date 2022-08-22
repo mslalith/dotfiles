@@ -109,6 +109,7 @@ local packer_startup = packer.startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
     }
     use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
+    use("lewis6991/impatient.nvim")
 
     -- Treesitter
     use {
