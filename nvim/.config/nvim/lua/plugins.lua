@@ -32,100 +32,67 @@ packer.init {
 local packer_startup = packer.startup(function(use)
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
+    use("nvim-lua/plenary.nvim")
 
     -- General
-    use("windwp/nvim-autopairs")
-    use("rcarriga/nvim-notify")
-    use {
-        "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    }
-    use("akinsho/toggleterm.nvim")
-    use("stevearc/aerial.nvim")
-    use("rmagatti/auto-session")
-    use("xiyaowong/nvim-transparent")
+    use("kyazdani42/nvim-tree.lua") -- file explorer
+    use("windwp/nvim-autopairs") -- autopairs
+    use("rcarriga/nvim-notify") -- neat notification manager
+    use("nvim-lualine/lualine.nvim") -- better status line
+    use("akinsho/toggleterm.nvim") -- floating terminal
+    use("stevearc/aerial.nvim") -- code outline symbols, also has Telescope support
+    use("rmagatti/auto-session") -- saves state on quit
+    use("xiyaowong/nvim-transparent") -- transparent background
+    use("lewis6991/impatient.nvim") -- improve startup time
+    use("AckslD/nvim-neoclip.lua") -- clipboard manager
 
     -- Bufferline
-    use {
-        "akinsho/bufferline.nvim",
-        tag = "*",
-        requires = "kyazdani42/nvim-web-devicons",
-    }
-    use("moll/vim-bbye")
+    use("akinsho/bufferline.nvim") -- buffers
+    use("moll/vim-bbye") -- delete & close buffers
 
-    -- Better Comments
-    use("numToStr/Comment.nvim")
-
-    -- Trouble
-    use {
-        "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
-    }
-
-    -- Hop
-    use {
-        "phaazon/hop.nvim",
-        branch = "v2", -- optional but strongly recommended
-    }
+    -- Editing
+    use("phaazon/hop.nvim") -- easy editor navigation
+    use("numToStr/Comment.nvim") -- better comments
 
     -- Telescope
+    use("nvim-telescope/telescope.nvim") -- find, search, etc
     use {
-        "nvim-telescope/telescope.nvim",
-        requires = { { "nvim-lua/plenary.nvim" } },
-    }
-    use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
-    use("nvim-telescope/telescope-media-files.nvim")
-    use {
-        "AckslD/nvim-neoclip.lua",
-        requires = { { "nvim-telescope/telescope.nvim" } },
-    }
-
-    -- nvim-tree
-    use {
-        "kyazdani42/nvim-tree.lua",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    }
+        "nvim-telescope/telescope-fzf-native.nvim",
+        run = "make",
+    } -- fuzzy search
+    use("nvim-telescope/telescope-media-files.nvim") -- browser media files
 
     -- Completion
-    use("hrsh7th/nvim-cmp")
-    use("onsails/lspkind-nvim")
-    use("hrsh7th/cmp-path")
-    use("hrsh7th/cmp-buffer")
-    use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-nvim-lua")
+    use("hrsh7th/nvim-cmp") -- code completion
+    use("onsails/lspkind-nvim") -- vscode-like pictograms
+    use("hrsh7th/cmp-path") -- path completion
+    use("hrsh7th/cmp-buffer") -- buffer completion
+    use("hrsh7th/cmp-nvim-lsp") -- lsp completion
+    use("hrsh7th/cmp-nvim-lua") -- better lua completion
+
+    -- Snippets
     use("quangnguyen30192/cmp-nvim-ultisnips")
     use("L3MON4D3/LuaSnip")
     use("saadparwaiz1/cmp_luasnip")
     use("rafamadriz/friendly-snippets")
 
     -- Native LSP
-    use("neovim/nvim-lspconfig")
-    use("williamboman/mason.nvim")
-    use("williamboman/mason-lspconfig.nvim")
-
-    --
-    use {
-        "jose-elias-alvarez/null-ls.nvim",
-        requires = { "nvim-lua/plenary.nvim" },
-    }
-    use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
-    use("lewis6991/impatient.nvim")
+    use("neovim/nvim-lspconfig") -- LSP configuration
+    use("williamboman/mason.nvim") -- package manager for LSP, DAP, Linters, Formatters
+    use("williamboman/mason-lspconfig.nvim") -- easier integration with LSP
+    use("folke/trouble.nvim") -- pretty diagnostics & more, also has Telescope support
+    use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics, formatting
+    use("https://git.sr.ht/~whynothugo/lsp_lines.nvim") -- pretty inline diagnostics
 
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
-    }
+    } -- Abstract Syntax Tree
 
     -- Git
-    use {
-        "lewis6991/gitsigns.nvim",
-        tag = "release", -- To use the latest release
-    }
-    use {
-        "sindrets/diffview.nvim",
-        requires = "nvim-lua/plenary.nvim",
-    }
+    use("lewis6991/gitsigns.nvim") -- blame, hunks, git diagnostics, etc
+    use("sindrets/diffview.nvim") -- diff files
 
     -- Themes
     use("projekt0n/github-nvim-theme")
@@ -139,6 +106,7 @@ local packer_startup = packer.startup(function(use)
 
     -- Icons
     use("ryanoasis/vim-devicons")
+    use("kyazdani42/nvim-web-devicons")
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
