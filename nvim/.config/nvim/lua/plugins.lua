@@ -129,7 +129,11 @@ local packer_startup = packer.startup(function(use)
   use "projekt0n/github-nvim-theme"
   use 'folke/tokyonight.nvim'
   use "EdenEast/nightfox.nvim"
-  use { "catppuccin/nvim", as = "catppuccin" }
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin",
+    run = ":CatppuccinCompile"
+  }
 
   -- Icons
   use 'ryanoasis/vim-devicons'

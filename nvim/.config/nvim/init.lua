@@ -1,7 +1,10 @@
 require("plugins")
 require("options")
 require("keymaps")
+
+-- Theme
 require("colorscheme")
+require("plugins/catppuccin")
 
 -- Plugins
 require("plugins/autopairs")
