@@ -1,18 +1,24 @@
 local lsp_installer = require("nvim-lsp-installer")
+local lspconfig = require("lspconfig")
 local handlers = require("plugins.lsp.handlers")
 
-lsp_installer.on_server_ready(function(server)
-	local opts = {
-		on_attach = handlers.on_attach,
-		capabilities = handlers.capabilities,
-	}
+lsp_installer.setup {
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    },
+  },
+}
 
-  if server.name == "sumneko_lua" then
-    local sumneko_opts = require("plugins.lsp.settings.sumneko_lua")
-    opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-  end
+local opts = {
+  on_attach = handlers.on_attach,
+  capabilities = handlers.capabilities,
+}
 
-	-- This setup() function is exactly the same as lspconfig's setup function.
-	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-	server:setup(opts)
-end)
+local sumneko_opts = require("plugins.lsp.settings.sumneko_lua")
+lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", sumneko_opts, opts))
+
+lspconfig.tsserver.setup(opts)
+
