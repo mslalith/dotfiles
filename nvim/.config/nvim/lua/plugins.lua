@@ -111,7 +111,10 @@ local packer_startup = packer.startup(function(use)
     'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
   }
-
+  use {
+    'stevearc/aerial.nvim',
+    config = function() require('aerial').setup() end
+  }
   --
   use({
     "jose-elias-alvarez/null-ls.nvim",
