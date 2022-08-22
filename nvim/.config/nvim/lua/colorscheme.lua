@@ -1,9 +1,7 @@
 -- Github Theme
 -- require("github-theme").setup {
---   -- theme_style = "dark",
---   theme_style = "dimmed",
+--     theme_style = "dimmed", -- "dark"
 -- }
 
 -- vim.cmd("colorscheme tokyonight")
 -- vim.cmd("colorscheme nightfox")
-

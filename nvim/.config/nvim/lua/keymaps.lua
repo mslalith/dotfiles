@@ -83,15 +83,13 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
-
 -- Custom Commands
 vim.api.nvim_create_user_command("DiffviewToggle", function(e)
-  local view = require("diffview.lib").get_current_view()
+    local view = require("diffview.lib").get_current_view()
 
-  if view then
-    vim.cmd("DiffviewClose")
-  else
-    vim.cmd("DiffviewOpen " .. e.args)
-  end
+    if view then
+        vim.cmd("DiffviewClose")
+    else
+        vim.cmd("DiffviewOpen " .. e.args)
+    end
 end, { nargs = "*" })
-
