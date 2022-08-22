@@ -1,7 +1,7 @@
 local catppuccin = require("catppuccin")
 
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
-catppuccin.setup({
+catppuccin.setup {
     transparent_background = true,
     term_colors = true,
     compile = {
@@ -26,6 +26,6 @@ catppuccin.setup({
         aerial = true,
         bufferline = true,
     },
-})
+}
 vim.cmd("colorscheme catppuccin")
 

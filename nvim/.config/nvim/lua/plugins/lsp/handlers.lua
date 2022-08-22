@@ -88,9 +88,9 @@ M.on_attach = function(client, bufnr)
   lsp_highlight_document(client)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
+-- Capabilities
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 return M
