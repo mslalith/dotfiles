@@ -42,6 +42,7 @@ local packer_startup = packer.startup(function(use)
   use "akinsho/toggleterm.nvim"
   use 'stevearc/aerial.nvim'
   use 'rmagatti/auto-session'
+  use "xiyaowong/nvim-transparent"
 
   -- Bufferline
   use {

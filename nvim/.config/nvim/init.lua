@@ -19,6 +19,7 @@ require("plugins/auto-session")
 require("plugins/nvim-tree")
 require("plugins/aerial")
 require("plugins/neoclip")
+require("plugins/nvim-transparent")
 
 -- LSP
 require("plugins.lsp.lsp-installer")
