@@ -1,0 +1,3 @@
+# Formatters
+brew install stylua
+
