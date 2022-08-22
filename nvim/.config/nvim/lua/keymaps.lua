@@ -53,7 +53,7 @@ keymap("n", "<leader><leader>s", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<A-S-f>", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader><leader>h", "<cmd>Telescope help_tags<CR>", opts)
 keymap("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
-keymap("n", "<A-m>", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+keymap("n", "<A-m>", "<cmd>Telescope aerial<CR>", opts)
 keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 keymap("n", "<A-v>", ":Telescope neoclip plus<CR>", opts)
 
