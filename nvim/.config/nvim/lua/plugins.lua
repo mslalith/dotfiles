@@ -98,10 +98,9 @@ local packer_startup = packer.startup(function(use)
   use "rafamadriz/friendly-snippets"
 
   -- Native LSP
-  use {
-    'neovim/nvim-lspconfig',
-    'williamboman/nvim-lsp-installer',
-  }
+  use 'neovim/nvim-lspconfig'
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
 
   --
   use {

@@ -25,10 +25,9 @@ require("plugins/neoclip")
 require("plugins/nvim-transparent")
 
 -- LSP
-require("plugins.lsp.lsp-installer")
+require("plugins.mason")
 require("plugins.lsp.handlers").setup()
 require("plugins.lsp.null-ls")
 
 -- Git
 require("plugins.gitsigns")
-
