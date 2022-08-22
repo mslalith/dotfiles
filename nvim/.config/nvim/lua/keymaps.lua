@@ -57,6 +57,8 @@ keymap("n", "<A-m>", "<cmd>Telescope aerial<CR>", opts)
 keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 keymap("n", "<A-v>", ":Telescope neoclip plus<CR>", opts)
 
+keymap("n", "<A-l>", "<cmd>lua require('plugins.lsp.lsp_lines').toggle()<cr>", opts)
+
 -- Press jk fast to enter Normal mode
 keymap("i", "jk", "<ESC>", opts)
 

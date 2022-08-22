@@ -6,6 +6,13 @@ require("keymaps")
 require("colorscheme")
 require("plugins/catppuccin")
 
+-- LSP
+require("plugins.mason")
+require("plugins.lsp.commands")
+require("plugins.lsp.handlers").setup()
+require("plugins.lsp.null-ls")
+require("plugins.lsp.lsp_lines")
+
 -- Plugins
 require("plugins/autopairs")
 require("plugins/lualine")
@@ -23,12 +30,6 @@ require("plugins/nvim-tree")
 require("plugins/aerial")
 require("plugins/neoclip")
 require("plugins/nvim-transparent")
-
--- LSP
-require("plugins.mason")
-require("plugins.lsp.commands")
-require("plugins.lsp.handlers").setup()
-require("plugins.lsp.null-ls")
 
 -- Git
 require("plugins.gitsigns")
