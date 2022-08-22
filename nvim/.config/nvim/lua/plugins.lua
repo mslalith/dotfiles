@@ -1,8 +1,8 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 end
 
 vim.cmd [[
@@ -39,7 +39,9 @@ local packer_startup = packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-  use { "akinsho/toggleterm.nvim" }
+  use "akinsho/toggleterm.nvim"
+  use 'stevearc/aerial.nvim'
+  use 'rmagatti/auto-session'
 
   -- Bufferline
   use {
@@ -50,10 +52,7 @@ local packer_startup = packer.startup(function(use)
   use "moll/vim-bbye"
 
   -- Better Comments
-  use {
-    'numToStr/Comment.nvim',
-    config = require('plugins/comment').config()
-  }
+  use 'numToStr/Comment.nvim'
 
   -- Trouble
   use {
@@ -61,37 +60,28 @@ local packer_startup = packer.startup(function(use)
     requires = "kyazdani42/nvim-web-devicons",
   }
 
-  -- Session
-  use {
-    'rmagatti/auto-session',
-    config = require('plugins/auto-session').config()
-  }
-
   -- Hop
   use {
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
-    config = require('plugins/hop').config()
   }
 
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-telescope/telescope-media-files.nvim'
   use {
     "AckslD/nvim-neoclip.lua",
-    requires = { {'nvim-telescope/telescope.nvim'} },
-    config = require('plugins/neoclip').config(),
+    requires = { { 'nvim-telescope/telescope.nvim' } },
   }
 
   -- nvim-tree
   use {
     'kyazdani42/nvim-tree.lua',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-    config = function() require('plugins/nvim-tree').config() end
   }
 
   -- Completion
@@ -102,8 +92,8 @@ local packer_startup = packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
   use "quangnguyen30192/cmp-nvim-ultisnips"
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'saadparwaiz1/cmp_luasnip' }
+  use "L3MON4D3/LuaSnip"
+  use "saadparwaiz1/cmp_luasnip"
   use "rafamadriz/friendly-snippets"
 
   -- Native LSP
@@ -111,15 +101,12 @@ local packer_startup = packer.startup(function(use)
     'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
   }
-  use {
-    'stevearc/aerial.nvim',
-    config = function() require('aerial').setup() end
-  }
+
   --
-  use({
+  use {
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" },
-  })
+  }
 
   -- Treesitter
   use {

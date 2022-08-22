@@ -1,7 +1,4 @@
-local M = {}
+require("hop").setup {
+  keys = "etovxqpdygfblzhckisuran"
+}
 
-function M.config()
-  require("hop").setup { keys = "etovxqpdygfblzhckisuran" }
-end
-
-return M

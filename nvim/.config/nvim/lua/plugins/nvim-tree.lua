@@ -1,167 +1,160 @@
--- following options are the default
--- each of these are documented in `:help nvim-tree.OPTION_NAME`
 local nvim_tree = require("nvim-tree")
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
-local M = {}
 
-
-function M.config()
-  nvim_tree.setup {
-    auto_reload_on_write = true,
-    disable_netrw = false,
-    hijack_cursor = false,
-    hijack_netrw = true,
-    hijack_unnamed_buffer_when_opening = false,
-    create_in_closed_folder = true,
-    respect_buf_cwd = true,
-    ignore_buffer_on_setup = false,
-    open_on_setup = false,
-    open_on_tab = false,
-    sort_by = "name",
+nvim_tree.setup {
+  auto_reload_on_write = true,
+  disable_netrw = false,
+  hijack_cursor = false,
+  hijack_netrw = true,
+  hijack_unnamed_buffer_when_opening = false,
+  create_in_closed_folder = true,
+  respect_buf_cwd = true,
+  ignore_buffer_on_setup = false,
+  open_on_setup = false,
+  open_on_tab = false,
+  sort_by = "name",
+  update_cwd = false,
+  view = {
+    width = 30,
+    height = 30,
+    hide_root_folder = false,
+    side = "left",
+    preserve_window_proportions = false,
+    number = false,
+    relativenumber = false,
+    signcolumn = "yes",
+    mappings = {
+      custom_only = false,
+      list = {
+        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+        { key = "h", cb = tree_cb "close_node" },
+        { key = "v", cb = tree_cb "vsplit" },
+      },
+    },
+  },
+  hijack_directories = {
+    enable = true,
+    auto_open = true,
+  },
+  update_focused_file = {
+    enable = false,
     update_cwd = false,
-    view = {
-      width = 30,
-      height = 30,
-      hide_root_folder = false,
-      side = "left",
-      preserve_window_proportions = false,
-      number = false,
-      relativenumber = false,
-      signcolumn = "yes",
-      mappings = {
-        custom_only = false,
-        list = {
-          { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-          { key = "h", cb = tree_cb "close_node" },
-          { key = "v", cb = tree_cb "vsplit" },
-        },
-      },
+    ignore_list = {},
+  },
+  ignore_ft_on_setup = {
+    "startify",
+  },
+  system_open = {
+    cmd = nil,
+    args = {},
+  },
+  diagnostics = {
+    enable = true,
+    show_on_dirs = false,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
     },
-    hijack_directories = {
+  },
+  filters = {
+    dotfiles = false,
+    custom = {},
+    exclude = {},
+  },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 400,
+  },
+  actions = {
+    change_dir = {
       enable = true,
-      auto_open = true,
+      global = false,
     },
-    update_focused_file = {
-      enable = false,
-      update_cwd = false,
-      ignore_list = {},
-    },
-    ignore_ft_on_setup = {
-      "startify",
-    },
-    system_open = {
-      cmd = nil,
-      args = {},
-    },
-    diagnostics = {
-      enable = true,
-      show_on_dirs = false,
-      icons = {
-        hint = "",
-        info = "",
-        warning = "",
-        error = "",
-      },
-    },
-    filters = {
-      dotfiles = false,
-      custom = {},
-      exclude = {},
-    },
-    git = {
-      enable = true,
-      ignore = true,
-      timeout = 400,
-    },
-    actions = {
-      change_dir = {
+    open_file = {
+      quit_on_open = true,
+      resize_window = false,
+      window_picker = {
         enable = true,
-        global = false,
-      },
-      open_file = {
-        quit_on_open = true,
-        resize_window = false,
-        window_picker = {
-          enable = true,
-          chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-          exclude = {
-            filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
-            buftype = { "nofile", "terminal", "help" },
-          },
+        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+        exclude = {
+          filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+          buftype = { "nofile", "terminal", "help" },
         },
       },
     },
-    trash = {
-      cmd = "trash",
-      require_confirm = true,
+  },
+  trash = {
+    cmd = "trash",
+    require_confirm = true,
+  },
+  log = {
+    enable = false,
+    truncate = false,
+    types = {
+      all = false,
+      config = false,
+      copy_paste = false,
+      git = false,
+      profile = false,
     },
-    log = {
-      enable = false,
-      truncate = false,
-      types = {
-        all = false,
-        config = false,
-        copy_paste = false,
-        git = false,
-        profile = false,
-      },
+  },
+  renderer = {
+    root_folder_modifier = ":~",
+    highlight_git = true,
+    add_trailing = true,
+    group_empty = true,
+    highlight_opened_files = "icon",
+    indent_markers = {
+      enable = true,
     },
-    renderer = {
-      root_folder_modifier = ":~",
-      highlight_git = true,
-      add_trailing = true,
-      group_empty = true,
-      highlight_opened_files = "icon",
-      indent_markers = {
-        enable = true,
+    special_files = {
+      ["Cargo.toml"] = true,
+      Makefile = true,
+      MAKEFILE = 1,
+      ["README.md"] = true,
+      ["readme.md"] = true,
+    },
+    icons = {
+      padding = " ",
+      symlink_arrow = " >> ",
+      show = {
+        git = true,
+        folder = true,
+        file = true,
+        folder_arrow = true,
       },
-      special_files = {
-        ["Cargo.toml"] = true,
-        Makefile = true,
-        MAKEFILE = 1,
-        ["README.md"] = true,
-        ["readme.md"] = true,
-      },
-      icons = {
-        padding = " ",
-        symlink_arrow = " >> ",
-        show = {
-          git = true,
-          folder = true,
-          file = true,
-          folder_arrow = true,
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "✗",
+          staged = "✓",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "",
+          ignored = "◌"
         },
-        glyphs = {
-          default = "",
-          symlink = "",
-          git = {
-            unstaged = "✗",
-            staged = "✓",
-            unmerged = "",
-            renamed = "➜",
-            untracked = "★",
-            deleted = "",
-            ignored = "◌"
-          },
-          folder = {
-            arrow_open = "",
-            arrow_closed = "",
-            default = "",
-            open = "",
-            empty = "",
-            empty_open = "",
-            symlink = "",
-            symlink_open = ""
-          }
+        folder = {
+          arrow_open = "",
+          arrow_closed = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = "",
+          symlink_open = ""
         }
       }
     }
   }
-end
+}
 
 -- Will automatically close the tab/vim when nvim-tree is the last window in the tab
 vim.cmd [[
   autocmd BufEnter * ++nested if winnr("$") == 1 && bufname() == "NvimTree_" . tabpagenr() | quit | endif
 ]]
 
-return M
