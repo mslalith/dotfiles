@@ -20,10 +20,10 @@ local settings = {
 }
 
 mason.setup(settings)
-mason_lspconfig.setup({
+mason_lspconfig.setup {
     ensure_installed = servers,
     automatic_installation = true,
-})
+}
 
 -- Setup individual Language Servers
 local lspconfig = require("lspconfig")
@@ -43,7 +43,7 @@ local auto_format_on_save = function()
     vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]])
 end
 
-mason_lspconfig.setup_handlers({
+mason_lspconfig.setup_handlers {
     -- The first entry (without a key) will be the default handler
     -- and will be called for each installed server that doesn't have
     -- a dedicated handler.
@@ -56,7 +56,7 @@ mason_lspconfig.setup_handlers({
         lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", sumneko_opts, {
             on_attach = function(client, bufnr)
                 disable_formatting(client)
-                -- auto_format_on_save()
+                auto_format_on_save()
                 opts.on_attach(client, bufnr)
             end,
             capabilities = opts.capabilities,
@@ -74,4 +74,4 @@ mason_lspconfig.setup_handlers({
             capabilities = opts.capabilities,
         }))
     end,
-})
+}
