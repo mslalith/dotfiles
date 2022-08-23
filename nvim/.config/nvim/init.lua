@@ -31,6 +31,7 @@ require("plugins/aerial")
 require("plugins/neoclip")
 require("plugins/nvim-transparent")
 require("plugins/impatient")
+require("plugins/indent-blankline")
 
 -- Git
 require("plugins.gitsigns")

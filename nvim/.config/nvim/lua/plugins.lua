@@ -53,6 +53,7 @@ local packer_startup = packer.startup(function(use)
     -- Editing
     use("phaazon/hop.nvim") -- easy editor navigation
     use("numToStr/Comment.nvim") -- better comments
+    use("lukas-reineke/indent-blankline.nvim") -- indent guidelines
 
     -- Telescope
     use("nvim-telescope/telescope.nvim") -- find, search, etc
