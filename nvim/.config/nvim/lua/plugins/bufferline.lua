@@ -14,6 +14,10 @@ require("bufferline").setup {
         max_prefix_length = 30,
         tab_size = 21,
         diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
+        diagnostics_indicator = function(count, level, _, _)
+            local icon = level:match("error") and " " or " "
+            return " " .. icon .. count
+        end,
         offsets = {
             {
                 filetype = "NvimTree",
