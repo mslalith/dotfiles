@@ -56,6 +56,7 @@ keymap("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
 keymap("n", "<A-m>", "<cmd>Telescope aerial<CR>", opts)
 keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 keymap("n", "<A-v>", ":Telescope neoclip plus<CR>", opts)
+keymap("n", "<C-e>", ":Telescope oldfiles<CR>", opts)
 
 keymap("n", "<A-l>", "<cmd>lua require('plugins.lsp.lsp_lines').toggle()<cr>", opts)
 
