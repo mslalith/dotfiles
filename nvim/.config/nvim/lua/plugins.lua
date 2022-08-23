@@ -63,6 +63,9 @@ local packer_startup = packer.startup(function(use)
     } -- fuzzy search
     use("nvim-telescope/telescope-media-files.nvim") -- browser media files
 
+    -- UI
+    use("stevearc/dressing.nvim")
+
     -- Completion
     use("hrsh7th/nvim-cmp") -- code completion
     use("onsails/lspkind-nvim") -- vscode-like pictograms

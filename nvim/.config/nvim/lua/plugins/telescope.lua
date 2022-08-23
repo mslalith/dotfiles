@@ -9,7 +9,7 @@ telescope.load_extension("aerial")
 
 telescope.setup {
     defaults = {
-        prompt_prefix = " ",
+        prompt_prefix = "  ",
         selection_caret = " ",
         path_display = { "smart" },
         sorting_strategy = "ascending",
