@@ -73,12 +73,7 @@ local function lsp_keymaps(bufnr)
     map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
     map("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>")
     -- map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-    -- map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
     -- map("n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>")
-    map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>")
-    map("n", "gl", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = 'rounded' })<CR>")
-    map("n", "]d", "<cmd>lua vim.diagnostic.goto_next({ border = 'rounded' })<CR>")
-    map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
     vim.cmd([[ command! Format execute "lua vim.lsp.buf.formatting()" ]])
 end
 
