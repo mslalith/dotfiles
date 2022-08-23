@@ -85,6 +85,9 @@ local packer_startup = packer.startup(function(use)
     use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics, formatting
     use("https://git.sr.ht/~whynothugo/lsp_lines.nvim") -- pretty inline diagnostics
 
+    -- LSP servers
+    use("simrat39/rust-tools.nvim") -- rust lsp
+
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",

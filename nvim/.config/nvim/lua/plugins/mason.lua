@@ -74,4 +74,19 @@ mason_lspconfig.setup_handlers {
             capabilities = opts.capabilities,
         }))
     end,
+
+    ["rust_analyzer"] = function()
+        local rust_opts = require("plugins.lsp.settings.rust")
+        local rust_tools = require("rust-tools")
+        rust_tools.setup(vim.tbl_deep_extend("force", rust_opts, {
+            server = {
+                on_attach = function(client, bufnr)
+                    disable_formatting(client)
+                    auto_format_on_save()
+                    opts.on_attach(client, bufnr)
+                end,
+                capabilities = opts.capabilities,
+            },
+        }))
+    end,
 }

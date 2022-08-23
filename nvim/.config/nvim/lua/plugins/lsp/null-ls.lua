@@ -6,5 +6,6 @@ null_ls.setup {
         -- Formatters
         null_ls.builtins.formatting.prettier, -- Typescript
         null_ls.builtins.formatting.stylua, -- Lua
+        null_ls.builtins.formatting.rustfmt, -- Rust
     },
 }
