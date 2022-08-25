@@ -1,5 +1,10 @@
 local nvim_tree = require("nvim-tree")
+local api = require("nvim-tree.api")
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
+
+api.events.subscribe(api.events.Event.FileCreated, function(data)
+    require("nvim-tree.actions.node.open-file").fn("tabnew", data.fname)
+end)
 
 nvim_tree.setup {
     create_in_closed_folder = true,
