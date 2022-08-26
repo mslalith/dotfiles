@@ -5,6 +5,7 @@ local term_opts = { silent = true }
 -- Shorten function name
 local keymap = vim.keymap.set
 keymap("", "<Space>", "<Nop>", opts)
+keymap("i", "jk", "<ESC>", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -22,7 +23,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<F5>", ":so %<CR>", opts)
+keymap("n", "<C-a>", "ggVG", opts)
 keymap("n", "<C-s>", ":w<CR>", opts)
+keymap("i", "<C-s>", "<Esc>:w<CR>a", opts)
+
 keymap("n", "<leader>`", ":nohlsearch<CR>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
@@ -60,12 +64,10 @@ keymap("n", "<C-e>", ":Telescope oldfiles<CR>", opts)
 
 keymap("n", "<A-l>", "<cmd>lua require('plugins.lsp.lsp_lines').toggle()<cr>", opts)
 
--- Press jk fast to enter Normal mode
-keymap("i", "jk", "<ESC>", opts)
-
 -- Stay in indent mode
 keymap("n", "<Tab>", "v>gv<Esc>", opts)
 keymap("n", "<S-Tab>", "v<gv<Esc>", opts)
+keymap("i", "<S-Tab>", "<C-D>", opts)
 keymap("v", "<Tab>", ">gv", opts)
 keymap("v", "<S-Tab>", "<gv", opts)
 
