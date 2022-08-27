@@ -26,6 +26,8 @@ keymap("n", "<F5>", ":so %<CR>", opts)
 keymap("n", "<C-a>", "ggVG", opts)
 keymap("n", "<C-s>", ":w<CR>", opts)
 keymap("i", "<C-s>", "<Esc>:w<CR>a", opts)
+keymap("n", "dh", "d^", opts)
+keymap("n", "dl", "d$", opts)
 
 keymap("n", "<leader>`", ":nohlsearch<CR>", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
