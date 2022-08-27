@@ -6,6 +6,7 @@ local servers = {
     "sumneko_lua",
     "tsserver",
     "rust_analyzer",
+    "pyright",
 }
 
 local settings = {
@@ -87,6 +88,17 @@ mason_lspconfig.setup_handlers {
                 end,
                 capabilities = opts.capabilities,
             },
+        }))
+    end,
+
+    ["pyright"] = function()
+        lspconfig.pyright.setup(vim.tbl_deep_extend("force", {}, {
+            on_attach = function(client, bufnr)
+                disable_formatting(client)
+                auto_format_on_save()
+                opts.on_attach(client, bufnr)
+            end,
+            capabilities = opts.capabilities,
         }))
     end,
 }
