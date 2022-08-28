@@ -45,6 +45,7 @@ local packer_startup = packer.startup(function(use)
     use("xiyaowong/nvim-transparent") -- transparent background
     use("lewis6991/impatient.nvim") -- improve startup time
     use("AckslD/nvim-neoclip.lua") -- clipboard manager
+    use("karb94/neoscroll.nvim") -- smooth scrolling
 
     -- Bufferline
     use("akinsho/bufferline.nvim") -- buffers
