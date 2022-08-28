@@ -1,6 +1,13 @@
 local catppuccin = require("catppuccin")
 
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+vim.api.nvim_create_autocmd("ColorSchemePre", {
+    pattern = "*",
+    callback = function()
+        vim.cmd("CatppuccinCompile")
+    end,
+})
+
 catppuccin.setup {
     transparent_background = true,
     term_colors = true,
@@ -25,6 +32,7 @@ catppuccin.setup {
         hop = true,
         aerial = true,
         bufferline = true,
+        treesitter_context = true,
     },
 }
 vim.cmd("colorscheme catppuccin")
