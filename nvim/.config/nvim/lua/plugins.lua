@@ -97,6 +97,7 @@ local packer_startup = packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     } -- Abstract Syntax Tree
+    use("nvim-treesitter/nvim-treesitter-context")
 
     -- Git
     use("lewis6991/gitsigns.nvim") -- blame, hunks, git diagnostics, etc
