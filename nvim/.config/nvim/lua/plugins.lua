@@ -46,6 +46,7 @@ local packer_startup = packer.startup(function(use)
     use("lewis6991/impatient.nvim") -- improve startup time
     use("AckslD/nvim-neoclip.lua") -- clipboard manager
     use("karb94/neoscroll.nvim") -- smooth scrolling
+    use("norcalli/nvim-colorizer.lua") -- highlight colors
 
     -- Bufferline
     use("akinsho/bufferline.nvim") -- buffers

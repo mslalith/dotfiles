@@ -37,6 +37,7 @@ require("plugins/impatient")
 require("plugins/neoscroll")
 require("plugins/indent-blankline")
 require("plugins/dressing")
+require("plugins/nvim-colorizer")
 
 -- Git
 require("plugins.gitsigns")
