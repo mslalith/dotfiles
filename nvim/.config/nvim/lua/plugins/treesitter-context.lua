@@ -7,5 +7,5 @@ require("treesitter-context").setup {
             "method",
         },
     },
-    separator = "",
+    separator = "",
 }
