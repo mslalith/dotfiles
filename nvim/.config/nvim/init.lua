@@ -39,6 +39,7 @@ require("plugins/indent-blankline")
 require("plugins/dressing")
 require("plugins/fidget")
 require("plugins/nvim-colorizer")
+require("plugins/illuminate")
 
 -- Git
 require("plugins.gitsigns")
