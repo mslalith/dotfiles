@@ -89,6 +89,7 @@ local packer_startup = packer.startup(function(use)
     use("folke/trouble.nvim") -- pretty diagnostics & more, also has Telescope support
     use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics, formatting
     use("https://git.sr.ht/~whynothugo/lsp_lines.nvim") -- pretty inline diagnostics
+    use("j-hui/fidget.nvim") -- lsp progress indicator
 
     -- LSP servers
     use("simrat39/rust-tools.nvim") -- rust lsp
@@ -98,7 +99,7 @@ local packer_startup = packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     } -- Abstract Syntax Tree
-    use("nvim-treesitter/nvim-treesitter-context")
+    use("nvim-treesitter/nvim-treesitter-context") -- sticky code context
 
     -- Git
     use("lewis6991/gitsigns.nvim") -- blame, hunks, git diagnostics, etc
