@@ -40,6 +40,7 @@ require("plugins/dressing")
 require("plugins/fidget")
 require("plugins/nvim-colorizer")
 require("plugins/illuminate")
+require("plugins/nvim-hlslens")
 
 -- Git
 require("plugins.gitsigns")
