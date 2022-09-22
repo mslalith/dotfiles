@@ -66,14 +66,12 @@ local function lsp_keymaps(bufnr)
         vim.keymap.set(mode, l, r, opts)
     end
 
-    map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-    map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
     map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
     map("n", "ff", "<cmd>lua vim.lsp.buf.rename()<CR>")
     map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-    map("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+    map("n", "<A-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
     -- map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-    -- map("n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>")
+
     vim.cmd([[ command! Format execute "lua vim.lsp.buf.formatting()" ]])
 end
 
