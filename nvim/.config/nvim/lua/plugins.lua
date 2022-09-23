@@ -103,6 +103,7 @@ local packer_startup = packer.startup(function(use)
         run = ":TSUpdate",
     } -- Abstract Syntax Tree
     use("nvim-treesitter/nvim-treesitter-context") -- sticky code context
+    use("windwp/nvim-ts-autotag") -- auto close tags
 
     -- Git
     use("lewis6991/gitsigns.nvim") -- blame, hunks, git diagnostics, etc

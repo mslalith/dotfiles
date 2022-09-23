@@ -42,6 +42,7 @@ require("plugins/nvim-colorizer")
 require("plugins/illuminate")
 require("plugins/nvim-scrollbar")
 require("plugins/nvim-hlslens")
+require("plugins/nvim-ts-autotag")
 
 -- Git
 require("plugins.gitsigns")
