@@ -56,6 +56,7 @@ local packer_startup = packer.startup(function(use)
 
     -- Editing
     use("phaazon/hop.nvim") -- easy editor navigation
+    use("ggandor/leap.nvim") -- quicker motion jumps
     use("numToStr/Comment.nvim") -- better comments
     use("lukas-reineke/indent-blankline.nvim") -- indent guidelines
     use("kylechui/nvim-surround") -- add/update/delete surroundings

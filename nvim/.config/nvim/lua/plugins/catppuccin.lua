@@ -34,6 +34,7 @@ catppuccin.setup {
         bufferline = true,
         treesitter_context = true,
         fidget = true,
+        leap = true,
     },
 }
 vim.cmd("colorscheme catppuccin")
