@@ -8,8 +8,8 @@ require("gitsigns").setup {
 
         -- Navigation
         local opts = { noremap = true, silent = true }
-        map("n", "<leader>hj", ":Gitsigns next_hunk<CR>", opts)
-        map("n", "<leader>hk", ":Gitsigns prev_hunk<CR>", opts)
+        map("n", "<C-A-S-j>", ":Gitsigns next_hunk<CR>", opts)
+        map("n", "<C-A-S-k>", ":Gitsigns prev_hunk<CR>", opts)
         map("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
         map("n", "<leader>hd", ":Gitsigns diffthis<CR>", opts)
         map("n", "<leader>hb", ":Gitsigns blame_line<CR>", opts)
