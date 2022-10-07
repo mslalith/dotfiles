@@ -5,7 +5,7 @@ function M.enable_format_on_save()
     vim.cmd([[
     augroup format_on_save
       autocmd! 
-      autocmd BufWritePre * lua vim.lsp.buf.formatting_sync() 
+      autocmd BufWritePre * lua vim.lsp.buf.format()
     augroup end
   ]])
     vim.notify("Enabled Format on save")
@@ -30,6 +30,8 @@ function M.remove_augroup(name)
     end
 end
 
-vim.cmd([[ command! LspToggleAutoFormat execute 'lua require("plugins.lsp.commands.format_on_save").toggle_format_on_save()' ]])
+vim.cmd(
+    [[ command! LspToggleAutoFormat execute 'lua require("plugins.lsp.commands.format_on_save").toggle_format_on_save()' ]]
+)
 
 return M
