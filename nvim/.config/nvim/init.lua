@@ -4,7 +4,6 @@ require("keymaps")
 
 -- Theme
 require("colorscheme")
-require("plugins/catppuccin")
 
 -- LSP
 require("plugins.mason")
