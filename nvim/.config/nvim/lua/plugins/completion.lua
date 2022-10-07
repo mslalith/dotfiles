@@ -92,7 +92,7 @@ cmp.setup {
     },
 
     view = {
-        entries = "native",
+        entries = "custom",
     },
 
     experimental = {
