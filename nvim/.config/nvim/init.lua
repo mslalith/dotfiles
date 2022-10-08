@@ -6,11 +6,11 @@ require("keymaps")
 require("colorscheme")
 
 -- LSP
-require("plugins.mason")
-require("plugins.lsp.commands")
-require("plugins.lsp.handlers").setup()
-require("plugins.lsp.null-ls")
-require("plugins.lsp.lsp_lines")
+require("plugins/mason")
+require("plugins/lsp/commands")
+require("plugins/lsp/handlers").setup()
+require("plugins/lsp/null-ls")
+require("plugins/lsp/lsp_lines")
 
 -- Plugins
 require("plugins/notify")
@@ -46,4 +46,4 @@ require("plugins/leap")
 require("plugins/marks")
 
 -- Git
-require("plugins.gitsigns")
+require("plugins/gitsigns")

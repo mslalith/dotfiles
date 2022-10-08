@@ -64,7 +64,7 @@ keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
 keymap("n", "<A-v>", ":Telescope neoclip plus<CR>", opts)
 keymap("n", "<C-e>", ":Telescope oldfiles<CR>", opts)
 
-keymap("n", "<A-l>", "<cmd>lua require('plugins.lsp.lsp_lines').toggle()<cr>", opts)
+keymap("n", "<A-l>", "<cmd>lua require('plugins/lsp/lsp_lines').toggle()<cr>", opts)
 keymap("n", "<A-b>", ":MarksListAll<CR>", opts)
 
 -- Stay in indent mode
