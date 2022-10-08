@@ -52,7 +52,13 @@ local packer_startup = packer.startup(function(use)
     } -- autopairs
     use("rcarriga/nvim-notify") -- neat notification manager
     use("nvim-lualine/lualine.nvim") -- better status line
-    use("akinsho/toggleterm.nvim") -- floating terminal
+    use {
+        "akinsho/toggleterm.nvim",
+        keys = { "<C-t>", "<leader>g" },
+        config = function()
+            require("plugins/toggleterm")
+        end,
+    } -- floating terminal
     use {
         "stevearc/aerial.nvim",
         after = "telescope.nvim",
