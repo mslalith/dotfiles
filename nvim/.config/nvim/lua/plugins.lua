@@ -45,7 +45,13 @@ local packer_startup = packer.startup(function(use)
             require("plugins.nvim-tree")
         end,
     } -- file explorer
-    use("windwp/nvim-autopairs") -- autopairs
+    use {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("plugins.autopairs")
+        end,
+    } -- autopairs
     use("rcarriga/nvim-notify") -- neat notification manager
     use("nvim-lualine/lualine.nvim") -- better status line
     use("akinsho/toggleterm.nvim") -- floating terminal

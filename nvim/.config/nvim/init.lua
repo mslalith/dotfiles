@@ -14,7 +14,6 @@ require("plugins/lsp/lsp_lines")
 
 -- Plugins
 require("plugins/notify")
-require("plugins/autopairs")
 require("plugins/lualine")
 require("plugins/nvim-web-devicons")
 require("plugins/hop")
