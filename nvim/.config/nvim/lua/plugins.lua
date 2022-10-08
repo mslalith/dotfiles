@@ -38,9 +38,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "kyazdani42/nvim-tree.lua",
         cmd = "NvimTreeToggle",
-        requires = {
-            "kyazdani42/nvim-web-devicons",
-        },
+        requires = { "kyazdani42/nvim-web-devicons" },
         config = function()
             require("plugins.nvim-tree")
         end,
@@ -105,6 +103,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "nvim-telescope/telescope.nvim",
         requires = { "nvim-lua/plenary.nvim" },
+        module = "telescope",
         cmd = "Telescope",
         config = function()
             require("plugins.telescope")
