@@ -40,10 +40,24 @@ local packer_startup = packer.startup(function(use)
     use("rcarriga/nvim-notify") -- neat notification manager
     use("nvim-lualine/lualine.nvim") -- better status line
     use("akinsho/toggleterm.nvim") -- floating terminal
-    use("stevearc/aerial.nvim") -- code outline symbols, also has Telescope support
+    use {
+        "stevearc/aerial.nvim",
+        after = "telescope.nvim",
+        config = function()
+            require("plugins.aerial")
+            require("telescope").load_extension("aerial")
+        end,
+    } -- code outline symbols, also has Telescope support
     use("rmagatti/auto-session") -- saves state on quit
     use("xiyaowong/nvim-transparent") -- transparent background
-    use("AckslD/nvim-neoclip.lua") -- clipboard manager
+    use {
+        "AckslD/nvim-neoclip.lua",
+        after = "telescope.nvim",
+        config = function()
+            require("plugins.neoclip")
+            require("telescope").load_extension("neoclip")
+        end,
+    } -- clipboard manager
     use("karb94/neoscroll.nvim") -- smooth scrolling
     use("norcalli/nvim-colorizer.lua") -- highlight colors
     use("petertriho/nvim-scrollbar") -- vertical scrollbar

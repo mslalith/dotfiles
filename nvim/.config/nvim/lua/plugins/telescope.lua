@@ -2,9 +2,6 @@ local telescope = require("telescope")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
 
-telescope.load_extension("neoclip")
-telescope.load_extension("aerial")
-
 telescope.setup {
     defaults = {
         prompt_prefix = "  ",
