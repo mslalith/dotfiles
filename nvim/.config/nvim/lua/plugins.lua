@@ -87,7 +87,13 @@ local packer_startup = packer.startup(function(use)
     use("moll/vim-bbye") -- delete & close buffers
 
     -- Editing
-    use("phaazon/hop.nvim") -- easy editor navigation
+    use {
+        "phaazon/hop.nvim",
+        cmd = "HopWord*",
+        config = function()
+            require("plugins/hop")
+        end,
+    } -- easy editor navigation
     use("ggandor/leap.nvim") -- quicker motion jumps
     use("numToStr/Comment.nvim") -- better comments
     use("lukas-reineke/indent-blankline.nvim") -- indent guidelines
