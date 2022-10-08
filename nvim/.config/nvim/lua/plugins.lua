@@ -67,12 +67,29 @@ local packer_startup = packer.startup(function(use)
     use("chentoast/marks.nvim") -- manage vim marks
 
     -- Telescope
-    use("nvim-telescope/telescope.nvim") -- find, search, etc
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = { { "nvim-lua/plenary.nvim" } },
+        cmd = "Telescope",
+        config = function()
+            require("plugins.telescope")
+        end,
+    } -- find, search, etc
     use {
         "nvim-telescope/telescope-fzf-native.nvim",
         run = "make",
+        after = "telescope.nvim",
+        config = function()
+            require("telescope").load_extension("fzf")
+        end,
     } -- fuzzy search
-    use("nvim-telescope/telescope-media-files.nvim") -- browser media files
+    use {
+        "nvim-telescope/telescope-media-files.nvim",
+        after = "telescope.nvim",
+        config = function()
+            require("telescope").load_extension("media_files")
+        end,
+    } -- browser media files
 
     -- UI
     use("stevearc/dressing.nvim")
