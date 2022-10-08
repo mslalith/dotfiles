@@ -178,7 +178,15 @@ local packer_startup = packer.startup(function(use)
 
     -- Git
     use("lewis6991/gitsigns.nvim") -- blame, hunks, git diagnostics, etc
-    use("sindrets/diffview.nvim") -- diff files
+    use {
+        "sindrets/diffview.nvim",
+        module = "diffview",
+        keys = { "<leader>", "d" },
+        requires = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("plugins.diffview")
+        end,
+    } -- diff files
 
     -- Themes
     use("projekt0n/github-nvim-theme")
