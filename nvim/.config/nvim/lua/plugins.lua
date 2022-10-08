@@ -35,7 +35,16 @@ local packer_startup = packer.startup(function(use)
     use("nvim-lua/plenary.nvim")
 
     -- General
-    use("kyazdani42/nvim-tree.lua") -- file explorer
+    use {
+        "kyazdani42/nvim-tree.lua",
+        cmd = "NvimTreeToggle",
+        requires = {
+            "kyazdani42/nvim-web-devicons",
+        },
+        config = function()
+            require("plugins.nvim-tree")
+        end,
+    } -- file explorer
     use("windwp/nvim-autopairs") -- autopairs
     use("rcarriga/nvim-notify") -- neat notification manager
     use("nvim-lualine/lualine.nvim") -- better status line
@@ -83,7 +92,7 @@ local packer_startup = packer.startup(function(use)
     -- Telescope
     use {
         "nvim-telescope/telescope.nvim",
-        requires = { { "nvim-lua/plenary.nvim" } },
+        requires = { "nvim-lua/plenary.nvim" },
         cmd = "Telescope",
         config = function()
             require("plugins.telescope")
