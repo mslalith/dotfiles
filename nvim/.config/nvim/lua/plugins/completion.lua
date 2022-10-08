@@ -60,11 +60,11 @@ cmp.setup {
     },
 
     sources = {
-        { name = "nvim_lua" },
+        { name = "nvim_lsp_signature_help" },
+        { name = "buffer", keyword_length = 5 },
         { name = "nvim_lsp" },
         { name = "path" },
         { name = "luasnip" },
-        { name = "buffer", keyword_length = 5 },
     },
 
     snippet = {
@@ -74,16 +74,7 @@ cmp.setup {
     },
 
     formatting = {
-        format = lspkind.cmp_format {
-            with_text = true,
-            menu = {
-                buffer = "[buf]",
-                nvim_lsp = "[LSP]",
-                nvim_lua = "[api]",
-                path = "[path]",
-                luasnip = "[snip]",
-            },
-        },
+        format = lspkind.cmp_format(),
     },
 
     window = {

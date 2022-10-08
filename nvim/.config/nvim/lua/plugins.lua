@@ -80,7 +80,7 @@ local packer_startup = packer.startup(function(use)
     use("hrsh7th/cmp-path") -- path completion
     use("hrsh7th/cmp-buffer") -- buffer completion
     use("hrsh7th/cmp-nvim-lsp") -- lsp completion
-    use("hrsh7th/cmp-nvim-lua") -- better lua completion
+    use("hrsh7th/cmp-nvim-lsp-signature-help") -- lsp signature help
 
     -- Snippets
     use("L3MON4D3/LuaSnip")
