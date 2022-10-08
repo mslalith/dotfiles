@@ -77,7 +77,13 @@ local packer_startup = packer.startup(function(use)
             require("telescope").load_extension("neoclip")
         end,
     } -- clipboard manager
-    use("karb94/neoscroll.nvim") -- smooth scrolling
+    use {
+        "karb94/neoscroll.nvim",
+        keys = { "<A-j>", "<A-k>" },
+        config = function()
+            require("plugins/neoscroll")
+        end,
+    } -- smooth scrolling
     use("norcalli/nvim-colorizer.lua") -- highlight colors
     use("petertriho/nvim-scrollbar") -- vertical scrollbar
     use("kevinhwang91/nvim-hlslens") -- search highlighting
