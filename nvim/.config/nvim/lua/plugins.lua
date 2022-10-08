@@ -176,6 +176,10 @@ local packer_startup = packer.startup(function(use)
     use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics, formatting
     use("https://git.sr.ht/~whynothugo/lsp_lines.nvim") -- pretty inline diagnostics
     use("j-hui/fidget.nvim") -- lsp progress indicator
+    use {
+        "SmiteshP/nvim-navic",
+        requires = { "neovim/nvim-lspconfig" },
+    } -- breadcrumbs
 
     -- LSP servers
     use("simrat39/rust-tools.nvim") -- rust lsp

@@ -35,6 +35,10 @@ catppuccin.setup {
         treesitter_context = true,
         fidget = true,
         leap = true,
+        navic = {
+            enabled = true,
+            custom_bg = "NONE",
+        },
     },
 }
 vim.cmd("colorscheme catppuccin")

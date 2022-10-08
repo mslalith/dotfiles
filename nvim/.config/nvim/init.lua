@@ -15,6 +15,7 @@ require("plugins/lsp/commands")
 require("plugins/lsp/handlers").setup()
 require("plugins/lsp/null-ls")
 require("plugins/lsp/lsp_lines")
+require("plugins.lsp.nvim-navic")
 
 -- Plugins
 require("plugins/notify")

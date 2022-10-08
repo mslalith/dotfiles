@@ -75,9 +75,18 @@ local function lsp_keymaps(bufnr)
     vim.cmd([[ command! Format execute "lua vim.lsp.buf.format()" ]])
 end
 
+local navic = require("nvim-navic")
+
+local function attach_navic(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
+end
+
 M.on_attach = function(client, bufnr)
     lsp_keymaps(bufnr)
     lsp_highlight_document(client)
+    attach_navic(client, bufnr)
 end
 
 -- Capabilities
