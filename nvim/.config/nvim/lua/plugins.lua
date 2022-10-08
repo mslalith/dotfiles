@@ -99,7 +99,13 @@ local packer_startup = packer.startup(function(use)
         end,
     } -- easy editor navigation
     use("ggandor/leap.nvim") -- quicker motion jumps
-    use("numToStr/Comment.nvim") -- better comments
+    use {
+        "numToStr/Comment.nvim",
+        keys = { "gc", "gb" },
+        config = function()
+            require("plugins/comment")
+        end,
+    } -- better comments
     use("lukas-reineke/indent-blankline.nvim") -- indent guidelines
     use("kylechui/nvim-surround") -- add/update/delete surroundings
     use("RRethy/vim-illuminate") -- highlight word under cursor
