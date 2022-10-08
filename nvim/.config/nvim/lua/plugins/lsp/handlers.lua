@@ -72,7 +72,7 @@ local function lsp_keymaps(bufnr)
     map("n", "<A-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
     -- map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
-    vim.cmd([[ command! Format execute "lua vim.lsp.buf.formatting()" ]])
+    vim.cmd([[ command! Format execute "lua vim.lsp.buf.format()" ]])
 end
 
 M.on_attach = function(client, bufnr)
