@@ -146,7 +146,14 @@ local packer_startup = packer.startup(function(use)
     use("neovim/nvim-lspconfig") -- LSP configuration
     use("williamboman/mason.nvim") -- package manager for LSP, DAP, Linters, Formatters
     use("williamboman/mason-lspconfig.nvim") -- easier integration with LSP
-    use("folke/trouble.nvim") -- pretty diagnostics & more, also has Telescope support
+    use {
+        "folke/trouble.nvim",
+        cmd = "TroubleToggle",
+        requires = { "kyazdani42/nvim-web-devicons" },
+        config = function()
+            require("plugins/trouble")
+        end,
+    } -- pretty diagnostics & more, also has Telescope support
     use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics, formatting
     use("https://git.sr.ht/~whynothugo/lsp_lines.nvim") -- pretty inline diagnostics
     use("j-hui/fidget.nvim") -- lsp progress indicator
