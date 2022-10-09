@@ -180,6 +180,12 @@ local packer_startup = packer.startup(function(use)
         "SmiteshP/nvim-navic",
         requires = { "neovim/nvim-lspconfig" },
     } -- breadcrumbs
+    use {
+        "glepnir/lspsaga.nvim",
+        config = function()
+            require("plugins.lsp.lspsaga")
+        end,
+    }
 
     -- LSP servers
     use("simrat39/rust-tools.nvim") -- rust lsp

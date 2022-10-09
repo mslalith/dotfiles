@@ -58,23 +58,6 @@ local function lsp_highlight_document(client)
     end
 end
 
-local function lsp_keymaps(bufnr)
-    local opts = { noremap = true, silent = true }
-
-    local function map(mode, l, r)
-        opts.buffer = bufnr
-        vim.keymap.set(mode, l, r, opts)
-    end
-
-    map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-    map("n", "ff", "<cmd>lua vim.lsp.buf.rename()<CR>")
-    map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-    map("n", "<A-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-    -- map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-
-    vim.cmd([[ command! Format execute "lua vim.lsp.buf.format()" ]])
-end
-
 local navic = require("nvim-navic")
 
 local function attach_navic(client, bufnr)
@@ -84,7 +67,6 @@ local function attach_navic(client, bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-    lsp_keymaps(bufnr)
     lsp_highlight_document(client)
     attach_navic(client, bufnr)
 end
