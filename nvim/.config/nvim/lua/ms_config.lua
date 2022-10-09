@@ -4,7 +4,7 @@ ms_config = {
             disabled = true,
         },
         lsp_lines = {
-            disabled = true,
+            disabled = false,
         },
         treesitter_context = {
             disabled = false,
