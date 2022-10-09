@@ -247,22 +247,51 @@ local packer_startup = packer.startup(function(use)
 
     -- Completion
     use {
+        "onsails/lspkind-nvim",
+        event = "InsertEnter",
+        config = function()
+            require("plugins.completion.lspkind")
+        end,
+    } -- vscode-like pictograms
+    use {
+        "L3MON4D3/LuaSnip",
+        after = "lspkind-nvim",
+        config = function()
+            require("plugins.completion.luasnip")
+        end,
+    }
+    use {
         "hrsh7th/nvim-cmp",
         disable = ms_config.plugins.nvim_cmp.disabled,
+        after = "LuaSnip",
         config = function()
             require("plugins/completion")
         end,
     } -- code completion
-    use("onsails/lspkind-nvim") -- vscode-like pictograms
-    use("hrsh7th/cmp-path") -- path completion
-    use("hrsh7th/cmp-buffer") -- buffer completion
-    use("hrsh7th/cmp-nvim-lsp") -- lsp completion
-    use("hrsh7th/cmp-nvim-lsp-signature-help") -- lsp signature help
-
-    -- Snippets
-    use("L3MON4D3/LuaSnip")
-    use("saadparwaiz1/cmp_luasnip")
-    use("rafamadriz/friendly-snippets")
+    use {
+        "hrsh7th/cmp-path",
+        after = "nvim-cmp",
+    } -- path completion
+    use {
+        "hrsh7th/cmp-buffer",
+        after = "nvim-cmp",
+    } -- buffer completion
+    use {
+        "hrsh7th/cmp-nvim-lsp",
+        after = "nvim-cmp",
+    } -- lsp completion
+    use {
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        after = "nvim-cmp",
+    } -- lsp signature help
+    use {
+        "saadparwaiz1/cmp_luasnip",
+        after = "nvim-cmp",
+    }
+    use {
+        "rafamadriz/friendly-snippets",
+        after = "nvim-cmp",
+    }
 
     -- Native LSP
     use("neovim/nvim-lspconfig") -- LSP configuration

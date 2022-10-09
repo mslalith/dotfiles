@@ -1,9 +1,3 @@
-local lspkind = require("lspkind")
-lspkind.init()
-
-local luasnip = require("luasnip")
-require("luasnip/loaders/from_vscode").lazy_load()
-
 local check_backspace = function()
     local col = vim.fn.col(".") - 1
     return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -35,6 +29,7 @@ cmp.setup {
         end, { "i", "c" }),
 
         ["<Tab>"] = cmp.mapping(function(fallback)
+            local luasnip = require("luasnip")
             if cmp.visible() then
                 cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
             elseif luasnip.expand_or_jumpable() then
@@ -47,6 +42,7 @@ cmp.setup {
         end, { "i", "s" }),
 
         ["<S-Tab>"] = cmp.mapping(function(fallback)
+            local luasnip = require("luasnip")
             if cmp.visible() then
                 cmp.select_prev_item { behavior = cmp.SelectBehavior.Select }
             elseif luasnip.jumpable(-1) then
@@ -67,12 +63,12 @@ cmp.setup {
 
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
+            require("luasnip").lsp_expand(args.body)
         end,
     },
 
     formatting = {
-        format = lspkind.cmp_format(),
+        format = require("lspkind").cmp_format(),
     },
 
     window = {
