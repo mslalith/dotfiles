@@ -1,5 +1,5 @@
 local dressing = require("dressing")
-local telescope_themes = require("telescope.themes")
+-- local telescope_themes = require("telescope.themes")
 
 dressing.setup {
     input = {
@@ -24,8 +24,8 @@ dressing.setup {
     select = {
         enabled = true,
         backend = { "telescope" },
-        telescope = telescope_themes.get_dropdown {
-            initial_mode = "normal",
-        },
+        -- telescope = telescope_themes.get_dropdown {
+        --     initial_mode = "normal",
+        -- },
     },
 }

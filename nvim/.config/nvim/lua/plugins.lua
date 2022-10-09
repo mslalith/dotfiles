@@ -146,7 +146,12 @@ local packer_startup = packer.startup(function(use)
     } -- find, search, etc
 
     -- UI
-    use("stevearc/dressing.nvim")
+    use {
+        "stevearc/dressing.nvim",
+        config = function()
+            require("plugins.dressing")
+        end,
+    }
 
     -- Completion
     use("hrsh7th/nvim-cmp") -- code completion
