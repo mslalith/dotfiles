@@ -223,6 +223,11 @@ local packer_startup = packer.startup(function(use)
         disable = ms_config.plugins.nvim_treesitter.disabled,
     } -- Abstract Syntax Tree
     use {
+        "nvim-treesitter/playground",
+        after = "nvim-treesitter",
+        disable = ms_config.plugins.nvim_treesitter_playground.disabled,
+    }
+    use {
         "nvim-treesitter/nvim-treesitter-context",
         disable = ms_config.plugins.nvim_treesitter_context.disabled,
         config = function()
