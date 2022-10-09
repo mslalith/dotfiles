@@ -50,7 +50,7 @@ ms_config.plugins = {
     nvim_navic = { disabled = false },
     lspsaga = { disabled = false },
     nvim_treesitter = { disabled = false },
-    nvim_treesitter_playground = { disabled = false },
+    nvim_treesitter_playground = { disabled = true },
     nvim_treesitter_context = { disabled = false },
     diffview = { disabled = false },
 }
