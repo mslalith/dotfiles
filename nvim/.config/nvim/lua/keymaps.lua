@@ -1,92 +1,75 @@
-local opts = { noremap = true, silent = true }
-
-local term_opts = { silent = true }
-
--- Shorten function name
-local keymap = vim.keymap.set
-keymap("", "<Space>", "<Nop>", opts)
-keymap("i", "jk", "<ESC>", opts)
-
--- Modes
---   normal_mode = "n",
--- local keymap = vim.api.nvim_set_keymap
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+ms_config.keys.normal_mode("<C-h>", "<C-w>h")
+ms_config.keys.normal_mode("<C-j>", "<C-w>j")
+ms_config.keys.normal_mode("<C-k>", "<C-w>k")
+ms_config.keys.normal_mode("<C-l>", "<C-w>l")
 
-keymap("n", "<F5>", ":so %<CR>", opts)
-keymap("n", "<C-a>", "ggVG", opts)
-keymap("n", "<C-s>", ":w<CR>", opts)
-keymap("i", "<C-s>", "<Esc>:w<CR>a", opts)
-keymap("n", "dh", "d^", opts)
-keymap("n", "dl", "d$", opts)
+ms_config.keys.normal_mode("<F5>", ":so %<CR>")
+ms_config.keys.normal_mode("<C-a>", "ggVG")
+ms_config.keys.normal_mode("<C-s>", ":w<CR>")
+ms_config.keys.insert_mode("<C-s>", "<Esc>:w<CR>a")
+ms_config.keys.normal_mode("dh", "d^")
+ms_config.keys.normal_mode("dl", "d$")
 
-keymap("n", "<leader>`", ":nohlsearch<CR>", opts)
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+ms_config.keys.normal_mode("<leader>`", ":nohlsearch<CR>")
+ms_config.keys.normal_mode("<leader>e", ":NvimTreeToggle<CR>")
 
 -- Resize with arrows
-keymap("n", "<A-Up>", ":resize +2<CR>", opts)
-keymap("n", "<A-Down>", ":resize -2<CR>", opts)
-keymap("n", "<A-Left>", ":vertical resize +2<CR>", opts)
-keymap("n", "<A-Right>", ":vertical resize -2<CR>", opts)
+ms_config.keys.normal_mode("<A-Up>", ":resize +2<CR>")
+ms_config.keys.normal_mode("<A-Down>", ":resize -2<CR>")
+ms_config.keys.normal_mode("<A-Left>", ":vertical resize +2<CR>")
+ms_config.keys.normal_mode("<A-Right>", ":vertical resize -2<CR>")
 
 -- Buffers
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
-keymap("n", "<leader>w", ":Bdelete!<CR>", opts)
-keymap("n", "<leader>bh", ":BufferLineMovePrev<CR>", opts)
-keymap("n", "<leader>bl", ":BufferLineMoveNext<CR>", opts)
+ms_config.keys.normal_mode("<S-l>", ":BufferLineCycleNext<CR>")
+ms_config.keys.normal_mode("<S-h>", ":BufferLineCyclePrev<CR>")
+ms_config.keys.normal_mode("<leader>w", ":Bdelete!<CR>")
+ms_config.keys.normal_mode("<leader>bh", ":BufferLineMovePrev<CR>")
+ms_config.keys.normal_mode("<leader>bl", ":BufferLineMoveNext<CR>")
 
 -- Navigate in Editor
-keymap("n", "<leader>/", ":HopWordMW<CR>", opts)
-keymap("n", "<leader>i", ":TroubleToggle workspace_diagnostics<CR>", opts)
+ms_config.keys.normal_mode("<leader>/", ":HopWordMW<CR>")
+ms_config.keys.normal_mode("<leader>i", ":TroubleToggle workspace_diagnostics<CR>")
 
 -- Diffview
-keymap("n", "<leader>d", ":DiffviewToggle<CR>", opts) -- this is a custom command
+ms_config.keys.normal_mode("<leader>d", ":DiffviewToggle<CR>") -- this is a custom command
 
 -- Telescope
-keymap("n", "<A-S-o>", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<A-S-f>", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
-keymap("n", "<A-m>", "<cmd>Telescope aerial<CR>", opts)
-keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>")
-keymap("n", "<A-v>", ":Telescope neoclip plus<CR>", opts)
-keymap("n", "<C-e>", ":Telescope oldfiles<CR>", opts)
+ms_config.keys.normal_mode("<A-S-o>", "<cmd>Telescope find_files<CR>")
+ms_config.keys.normal_mode("<A-S-f>", "<cmd>Telescope live_grep<CR>")
+ms_config.keys.normal_mode("<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+ms_config.keys.normal_mode("<A-m>", "<cmd>Telescope aerial<CR>")
+ms_config.keys.normal_mode("gd", "<cmd>Telescope lsp_definitions<CR>")
+ms_config.keys.normal_mode("<A-v>", ":Telescope neoclip plus<CR>")
+ms_config.keys.normal_mode("<C-e>", ":Telescope oldfiles<CR>")
 
-keymap("n", "<A-l>", "<cmd>lua require('plugins/lsp/lsp_lines').toggle()<cr>", opts)
-keymap("n", "<A-b>", ":MarksListAll<CR>", opts)
+ms_config.keys.normal_mode("<A-l>", "<cmd>lua require('plugins.lsp.lsp_lines').toggle()<cr>")
+ms_config.keys.normal_mode("<A-b>", ":MarksListAll<CR>")
 
 -- Stay in indent mode
-keymap("n", "<Tab>", "v>gv<Esc>", opts)
-keymap("n", "<S-Tab>", "v<gv<Esc>", opts)
-keymap("i", "<S-Tab>", "<C-D>", opts)
-keymap("v", "<Tab>", ">gv", opts)
-keymap("v", "<S-Tab>", "<gv", opts)
+ms_config.keys.normal_mode("<Tab>", "v>gv<Esc>")
+ms_config.keys.normal_mode("<S-Tab>", "v<gv<Esc>")
+ms_config.keys.insert_mode("<S-Tab>", "<C-D>")
+ms_config.keys.visual_mode("<Tab>", ">gv")
+ms_config.keys.visual_mode("<S-Tab>", "<gv")
 
 -- Move text up and down
-keymap("v", "<A-S-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("v", "<A-S-k>", ":move '<-2<CR>gv-gv", opts)
-keymap("v", "p", '"_dP', opts)
+ms_config.keys.visual_mode("<A-S-j>", ":move '>+1<CR>gv-gv")
+ms_config.keys.visual_mode("<A-S-k>", ":move '<-2<CR>gv-gv")
+ms_config.keys.visual_mode("p", '"_dP')
 
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+ms_config.keys.visual_block_mode("J", ":move '>+1<CR>gv-gv")
+ms_config.keys.visual_block_mode("K", ":move '<-2<CR>gv-gv")
+ms_config.keys.visual_block_mode("<A-j>", ":move '>+1<CR>gv-gv")
+ms_config.keys.visual_block_mode("<A-k>", ":move '<-2<CR>gv-gv")
 
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+local term_opts = { silent = true }
+ms_config.keys.terminal_mode("<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+ms_config.keys.terminal_mode("<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+ms_config.keys.terminal_mode("<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+ms_config.keys.terminal_mode("<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Custom Commands
 vim.api.nvim_create_user_command("DiffviewToggle", function(e)

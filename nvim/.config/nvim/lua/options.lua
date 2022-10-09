@@ -43,9 +43,3 @@ vim.opt.shortmess:append("c")
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
-
--- Global Options
-
--- map Space as leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
