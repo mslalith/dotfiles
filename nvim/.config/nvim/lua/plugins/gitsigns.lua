@@ -1,19 +1,12 @@
 require("gitsigns").setup {
     on_attach = function(bufnr)
-        local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-        end
-
         -- Navigation
-        local opts = { noremap = true, silent = true }
-        map("n", "<C-A-S-j>", ":Gitsigns next_hunk<CR>", opts)
-        map("n", "<C-A-S-k>", ":Gitsigns prev_hunk<CR>", opts)
-        map("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
-        map("n", "<leader>hd", ":Gitsigns diffthis<CR>", opts)
-        map("n", "<leader>hb", ":Gitsigns blame_line<CR>", opts)
-        map("n", "<A-S-b>", ":Gitsigns toggle_current_line_blame<CR>", opts)
+        ms_config.keys.normal_mode("<C-A-S-j>", ":Gitsigns next_hunk<CR>")
+        ms_config.keys.normal_mode("<C-A-S-k>", ":Gitsigns prev_hunk<CR>")
+        ms_config.keys.normal_mode("<leader>hp", ":Gitsigns preview_hunk<CR>")
+        ms_config.keys.normal_mode("<leader>hd", ":Gitsigns diffthis<CR>")
+        ms_config.keys.normal_mode("<leader>hb", ":Gitsigns blame_line<CR>")
+        ms_config.keys.normal_mode("<A-S-b>", ":Gitsigns toggle_current_line_blame<CR>")
     end,
 
     signs = {

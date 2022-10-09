@@ -16,5 +16,4 @@ function _LAZYGIT_TOGGLE()
     lazygit:toggle()
 end
 
-local opts = { noremap = true, silent = true }
-vim.keymap.set("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+ms_config.keys.normal_mode("<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>")
