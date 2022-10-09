@@ -358,7 +358,6 @@ local packer_startup = packer.startup(function(use)
     } -- diff files
 
     -- Themes
-    use("projekt0n/github-nvim-theme")
     use {
         "catppuccin/nvim",
         as = "catppuccin",
