@@ -146,12 +146,13 @@ local packer_startup = packer.startup(function(use)
     } -- find, search, etc
 
     -- UI
-    -- use {
-    --     "stevearc/dressing.nvim",
-    --     config = function()
-    --         require("plugins.dressing")
-    --     end,
-    -- }
+    use {
+        "stevearc/dressing.nvim",
+        disable = ms_config.plugins.dressing.disabled,
+        config = function()
+            require("plugins.dressing")
+        end,
+    }
 
     -- Completion
     use("hrsh7th/nvim-cmp") -- code completion
@@ -179,7 +180,13 @@ local packer_startup = packer.startup(function(use)
         end,
     } -- pretty diagnostics & more, also has Telescope support
     use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics, formatting
-    use("https://git.sr.ht/~whynothugo/lsp_lines.nvim") -- pretty inline diagnostics
+    use {
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        disable = ms_config.plugins.lsp_lines.disabled,
+        config = function()
+            require("plugins.lsp.lsp_lines")
+        end,
+    } -- pretty inline diagnostics
     use("j-hui/fidget.nvim") -- lsp progress indicator
     use {
         "SmiteshP/nvim-navic",
@@ -200,7 +207,13 @@ local packer_startup = packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     } -- Abstract Syntax Tree
-    use("nvim-treesitter/nvim-treesitter-context") -- sticky code context
+    use {
+        "nvim-treesitter/nvim-treesitter-context",
+        disable = ms_config.plugins.treesitter_context.disabled,
+        config = function()
+            require("plugins/treesitter-context")
+        end,
+    } -- sticky code context
     use("windwp/nvim-ts-autotag") -- auto close tags
 
     -- Git
