@@ -294,9 +294,30 @@ local packer_startup = packer.startup(function(use)
     }
 
     -- Native LSP
-    use("neovim/nvim-lspconfig") -- LSP configuration
-    use("williamboman/mason.nvim") -- package manager for LSP, DAP, Linters, Formatters
-    use("williamboman/mason-lspconfig.nvim") -- easier integration with LSP
+    use {
+        "neovim/nvim-lspconfig",
+        -- after = "mason-lspconfig.nvim",
+        config = function()
+            require("plugins.lsp.nvim-lspconfig")
+        end,
+    } -- LSP configuration
+    use {
+        "williamboman/mason.nvim",
+        module = "mason",
+        -- cmd = ms_config.plugins.mason.lazy_load_cmds,
+        disable = ms_config.plugins.mason.disabled,
+        config = function()
+            require("plugins.mason")
+        end,
+    } -- package manager for LSP, DAP, Linters, Formatters
+    use {
+        "williamboman/mason-lspconfig.nvim",
+        module = "mason-lspconfig",
+        -- after = "mason.nvim",
+        config = function()
+            require("plugins.lsp.mason-lspconfig")
+        end,
+    } -- easier integration with LSP
     use {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
@@ -306,7 +327,14 @@ local packer_startup = packer.startup(function(use)
             require("plugins/trouble")
         end,
     } -- pretty diagnostics & more, also has Telescope support
-    use("jose-elias-alvarez/null-ls.nvim") -- LSP diagnostics, formatting
+    use {
+        "jose-elias-alvarez/null-ls.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+        disable = ms_config.plugins.null_ls.disabled,
+        config = function()
+            require("plugins/lsp/null-ls")
+        end,
+    } -- LSP diagnostics, formatting
     use {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         disable = ms_config.plugins.lsp_lines.disabled,
@@ -326,6 +354,9 @@ local packer_startup = packer.startup(function(use)
         "SmiteshP/nvim-navic",
         disable = ms_config.plugins.nvim_navic.disabled,
         requires = { "neovim/nvim-lspconfig" },
+        config = function()
+            require("plugins.lsp.nvim-navic")
+        end,
     } -- breadcrumbs
     use {
         "glepnir/lspsaga.nvim",

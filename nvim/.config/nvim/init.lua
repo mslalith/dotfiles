@@ -15,8 +15,4 @@ require("keymaps")
 require("colorscheme")
 
 -- LSP
-require("plugins/mason")
 require("plugins/lsp/commands")
-require("plugins/lsp/handlers").setup()
-require("plugins/lsp/null-ls")
-require("plugins.lsp.nvim-navic")

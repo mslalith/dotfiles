@@ -70,4 +70,16 @@ ms_config.plugins = {
     nvim_transparent = { disabled = false },
     fidget = { disabled = false },
     nvim_cmp = { disabled = false },
+    null_ls = { disabled = false },
+    mason = {
+        disabled = false,
+        lazy_load_cmds = {
+            "Mason",
+            "MasonInstall",
+            "MasonInstallAll",
+            "MasonUninstall",
+            "MasonUninstallAll",
+            "MasonLog",
+        },
+    },
 }
