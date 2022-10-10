@@ -118,6 +118,7 @@ local packer_startup = packer.startup(function(use)
     } -- smooth scrolling
     use {
         "norcalli/nvim-colorizer.lua",
+        event = "CursorHold",
         disable = ms_config.plugins.nvim_colorizer.disabled,
         config = function()
             require("plugins/nvim-colorizer")
@@ -166,6 +167,7 @@ local packer_startup = packer.startup(function(use)
     } -- easy editor navigation
     use {
         "ggandor/leap.nvim",
+        event = "CursorHold",
         disable = ms_config.plugins.leap.disabled,
         config = function()
             require("plugins/leap")
