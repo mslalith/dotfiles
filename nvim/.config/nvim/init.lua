@@ -1,4 +1,4 @@
-require("plugins/impatient")
+require("impatient").enable_profile()
 
 require("ms_config")
 
