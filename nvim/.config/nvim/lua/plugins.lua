@@ -400,7 +400,7 @@ local packer_startup = packer.startup(function(use)
     } -- sticky code context
     use {
         "windwp/nvim-ts-autotag",
-        ft = ms_config.plugins.nvim_ts_autotag.filetypes,
+        ft = ms_config.filetypes.web_frontend,
         disable = ms_config.plugins.nvim_ts_autotag.disabled,
         config = function()
             require("plugins/nvim-ts-autotag")

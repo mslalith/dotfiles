@@ -37,6 +37,19 @@ ms_config.is_git_repo = function()
     return vim.v.shell_error == 0
 end
 
+ms_config.filetypes = {
+    web_frontend = {
+        "html",
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+    },
+    rust = { "rust" },
+}
+
 ms_config.plugins = {
     dressing = { disabled = true },
     lsp_lines = { disabled = false },
@@ -58,18 +71,7 @@ ms_config.plugins = {
     nvim_treesitter = { disabled = false },
     nvim_treesitter_playground = { disabled = true },
     nvim_treesitter_context = { disabled = false },
-    nvim_ts_autotag = {
-        disabled = false,
-        filetypes = {
-            "html",
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-        },
-    },
+    nvim_ts_autotag = { disabled = false },
     gitsigns = { disabled = false },
     diffview = { disabled = false },
     vim_illuminate = { disabled = false },
