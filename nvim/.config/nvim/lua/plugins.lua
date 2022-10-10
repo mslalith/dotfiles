@@ -183,6 +183,7 @@ local packer_startup = packer.startup(function(use)
     } -- better comments
     use {
         "lukas-reineke/indent-blankline.nvim",
+        event = "CursorHold",
         disable = ms_config.plugins.indent_blankline.disabled,
         config = function()
             require("plugins/indent-blankline")
@@ -397,6 +398,7 @@ local packer_startup = packer.startup(function(use)
     }
     use {
         "nvim-treesitter/nvim-treesitter-context",
+        after = "nvim-treesitter",
         disable = ms_config.plugins.nvim_treesitter_context.disabled,
         config = function()
             require("plugins/treesitter-context")
@@ -405,6 +407,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "windwp/nvim-ts-autotag",
         ft = ms_config.filetypes.web_frontend,
+        after = "nvim-treesitter",
         disable = ms_config.plugins.nvim_ts_autotag.disabled,
         config = function()
             require("plugins/nvim-ts-autotag")
