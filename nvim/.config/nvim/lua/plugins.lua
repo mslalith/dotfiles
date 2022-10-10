@@ -61,6 +61,7 @@ local packer_startup = packer.startup(function(use)
     } -- neat notification manager
     use {
         "nvim-lualine/lualine.nvim",
+        event = "CursorHold",
         requires = { "kyazdani42/nvim-web-devicons" },
         disable = ms_config.plugins.lualine.disabled,
         config = function()
