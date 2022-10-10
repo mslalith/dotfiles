@@ -1,6 +1,4 @@
-vim.defer_fn(function()
-    require("plugins/impatient")
-end, 0)
+require("plugins/impatient")
 
 require("ms_config")
 
@@ -15,4 +13,4 @@ require("keymaps")
 require("colorscheme")
 
 -- LSP
-require("plugins/lsp/commands")
+-- require("plugins/lsp/commands")
