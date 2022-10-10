@@ -125,6 +125,7 @@ local packer_startup = packer.startup(function(use)
     } -- highlight colors
     use {
         "petertriho/nvim-scrollbar",
+        event = "CursorHold",
         disable = ms_config.plugins.nvim_scrollbar.disabled,
         config = function()
             require("plugins/nvim-scrollbar")
@@ -132,6 +133,7 @@ local packer_startup = packer.startup(function(use)
     } -- vertical scrollbar
     use {
         "kevinhwang91/nvim-hlslens",
+        after = "nvim-scrollbar",
         disable = ms_config.plugins.nvim_hlslens.disabled,
         config = function()
             require("plugins/nvim-hlslens")
