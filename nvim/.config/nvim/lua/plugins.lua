@@ -186,6 +186,7 @@ local packer_startup = packer.startup(function(use)
     } -- indent guidelines
     use {
         "kylechui/nvim-surround",
+        after = "nvim-treesitter",
         disable = ms_config.plugins.nvim_surround.disabled,
         config = function()
             require("plugins/nvim-surround")
@@ -366,6 +367,7 @@ local packer_startup = packer.startup(function(use)
     } -- breadcrumbs
     use {
         "glepnir/lspsaga.nvim",
+        after = "nvim-lspconfig",
         disable = ms_config.plugins.lspsaga.disabled,
         config = function()
             require("plugins.lsp.lspsaga")
