@@ -309,7 +309,7 @@ local packer_startup = packer.startup(function(use)
         cmd = ms_config.plugins.mason.lazy_load_cmds,
         disable = ms_config.plugins.mason.disabled,
         config = function()
-            require("plugins.mason")
+            require("plugins.lsp.mason")
         end,
     } -- package manager for LSP, DAP, Linters, Formatters
     use {

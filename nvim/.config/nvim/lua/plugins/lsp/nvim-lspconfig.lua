@@ -74,17 +74,17 @@ mason_lspconfig.setup_handlers {
     end,
 
     ["sumneko_lua"] = function()
-        local sumneko_opts = require("plugins.lsp.settings.sumneko_lua")
+        local sumneko_opts = require("plugins.lsp.providers.sumneko_lua")
         lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", sumneko_opts, opts))
     end,
 
     ["tsserver"] = function()
-        local tsserver_opts = require("plugins.lsp.settings.tsserver")
+        local tsserver_opts = require("plugins.lsp.providers.tsserver")
         lspconfig.tsserver.setup(vim.tbl_deep_extend("force", tsserver_opts, opts))
     end,
 
     ["rust_analyzer"] = function()
-        local rust_opts = require("plugins.lsp.settings.rust")
+        local rust_opts = require("plugins.lsp.providers.rust")
         local rust_tools = require("rust-tools")
         rust_tools.setup(vim.tbl_deep_extend("force", rust_opts, { server = opts }))
     end,

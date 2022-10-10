@@ -1,6 +1,4 @@
-local mason = require("mason")
-
-local settings = {
+require("mason").setup {
     ui = {
         border = "rounded",
         icons = {
@@ -10,5 +8,3 @@ local settings = {
         },
     },
 }
-
-mason.setup(settings)
