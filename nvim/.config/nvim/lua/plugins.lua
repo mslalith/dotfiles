@@ -266,7 +266,7 @@ local packer_startup = packer.startup(function(use)
         disable = ms_config.plugins.nvim_cmp.disabled,
         after = "LuaSnip",
         config = function()
-            require("plugins/completion")
+            require("plugins.completion.nvim-cmp")
         end,
     } -- code completion
     use {
