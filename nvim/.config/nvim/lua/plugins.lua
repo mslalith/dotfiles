@@ -435,6 +435,8 @@ local packer_startup = packer.startup(function(use)
     use("ryanoasis/vim-devicons")
     use {
         "kyazdani42/nvim-web-devicons",
+        opt = true,
+        module = "nvim-web-devicons",
         config = function()
             require("plugins/nvim-web-devicons")
         end,
