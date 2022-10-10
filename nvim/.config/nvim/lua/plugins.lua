@@ -151,7 +151,6 @@ local packer_startup = packer.startup(function(use)
             require("plugins/bufferline")
         end,
     } -- buffers
-    use("moll/vim-bbye") -- delete & close buffers
 
     -- Editing
     use {

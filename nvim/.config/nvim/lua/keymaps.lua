@@ -23,7 +23,7 @@ ms_config.keys.normal_mode("<A-Right>", ":vertical resize -2<CR>")
 -- Buffers
 ms_config.keys.normal_mode("<S-l>", ":BufferLineCycleNext<CR>")
 ms_config.keys.normal_mode("<S-h>", ":BufferLineCyclePrev<CR>")
-ms_config.keys.normal_mode("<leader>w", ":Bdelete!<CR>")
+ms_config.keys.normal_mode("<leader>w", ":bdelete<CR>")
 ms_config.keys.normal_mode("<leader>bh", ":BufferLineMovePrev<CR>")
 ms_config.keys.normal_mode("<leader>bl", ":BufferLineMoveNext<CR>")
 

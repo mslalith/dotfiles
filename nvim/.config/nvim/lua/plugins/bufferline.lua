@@ -1,8 +1,8 @@
 require("bufferline").setup {
     options = {
         numbers = "none",
-        close_command = "Bdelete! %d",
-        right_mouse_command = "Bdelete! %d",
+        close_command = "bdelete",
+        right_mouse_command = "bdelete",
         left_mouse_command = "buffer %d",
         middle_mouse_command = nil,
         buffer_close_icon = "",
