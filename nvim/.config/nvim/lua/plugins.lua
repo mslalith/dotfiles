@@ -145,6 +145,7 @@ local packer_startup = packer.startup(function(use)
     -- Bufferline
     use {
         "akinsho/bufferline.nvim",
+        event = "CursorHold",
         requires = { "kyazdani42/nvim-web-devicons" },
         disable = ms_config.plugins.bufferline.disabled,
         config = function()
