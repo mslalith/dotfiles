@@ -37,10 +37,7 @@ local lspconfig = require("lspconfig")
 local mason_lspconfig = require("mason-lspconfig")
 
 -- Capabilities
--- local cmp_nvim_lsp = require("cmp_nvim_lsp")
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local disable_formatting = function(client)
     client.server_capabilities.documentFormattingProvider = false

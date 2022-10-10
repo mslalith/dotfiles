@@ -278,6 +278,7 @@ local packer_startup = packer.startup(function(use)
     } -- buffer completion
     use {
         "hrsh7th/cmp-nvim-lsp",
+        module = "cmp_nvim_lsp",
         after = "nvim-cmp",
     } -- lsp completion
     use {
