@@ -32,6 +32,11 @@ ms_config.option = function(key, value)
     vim.opt[key] = value
 end
 
+ms_config.is_git_repo = function()
+    vim.fn.system("git rev-parse " .. vim.fn.expand("%:p:h"))
+    return vim.v.shell_error == 0
+end
+
 ms_config.plugins = {
     dressing = { disabled = true },
     lsp_lines = { disabled = false },

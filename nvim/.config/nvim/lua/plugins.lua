@@ -408,6 +408,7 @@ local packer_startup = packer.startup(function(use)
     -- Git
     use {
         "lewis6991/gitsigns.nvim",
+        cond = ms_config.is_git_repo,
         disable = ms_config.plugins.gitsigns.disabled,
         config = function()
             require("plugins/gitsigns")
