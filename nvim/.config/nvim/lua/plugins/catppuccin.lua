@@ -1,14 +1,6 @@
-local catppuccin = require("catppuccin")
+ms_config.global("catppuccin_flavour", "macchiato") -- latte, frappe, macchiato, mocha
 
-vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
-vim.api.nvim_create_autocmd("ColorSchemePre", {
-    pattern = "*",
-    callback = function()
-        vim.cmd("CatppuccinCompile")
-    end,
-})
-
-catppuccin.setup {
+require("catppuccin").setup {
     transparent_background = true,
     term_colors = true,
     compile = {
