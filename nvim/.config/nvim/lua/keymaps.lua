@@ -31,9 +31,6 @@ ms_config.keys.normal_mode("<leader>bl", ":BufferLineMoveNext<CR>")
 ms_config.keys.normal_mode("<leader>/", ":HopWordMW<CR>")
 ms_config.keys.normal_mode("<leader>i", ":TroubleToggle workspace_diagnostics<CR>")
 
--- Diffview
-ms_config.keys.normal_mode("<leader>d", ":DiffviewToggle<CR>") -- this is a custom command
-
 -- Telescope
 ms_config.keys.normal_mode("<A-S-o>", "<cmd>Telescope find_files<CR>")
 ms_config.keys.normal_mode("<A-S-f>", "<cmd>Telescope live_grep<CR>")
@@ -70,14 +67,3 @@ ms_config.keys.terminal_mode("<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 ms_config.keys.terminal_mode("<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 ms_config.keys.terminal_mode("<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 ms_config.keys.terminal_mode("<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
--- Custom Commands
-vim.api.nvim_create_user_command("DiffviewToggle", function(e)
-    local view = require("diffview.lib").get_current_view()
-
-    if view then
-        vim.cmd("DiffviewClose")
-    else
-        vim.cmd("DiffviewOpen " .. e.args)
-    end
-end, { nargs = "*" })

@@ -418,6 +418,7 @@ local packer_startup = packer.startup(function(use)
         "sindrets/diffview.nvim",
         module = "diffview",
         keys = { "<leader>", "d" },
+        cond = ms_config.is_git_repo,
         disable = ms_config.plugins.diffview.disabled,
         requires = { "nvim-lua/plenary.nvim" },
         config = function()
