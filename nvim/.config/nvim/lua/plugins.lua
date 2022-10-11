@@ -142,8 +142,15 @@ local packer_startup = packer.startup(function(use)
     } -- search highlighting
 
     -- Performance
+    -- TODO: this plugin will be redundant once https://github.com/neovim/neovim/pull/15436 is merged
     use("lewis6991/impatient.nvim") -- improve startup time
-    use("dstein64/vim-startuptime") -- profile startup time
+    use {
+        "dstein64/vim-startuptime",
+        cmd = "StartupTime",
+        config = function()
+            require("plugins.vim-startuptime")
+        end,
+    } -- profile startup time
 
     -- Bufferline
     use {
