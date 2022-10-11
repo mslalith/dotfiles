@@ -262,14 +262,14 @@ local packer_startup = packer.startup(function(use)
     -- Completion
     use {
         "onsails/lspkind-nvim",
-        event = "InsertEnter",
+        module = "lspkind",
         config = function()
             require("plugins.completion.lspkind")
         end,
     } -- vscode-like pictograms
     use {
         "L3MON4D3/LuaSnip",
-        after = "lspkind-nvim",
+        module = "luasnip",
         config = function()
             require("plugins.completion.luasnip")
         end,
@@ -277,7 +277,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "hrsh7th/nvim-cmp",
         disable = ms_config.plugins.nvim_cmp.disabled,
-        after = "LuaSnip",
+        after = "mason.nvim",
         config = function()
             require("plugins.completion.nvim-cmp")
         end,
@@ -310,29 +310,27 @@ local packer_startup = packer.startup(function(use)
 
     -- Native LSP
     use {
-        "neovim/nvim-lspconfig",
-        event = "CursorHold",
-        config = function()
-            require("plugins.lsp.nvim-lspconfig")
-        end,
-    } -- LSP configuration
-    use {
         "williamboman/mason.nvim",
-        module = "mason",
-        cmd = ms_config.plugins.mason.lazy_load_cmds,
+        event = "BufRead",
         disable = ms_config.plugins.mason.disabled,
         config = function()
             require("plugins.lsp.mason")
+            require("plugins.lsp.mason-lspconfig")
+            require("plugins.lsp.nvim-lspconfig")
         end,
+        requires = {
+            { "williamboman/mason-lspconfig.nvim" },
+            { "neovim/nvim-lspconfig" },
+        },
     } -- package manager for LSP, DAP, Linters, Formatters
     use {
-        "williamboman/mason-lspconfig.nvim",
-        module = "mason-lspconfig",
-        opt = true,
-        config = function()
-            require("plugins.lsp.mason-lspconfig")
-        end,
-    } -- easier integration with LSP
+        "neovim/nvim-lspconfig",
+        module_pattern = "lspconfig.*",
+        requires = {
+            { "hrsh7th/nvim-cmp" },
+        },
+    } -- LSP configuration
+
     use {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",

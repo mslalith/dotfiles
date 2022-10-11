@@ -1,3 +1,5 @@
+require("lspconfig.ui.windows").default_options.border = "rounded"
+
 local function lsp_diagnostics()
     local signs = {
         { name = "DiagnosticSignError", text = "" },
