@@ -325,6 +325,10 @@ local packer_startup = packer.startup(function(use)
         },
     } -- package manager for LSP, DAP, Linters, Formatters
     use {
+        "williamboman/mason-lspconfig.nvim",
+        module = "mason-lspconfig",
+    } -- easy integration with LSP
+    use {
         "neovim/nvim-lspconfig",
         module_pattern = "lspconfig.*",
         requires = {
