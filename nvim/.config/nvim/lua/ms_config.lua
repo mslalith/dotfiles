@@ -69,7 +69,7 @@ ms_config.plugins = {
     nvim_navic = { disabled = false },
     lspsaga = { disabled = false },
     nvim_treesitter = { disabled = false },
-    nvim_treesitter_playground = { disabled = true },
+    nvim_treesitter_playground = { disabled = false },
     nvim_treesitter_context = { disabled = false },
     nvim_ts_autotag = { disabled = false },
     gitsigns = { disabled = false },

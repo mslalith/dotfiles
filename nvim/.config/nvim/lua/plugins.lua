@@ -47,6 +47,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
+        requires = { "hrsh7th/nvim-cmp" },
         disable = ms_config.plugins.nvim_autopairs.disabled,
         config = function()
             require("plugins.autopairs")
@@ -56,7 +57,7 @@ local packer_startup = packer.startup(function(use)
         "rcarriga/nvim-notify",
         disable = ms_config.plugins.nvim_notify.disabled,
         config = function()
-            require("plugins/notify")
+            require("plugins.notify")
         end,
     } -- neat notification manager
     use {
@@ -65,7 +66,7 @@ local packer_startup = packer.startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons" },
         disable = ms_config.plugins.lualine.disabled,
         config = function()
-            require("plugins/lualine")
+            require("plugins.lualine")
         end,
     } -- better status line
     use {
@@ -73,7 +74,7 @@ local packer_startup = packer.startup(function(use)
         keys = { "<C-t>", "<leader>g" },
         disable = ms_config.plugins.toggleterm.disabled,
         config = function()
-            require("plugins/toggleterm")
+            require("plugins.toggleterm")
         end,
     } -- floating terminal
     use {
@@ -89,14 +90,14 @@ local packer_startup = packer.startup(function(use)
         "rmagatti/auto-session",
         disable = ms_config.plugins.auto_session.disabled,
         config = function()
-            require("plugins/auto-session")
+            require("plugins.auto-session")
         end,
     } -- saves state on quit
     use {
         "xiyaowong/nvim-transparent",
         disable = ms_config.plugins.nvim_transparent.disabled,
         config = function()
-            require("plugins/nvim-transparent")
+            require("plugins.nvim-transparent")
         end,
     } -- transparent background
     use {
@@ -113,7 +114,7 @@ local packer_startup = packer.startup(function(use)
         keys = { "<A-j>", "<A-k>" },
         disable = ms_config.plugins.neoscroll.disabled,
         config = function()
-            require("plugins/neoscroll")
+            require("plugins.neoscroll")
         end,
     } -- smooth scrolling
     use {
@@ -121,7 +122,7 @@ local packer_startup = packer.startup(function(use)
         event = "CursorHold",
         disable = ms_config.plugins.nvim_colorizer.disabled,
         config = function()
-            require("plugins/nvim-colorizer")
+            require("plugins.nvim-colorizer")
         end,
     } -- highlight colors
     use {
@@ -129,7 +130,7 @@ local packer_startup = packer.startup(function(use)
         event = "CursorHold",
         disable = ms_config.plugins.nvim_scrollbar.disabled,
         config = function()
-            require("plugins/nvim-scrollbar")
+            require("plugins.nvim-scrollbar")
         end,
     } -- vertical scrollbar
     use {
@@ -137,7 +138,7 @@ local packer_startup = packer.startup(function(use)
         after = "nvim-scrollbar",
         disable = ms_config.plugins.nvim_hlslens.disabled,
         config = function()
-            require("plugins/nvim-hlslens")
+            require("plugins.nvim-hlslens")
         end,
     } -- search highlighting
 
@@ -159,7 +160,7 @@ local packer_startup = packer.startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons" },
         disable = ms_config.plugins.bufferline.disabled,
         config = function()
-            require("plugins/bufferline")
+            require("plugins.bufferline")
         end,
     } -- buffers
 
@@ -169,7 +170,7 @@ local packer_startup = packer.startup(function(use)
         cmd = "HopWord*",
         disable = ms_config.plugins.hop.disabled,
         config = function()
-            require("plugins/hop")
+            require("plugins.hop")
         end,
     } -- easy editor navigation
     use {
@@ -177,7 +178,7 @@ local packer_startup = packer.startup(function(use)
         event = "CursorHold",
         disable = ms_config.plugins.leap.disabled,
         config = function()
-            require("plugins/leap")
+            require("plugins.leap")
         end,
     } -- quicker motion jumps
     use {
@@ -185,7 +186,7 @@ local packer_startup = packer.startup(function(use)
         keys = { "gc", "gb" },
         disable = ms_config.plugins.comment.disabled,
         config = function()
-            require("plugins/comment")
+            require("plugins.comment")
         end,
     } -- better comments
     use {
@@ -193,7 +194,7 @@ local packer_startup = packer.startup(function(use)
         event = "CursorHold",
         disable = ms_config.plugins.indent_blankline.disabled,
         config = function()
-            require("plugins/indent-blankline")
+            require("plugins.indent-blankline")
         end,
     } -- indent guidelines
     use {
@@ -201,21 +202,21 @@ local packer_startup = packer.startup(function(use)
         after = "nvim-treesitter",
         disable = ms_config.plugins.nvim_surround.disabled,
         config = function()
-            require("plugins/nvim-surround")
+            require("plugins.nvim-surround")
         end,
     } -- add/update/delete surroundings
     use {
         "RRethy/vim-illuminate",
         disable = ms_config.plugins.vim_illuminate.disabled,
         config = function()
-            require("plugins/illuminate")
+            require("plugins.illuminate")
         end,
     } -- highlight word under cursor
     use {
         "chentoast/marks.nvim",
         disable = ms_config.plugins.marks.disabled,
         config = function()
-            require("plugins/marks")
+            require("plugins.marks")
         end,
     } -- manage vim marks
 
@@ -337,7 +338,7 @@ local packer_startup = packer.startup(function(use)
         disable = ms_config.plugins.trouble.disabled,
         requires = { "kyazdani42/nvim-web-devicons" },
         config = function()
-            require("plugins/trouble")
+            require("plugins.trouble")
         end,
     } -- pretty diagnostics & more, also has Telescope support
     use {
@@ -346,7 +347,7 @@ local packer_startup = packer.startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
         disable = ms_config.plugins.null_ls.disabled,
         config = function()
-            require("plugins/lsp/null-ls")
+            require("plugins.lsp.null-ls")
         end,
     } -- LSP diagnostics, formatting
     use {
@@ -362,7 +363,7 @@ local packer_startup = packer.startup(function(use)
         after = "nvim-lspconfig",
         disable = ms_config.plugins.fidget.disabled,
         config = function()
-            require("plugins/fidget")
+            require("plugins.fidget")
         end,
     } -- lsp progress indicator
     use {
@@ -393,12 +394,13 @@ local packer_startup = packer.startup(function(use)
         run = ":TSUpdate",
         disable = ms_config.plugins.nvim_treesitter.disabled,
         config = function()
-            require("plugins/treesitter")
+            require("plugins.treesitter")
         end,
     } -- Abstract Syntax Tree
     use {
         "nvim-treesitter/playground",
-        after = "nvim-treesitter",
+        cmd = "TSPlaygroundToggle",
+        requires = { "nvim-treesitter/nvim-treesitter" },
         disable = ms_config.plugins.nvim_treesitter_playground.disabled,
     }
     use {
@@ -406,7 +408,7 @@ local packer_startup = packer.startup(function(use)
         after = "nvim-treesitter",
         disable = ms_config.plugins.nvim_treesitter_context.disabled,
         config = function()
-            require("plugins/treesitter-context")
+            require("plugins.treesitter-context")
         end,
     } -- sticky code context
     use {
@@ -415,7 +417,7 @@ local packer_startup = packer.startup(function(use)
         after = "nvim-treesitter",
         disable = ms_config.plugins.nvim_ts_autotag.disabled,
         config = function()
-            require("plugins/nvim-ts-autotag")
+            require("plugins.nvim-ts-autotag")
         end,
     } -- auto close tags
 
@@ -426,7 +428,7 @@ local packer_startup = packer.startup(function(use)
         cond = ms_config.is_git_repo,
         disable = ms_config.plugins.gitsigns.disabled,
         config = function()
-            require("plugins/gitsigns")
+            require("plugins.gitsigns")
         end,
     } -- blame, hunks, git diagnostics, etc
     use {
@@ -455,7 +457,7 @@ local packer_startup = packer.startup(function(use)
         opt = true,
         module = "nvim-web-devicons",
         config = function()
-            require("plugins/nvim-web-devicons")
+            require("plugins.nvim-web-devicons")
         end,
     }
 

@@ -8,8 +8,6 @@ ms_config.keys.insert_mode("jk", "<ESC>")
 require("plugins")
 require("options")
 require("keymaps")
-
--- Theme
 require("colorscheme")
 
 -- LSP
