@@ -12,4 +12,5 @@ end
 require("auto-session").setup {
     log_level = "error",
     pre_save_cmds = { close_all_floating_wins },
+    auto_session_use_git_branch = false,
 }
