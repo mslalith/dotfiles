@@ -61,7 +61,7 @@ local packer_startup = packer.startup(function(use)
     } -- neat notification manager
     use {
         "nvim-lualine/lualine.nvim",
-        event = "CursorHold",
+        event = "BufReadPre",
         requires = { "kyazdani42/nvim-web-devicons" },
         disable = ms_config.plugins.lualine.disabled,
         config = function()
@@ -155,7 +155,7 @@ local packer_startup = packer.startup(function(use)
     -- Bufferline
     use {
         "akinsho/bufferline.nvim",
-        event = "CursorHold",
+        event = "BufReadPre",
         requires = { "kyazdani42/nvim-web-devicons" },
         disable = ms_config.plugins.bufferline.disabled,
         config = function()
@@ -311,7 +311,7 @@ local packer_startup = packer.startup(function(use)
     -- Native LSP
     use {
         "williamboman/mason.nvim",
-        event = "BufRead",
+        event = "BufReadPre",
         disable = ms_config.plugins.mason.disabled,
         config = function()
             require("plugins.lsp.mason")
