@@ -9,6 +9,4 @@ require("plugins")
 require("options")
 require("keymaps")
 require("colorscheme")
-
--- LSP
--- require("plugins/lsp/commands")
+require("plugins.lsp.commands")

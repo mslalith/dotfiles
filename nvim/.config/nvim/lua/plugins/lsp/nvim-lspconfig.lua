@@ -46,7 +46,7 @@ local disable_formatting = function(client)
 end
 
 local auto_format_on_save = function()
-    vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
+    require("plugins.lsp.commands.auto_format_on_save").enable_auto_format()
 end
 
 local function attach_navic(client, bufnr)
