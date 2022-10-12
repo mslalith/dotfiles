@@ -225,11 +225,12 @@ local packer_startup = packer.startup(function(use)
     -- Telescope
     use {
         "nvim-telescope/telescope.nvim",
-        module = "telescope",
+        module_pattern = "telescope.*",
         cmd = "Telescope",
         disable = ms_config.plugins.telescope.disabled,
         config = function()
             require("plugins.telescope")
+            require("telescope").load_extension("notify")
         end,
         requires = {
             { "nvim-lua/plenary.nvim" },
