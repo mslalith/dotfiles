@@ -38,7 +38,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "kyazdani42/nvim-tree.lua",
         cmd = "NvimTreeToggle",
-        disable = ms_config.plugins.nvim_tree.disabled,
+        disable = ms.plugins.nvim_tree.disabled,
         requires = { "kyazdani42/nvim-web-devicons" },
         config = function()
             require("plugins.nvim-tree")
@@ -48,14 +48,14 @@ local packer_startup = packer.startup(function(use)
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         requires = { "hrsh7th/nvim-cmp" },
-        disable = ms_config.plugins.nvim_autopairs.disabled,
+        disable = ms.plugins.nvim_autopairs.disabled,
         config = function()
             require("plugins.autopairs")
         end,
     } -- autopairs
     use {
         "rcarriga/nvim-notify",
-        disable = ms_config.plugins.nvim_notify.disabled,
+        disable = ms.plugins.nvim_notify.disabled,
         config = function()
             require("plugins.notify")
         end,
@@ -64,7 +64,7 @@ local packer_startup = packer.startup(function(use)
         "nvim-lualine/lualine.nvim",
         event = "BufReadPre",
         requires = { "kyazdani42/nvim-web-devicons" },
-        disable = ms_config.plugins.lualine.disabled,
+        disable = ms.plugins.lualine.disabled,
         config = function()
             require("plugins.lualine")
         end,
@@ -72,7 +72,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "akinsho/toggleterm.nvim",
         keys = { "<C-t>", "<leader>g" },
-        disable = ms_config.plugins.toggleterm.disabled,
+        disable = ms.plugins.toggleterm.disabled,
         config = function()
             require("plugins.toggleterm")
         end,
@@ -80,7 +80,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "stevearc/aerial.nvim",
         after = "telescope.nvim",
-        disable = ms_config.plugins.aerial.disabled,
+        disable = ms.plugins.aerial.disabled,
         config = function()
             require("plugins.aerial")
             require("telescope").load_extension("aerial")
@@ -88,14 +88,14 @@ local packer_startup = packer.startup(function(use)
     } -- code outline symbols, also has Telescope support
     use {
         "rmagatti/auto-session",
-        disable = ms_config.plugins.auto_session.disabled,
+        disable = ms.plugins.auto_session.disabled,
         config = function()
             require("plugins.auto-session")
         end,
     } -- saves state on quit
     use {
         "xiyaowong/nvim-transparent",
-        disable = ms_config.plugins.nvim_transparent.disabled,
+        disable = ms.plugins.nvim_transparent.disabled,
         config = function()
             require("plugins.nvim-transparent")
         end,
@@ -103,7 +103,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "AckslD/nvim-neoclip.lua",
         after = "telescope.nvim",
-        disable = ms_config.plugins.nvim_neoclip.disabled,
+        disable = ms.plugins.nvim_neoclip.disabled,
         config = function()
             require("plugins.neoclip")
             require("telescope").load_extension("neoclip")
@@ -112,7 +112,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "karb94/neoscroll.nvim",
         keys = { "<A-j>", "<A-k>" },
-        disable = ms_config.plugins.neoscroll.disabled,
+        disable = ms.plugins.neoscroll.disabled,
         config = function()
             require("plugins.neoscroll")
         end,
@@ -120,7 +120,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "norcalli/nvim-colorizer.lua",
         event = "CursorHold",
-        disable = ms_config.plugins.nvim_colorizer.disabled,
+        disable = ms.plugins.nvim_colorizer.disabled,
         config = function()
             require("plugins.nvim-colorizer")
         end,
@@ -128,7 +128,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "petertriho/nvim-scrollbar",
         event = "CursorHold",
-        disable = ms_config.plugins.nvim_scrollbar.disabled,
+        disable = ms.plugins.nvim_scrollbar.disabled,
         config = function()
             require("plugins.nvim-scrollbar")
         end,
@@ -136,7 +136,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "kevinhwang91/nvim-hlslens",
         after = "nvim-scrollbar",
-        disable = ms_config.plugins.nvim_hlslens.disabled,
+        disable = ms.plugins.nvim_hlslens.disabled,
         config = function()
             require("plugins.nvim-hlslens")
         end,
@@ -158,7 +158,7 @@ local packer_startup = packer.startup(function(use)
         "akinsho/bufferline.nvim",
         event = "BufReadPre",
         requires = { "kyazdani42/nvim-web-devicons" },
-        disable = ms_config.plugins.bufferline.disabled,
+        disable = ms.plugins.bufferline.disabled,
         config = function()
             require("plugins.bufferline")
         end,
@@ -168,7 +168,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "phaazon/hop.nvim",
         cmd = "HopWord*",
-        disable = ms_config.plugins.hop.disabled,
+        disable = ms.plugins.hop.disabled,
         config = function()
             require("plugins.hop")
         end,
@@ -176,7 +176,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "ggandor/leap.nvim",
         event = "CursorHold",
-        disable = ms_config.plugins.leap.disabled,
+        disable = ms.plugins.leap.disabled,
         config = function()
             require("plugins.leap")
         end,
@@ -184,7 +184,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "numToStr/Comment.nvim",
         keys = { "gc", "gb" },
-        disable = ms_config.plugins.comment.disabled,
+        disable = ms.plugins.comment.disabled,
         config = function()
             require("plugins.comment")
         end,
@@ -192,7 +192,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "lukas-reineke/indent-blankline.nvim",
         event = "CursorHold",
-        disable = ms_config.plugins.indent_blankline.disabled,
+        disable = ms.plugins.indent_blankline.disabled,
         config = function()
             require("plugins.indent-blankline")
         end,
@@ -200,7 +200,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "kylechui/nvim-surround",
         after = "nvim-treesitter",
-        disable = ms_config.plugins.nvim_surround.disabled,
+        disable = ms.plugins.nvim_surround.disabled,
         config = function()
             require("plugins.nvim-surround")
         end,
@@ -208,7 +208,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "RRethy/vim-illuminate",
         event = "BufReadPre",
-        disable = ms_config.plugins.vim_illuminate.disabled,
+        disable = ms.plugins.vim_illuminate.disabled,
         config = function()
             require("plugins.illuminate")
         end,
@@ -216,7 +216,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "chentoast/marks.nvim",
         event = "BufReadPre",
-        disable = ms_config.plugins.marks.disabled,
+        disable = ms.plugins.marks.disabled,
         config = function()
             require("plugins.marks")
         end,
@@ -227,7 +227,7 @@ local packer_startup = packer.startup(function(use)
         "nvim-telescope/telescope.nvim",
         module_pattern = "telescope.*",
         cmd = "Telescope",
-        disable = ms_config.plugins.telescope.disabled,
+        disable = ms.plugins.telescope.disabled,
         config = function()
             require("plugins.telescope")
             require("telescope").load_extension("notify")
@@ -238,7 +238,7 @@ local packer_startup = packer.startup(function(use)
                 "nvim-telescope/telescope-fzf-native.nvim",
                 run = "make",
                 after = "telescope.nvim",
-                disable = ms_config.plugins.telescope_fzf_native.disabled,
+                disable = ms.plugins.telescope_fzf_native.disabled,
                 config = function()
                     require("telescope").load_extension("fzf")
                 end,
@@ -246,7 +246,7 @@ local packer_startup = packer.startup(function(use)
             {
                 "nvim-telescope/telescope-media-files.nvim",
                 after = "telescope.nvim",
-                disable = ms_config.plugins.telescope_media_files.disabled,
+                disable = ms.plugins.telescope_media_files.disabled,
                 config = function()
                     require("telescope").load_extension("media_files")
                 end,
@@ -257,7 +257,7 @@ local packer_startup = packer.startup(function(use)
     -- UI
     use {
         "stevearc/dressing.nvim",
-        disable = ms_config.plugins.dressing.disabled,
+        disable = ms.plugins.dressing.disabled,
         config = function()
             require("plugins.dressing")
         end,
@@ -280,7 +280,7 @@ local packer_startup = packer.startup(function(use)
     }
     use {
         "hrsh7th/nvim-cmp",
-        disable = ms_config.plugins.nvim_cmp.disabled,
+        disable = ms.plugins.nvim_cmp.disabled,
         after = "mason.nvim",
         config = function()
             require("plugins.completion.nvim-cmp")
@@ -316,7 +316,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "williamboman/mason.nvim",
         event = "BufReadPre",
-        disable = ms_config.plugins.mason.disabled,
+        disable = ms.plugins.mason.disabled,
         config = function()
             require("plugins.lsp.mason")
             require("plugins.lsp.mason-lspconfig")
@@ -342,7 +342,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
-        disable = ms_config.plugins.trouble.disabled,
+        disable = ms.plugins.trouble.disabled,
         requires = { "kyazdani42/nvim-web-devicons" },
         config = function()
             require("plugins.trouble")
@@ -352,7 +352,7 @@ local packer_startup = packer.startup(function(use)
         "jose-elias-alvarez/null-ls.nvim",
         after = "mason.nvim",
         requires = { "nvim-lua/plenary.nvim" },
-        disable = ms_config.plugins.null_ls.disabled,
+        disable = ms.plugins.null_ls.disabled,
         config = function()
             require("plugins.lsp.null-ls")
         end,
@@ -360,7 +360,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         after = "mason.nvim",
-        disable = ms_config.plugins.lsp_lines.disabled,
+        disable = ms.plugins.lsp_lines.disabled,
         config = function()
             require("plugins.lsp.lsp_lines")
         end,
@@ -368,7 +368,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "j-hui/fidget.nvim",
         after = "mason.nvim",
-        disable = ms_config.plugins.fidget.disabled,
+        disable = ms.plugins.fidget.disabled,
         config = function()
             require("plugins.fidget")
         end,
@@ -377,7 +377,7 @@ local packer_startup = packer.startup(function(use)
         "SmiteshP/nvim-navic",
         opt = true,
         module = "nvim-navic",
-        disable = ms_config.plugins.nvim_navic.disabled,
+        disable = ms.plugins.nvim_navic.disabled,
         requires = { "neovim/nvim-lspconfig" },
         config = function()
             require("plugins.lsp.nvim-navic")
@@ -386,7 +386,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "glepnir/lspsaga.nvim",
         after = "mason.nvim",
-        disable = ms_config.plugins.lspsaga.disabled,
+        disable = ms.plugins.lspsaga.disabled,
         config = function()
             require("plugins.lsp.lspsaga")
         end,
@@ -399,7 +399,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
-        disable = ms_config.plugins.nvim_treesitter.disabled,
+        disable = ms.plugins.nvim_treesitter.disabled,
         config = function()
             require("plugins.treesitter")
         end,
@@ -408,21 +408,21 @@ local packer_startup = packer.startup(function(use)
         "nvim-treesitter/playground",
         cmd = "TSPlaygroundToggle",
         requires = { "nvim-treesitter/nvim-treesitter" },
-        disable = ms_config.plugins.nvim_treesitter_playground.disabled,
+        disable = ms.plugins.nvim_treesitter_playground.disabled,
     }
     use {
         "nvim-treesitter/nvim-treesitter-context",
         after = "nvim-treesitter",
-        disable = ms_config.plugins.nvim_treesitter_context.disabled,
+        disable = ms.plugins.nvim_treesitter_context.disabled,
         config = function()
             require("plugins.treesitter-context")
         end,
     } -- sticky code context
     use {
         "windwp/nvim-ts-autotag",
-        ft = ms_config.filetypes.web_frontend,
+        ft = ms.filetypes.web_frontend,
         after = "nvim-treesitter",
-        disable = ms_config.plugins.nvim_ts_autotag.disabled,
+        disable = ms.plugins.nvim_ts_autotag.disabled,
         config = function()
             require("plugins.nvim-ts-autotag")
         end,
@@ -432,8 +432,8 @@ local packer_startup = packer.startup(function(use)
     use {
         "lewis6991/gitsigns.nvim",
         event = "CursorHold",
-        cond = ms_config.is_git_repo,
-        disable = ms_config.plugins.gitsigns.disabled,
+        cond = ms.is_git_repo,
+        disable = ms.plugins.gitsigns.disabled,
         config = function()
             require("plugins.gitsigns")
         end,
@@ -442,8 +442,8 @@ local packer_startup = packer.startup(function(use)
         "sindrets/diffview.nvim",
         module = "diffview",
         keys = { "<leader>", "d" },
-        cond = ms_config.is_git_repo,
-        disable = ms_config.plugins.diffview.disabled,
+        cond = ms.is_git_repo,
+        disable = ms.plugins.diffview.disabled,
         requires = { "nvim-lua/plenary.nvim" },
         config = function()
             require("plugins.diffview")

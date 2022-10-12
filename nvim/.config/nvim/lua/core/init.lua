@@ -1,8 +1,8 @@
 require("ms_config")
 
-ms_config.global("mapleader", " ")
-ms_config.keys.insert_mode("jk", "<ESC>")
-ms_config.disable_distribution_plugins()
+ms.global("mapleader", " ")
+ms.keys.insert_mode("jk", "<ESC>")
+ms.disable_distribution_plugins()
 
 require("plugins")
 require("options")

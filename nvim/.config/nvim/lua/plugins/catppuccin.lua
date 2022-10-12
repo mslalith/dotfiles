@@ -1,4 +1,4 @@
-ms_config.global("catppuccin_flavour", "macchiato") -- latte, frappe, macchiato, mocha
+ms.global("catppuccin_flavour", "macchiato") -- latte, frappe, macchiato, mocha
 
 require("catppuccin").setup {
     transparent_background = true,

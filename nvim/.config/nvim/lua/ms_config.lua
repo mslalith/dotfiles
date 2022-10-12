@@ -1,4 +1,4 @@
-ms_config = {}
+ms = {}
 
 local _opts = { noremap = true, silent = true }
 local keymap = function(mode, key, mapping, opts)
@@ -6,7 +6,7 @@ local keymap = function(mode, key, mapping, opts)
     vim.keymap.set(mode, key, mapping, opts)
 end
 
-ms_config.keys = {
+ms.keys = {
     normal_mode = function(key, mapping, opts)
         keymap("n", key, mapping, opts)
     end,
@@ -24,20 +24,20 @@ ms_config.keys = {
     end,
 }
 
-ms_config.global = function(key, value)
+ms.global = function(key, value)
     vim.g[key] = value
 end
 
-ms_config.option = function(key, value)
+ms.option = function(key, value)
     vim.opt[key] = value
 end
 
-ms_config.is_git_repo = function()
+ms.is_git_repo = function()
     vim.fn.system("git rev-parse " .. vim.fn.expand("%:p:h"))
     return vim.v.shell_error == 0
 end
 
-ms_config.filetypes = {
+ms.filetypes = {
     web_frontend = {
         "html",
         "javascript",
@@ -50,7 +50,7 @@ ms_config.filetypes = {
     rust = { "rust" },
 }
 
-ms_config.plugins = {
+ms.plugins = {
     dressing = { disabled = true },
     lsp_lines = { disabled = false },
     nvim_tree = { disabled = false },
@@ -102,23 +102,23 @@ ms_config.plugins = {
     },
 }
 
-ms_config.disable_distribution_plugins = function()
-    ms_config.global("loaded_gzip", 1)
-    ms_config.global("loaded_tar", 1)
-    ms_config.global("loaded_tarPlugin", 1)
-    ms_config.global("loaded_zip", 1)
-    ms_config.global("loaded_zipPlugin", 1)
-    ms_config.global("loaded_getscript", 1)
-    ms_config.global("loaded_getscriptPlugin", 1)
-    ms_config.global("loaded_vimball", 1)
-    ms_config.global("loaded_vimballPlugin", 1)
-    ms_config.global("loaded_matchit", 1)
-    ms_config.global("loaded_matchparen", 1)
-    ms_config.global("loaded_2html_plugin", 1)
-    ms_config.global("loaded_logiPat", 1)
-    ms_config.global("loaded_rrhelper", 1)
-    ms_config.global("loaded_netrw", 1)
-    ms_config.global("loaded_netrwPlugin", 1)
-    ms_config.global("loaded_netrwSettings", 1)
-    ms_config.global("loaded_netrwFileHandlers", 1)
+ms.disable_distribution_plugins = function()
+    ms.global("loaded_gzip", 1)
+    ms.global("loaded_tar", 1)
+    ms.global("loaded_tarPlugin", 1)
+    ms.global("loaded_zip", 1)
+    ms.global("loaded_zipPlugin", 1)
+    ms.global("loaded_getscript", 1)
+    ms.global("loaded_getscriptPlugin", 1)
+    ms.global("loaded_vimball", 1)
+    ms.global("loaded_vimballPlugin", 1)
+    ms.global("loaded_matchit", 1)
+    ms.global("loaded_matchparen", 1)
+    ms.global("loaded_2html_plugin", 1)
+    ms.global("loaded_logiPat", 1)
+    ms.global("loaded_rrhelper", 1)
+    ms.global("loaded_netrw", 1)
+    ms.global("loaded_netrwPlugin", 1)
+    ms.global("loaded_netrwSettings", 1)
+    ms.global("loaded_netrwFileHandlers", 1)
 end

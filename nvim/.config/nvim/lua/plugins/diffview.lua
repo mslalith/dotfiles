@@ -1,6 +1,6 @@
 local actions = require("diffview.actions")
 
-ms_config.keys.normal_mode("<leader>d", ":DiffviewToggle<CR>")
+ms.keys.normal_mode("<leader>d", ":DiffviewToggle<CR>")
 
 vim.api.nvim_create_user_command("DiffviewToggle", function(e)
     local view = require("diffview.lib").get_current_view()

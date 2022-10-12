@@ -41,5 +41,5 @@ local options = {
 vim.opt.shortmess:append("c")
 
 for key, value in pairs(options) do
-    ms_config.option(key, value)
+    ms.option(key, value)
 end

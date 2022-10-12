@@ -29,4 +29,4 @@ function _LAZYGIT_TOGGLE()
     lazygit:toggle()
 end
 
-ms_config.keys.normal_mode("<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>")
+ms.keys.normal_mode("<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>")
