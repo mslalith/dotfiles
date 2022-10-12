@@ -347,7 +347,7 @@ local packer_startup = packer.startup(function(use)
     } -- pretty diagnostics & more, also has Telescope support
     use {
         "jose-elias-alvarez/null-ls.nvim",
-        after = "nvim-lspconfig",
+        after = "mason.nvim",
         requires = { "nvim-lua/plenary.nvim" },
         disable = ms_config.plugins.null_ls.disabled,
         config = function()
@@ -356,7 +356,7 @@ local packer_startup = packer.startup(function(use)
     } -- LSP diagnostics, formatting
     use {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        after = "nvim-lspconfig",
+        after = "mason.nvim",
         disable = ms_config.plugins.lsp_lines.disabled,
         config = function()
             require("plugins.lsp.lsp_lines")
@@ -364,7 +364,7 @@ local packer_startup = packer.startup(function(use)
     } -- pretty inline diagnostics
     use {
         "j-hui/fidget.nvim",
-        after = "nvim-lspconfig",
+        after = "mason.nvim",
         disable = ms_config.plugins.fidget.disabled,
         config = function()
             require("plugins.fidget")
@@ -382,7 +382,7 @@ local packer_startup = packer.startup(function(use)
     } -- breadcrumbs
     use {
         "glepnir/lspsaga.nvim",
-        after = "nvim-lspconfig",
+        after = "mason.nvim",
         disable = ms_config.plugins.lspsaga.disabled,
         config = function()
             require("plugins.lsp.lspsaga")
