@@ -101,3 +101,24 @@ ms_config.plugins = {
         },
     },
 }
+
+ms_config.disable_distribution_plugins = function()
+    ms_config.global("loaded_gzip", 1)
+    ms_config.global("loaded_tar", 1)
+    ms_config.global("loaded_tarPlugin", 1)
+    ms_config.global("loaded_zip", 1)
+    ms_config.global("loaded_zipPlugin", 1)
+    ms_config.global("loaded_getscript", 1)
+    ms_config.global("loaded_getscriptPlugin", 1)
+    ms_config.global("loaded_vimball", 1)
+    ms_config.global("loaded_vimballPlugin", 1)
+    ms_config.global("loaded_matchit", 1)
+    ms_config.global("loaded_matchparen", 1)
+    ms_config.global("loaded_2html_plugin", 1)
+    ms_config.global("loaded_logiPat", 1)
+    ms_config.global("loaded_rrhelper", 1)
+    ms_config.global("loaded_netrw", 1)
+    ms_config.global("loaded_netrwPlugin", 1)
+    ms_config.global("loaded_netrwSettings", 1)
+    ms_config.global("loaded_netrwFileHandlers", 1)
+end
