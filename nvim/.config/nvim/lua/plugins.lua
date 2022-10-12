@@ -207,6 +207,7 @@ local packer_startup = packer.startup(function(use)
     } -- add/update/delete surroundings
     use {
         "RRethy/vim-illuminate",
+        event = "BufReadPre",
         disable = ms_config.plugins.vim_illuminate.disabled,
         config = function()
             require("plugins.illuminate")
@@ -214,6 +215,7 @@ local packer_startup = packer.startup(function(use)
     } -- highlight word under cursor
     use {
         "chentoast/marks.nvim",
+        event = "BufReadPre",
         disable = ms_config.plugins.marks.disabled,
         config = function()
             require("plugins.marks")
