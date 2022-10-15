@@ -6,6 +6,7 @@ ms.keys.normal_mode("<C-l>", "<C-w>l")
 
 ms.keys.normal_mode("<F5>", ":so %<CR>")
 ms.keys.normal_mode("<C-a>", "ggVG")
+ms.keys.normal_mode("<C-q>", ":q<CR>")
 ms.keys.normal_mode("<C-s>", ":w<CR>")
 ms.keys.insert_mode("<C-s>", "<Esc>:w<CR>a")
 ms.keys.normal_mode("dh", "d^")
