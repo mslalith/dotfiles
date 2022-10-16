@@ -262,6 +262,20 @@ local packer_startup = packer.startup(function(use)
             require("plugins.dressing")
         end,
     }
+    use {
+        "folke/noice.nvim",
+        after = "nvim-cmp",
+        config = function()
+            require("plugins.noice")
+        end,
+        requires = {
+            { "rcarriga/nvim-notify" },
+            {
+                "MunifTanjim/nui.nvim",
+                module_pattern = "nui.*",
+            },
+        },
+    }
 
     -- Completion
     use {
