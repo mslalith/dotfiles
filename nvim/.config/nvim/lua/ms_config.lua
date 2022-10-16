@@ -100,6 +100,8 @@ ms.plugins = {
             "MasonLog",
         },
     },
+    noice = { disabled = false },
+    wilder = { disabled = true },
 }
 
 ms.disable_distribution_plugins = function()

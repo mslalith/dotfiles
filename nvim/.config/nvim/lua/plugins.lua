@@ -265,6 +265,7 @@ local packer_startup = packer.startup(function(use)
     use {
         "folke/noice.nvim",
         after = "nvim-cmp",
+        disable = ms.plugins.noice.disabled,
         config = function()
             require("plugins.noice")
         end,
@@ -275,7 +276,15 @@ local packer_startup = packer.startup(function(use)
                 module_pattern = "nui.*",
             },
         },
-    }
+    } -- UI for cmdline & popupmenu
+    use {
+        "gelguy/wilder.nvim",
+        event = { "CmdwinEnter", "CmdlineEnter" },
+        disable = ms.plugins.wilder.disabled,
+        config = function()
+            require("plugins.wilder")
+        end,
+    } -- adventurous wildmenu
 
     -- Completion
     use {
