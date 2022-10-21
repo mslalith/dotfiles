@@ -68,7 +68,12 @@ cmp.setup {
     },
 
     formatting = {
-        format = require("lspkind").cmp_format(),
+        fields = { "kind", "abbr", "menu" },
+        format = require("lspkind").cmp_format {
+            mode = "symbol",
+            maxwidth = 50,
+            ellipsis_char = "...",
+        },
     },
 
     window = {
