@@ -16,7 +16,8 @@ brew install ripgrep
 brew install fd
 brew install jq
 brew install tldr
-brew install zellij
+brew install bottom
+brew install --cask iina
 
 
 # yabai
