@@ -7,7 +7,6 @@ api.events.subscribe(api.events.Event.FileCreated, function(data)
 end)
 
 nvim_tree.setup {
-    create_in_closed_folder = true,
     respect_buf_cwd = true,
     view = {
         width = 30,
