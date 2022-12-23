@@ -18,6 +18,7 @@ brew install jq
 brew install tldr
 brew install bottom
 brew install --cask iina
+brew install --cask shottr
 
 
 # yabai

@@ -34,3 +34,5 @@
 
 [diff]
     colorMoved = default
+[color]
+	ui = auto
