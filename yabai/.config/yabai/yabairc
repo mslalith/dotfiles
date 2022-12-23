@@ -21,7 +21,7 @@ yabai -m config external_bar                 all:28:0
 
 
 # manage with yabai for only these apps
-yabai -m rule --add app!="^(kitty|Google Chrome|Brave Browser|Android Studio|Android Studio Preview|Visual Studio Code)$" manage=off
+yabai -m rule --add app!="^(kitty|Google Chrome|Brave Browser|IntelliJ IDEA CE|Android Studio|Android Studio Preview|Preview|Notion)$" manage=off
 
 # exclude these apps from yabai
 # yabai -m rule --add app="^(System Preferences)$" manage=off
