@@ -71,3 +71,11 @@ function fz() {
   z $(fd -t d | fzf)
 }
 
+# Google Repo
+# export PATH=~/bin:$PATH
+# function repo() {
+#   command python3 ~/bin/repo $@
+# }
+
+# config for androidx project
+export JAVA_HOME="/Users/mslalith/Library/Java/JavaVirtualMachines/azul-17.0.5/Contents/Home/"
