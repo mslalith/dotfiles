@@ -8,7 +8,7 @@ function M.toggle()
     }
 end
 
-M.toggle()
 lsp_lines.setup()
+M.toggle()
 
 return M
