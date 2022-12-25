@@ -1,7 +1,6 @@
 local M = {
     "williamboman/mason.nvim",
     dependencies = {
-        "hrsh7th/nvim-cmp",
         "jose-elias-alvarez/null-ls.nvim",
         "lsp_lines.nvim",
         "glepnir/lspsaga.nvim",

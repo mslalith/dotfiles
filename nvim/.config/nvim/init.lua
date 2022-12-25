@@ -17,10 +17,10 @@ ms.global("mapleader", " ")
 ms.keys.insert_mode("jk", "<ESC>")
 ms.disable_distribution_plugins()
 
+require("options")
 require("lazy").setup("plugins", {
     defaults = { lazy = true },
 })
 
-require("options")
 require("keymaps")
 require("plugins.lsp.commands")
