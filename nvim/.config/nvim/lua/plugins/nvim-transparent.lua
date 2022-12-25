@@ -1,3 +1,8 @@
+local M = {
+    "xiyaowong/nvim-transparent",
+}
+
+function M.config()
 require("transparent").setup {
     enable = true,
     extra_groups = {
@@ -13,3 +18,6 @@ require("transparent").setup {
     },
     exclude = {},
 }
+end
+
+return M

@@ -1,3 +1,8 @@
+local M = {
+    "AckslD/nvim-neoclip.lua",
+}
+
+function M.config()
 require("neoclip").setup {
     history = 1000,
     preview = true,
@@ -30,3 +35,6 @@ require("neoclip").setup {
         },
     },
 }
+end
+
+return M

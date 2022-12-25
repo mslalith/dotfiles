@@ -1,3 +1,13 @@
+local M = {
+    "folke/noice.nvim",
+    -- after = "nvim-cmp",
+    dependencies = {
+        "rcarriga/nvim-notify",
+        "MunifTanjim/nui.nvim",
+    },
+}
+
+function M.config()
 require("noice").setup {
     routes = {
         {
@@ -9,3 +19,6 @@ require("noice").setup {
         enabled = false,
     },
 }
+end
+
+return M
