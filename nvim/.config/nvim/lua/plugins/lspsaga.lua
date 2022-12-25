@@ -3,8 +3,6 @@ local M = {
 }
 
 function M.config()
-    local lspsaga = require("lspsaga")
-
     ms.keys.normal_mode("ff", ":Lspsaga rename<CR>")
     ms.keys.normal_mode("K", ":Lspsaga hover_doc<CR>")
     ms.keys.normal_mode("<A-Enter>", ":Lspsaga code_action<CR>")
@@ -14,7 +12,7 @@ function M.config()
     ms.keys.normal_mode("g]", ":Lspsaga diagnostic_jump_next<CR>")
     ms.keys.normal_mode("gl", ":Lspsaga show_line_diagnostics<CR>")
 
-    lspsaga.init_lsp_saga {
+    require("lspsaga").init_lsp_saga {
         border_style = "rounded", -- "single" | "double" | "rounded" | "bold" | "plus"
         saga_winblend = 0, -- values between 0-100 (opaque to transparent)
 

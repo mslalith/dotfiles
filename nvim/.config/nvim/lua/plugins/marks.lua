@@ -4,7 +4,7 @@ local M = {
 }
 
 function M.config()
-require("marks").setup()
+    require("marks").setup()
 end
 
 return M

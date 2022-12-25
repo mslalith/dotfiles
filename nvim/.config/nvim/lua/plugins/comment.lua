@@ -1,11 +1,11 @@
 local M = {
     "numToStr/Comment.nvim",
     keys = { "gc", "gb" },
-    event = "BufReadPre"
+    event = "BufReadPre",
 }
 
 function M.config()
-require("Comment").setup()
+    require("Comment").setup()
 end
 
 return M

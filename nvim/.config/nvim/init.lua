@@ -20,4 +20,7 @@ ms.disable_distribution_plugins()
 require("lazy").setup("plugins", {
     defaults = { lazy = true },
 })
-require("core")
+
+require("options")
+require("keymaps")
+require("plugins.lsp.commands")

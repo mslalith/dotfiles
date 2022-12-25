@@ -7,17 +7,17 @@ local M = {
 }
 
 function M.config()
-require("noice").setup {
-    routes = {
-        {
-            view = "notify",
-            filter = { event = "msg_showmode" },
+    require("noice").setup {
+        routes = {
+            {
+                view = "notify",
+                filter = { event = "msg_showmode" },
+            },
         },
-    },
-    lsp_progress = {
-        enabled = false,
-    },
-}
+        lsp_progress = {
+            enabled = false,
+        },
+    }
 end
 
 return M

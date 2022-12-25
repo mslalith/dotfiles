@@ -3,17 +3,17 @@ local M = {
 }
 
 function M.config()
-require("treesitter-context").setup {
-    enable = true,
-    patterns = {
-        default = {
-            "class",
-            "function",
-            "method",
+    require("treesitter-context").setup {
+        enable = true,
+        patterns = {
+            default = {
+                "class",
+                "function",
+                "method",
+            },
         },
-    },
-    separator = "",
-}
+        separator = "",
+    }
 end
 
 return M
