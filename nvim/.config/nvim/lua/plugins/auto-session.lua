@@ -1,3 +1,9 @@
+local M =    {
+        "rmagatti/auto-session",
+        lazy = false
+    }
+
+function M.config()
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 local function close_all_floating_wins()
@@ -14,3 +20,6 @@ require("auto-session").setup {
     pre_save_cmds = { close_all_floating_wins },
     auto_session_use_git_branch = false,
 }
+end
+
+return M

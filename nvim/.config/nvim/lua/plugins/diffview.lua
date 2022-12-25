@@ -1,3 +1,11 @@
+local M = {
+    "sindrets/diffview.nvim",
+    keys = { "<leader>", "d" },
+    cond = ms.is_git_repo,
+    dependencies = { "nvim-lua/plenary.nvim" },
+}
+
+function M.config()
 local actions = require("diffview.actions")
 
 ms.keys.normal_mode("<leader>d", ":DiffviewToggle<CR>")
@@ -91,3 +99,6 @@ require("diffview").setup {
         },
     },
 }
+end
+
+return M

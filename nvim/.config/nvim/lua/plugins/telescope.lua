@@ -1,3 +1,15 @@
+local M = {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    dependencies = {
+        { "nvim-lua/plenary.nvim" },
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+        { "nvim-telescope/telescope-media-files.nvim" }
+    }
+}
+
+
+function M.config()
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 local action_layout = require("telescope.actions.layout")
@@ -74,3 +86,10 @@ telescope.setup {
         },
     },
 }
+
+        telescope.load_extension("notify")
+        telescope.load_extension("fzf")
+        telescope.load_extension("media_files")
+end
+
+return M

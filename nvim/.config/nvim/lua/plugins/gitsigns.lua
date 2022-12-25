@@ -1,3 +1,10 @@
+local M = {
+    "lewis6991/gitsigns.nvim",
+    event = "CursorHold",
+    cond = ms.is_git_repo,
+}
+
+function M.config()
 require("gitsigns").setup {
     on_attach = function(bufnr)
         -- Navigation
@@ -51,3 +58,6 @@ require("gitsigns").setup {
         enable = false,
     },
 }
+end
+
+return M

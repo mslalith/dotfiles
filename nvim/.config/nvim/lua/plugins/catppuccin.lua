@@ -1,3 +1,11 @@
+local M = {
+    "catppuccin/nvim",
+    lazy = false,
+    name = "catppuccin",
+    build = ":CatppuccinCompile",
+}
+
+function M.config()
 ms.global("catppuccin_flavour", "macchiato") -- latte, frappe, macchiato, mocha
 
 require("catppuccin").setup {
@@ -34,3 +42,6 @@ require("catppuccin").setup {
     },
 }
 vim.cmd("colorscheme catppuccin")
+end
+
+return M

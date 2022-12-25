@@ -1,3 +1,14 @@
+local M = {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    lazy = false,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-context",
+      "kylechui/nvim-surround"
+    },
+}
+
+function M.config()
 require("nvim-treesitter.configs").setup {
     ensure_installed = { "vim", "c", "lua", "query", "rust", "java", "python", "typescript" },
     sync_install = false,
@@ -32,3 +43,6 @@ require("nvim-treesitter.configs").setup {
         },
     },
 }
+end
+
+return M

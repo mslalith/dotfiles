@@ -1,3 +1,10 @@
+local M =    {
+        "kyazdani42/nvim-tree.lua",
+        cmd = "NvimTreeToggle",
+        dependencies = { "kyazdani42/nvim-web-devicons" },
+    }
+
+function M.config()
 local nvim_tree = require("nvim-tree")
 local api = require("nvim-tree.api")
 local tree_cb = require("nvim-tree.config").nvim_tree_callback
@@ -99,3 +106,6 @@ nvim_tree.setup {
 vim.cmd([[
   autocmd BufEnter * ++nested if winnr("$") == 1 && bufname() == "NvimTree_" . tabpagenr() | quit | endif
 ]])
+end
+
+return M

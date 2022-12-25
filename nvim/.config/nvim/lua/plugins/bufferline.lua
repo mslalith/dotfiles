@@ -1,3 +1,10 @@
+local M = {
+    "akinsho/bufferline.nvim",
+    event = "BufReadPre",
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+}
+
+function M.config()
 require("bufferline").setup {
     options = {
         numbers = "none",
@@ -33,3 +40,6 @@ require("bufferline").setup {
         always_show_bufferline = true,
     },
 }
+end
+
+return M

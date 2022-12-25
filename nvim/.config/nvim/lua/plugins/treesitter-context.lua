@@ -1,3 +1,8 @@
+local M = {
+    "nvim-treesitter/nvim-treesitter-context",
+}
+
+function M.config()
 require("treesitter-context").setup {
     enable = true,
     patterns = {
@@ -9,3 +14,6 @@ require("treesitter-context").setup {
     },
     separator = "",
 }
+end
+
+return M

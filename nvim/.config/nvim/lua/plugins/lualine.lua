@@ -1,3 +1,13 @@
+local M = {
+    "nvim-lualine/lualine.nvim",
+    event = "BufReadPre",
+    dependencies = { 
+        "kyazdani42/nvim-web-devicons",
+        "SmiteshP/nvim-navic",
+    },
+}
+
+function M.config()
 local navic = require("nvim-navic")
 local lualine = require("lualine")
 
@@ -40,3 +50,6 @@ lualine.setup {
     tabline = {},
     extensions = {},
 }
+end
+
+return M
