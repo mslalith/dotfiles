@@ -1,175 +1,36 @@
 return {
     "nvim-lua/plenary.nvim",
--- 
---     -- General
---     {
---         "windwp/nvim-autopairs",
---         event = "InsertEnter",
---         dependencies = { "hrsh7th/nvim-cmp" },
---         disable = ms.plugins.nvim_autopairs.disabled,
---         config = function()
---             require("plugins.autopairs")
---         end,
---     }, -- autopairs
--- 
---     -- UI
---     {
---         "stevearc/dressing.nvim",
---         disable = ms.plugins.dressing.disabled,
---         config = function()
---             require("plugins.dressing")
---         end,
---     },
---     {
---         "gelguy/wilder.nvim",
---         event = { "CmdwinEnter", "CmdlineEnter" },
---         disable = ms.plugins.wilder.disabled,
---         config = function()
---             require("plugins.wilder")
---         end,
---     }, -- adventurous wildmenu
--- 
---     -- Completion
---     {
---         "onsails/lspkind-nvim",
---         module = "lspkind",
---         config = function()
---             require("plugins.completion.lspkind")
---         end,
---     }, -- vscode-like pictograms
---     {
---         "L3MON4D3/LuaSnip",
---         module = "luasnip",
---         config = function()
---             require("plugins.completion.luasnip")
---         end,
---     },
---     {
---         "hrsh7th/nvim-cmp",
---         disable = ms.plugins.nvim_cmp.disabled,
---         after = "mason.nvim",
---         config = function()
---             require("plugins.completion.nvim-cmp")
---         end,
---     }, -- code completion
---     {
---         "hrsh7th/cmp-path",
---         after = "nvim-cmp",
---     }, -- path completion
---     {
---         "hrsh7th/cmp-buffer",
---         after = "nvim-cmp",
---     }, -- buffer completion
---     {
---         "hrsh7th/cmp-nvim-lsp",
---         module = "cmp_nvim_lsp",
---         after = "nvim-cmp",
---     }, -- lsp completion
---     {
---         "hrsh7th/cmp-nvim-lsp-signature-help",
---         after = "nvim-cmp",
---     }, -- lsp signature help
---     {
---         "saadparwaiz1/cmp_luasnip",
---         after = "nvim-cmp",
---     },
---     {
---         "rafamadriz/friendly-snippets",
---         after = "nvim-cmp",
---     },
--- 
---     -- Native LSP
---     {
---         "williamboman/mason.nvim",
---         event = "BufReadPre",
---         disable = ms.plugins.mason.disabled,
---         config = function()
---             require("plugins.lsp.mason")
---             require("plugins.lsp.mason-lspconfig")
---             require("plugins.lsp.nvim-lspconfig")
---         end,
---         dependencies = {
---             { "williamboman/mason-lspconfig.nvim" },
---             { "neovim/nvim-lspconfig" },
---         },
---     }, -- package manager for LSP, DAP, Linters, Formatters
---     {
---         "williamboman/mason-lspconfig.nvim",
---         module = "mason-lspconfig",
---     }, -- easy integration with LSP
---     {
---         "neovim/nvim-lspconfig",
---         module_pattern = "lspconfig.*",
---         dependencies = {
---             { "hrsh7th/nvim-cmp" },
---         },
---     }, -- LSP configuration
--- 
---     {
---         "folke/trouble.nvim",
---         cmd = "TroubleToggle",
---         disable = ms.plugins.trouble.disabled,
---         dependencies = { "kyazdani42/nvim-web-devicons" },
---         config = function()
---             require("plugins.trouble")
---         end,
---     }, -- pretty diagnostics & more, also has Telescope support
---     {
---         "jose-elias-alvarez/null-ls.nvim",
---         after = "mason.nvim",
---         dependencies = { "nvim-lua/plenary.nvim" },
---         disable = ms.plugins.null_ls.disabled,
---         config = function()
---             require("plugins.lsp.null-ls")
---         end,
---     }, -- LSP diagnostics, formatting
---     {
---         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
---         after = "mason.nvim",
---         disable = ms.plugins.lsp_lines.disabled,
---         config = function()
---             require("plugins.lsp.lsp_lines")
---         end,
---     }, -- pretty inline diagnostics
---     {
---         "j-hui/fidget.nvim",
---         after = "mason.nvim",
---         disable = ms.plugins.fidget.disabled,
---         config = function()
---             require("plugins.fidget")
---         end,
---     }, -- lsp progress indicator
---     {
---         "SmiteshP/nvim-navic",
---         opt = true,
---         module = "nvim-navic",
---         disable = ms.plugins.nvim_navic.disabled,
---         dependencies = { "neovim/nvim-lspconfig" },
---         config = function()
---             require("plugins.lsp.nvim-navic")
---         end,
---     }, -- breadcrumbs
---     {
---         "glepnir/lspsaga.nvim",
---         after = "mason.nvim",
---         disable = ms.plugins.lspsaga.disabled,
---         config = function()
---             require("plugins.lsp.lspsaga")
---         end,
---     },
--- 
---     -- LSP servers
---     "simrat39/rust-tools.nvim", -- rust lsp
--- 
---     -- Treesitter
---     {
---         "windwp/nvim-ts-autotag",
---         ft = ms.filetypes.web_frontend,
---         after = "nvim-treesitter",
---         disable = ms.plugins.nvim_ts_autotag.disabled,
---         config = function()
---             require("plugins.nvim-ts-autotag")
---         end,
---     }, -- auto close tags
+    --
+    --     -- UI
+    --     {
+    --         "stevearc/dressing.nvim",
+    --         disable = ms.plugins.dressing.disabled,
+    --         config = function()
+    --             require("plugins.dressing")
+    --         end,
+    --     },
+    --     {
+    --         "gelguy/wilder.nvim",
+    --         event = { "CmdwinEnter", "CmdlineEnter" },
+    --         disable = ms.plugins.wilder.disabled,
+    --         config = function()
+    --             require("plugins.wilder")
+    --         end,
+    --     }, -- adventurous wildmenu
+    --
+    --
+    --     -- LSP servers
+    "simrat39/rust-tools.nvim", -- rust lsp
+    --
+    --     -- Treesitter
+    --     {
+    --         "windwp/nvim-ts-autotag",
+    --         ft = ms.filetypes.web_frontend,
+    --         after = "nvim-treesitter",
+    --         disable = ms.plugins.nvim_ts_autotag.disabled,
+    --         config = function()
+    --             require("plugins.nvim-ts-autotag")
+    --         end,
+    --     }, -- auto close tags
     "ryanoasis/vim-devicons",
 }

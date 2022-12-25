@@ -1,3 +1,11 @@
+local M = {
+    "SmiteshP/nvim-navic",
+    dependencies = {
+      "neovim/nvim-lspconfig"
+    },
+}
+
+function M.config()
 require("nvim-navic").setup {
     icons = {
         File = " ",
@@ -32,3 +40,6 @@ require("nvim-navic").setup {
     depth_limit = 0,
     depth_limit_indicator = "..",
 }
+end
+
+return M

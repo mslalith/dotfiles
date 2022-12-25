@@ -42,7 +42,7 @@ ms.keys.normal_mode("gd", "<cmd>Telescope lsp_definitions<CR>")
 ms.keys.normal_mode("<A-v>", ":Telescope neoclip plus<CR>")
 ms.keys.normal_mode("<C-e>", ":Telescope oldfiles<CR>")
 
-ms.keys.normal_mode("<A-l>", "<cmd>lua require('plugins.lsp.lsp_lines').toggle()<cr>")
+ms.keys.normal_mode("<A-l>", "<cmd>lua require('plugins.lsp_lines').toggle()<cr>")
 ms.keys.normal_mode("<A-b>", ":MarksListAll<CR>")
 
 -- Stay in indent mode

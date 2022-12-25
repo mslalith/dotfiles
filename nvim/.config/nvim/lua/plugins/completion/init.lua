@@ -1,3 +1,19 @@
+local M = {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "L3MON4D3/LuaSnip",
+      "onsails/lspkind-nvim",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "saadparwaiz1/cmp_luasnip",
+      "rafamadriz/friendly-snippets",
+      "folke/noice.nvim",
+    },
+}
+
+function M.config()
 local check_backspace = function()
     local col = vim.fn.col(".") - 1
     return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -101,3 +117,6 @@ _ = vim.cmd([[
 " Disable cmp for a buffer
 autocmd FileType TelescopePrompt lua require("cmp").setup.buffer { enabled = false }
 --]]
+end
+
+return M

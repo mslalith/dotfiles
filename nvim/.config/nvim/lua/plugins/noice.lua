@@ -1,6 +1,5 @@
 local M = {
     "folke/noice.nvim",
-    -- after = "nvim-cmp",
     dependencies = {
         "rcarriga/nvim-notify",
         "MunifTanjim/nui.nvim",
