@@ -8,6 +8,7 @@ local M = {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lsp-signature-help",
+        "hrsh7th/cmp-cmdline",
         "saadparwaiz1/cmp_luasnip",
         "rafamadriz/friendly-snippets",
         "folke/noice.nvim",
@@ -107,6 +108,24 @@ function M.config()
             ghost_text = true,
         },
     }
+
+    cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+            sources = cmp.config.sources {
+                { name = "nvim_lsp_document_symbol" },
+                { name = "buffer" },
+            },
+        },
+    })
+
+    cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources {
+            { name = "cmdline", keyword_pattern = [=[[^[:blank:]\!]*]=] },
+            { name = "path" },
+        },
+    })
 
     _ = vim.cmd([[
   augroup CmpZsh
