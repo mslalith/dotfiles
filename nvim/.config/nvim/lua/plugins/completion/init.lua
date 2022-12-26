@@ -11,6 +11,7 @@ local M = {
         "saadparwaiz1/cmp_luasnip",
         "rafamadriz/friendly-snippets",
         "folke/noice.nvim",
+        "abecodes/tabout.nvim",
     },
 }
 
