@@ -12,7 +12,8 @@ ms.keys.insert_mode("<C-s>", "<Esc>:w<CR>a")
 ms.keys.normal_mode("dh", "d^")
 ms.keys.normal_mode("dl", "d$")
 
-ms.keys.normal_mode("<leader>`", ":nohlsearch<CR>")
+ms.keys.normal_mode("<ESC>", ":nohlsearch<CR>")
+ms.keys.normal_mode("<leader>l", ":Lazy<CR>")
 ms.keys.normal_mode("<leader>e", ":NvimTreeToggle<CR>")
 
 -- Resize with arrows
@@ -41,7 +42,7 @@ ms.keys.normal_mode("gd", "<cmd>Telescope lsp_definitions<CR>")
 ms.keys.normal_mode("<A-v>", ":Telescope neoclip plus<CR>")
 ms.keys.normal_mode("<C-e>", ":Telescope oldfiles<CR>")
 
-ms.keys.normal_mode("<A-l>", "<cmd>lua require('plugins.lsp.lsp_lines').toggle()<cr>")
+ms.keys.normal_mode("<A-l>", "<cmd>lua require('plugins.lsp_lines').toggle()<cr>")
 ms.keys.normal_mode("<A-b>", ":MarksListAll<CR>")
 
 -- Stay in indent mode

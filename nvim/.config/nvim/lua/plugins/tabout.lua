@@ -1,13 +1,12 @@
 local M = {
-    "windwp/nvim-ts-autotag",
-    ft = ms.filetypes.web_frontend,
+    "abecodes/tabout.nvim",
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
     },
 }
 
 function M.config()
-    require("nvim-ts-autotag").setup()
+    require("tabout").setup {}
 end
 
 return M
