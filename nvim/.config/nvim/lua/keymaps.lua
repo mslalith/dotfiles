@@ -38,7 +38,7 @@ ms.keys.normal_mode("<A-S-o>", "<cmd>Telescope find_files<CR>")
 ms.keys.normal_mode("<A-S-f>", "<cmd>Telescope live_grep<CR>")
 ms.keys.normal_mode("<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 ms.keys.normal_mode("<A-m>", "<cmd>Telescope aerial<CR>")
-ms.keys.normal_mode("gd", "<cmd>Telescope lsp_definitions<CR>")
+-- ms.keys.normal_mode("gd", "<cmd>Telescope lsp_definitions<CR>")
 ms.keys.normal_mode("<A-v>", ":Telescope neoclip plus<CR>")
 ms.keys.normal_mode("<C-e>", ":Telescope oldfiles<CR>")
 
