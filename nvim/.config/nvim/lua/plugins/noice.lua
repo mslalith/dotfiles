@@ -1,6 +1,6 @@
 local M = {
     "folke/noice.nvim",
-    event = "CmdlineEnter",
+    event = "VeryLazy",
     dependencies = {
         "rcarriga/nvim-notify",
         "MunifTanjim/nui.nvim",

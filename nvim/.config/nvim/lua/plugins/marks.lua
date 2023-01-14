@@ -1,6 +1,6 @@
 local M = {
     "chentoast/marks.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
 }
 
 function M.config()

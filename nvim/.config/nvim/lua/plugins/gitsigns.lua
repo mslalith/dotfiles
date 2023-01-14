@@ -1,6 +1,6 @@
 local M = {
     "lewis6991/gitsigns.nvim",
-    event = "CursorHold",
+    event = "VeryLazy",
     cond = ms.is_git_repo,
 }
 

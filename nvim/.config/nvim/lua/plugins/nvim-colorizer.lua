@@ -1,6 +1,6 @@
 local M = {
     "norcalli/nvim-colorizer.lua",
-    event = "CursorHold",
+    event = "VeryLazy",
 }
 
 function M.config()
