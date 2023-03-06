@@ -83,9 +83,9 @@ function M.config()
             lspconfig[server_name].setup(opts)
         end,
 
-        ["sumneko_lua"] = function()
-            local sumneko_opts = require("plugins.lsp.providers.sumneko_lua")
-            lspconfig.sumneko_lua.setup(vim.tbl_deep_extend("force", sumneko_opts, opts))
+        ["lua_ls"] = function()
+            local lua_opts = require("plugins.lsp.providers.lua_ls")
+            lspconfig.lua_ls.setup(vim.tbl_deep_extend("force", lua_opts, opts))
         end,
 
         ["tsserver"] = function()
