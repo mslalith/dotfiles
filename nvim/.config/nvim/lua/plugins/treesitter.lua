@@ -5,6 +5,7 @@ local M = {
     dependencies = {
         "nvim-treesitter/nvim-treesitter-context",
         "kylechui/nvim-surround",
+        "xiyaowong/nvim-transparent",
     },
 }
 
