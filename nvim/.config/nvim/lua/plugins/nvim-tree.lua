@@ -11,8 +11,8 @@ function M.config()
     local api = require("nvim-tree.api")
     local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
-    api.events.subscribe(api.events.Event.FileCreated, function(data)
-        require("nvim-tree.actions.node.open-file").fn("tabnew", data.fname)
+    api.events.subscribe(api.events.Event.FileCreated, function(file)
+        vim.cmd("edit " .. file.fname)
     end)
 
     nvim_tree.setup {
