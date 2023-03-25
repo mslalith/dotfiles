@@ -15,6 +15,14 @@ function M.config()
                 view = "notify",
                 filter = { event = "msg_showmode" },
             },
+            {
+                filter = {
+                    event = "msg_show",
+                    kind = "",
+                    find = "written",
+                },
+                opts = { skip = true },
+            },
         },
         lsp_progress = {
             enabled = false,
