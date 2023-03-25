@@ -9,6 +9,7 @@ brew install zoxide
 brew install exa
 brew install bat
 brew install zellij
+brew install helix
 brew install lsd
 brew install lf
 brew install git-delta
