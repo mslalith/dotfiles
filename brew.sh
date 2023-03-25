@@ -8,6 +8,7 @@ brew install gitui
 brew install zoxide
 brew install exa
 brew install bat
+brew install zellij
 brew install lsd
 brew install lf
 brew install git-delta

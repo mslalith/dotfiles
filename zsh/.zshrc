@@ -47,6 +47,7 @@ alias karabiner.json="nvim ~/.config/karabiner/karabiner.json"
 alias starship.toml="nvim ~/.config/starship.toml"
 
 
+alias zj="zellij"
 alias lg="lazygit"
 alias ls="exa -l"
 alias lsa="exa -la"
