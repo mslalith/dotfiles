@@ -7,13 +7,12 @@ ms.keys.normal_mode("<C-l>", "<C-w>l")
 ms.keys.normal_mode("<F5>", ":so %<CR>")
 ms.keys.normal_mode("<C-a>", "ggVG")
 ms.keys.normal_mode("<leader><leader>q", ":q<CR>")
-ms.keys.normal_mode("<C-s>", ":w<CR>")
+ms.keys.normal_mode("<leader>s", ":w<CR>")
 ms.keys.insert_mode("<C-s>", "<Esc>:w<CR>a")
 ms.keys.normal_mode("dh", "d^")
 ms.keys.normal_mode("dl", "d$")
 
 ms.keys.normal_mode("<ESC>", ":nohlsearch<CR>")
-ms.keys.normal_mode("<leader>l", ":Lazy<CR>")
 ms.keys.normal_mode("<leader>e", ":NvimTreeToggle<CR>")
 
 -- Resize with arrows
@@ -38,11 +37,10 @@ ms.keys.normal_mode("<A-S-o>", "<cmd>Telescope find_files<CR>")
 ms.keys.normal_mode("<A-S-f>", "<cmd>Telescope live_grep<CR>")
 ms.keys.normal_mode("<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 ms.keys.normal_mode("<A-m>", "<cmd>Telescope aerial<CR>")
--- ms.keys.normal_mode("gd", "<cmd>Telescope lsp_definitions<CR>")
 ms.keys.normal_mode("<A-v>", ":Telescope neoclip plus<CR>")
 ms.keys.normal_mode("<C-e>", ":Telescope oldfiles<CR>")
 
-ms.keys.normal_mode("<A-l>", "<cmd>lua require('plugins.lsp_lines').toggle()<cr>")
+ms.keys.normal_mode("<leader>l", "<cmd>lua require('plugins.lsp_lines').toggle()<cr>")
 ms.keys.normal_mode("<A-b>", ":MarksListAll<CR>")
 
 -- Stay in indent mode

@@ -4,7 +4,6 @@ local M = {
 
 function M.config()
     require("transparent").setup {
-        enable = true,
         extra_groups = {
             -- In particular, when you set it to 'all', that means all available groups
 
@@ -16,7 +15,7 @@ function M.config()
             "BufferLineSeparator",
             "BufferLineIndicatorSelected",
         },
-        exclude = {},
+        exclude_groups = {},
     }
 end
 

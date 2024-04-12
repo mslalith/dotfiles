@@ -9,7 +9,6 @@ local M = {
 function M.config()
     local nvim_tree = require("nvim-tree")
     local api = require("nvim-tree.api")
-    local tree_cb = require("nvim-tree.config").nvim_tree_callback
 
     api.events.subscribe(api.events.Event.FileCreated, function(file)
         vim.cmd("edit " .. file.fname)
@@ -19,7 +18,6 @@ function M.config()
         respect_buf_cwd = true,
         view = {
             width = 30,
-            hide_root_folder = false,
             side = "left",
             preserve_window_proportions = false,
             float = {
@@ -43,14 +41,6 @@ function M.config()
                         height = height,
                     }
                 end,
-            },
-            mappings = {
-                custom_only = false,
-                list = {
-                    { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-                    { key = "h", cb = tree_cb("close_node") },
-                    { key = "v", cb = tree_cb("vsplit") },
-                },
             },
         },
         diagnostics = {
@@ -79,6 +69,7 @@ function M.config()
         },
         renderer = {
             root_folder_modifier = ":~",
+            root_folder_label = false,
             highlight_git = true,
             add_trailing = true,
             group_empty = true,

@@ -4,9 +4,8 @@ local M = {
 }
 
 function M.config()
-    require("indent_blankline").setup {
-        show_current_context = false,
-        show_current_context_start = false,
+    require("ibl").setup {
+        scope = { enabled = false },
     }
 end
 

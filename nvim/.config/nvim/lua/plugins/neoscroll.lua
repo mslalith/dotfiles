@@ -1,6 +1,6 @@
 local M = {
     "karb94/neoscroll.nvim",
-    keys = { "<A-j>", "<A-k>" },
+    keys = { "{", "}" },
 }
 
 function M.config()
@@ -10,8 +10,8 @@ function M.config()
     }
 
     require("neoscroll.config").set_mappings {
-        ["<A-j>"] = { "scroll", { "vim.wo.scroll", "true", "350" } },
-        ["<A-k>"] = { "scroll", { "-vim.wo.scroll", "true", "350" } },
+        ["}"] = { "scroll", { "vim.wo.scroll", "true", "350" } },
+        ["{"] = { "scroll", { "-vim.wo.scroll", "true", "350" } },
     }
 end
 
