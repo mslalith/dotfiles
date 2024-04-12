@@ -1,0 +1,106 @@
+set incsearch
+set number
+set relativenumber
+set ideajoin
+set NERDTree
+set surround
+set sneak
+set easymotion
+
+let mapleader = ' '
+" source ~/.config/nvim/init.vim
+
+inoremap jk <Esc>
+
+" ------- AS Actions ----------
+nnoremap <leader>e :action ActivateProjectToolWindow<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+nnoremap <leader>u :action FindUsages<CR>
+nnoremap <leader>b :action ToggleLineBreakpoint<CR>
+nnoremap <leader>m :action ToggleBookmark<CR>
+nnoremap <leader>w :action CloseContent<CR>
+nnoremap ff :action RenameElement<CR>
+nnoremap gcc :action CommentByLineComment<CR>
+vnoremap gcc :action CommentByLineComment<CR>
+nnoremap gp :action ShowErrorDescription<CR>
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>ff :action SelectInProjectView<CR>
+
+nnoremap ]] :action VcsShowNextChangeMarker<CR>
+nnoremap [[ :action VcsShowPrevChangeMarker<CR>
+
+nnoremap <S-m> :action MethodUp<CR>
+nnoremap m :action MethodDown<CR>
+nnoremap <S-h> :action PreviousTab<CR>
+nnoremap <S-l> :action NextTab<CR>
+
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+nnoremap <A-e> :action Switcher<CR>
+
+
+" Editor
+nnoremap <A-k> <C-u>zz
+vnoremap <A-k> <C-u>zz
+nnoremap <A-j> <C-d>zz
+vnoremap <A-j> <C-d>zz
+
+nnoremap <A-h> :action EditorSelectWord<CR>
+nnoremap <A-l> :action EditorUnSelectWord<CR>
+vnoremap <A-h> :action EditorSelectWord<CR>
+vnoremap <A-l> :action EditorUnSelectWord<CR>
+
+nnoremap <S-A-j> :action MoveLineDown<CR>
+nnoremap <S-A-k> :action MoveLineUp<CR>
+vnoremap <S-A-j> :action MoveLineDown<CR>
+vnoremap <S-A-k> :action MoveLineUp<CR>
+
+nnoremap <leader><Enter> i<Enter><Esc>
+nnoremap <leader>j o<Esc>
+nnoremap <leader>k O<Esc>
+nnoremap dl d$
+nnoremap dh d^
+nnoremap n *
+
+
+" Split Tabs
+nnoremap <TAB> :action NextSplitter<CR>
+nnoremap <leader>sv :action SplitVertically<CR>
+nnoremap <leader>sm :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <leader>so :action OpenEditorInOppositeTabGroup<CR>
+
+
+" ------- Clipboard ----------
+vnoremap y "+y
+nnoremap yy "+yy
+nnoremap yw "+yiw
+nnoremap yl ^v$y
+
+
+" ------- Cursor Jumps ----------
+" nnoremap <leader>/ :action KJumpAction.Word0<CR>
+
+function! Invert(calledFromVisual)
+  let antonyms = ['true', 'false', 'after', 'before', 'start', 'end', 'left', 'right', 'first', 'last',
+                 \'True', 'False', 'After', 'Before', 'Start', 'End', 'Left', 'Right', 'First', 'Last']
+
+  if a:calledFromVisual
+    normal gv"wy
+  else
+    normal "wyiw
+  endif
+  let wordUnderCaret = @w
+
+  let eraseWord = a:calledFromVisual ? 'gvc' : 'ciw'
+  let count = 0
+  while (count < len(antonyms))
+    if (antonyms[count] ==# wordUnderCaret)
+      let antonym = (count % 2 ==? 0) ? antonyms[count + 1] : antonyms[count - 1]
+      execute 'normal ' .. eraseWord .. antonym
+      break
+    endif
+    let count += 1
+  endwhile
+endfunction
+
+nnoremap <leader>i :call Invert(0)<CR>
