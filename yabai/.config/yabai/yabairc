@@ -17,12 +17,14 @@ yabai -m config right_padding  10
 yabai -m config window_gap     10
 
 # simple-bar
-yabai -m config external_bar                 all:28:0
+# yabai -m config external_bar                 all:28:0
+yabai -m config external_bar                 all:0:0
 
 
 # manage with yabai for only these apps
-yabai -m rule --add app!="^(kitty|Google Chrome|Brave Browser|IntelliJ IDEA CE|Android Studio|Android Studio Preview|Preview|Notion)$" manage=off
+yabai -m rule --add app!="^(kitty|Google Chrome|Brave Browser|Arc|IntelliJ IDEA CE|Android Studio|Android Studio Preview|Preview|Notion|Fleet|Zed)$" manage=off
 
 # exclude these apps from yabai
 # yabai -m rule --add app="^(System Preferences)$" manage=off
 
+yabai -m signal --add event=window_created action='yabai -m query --windows --window $YABAI_WINDOW_ID | jq -er ".\"can-resize\" or .\"is-floating\"" || yabai -m window $YABAI_WINDOW_ID --toggle float'

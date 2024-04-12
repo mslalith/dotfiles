@@ -16,7 +16,7 @@ function M.config()
             ms.keys.normal_mode("<A-S-b>", ":Gitsigns toggle_current_line_blame<CR>")
         end,
 
-        signs = {
+        sign = {
             add = { hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
             change = { hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
             delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
