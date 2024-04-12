@@ -1,8 +1,21 @@
-[keys.insert]
-j = { k = "normal_mode" }
+theme = "catppuccin_mocha"
 
 [editor]
 line-number = "relative"
+bufferline = "always"
 
 [editor.cursor-shape]
 insert = "bar"
+
+[keys.insert]
+j = { k = "normal_mode" }
+C-space = "completion"
+
+[keys.normal]
+"S-h" = "goto_previous_buffer"
+"S-l" = "goto_next_buffer"
+
+[keys.normal.space]
+s = ":w"
+h = ":buffer-previous"
+l = "goto_next_buffer"
