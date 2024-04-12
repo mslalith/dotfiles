@@ -6,6 +6,7 @@
     autocrlf = input
     excludesfile = /Users/mslalith/.gitignore_global
     pager = delta # git-delta
+	longpaths = true
 
 [filter "lfs"]
     required = true
