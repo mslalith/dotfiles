@@ -31,6 +31,9 @@ eval "$(zoxide init zsh)"
 # Starship
 eval "$(starship init zsh)"
 
+# Atui
+eval "$(atuin init zsh)"
+
 # Map nvim as vim
 alias v="nvim"
 alias vim="nvim"

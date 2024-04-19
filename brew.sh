@@ -14,6 +14,7 @@ brew install lsd
 brew install lf
 brew install git-delta
 brew install starship
+brew install atuin
 brew install ripgrep
 brew install fd
 brew install jq
