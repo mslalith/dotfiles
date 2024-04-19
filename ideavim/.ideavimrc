@@ -19,7 +19,7 @@ nnoremap gf :action Forward<CR>
 nnoremap <leader>u :action FindUsages<CR>
 nnoremap <leader>b :action ToggleLineBreakpoint<CR>
 nnoremap <leader>m :action ToggleBookmark<CR>
-nnoremap <leader>w :action CloseContent<CR>
+" nnoremap <leader>w :action CloseContent<CR>
 nnoremap ff :action RenameElement<CR>
 nnoremap gcc :action CommentByLineComment<CR>
 vnoremap gcc :action CommentByLineComment<CR>
