@@ -58,6 +58,7 @@ vnoremap <S-A-k> :action MoveLineUp<CR>
 nnoremap <leader><Enter> i<Enter><Esc>
 nnoremap <leader>j o<Esc>
 nnoremap <leader>k O<Esc>
+nnoremap <leader>p viwp
 nnoremap dl d$
 nnoremap dh d^
 nnoremap n *
