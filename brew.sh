@@ -6,8 +6,9 @@ brew install git
 brew install lazygit
 brew install gitui
 brew install zoxide
-brew install exa
+brew install eza
 brew install bat
+brew install thefuck
 brew install zellij
 brew install helix
 brew install lsd
