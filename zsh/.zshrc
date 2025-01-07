@@ -1,5 +1,7 @@
 export LC_ALL=en_US.UTF-8
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:/Users/mslalith/.rustup/toolchains/stable-aarch64-apple-darwin/bin
+export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.2.0/bin:$PATH
 
 ZSH_THEME="mslalith"
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
@@ -10,7 +12,7 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 plugins=(
   git
   zsh-vi-mode
-  zsh-autosuggestions
+#  zsh-autosuggestions
   zsh-syntax-highlighting
 )
 
@@ -52,13 +54,14 @@ alias starship.toml="nvim ~/.config/starship.toml"
 
 alias zj="zellij"
 alias lg="lazygit"
-alias ls="exa -l"
-alias lsa="exa -la"
+alias ls="eza -l"
+alias lsa="eza -la"
 alias q="exit"
 alias c="clear"
 alias nvimdir="cd ~/.config/nvim/lua"
-alias dot="cd ~/.dotfiles"
+alias dotf="cd ~/.dotfiles"
 alias adbr="adb kill-server && adb start-server"
+alias gw="./gradlew"
 
 function ggacp() {
   git add .
