@@ -1,0 +1,57 @@
+default_roles:
+  # - system
+  # - aldente
+  # - asciiquarium
+  # - bash
+  # - bat
+  # - btop
+  # - discord
+  # - docker
+  # - flatpak
+  # - fonts
+  # - fzf
+  # - gh
+  - git
+  # - go
+  # - hammerspoon
+  # - helm
+  # - k8s
+  # - k9s
+  # - kitty
+  # - lazygit
+  # - lsd
+  # - lua
+  # - nala
+  # - ncdu
+  # - neofetch
+  # - neovim
+  # - nerdfetch
+  # - npm
+  # - nvm
+  # - obsidian
+  # - podman
+  # - pwsh
+  # - python
+  # - raycast
+  # - ruby
+  # - rust
+  # - slides
+  # - spotify
+  # - ssh
+  # - sshfs
+  # - starship
+  # - taskfile
+  # - terraform
+  # - terragrunt
+  # - tldr
+  # - tmate
+  # - tmux
+  # - tshark
+  # - warp
+  # - whalebrew
+  # - zellij
+  # - zoxide
+  # - zsh
+
+git_user_name: "mslalith"
+git_user_email: "mslalith.opensource@gmail.com"
