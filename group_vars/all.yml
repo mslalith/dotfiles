@@ -8,6 +8,7 @@ default_roles:
   # - btop
   # - discord
   # - docker
+  - eza
   - fd
   # - flatpak
   # - fonts
@@ -21,7 +22,7 @@ default_roles:
   # - k9s
   - kitty
   - lazygit
-  - lsd
+  # - lsd
   # - lua
   # - nala
   # - ncdu
