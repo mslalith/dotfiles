@@ -1,0 +1,7 @@
+---
+- name: "{{ role_name }} | Copy .ideavim"
+  ansible.builtin.copy:
+    src: "ideavim"
+    dest: "{{ ansible_user_dir }}/.ideavim"
+    mode: "0644"
+
