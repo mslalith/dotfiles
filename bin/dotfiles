@@ -94,10 +94,14 @@ function macos_setup() {
     __task "Installing Homebrew"
     _cmd "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
   fi
+
+  _cmd "brew update && brew upgrade"
+
   if ! [ -x "$(command -v git)" ]; then
     __task "Installing Git"
     _cmd "brew install git"
   fi
+
   if ! [ -x "$(command -v ansible)" ]; then
     __task "Installing Ansible"
     _cmd "brew install ansible"

@@ -1,6 +1,6 @@
 ---
 - name: "{{ role_name }} | MacOSX | Install kitty"
-  community.general.homebrew:
+  community.general.homebrew_cask:
     name: kitty
     state: present
 

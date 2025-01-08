@@ -1,5 +1,5 @@
 ---
 - name: "{{ role_name }} | MacOSX | Install raycast"
-  community.general.homebrew:
+  community.general.homebrew_cask:
     name: raycast
     state: present
