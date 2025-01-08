@@ -24,7 +24,7 @@ function M.config()
         automatic_installation = true,
         ensure_installed = {
             "lua_ls",
-            "tsserver",
+            -- "tsserver",
             "rust_analyzer",
             "pyright",
         },

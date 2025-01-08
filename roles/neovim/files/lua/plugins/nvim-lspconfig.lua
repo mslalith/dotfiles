@@ -88,10 +88,10 @@ function M.config()
             lspconfig.lua_ls.setup(vim.tbl_deep_extend("force", lua_opts, opts))
         end,
 
-        ["tsserver"] = function()
-            local tsserver_opts = require("plugins.lsp.providers.tsserver")
-            lspconfig.tsserver.setup(vim.tbl_deep_extend("force", tsserver_opts, opts))
-        end,
+        -- ["tsserver"] = function()
+        --     local tsserver_opts = require("plugins.lsp.providers.tsserver")
+        --     lspconfig.tsserver.setup(vim.tbl_deep_extend("force", tsserver_opts, opts))
+        -- end,
 
         ["rust_analyzer"] = function()
             local rust_opts = require("plugins.lsp.providers.rust")
