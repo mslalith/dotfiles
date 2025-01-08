@@ -32,10 +32,7 @@
 
 - name: "Kitty | MacOSX | Deploy Kitty Theme"
   ansible.builtin.copy:
-    src: "{{ item }}"
-    dest: "{{ ansible_user_dir }}/.config/kitty/{{ item }}"
+    src: "mocha.conf"
+    dest: "{{ ansible_user_dir }}/.config/kitty/mocha.conf"
     mode: "0644"
-  loop:
-    - "mocha.conf"
-    - "current-theme.conf"
 
