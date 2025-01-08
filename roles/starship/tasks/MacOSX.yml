@@ -1,0 +1,5 @@
+---
+- name: "{{ role_name }} | MacOSX | Install starship"
+  community.general.homebrew:
+    name: starship
+    state: present

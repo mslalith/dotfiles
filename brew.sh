@@ -3,10 +3,8 @@
 
 # install brew packages
 brew install eza
-brew install bat
 brew install thefuck
 brew install lsd
-brew install starship
 brew install ripgrep
 brew install --cask iina
 brew install --cask shottr
