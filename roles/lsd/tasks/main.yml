@@ -16,12 +16,12 @@
 
 - name: "{{ role_name }} | Copy lsd config"
   ansible.builtin.copy:
-    src: "config.yaml"
+    src: "config.yml"
     dest: "{{ ansible_user_dir }}/.config/lsd/config.yml"
     mode: "0644"
 
 - name: "{{ role_name }} | Copy colors.yaml"
   ansible.builtin.copy:
-    src: "colors.yaml"
+    src: "colors.yml"
     dest: "{{ ansible_user_dir }}/.config/lsd/colors.yml"
     mode: "0644"
