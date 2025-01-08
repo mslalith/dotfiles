@@ -2,7 +2,6 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # install brew packages
-brew install lazygit
 brew install zoxide
 brew install eza
 brew install bat
