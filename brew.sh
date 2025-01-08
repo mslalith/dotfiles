@@ -1,13 +1,9 @@
-# install brew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 # install brew packages
 brew install eza
 brew install thefuck
 brew install lsd
 brew install ripgrep
 brew install --cask iina
-brew install --cask shottr
 
 
 # yabai

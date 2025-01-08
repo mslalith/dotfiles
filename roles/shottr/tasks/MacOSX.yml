@@ -1,0 +1,5 @@
+---
+- name: "{{ role_name }} | MacOSX | Install shottr"
+  community.general.homebrew:
+    name: shottr
+    state: present
