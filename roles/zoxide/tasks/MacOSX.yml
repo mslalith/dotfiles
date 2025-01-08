@@ -1,0 +1,5 @@
+---
+- name: "{{ role_name }} | MacOSX | Install zoxide"
+  community.general.homebrew:
+    name: zoxide
+    state: present

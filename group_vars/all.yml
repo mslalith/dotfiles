@@ -53,7 +53,7 @@ default_roles:
   # - whalebrew
   - yabai
   # - zellij
-  # - zoxide
+  - zoxide
   # - zsh
 
 git_user_name: "mslalith"
