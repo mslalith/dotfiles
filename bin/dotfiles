@@ -159,7 +159,7 @@ pushd "$DOTFILES_DIR" 2>&1 > /dev/null
 update_ansible_galaxy $ID
 
 rm -f $VAULT_SECRET_FILE
-ansible-playbook "$DOTFILES_DIR/main.yml" "$@"
+ansible-playbook "$DOTFILES_DIR/main.yml" --ask-become-pass "$@"
 
 popd 2>&1 > /dev/null
 
