@@ -56,9 +56,8 @@ default_roles:
   # - warp
   # - whalebrew
   - yabai
-  # - zellij
   - zoxide
-  # - zsh
+  - zsh
 
 git_user_name: "mslalith"
 git_user_email: "mslalith.opensource@gmail.com"
