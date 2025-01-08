@@ -1,5 +1,5 @@
 ---
-- name: "Lazygit | MacOSX | Install lazygit"
+- name: "{{ role_name }} | MacOSX | Install lazygit"
   community.general.homebrew:
     name: lazygit
     state: present

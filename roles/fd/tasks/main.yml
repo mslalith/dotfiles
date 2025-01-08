@@ -8,20 +8,19 @@
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: distribution_config.stat.exists
 
-- name: "fd | Install fd"
+- name: "{{ role_name }} | Install fd"
   community.general.homebrew:
     name: fd
     state: present
 
-- name: "fd | Create fd Config Directory"
+- name: "{{ role_name }} | Create fd Config Directory"
   ansible.builtin.file:
     path: "{{ ansible_user_dir }}/.config/fd"
     mode: "0755"
     state: directory
 
-- name: "fd | Deploy fd Config"
+- name: "{{ role_name }} | Deploy fd Config"
   ansible.builtin.copy:
     src: "ignore"
     dest: "{{ ansible_user_dir }}/.config/fd/ignore"
     mode: "0644"
-

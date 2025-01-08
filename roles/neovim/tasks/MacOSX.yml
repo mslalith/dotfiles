@@ -1,5 +1,5 @@
 ---
-- name: "Neovim | MacOSX | Dependencies"
+- name: "{{ role_name }} | MacOSX | Dependencies"
   community.general.homebrew:
     name:
       - cmake
@@ -11,8 +11,7 @@
       - ripgrep
     state: present
 
-- name: "Neovim | MacOSX | Install"
+- name: "{{ role_name }} | MacOSX | Install"
   community.general.homebrew:
     name: neovim
     state: present
-
