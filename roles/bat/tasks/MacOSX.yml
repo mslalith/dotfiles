@@ -1,0 +1,23 @@
+---
+- name: "{{ role_name }} | MacOSX | Install bat"
+  community.general.homebrew:
+    name: bat
+    state: present
+
+- name: "{{ role_name }} | MacOSX | Create bat themes directory"
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.config/bat/themes"
+    state: directory
+    mode: "0755"
+
+- name: "{{ role_name }} | MacOSX | Install bat config"
+  ansible.builtin.copy:
+    src: config
+    dest: "{{ ansible_user_dir }}/.config/bat/config"
+    mode: "0644"
+
+- name: "{{ role_name }} | MacOSX | Install bat themes"
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Mocha.tmTheme"
+    dest: "{{ ansible_user_dir }}/.config/bat/themes/Catppuccino Mocha.tmTheme"
+    mode: "0644"
