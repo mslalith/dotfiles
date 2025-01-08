@@ -8,7 +8,6 @@ brew install bat
 brew install thefuck
 brew install lsd
 brew install starship
-brew install atuin
 brew install ripgrep
 brew install --cask iina
 brew install --cask shottr

@@ -1,0 +1,5 @@
+---
+- name: "{{ role_name }} | MacOSX | Install atuin"
+  community.general.homebrew:
+    name: atuin
+    state: present
