@@ -1,5 +1,5 @@
 ---
-- name: Check that the somefile.conf exists
+- name: "{{ role_name }} | Check if .ideavimrc file exists"
   ansible.builtin.stat:
     path: "{{ ansible_user_dir }}/.ideavimrc"
   register: ideavimrc_file
