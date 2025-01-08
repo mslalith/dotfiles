@@ -1,0 +1,13 @@
+---
+- name: "{{ role_name }} | MacOSX | Install"
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - zsh
+
+- name: "{{ role_name }} | Set default terminal"
+  ansible.builtin.user:
+    name: "{{ host_user }}"
+    shell: /opt/homebrew/bin/zsh
+  become: true

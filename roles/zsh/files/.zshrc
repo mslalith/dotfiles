@@ -1,41 +1,82 @@
-export LC_ALL=en_US.UTF-8
-export ZSH="$HOME/.oh-my-zsh"
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  # If you're using macOS, you'll want this enabled
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
-export PATH=$PATH:/Users/mslalith/.rustup/toolchains/stable-aarch64-apple-darwin/bin
-export PATH=/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/3.2.0/bin:$PATH
+# Set the directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-ZSH_THEME="mslalith"
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
+
+# ZSH_THEME="mslalith"
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  zsh-vi-mode
-#  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# Fuzzy search
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# kitty
-alias icat="kitty +kitten icat"
-
-# thefuck completion
-eval $(thefuck --alias)
-
-# zoxide
-eval "$(zoxide init zsh)"
+# Add in zsh plugins
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
+# zinit light zsh-users/zsh-autosuggestions
 
 # Starship
-eval "$(starship init zsh)"
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh"
+zinit light starship/starship
 
-# Atui
+
+# Add in snippets
+# Needed for loading next git.zsh without [_defer_async_git_register:4: command not found: _omz_register_handler errors]
+zinit snippet OMZL::async_prompt.zsh
+zinit snippet OMZL::git.zsh
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::ssh
+zinit snippet OMZP::aliases
+zinit snippet OMZP::globalias
+zinit snippet OMZP::archlinux
+zinit snippet OMZP::aws
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::kubectx
+zinit snippet OMZP::command-not-found
+
+# Load completions
+autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+# Fuzzy search
+if [[ -f ~/.fzf.zsh ]]; then
+  source ~/.fzf.zsh
+fi
+
+# All custom functions
+for file in $HOME/.config/zsh/*.zsh; do
+  source "$file"
+done
+
+# zi is defined by zinit as alias zi='zinit'. Unalias it to use with zoxide
+unalias zi
+
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 eval "$(atuin init zsh)"
+alias icat="kitty +kitten icat"
 
 # Map nvim as vim
 alias v="nvim"
@@ -53,10 +94,9 @@ alias karabiner.json="nvim ~/.config/karabiner/karabiner.json"
 alias starship.toml="nvim ~/.config/starship.toml"
 
 
-alias zj="zellij"
 alias lg="lazygit"
-alias ls="eza -l"
-alias lsa="eza -la"
+alias ls="eza -l --icons"
+alias lsa="eza -la --icons"
 alias q="exit"
 alias c="clear"
 alias nvimdir="cd ~/.config/nvim/lua"
@@ -64,26 +104,7 @@ alias dotf="cd ~/.dotfiles"
 alias adbr="adb kill-server && adb start-server"
 alias gw="./gradlew"
 
-function ggacp() {
-  git add .
-  git commit -m "$1"
-  git push
-}
-
-function ggcp() {
-  git commit -m "$1"
-  git push
-}
-
 function fz() {
   z $(fd -t d | fzf)
 }
 
-# Google Repo
-# export PATH=~/bin:$PATH
-# function repo() {
-#   command python3 ~/bin/repo $@
-# }
-
-# config for androidx project
-export JAVA_HOME="/Users/mslalith/Library/Java/JavaVirtualMachines/azul-17.0.5/Contents/Home/"
