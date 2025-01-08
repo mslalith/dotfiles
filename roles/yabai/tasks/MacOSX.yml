@@ -19,6 +19,8 @@
 - name: "yabai | MacOSX | Stop yabai"
   ansible.builtin.command: yabai --stop-service
   ignore_errors: true
+  register: command_result
+  failed_when: "'FAILED' in command_result.stderr"
 
 - name: "yabai | MacOSX | Start yabai"
   ansible.builtin.command: yabai --start-service
