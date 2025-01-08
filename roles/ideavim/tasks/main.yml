@@ -1,7 +1,8 @@
 ---
-- name: "{{ role_name }} | Copy .ideavim"
-  ansible.builtin.copy:
-    src: "ideavim"
-    dest: "{{ ansible_user_dir }}/.ideavim"
-    mode: "0644"
+- name: "{{ role_name }} | Create symlink to .ideavim"
+  ansible.builtin.file:
+    src: "{{ role_path }}/files"
+    dest: "{{ ansible_user_dir }}"
+    state: link
+    force: true
 
