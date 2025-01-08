@@ -3,6 +3,7 @@
   community.general.homebrew:
     name: koekeishiya/formulae/yabai
     state: present
+  ignore_errors: true
 
 - name: "yabai | MacOSX | Create yabai Config Directory"
   ansible.builtin.file:
@@ -15,4 +16,7 @@
     src: "yabairc"
     dest: "{{ ansible_user_dir }}/.config/yabai/yabairc"
     mode: "0644"
+
+- name: "yabai | MacOSX | Start yabai"
+  ansible.builtin.command: yabai --start-service
 
