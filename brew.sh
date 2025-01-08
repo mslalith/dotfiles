@@ -1,5 +1,4 @@
 # install brew packages
-brew install ripgrep
 brew install --cask iina
 
 
