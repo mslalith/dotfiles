@@ -2,25 +2,15 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # install brew packages
-brew install git
 brew install lazygit
-brew install gitui
 brew install zoxide
 brew install eza
 brew install bat
 brew install thefuck
-brew install zellij
-brew install helix
 brew install lsd
-brew install lf
-brew install git-delta
 brew install starship
 brew install atuin
 brew install ripgrep
-brew install fd
-brew install jq
-brew install tldr
-brew install bottom
 brew install --cask iina
 brew install --cask shottr
 
@@ -29,9 +19,6 @@ brew install --cask shottr
 brew install koekeishiya/formulae/yabai
 brew services start koekeishiya/formulae/yabai
 chmod +x ./yabai/.config/yabai/yabairc
-
-# ubersicht
-brew install --cask ubersicht
 
 # karabiner-elements
 brew install --cask karabiner-elements
