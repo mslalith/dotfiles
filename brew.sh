@@ -1,6 +1,4 @@
 # install brew packages
-brew install eza
-brew install thefuck
 brew install ripgrep
 brew install --cask iina
 
