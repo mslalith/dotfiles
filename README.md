@@ -102,3 +102,7 @@ For Example: Running the tmux tag with verbosity
 dotfiles -t tmux -vvv
 ```
 
+### Post Setup
+
+- Start yabai service
+
