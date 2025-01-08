@@ -24,14 +24,18 @@
     kitty_config: "kitty_{{ ansible_distribution }}.conf"
   when: kitty_distribution_config.stat.exists
 
-- name: "Kitty | MacOSX | Deploy Kitty Theme"
-  ansible.builtin.copy:
-    src: "mocha.conf"
-    dest: "{{ ansible_user_dir }}/.config/kitty/mocha.conf"
-    mode: "0644"
-
 - name: "Kitty | MacOSX | Deploy Kitty Config: {{ kitty_config }}"
   ansible.builtin.copy:
     src: "{{ kitty_config }}"
     dest: "{{ ansible_user_dir }}/.config/kitty/kitty.conf"
     mode: "0644"
+
+- name: "Kitty | MacOSX | Deploy Kitty Theme"
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/.config/kitty/{{ item }}"
+    mode: "0644"
+  loop:
+    - "mocha.conf"
+    - "current-theme.conf"
+
