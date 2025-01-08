@@ -1,5 +1,5 @@
 ---
 - name: "{{ role_name }} | Create symlink to .ideavim"
-  ansible.builtin.command: "ln -s {{ role_path }}/files/.ideavim {{ ansible_user_dir }}"
+  ansible.builtin.command: "ln -s {{ role_path }}/files/.ideavimrc {{ ansible_user_dir }}"
   changed_when: false
 
