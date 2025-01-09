@@ -23,12 +23,6 @@
   ansible.builtin.command: "ln -s {{ role_path }}/files/.zshrc {{ ansible_user_dir }}"
   changed_when: false
 
-# - name: "{{ role_name }} | Copy .zshrc"
-#   ansible.builtin.copy:
-#     src: ".zshrc"
-#     dest: "{{ ansible_user_dir }}/.zshrc"
-#     mode: "0644"
-
 - name: "{{ role_name }} | Copy custom zsh config"
   ansible.builtin.copy:
     src: "zsh"

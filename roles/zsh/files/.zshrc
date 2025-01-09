@@ -35,10 +35,8 @@ zinit light starship/starship
 zinit snippet OMZL::async_prompt.zsh
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
+zinit snippet OMZP::eza
 zinit snippet OMZP::sudo
-zinit snippet OMZP::ssh
-zinit snippet OMZP::aliases
-zinit snippet OMZP::globalias
 zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -46,6 +44,14 @@ autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit -u
 
 zinit cdreplay -q
+
+# Completion styling
+zstyle ':omz:plugins:eza' 'icons' 'yes'
+# zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# zstyle ':completion:*' menu no
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+# zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Fuzzy search
 if [[ -f ~/.fzf.zsh ]]; then
@@ -83,8 +89,6 @@ alias starship.toml="nvim ~/.config/starship.toml"
 
 
 alias lg="lazygit"
-alias ls="eza -l --icons"
-alias lsa="eza -la --icons"
 alias q="exit"
 alias c="clear"
 alias nvimdir="cd ~/.config/nvim/lua"
