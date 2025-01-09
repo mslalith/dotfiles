@@ -4,7 +4,7 @@
     path: "{{ ansible_user_dir }}/.ideavimrc"
   register: ideavimrc_file
 
-- name: "{{ role_name }} | Create symlink to .ideavim"
+- name: "{{ role_name }} | Create symlink to .ideavimrc"
   ansible.builtin.command: "ln -s {{ role_path }}/files/.ideavimrc {{ ansible_user_dir }}"
   changed_when: false
   when: not ideavimrc_file.stat.exists

@@ -39,10 +39,6 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::ssh
 zinit snippet OMZP::aliases
 zinit snippet OMZP::globalias
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::aws
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -50,13 +46,6 @@ autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit -u
 
 zinit cdreplay -q
-
-# Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Fuzzy search
 if [[ -f ~/.fzf.zsh ]]; then
