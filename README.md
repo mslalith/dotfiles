@@ -1,6 +1,6 @@
 # dotfiles
-@ms dotfiles
 
+@ms dotfiles
 
 ## Requirements
 
@@ -11,6 +11,7 @@ This Ansible playbook only supports multiple OS's on a per-role basis. This give
 This means that you can run a role, and it will only run if your current OS is configured for that role.
 
 This is accomplished with this `template` `main.yml` task in each role:
+
 ```yaml
 ---
 - name: "{{ role_name }} | Checking for Distribution Config: {{ ansible_distribution }}"
@@ -22,9 +23,11 @@ This is accomplished with this `template` `main.yml` task in each role:
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: distribution_config.stat.exists
 ```
+
 The first task checks for the existence of a `roles/<target role>/tasks/<current_distro>.yml` file. If that file exists (example `current_distro:MacOSX` and a `MacOSX.yml` file exists) it will be run automatically. This keeps roles from breaking if you run a role that isn't yet supported or configured for the system you are running `dotfiles` on.
 
 Currently configured 'bootstrap-able' OS's:
+
 - MacOSX (darwin)
 
 `bootstrap-able` means the pre-dotfiles setup is configured and performed automatically by this project. For example, before we can run this ansible project, we must first install ansible on each OS type.
@@ -51,10 +54,10 @@ The `all.yml` file allows you to personalize your setup to your needs. This file
 
 Below is a list of all available values. Not all are required but incorrect values will break the playbook if not properly set.
 
-| Name             | Type                                   | Required |
-| ---------------- | -------------------------------------- | -------- |
-| git_user_name    | string                                 | yes      |
-| git_user_email   | string                                 | yes      |
+| Name           | Type   | Required |
+| -------------- | ------ | -------- |
+| git_user_name  | string | yes      |
+| git_user_email | string | yes      |
 
 ## Usage
 
@@ -72,6 +75,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/mslalith/dotfiles/main/b
 ```
 
 If you want to run only a specific role, you can specify the following bash command:
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/mslalith/dotfiles/main/bin/dotfiles | bash -s -- --tags comma,seperated,tags
 ```
@@ -98,6 +102,7 @@ This `dotfiles` command is available to you after the first use of this repo, as
 Any flags or arguments you pass to the `dotfiles` command are passed as-is to the `ansible-playbook` command.
 
 For Example: Running the tmux tag with verbosity
+
 ```bash
 dotfiles -t tmux -vvv
 ```
@@ -105,4 +110,5 @@ dotfiles -t tmux -vvv
 ### Post Setup
 
 - Start yabai service
-
+- Packages to setup via apps
+  - Shottr
