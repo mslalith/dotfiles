@@ -4,7 +4,7 @@
     name: kitty
     state: present
 
-- name: "{{ role_name }} | MacOSX | Deploy Kitty Config"
+- name: "{{ role_name }} | MacOSX | Ensure .config/kitty exists"
   ansible.builtin.file:
     path: "{{ ansible_user_dir }}/.config/kitty"
     mode: "0755"
