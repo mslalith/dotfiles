@@ -1,6 +1,6 @@
 default_roles:
   # - system
-  - aerospace
+  # - aerospace
   # - aldente
   # - asciiquarium
   - atuin
@@ -57,7 +57,7 @@ default_roles:
   # - tshark
   # - warp
   # - whalebrew
-  # - yabai
+  - yabai
   - zoxide
   - zsh
 
