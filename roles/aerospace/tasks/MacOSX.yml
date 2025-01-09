@@ -1,0 +1,18 @@
+---
+- name: "{{ role_name }} | MacOSX | Install aerospace"
+  community.general.homebrew_cask:
+    name: nikitabobko/tap/aerospace
+    state: present
+
+- name: "{{ role_name }} | MacOSX | Ensure .config/aerospace exists"
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.config/aerospace"
+    mode: "0755"
+    state: directory
+
+- name: "{{ role_name }} | MacOSX | Deploy aerospace Config"
+  ansible.builtin.copy:
+    src: "aerospace.toml"
+    dest: "{{ ansible_user_dir }}/.config/aerospace/aerospace.toml"
+    mode: "0644"
+

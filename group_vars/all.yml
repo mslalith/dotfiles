@@ -1,5 +1,6 @@
 default_roles:
   # - system
+  - aerospace
   # - aldente
   # - asciiquarium
   - atuin
