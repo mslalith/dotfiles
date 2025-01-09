@@ -1,0 +1,47 @@
+---
+- name: "{{ role_name }} | MacOSX | Install yazi"
+  community.general.homebrew:
+    name: yazi
+    state: present
+
+- name: "{{ role_name }} | MacOSX | Install optional dependencies"
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - zsh
+    - ffmpeg
+    - sevenzip
+    - jq
+    - poppler
+    - fd
+    - ripgrep
+    - fzf
+    - zoxide
+    - imagemagick
+    - font-symbols-only-nerd-font
+
+- name: "{{ role_name }} | MacOSX | Ensure .config/yazi exists"
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.config/yazi"
+    mode: "0755"
+    state: directory
+
+- name: "{{ role_name }} | MacOSX | Deploy yazi config"
+  ansible.builtin.copy:
+    src: "yazi.toml"
+    dest: "{{ ansible_user_dir }}/.config/yazi/yazi.toml"
+    mode: "0644"
+
+- name: "{{ role_name }} | MacOSX | Deploy yazi keymap"
+  ansible.builtin.copy:
+    src: "keymap.toml"
+    dest: "{{ ansible_user_dir }}/.config/yazi/keymap.toml"
+    mode: "0644"
+
+- name: "{{ role_name }} | MacOSX | Deploy yazi theme"
+  ansible.builtin.copy:
+    src: "theme.toml"
+    dest: "{{ ansible_user_dir }}/.config/yazi/theme.toml"
+    mode: "0644"
+
