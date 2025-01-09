@@ -1,0 +1,6 @@
+---
+- name: "{{ role_name }} | MacOSX | Update Homebrew"
+  community.general.homebrew:
+    update_homebrew: true
+    upgrade_all: true
+
