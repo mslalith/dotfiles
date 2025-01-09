@@ -15,13 +15,12 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# ZSH_THEME="mslalith"
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
+# zinit light zsh-users/zsh-completions
 # zinit light zsh-users/zsh-autosuggestions
 
 # Starship
@@ -48,7 +47,7 @@ zinit snippet OMZP::command-not-found
 
 # Load completions
 autoload -U +X bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -u
 
 zinit cdreplay -q
 

@@ -163,6 +163,8 @@ ansible-playbook "$DOTFILES_DIR/main.yml" --ask-become-pass "$@"
 
 popd 2>&1 > /dev/null
 
+source ~/.zshrc
+
 if ! [[ -f "$IS_FIRST_RUN" ]]; then
   echo -e "${CHECK_MARK} ${GREEN}First run complete!${NC}"
   echo -e "${ARROW} ${CYAN}Please reboot your computer to complete the setup.${NC}"
