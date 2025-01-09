@@ -1,0 +1,9 @@
+theme = catppuccin-mocha
+background-opacity = 0.9
+background-blur-radius = 12
+font-family = "Monaspace Radon Var"
+
+macos-option-as-alt = true
+
+keybind = global:cmd+g=toggle_quick_terminal
+
