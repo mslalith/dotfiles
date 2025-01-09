@@ -18,6 +18,9 @@
 
 - name: "{{ role_name }} | MacOSX | Install bat themes"
   ansible.builtin.get_url:
-    url: "https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Mocha.tmTheme"
-    dest: "{{ ansible_user_dir }}/.config/bat/themes/Catppuccino Mocha.tmTheme"
+    url: "https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Mocha.tmTheme"
+    dest: "{{ ansible_user_dir }}/.config/bat/themes/Catppuccin Mocha.tmTheme"
     mode: "0644"
+
+- name: "{{ role_name }} | MacOSX | Rebuild bat cache"
+  ansible.builtin.command: bat cache --build
