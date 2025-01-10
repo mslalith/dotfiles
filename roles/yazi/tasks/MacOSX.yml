@@ -54,10 +54,8 @@
     path: "{{ ansible_user_dir }}/.config/yazi/flavors/{{ yazi_theme }}.yazi"
   register: yazi_theme_dir
 
-- name: "{{ role_name }} | Deleting .zshrc"
-  ansible.builtin.file:
-    path: "{{ ansible_user_dir }}/.config/yazi/flavors/{{ yazi_theme }}.yazi"
-    state: absent
+- name: "{{ role_name }} | Deleting {{ yazi_theme }}"
+  ansible.builtin.command: "rm -rf {{ ansible_user_dir }}/.config/yazi/flavors/{{ yazi_theme }}.yazi"
   when: yazi_theme_dir.stat.exists
 
 - name: "{{ role_name }} | MacOSX | Download theme"
