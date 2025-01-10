@@ -64,7 +64,7 @@ for file in $HOME/.config/zsh/*.zsh; do
 done
 
 # zi is defined by zinit as alias zi='zinit'. Unalias it to use with zoxide
-unalias zi
+# unalias zi
 
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
