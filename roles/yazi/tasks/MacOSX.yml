@@ -45,5 +45,20 @@
     dest: "{{ ansible_user_dir }}/.config/yazi/theme.toml"
     mode: "0644"
 
+- name: "{{ role_name }} | MacOSX | Setting theme to check/download"
+  ansible.builtin.set_fact:
+    yazi_theme: catppuccin-mocha
+
+- name: "{{ role_name }} | Check if {{ yazi_theme }} exists"
+  ansible.builtin.stat:
+    path: "{{ ansible_user_dir }}/.config/yazi/flavors/{{ yazi_theme }}.yazi"
+  register: yazi_theme_dir
+
+- name: "{{ role_name }} | Deleting .zshrc"
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.config/yazi/flavors/{{ yazi_theme }}.yazi"
+    state: absent
+  when: yazi_theme_dir.stat.exists
+
 - name: "{{ role_name }} | MacOSX | Download theme"
-  ansible.builtin.command: ya pack -a yazi-rs/flavors:catppuccin-mocha
+  ansible.builtin.command: "ya pack -a yazi-rs/flavors:{{ yazi_theme }}"
