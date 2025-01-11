@@ -1,0 +1,11 @@
+---
+- name: "{{ role_name }} | MacOSX | Install JetBrains Mono Nerd Font"
+  community.general.homebrew_cask:
+    name: font-jetbrains-mono-nerd-font
+    state: present
+
+- name: "{{ role_name }} | MacOSX | Install Hack Nerd Font"
+  community.general.homebrew_cask:
+    name: font-hack-nerd-font
+    state: present
+
