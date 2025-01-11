@@ -2,7 +2,7 @@
 - name: "{{ role_name }} | MacOSX | Install yazi"
   community.general.homebrew:
     name: yazi
-    state: present
+    state: head
 
 - name: "{{ role_name }} | MacOSX | Install optional dependencies"
   community.general.homebrew:
@@ -54,8 +54,8 @@
     path: "{{ ansible_user_dir }}/.config/yazi/flavors/{{ yazi_theme }}.yazi"
   register: yazi_theme_dir
 
-- name: "{{ role_name }} | Deleting {{ yazi_theme }}"
-  ansible.builtin.command: "rm -rf {{ ansible_user_dir }}/.config/yazi/flavors/{{ yazi_theme }}.yazi"
+- name: "{{ role_name }} | Deleting {{ yazi_theme }} theme"
+  ansible.builtin.command: "ya pack -d yazi-rs/flavors:{{ yazi_theme }}"
   when: yazi_theme_dir.stat.exists
 
 - name: "{{ role_name }} | MacOSX | Download theme"
