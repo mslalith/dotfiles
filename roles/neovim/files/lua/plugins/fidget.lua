@@ -4,12 +4,10 @@ local M = {
 
 function M.config()
     require("fidget").setup {
-        text = {
-            spinner = "dots_pulse",
-            done = "",
-        },
-        window = {
-            blend = 0,
+        notification = {
+            window = {
+                winblend = 0,
+            },
         },
     }
 end
