@@ -103,6 +103,9 @@ function M.config()
             lspconfig.pyright.setup(vim.tbl_deep_extend("force", {}, opts))
         end,
     }
+
+    local dart_opts = require("plugins.lsp.providers.dart_ls")
+    lspconfig.dartls.setup(vim.tbl_deep_extend("force", dart_opts, opts))
 end
 
 return M
