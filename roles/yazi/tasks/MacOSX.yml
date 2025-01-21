@@ -2,7 +2,7 @@
 - name: "{{ role_name }} | MacOSX | Install yazi"
   community.general.homebrew:
     name: yazi
-    state: head
+    state: latest
 
 - name: "{{ role_name }} | MacOSX | Install optional dependencies"
   community.general.homebrew:
