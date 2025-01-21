@@ -49,14 +49,8 @@
   ansible.builtin.set_fact:
     yazi_theme: catppuccin-mocha
 
-- name: "{{ role_name }} | Check if {{ yazi_theme }} exists"
-  ansible.builtin.stat:
-    path: "{{ ansible_user_dir }}/.config/yazi/flavors/{{ yazi_theme }}.yazi"
-  register: yazi_theme_dir
-
 - name: "{{ role_name }} | Deleting {{ yazi_theme }} theme"
   ansible.builtin.command: "ya pack -d yazi-rs/flavors:{{ yazi_theme }}"
-  when: yazi_theme_dir.stat.exists
 
 - name: "{{ role_name }} | MacOSX | Download theme"
   ansible.builtin.command: "ya pack -a yazi-rs/flavors:{{ yazi_theme }}"
