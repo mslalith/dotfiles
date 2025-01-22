@@ -9,5 +9,5 @@
 - name: "{{ role_name }} | Set default terminal"
   ansible.builtin.user:
     name: "{{ host_user }}"
-    shell: "$(which zsh)"
+    shell: /opt/homebrew/bin/zsh
   become: true
