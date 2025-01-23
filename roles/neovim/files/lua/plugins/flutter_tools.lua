@@ -1,10 +1,12 @@
 local M = {
     "akinsho/flutter-tools.nvim",
-    event = "VeryLazy",
+    -- lazy = false,
+    ft = "dart",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "stevearc/dressing.nvim",
     },
+    config = true,
 }
 
 local dartExcludedFolders = {
@@ -16,35 +18,13 @@ local dartExcludedFolders = {
 
 function M.config()
     require("flutter-tools").setup {
-        -- flutter_path = nil,
-        -- flutter_lookup_cmd = "asdf where flutter",
-        fvm = false,
+        cmd = { "dart", "language-server", "--protocol=lsp" },
         widget_guides = { enabled = true },
         lsp = {
             settings = {
-                showtodos = true,
-                completefunctioncalls = true,
-                analysisexcludedfolders = dartExcludedFolders,
-                renamefileswithclasses = "prompt",
-                updateimportsonrename = true,
-                enablesnippets = false,
+                analysisExcludedFolders = dartExcludedFolders,
+                updateImportsOnRename = true,
             },
-        },
-        debugger = {
-            enabled = true,
-            run_via_dap = true,
-            exception_breakpoints = {},
-            register_configurations = function(paths)
-                local dap = require("dap")
-                -- See also: https://github.com/akinsho/flutter-tools.nvim/pull/292
-                dap.adapters.dart = {
-                    type = "executable",
-                    command = paths.flutter_bin,
-                    args = { "debug-adapter" },
-                }
-                dap.configurations.dart = {}
-                require("dap.ext.vscode").load_launchjs()
-            end,
         },
     }
 end
