@@ -21,6 +21,7 @@ function M.config()
             "rust",
             "java",
             "python",
+            "regex",
             "typescript",
         },
         sync_install = false,
