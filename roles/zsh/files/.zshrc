@@ -100,3 +100,7 @@ function fz() {
   z $(fd -t d | fzf)
 }
 
+# Machine specific
+if [[ -f ~/.machine.zsh ]]; then
+  source ~/.machine.zsh
+fi
