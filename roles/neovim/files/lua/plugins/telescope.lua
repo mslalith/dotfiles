@@ -6,7 +6,6 @@ local M = {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         "nvim-telescope/telescope-media-files.nvim",
         "stevearc/aerial.nvim",
-        "AckslD/nvim-neoclip.lua",
     },
 }
 
@@ -91,7 +90,6 @@ function M.config()
     telescope.load_extension("fzf")
     telescope.load_extension("media_files")
     telescope.load_extension("aerial")
-    telescope.load_extension("neoclip")
 end
 
 return M

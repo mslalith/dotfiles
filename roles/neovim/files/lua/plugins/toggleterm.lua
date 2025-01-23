@@ -14,28 +14,6 @@ function M.config()
             border = "curved",
         },
     }
-
-    local Terminal = require("toggleterm.terminal").Terminal
-    local lazygit = Terminal:new {
-        cmd = "lazygit",
-        hidden = true,
-        direction = "float",
-        float_opts = {
-            border = "curved",
-            width = function()
-                return vim.opt.columns:get()
-            end,
-            height = function()
-                return vim.opt.lines:get() - vim.opt.cmdheight:get()
-            end,
-        },
-    }
-
-    function _LAZYGIT_TOGGLE()
-        lazygit:toggle()
-    end
-
-    ms.keys.normal_mode("<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>")
 end
 
 return M

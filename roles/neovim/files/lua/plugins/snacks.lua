@@ -4,32 +4,17 @@ local M = {
     lazy = false,
     opts = {
         bigfile = { enabled = true },
-        indent = { enabled = true },
-        input = { enabled = true },
+        -- indent = { enabled = true },
+        -- input = { enabled = true },
+        lazygit = { enabled = true },
         notifier = {
             enabled = true,
             timeout = 3000,
         },
         quickfile = { enabled = true },
         scroll = { enabled = true },
-        statuscolumn = { enabled = true },
-        words = { enabled = true },
-    },
-    key = {
-        {
-            "<leader>un",
-            function()
-                Snacks.notifier.hide()
-            end,
-            desc = "Dismiss All Notifications",
-        },
-        {
-            "<leader>hh",
-            function()
-                Snacks.lazygit()
-            end,
-            desc = "Lazygit",
-        },
+        -- statuscolumn = { enabled = true },
+        -- words = { enabled = true },
     },
 }
 

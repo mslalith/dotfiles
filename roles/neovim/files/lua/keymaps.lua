@@ -37,11 +37,15 @@ ms.keys.normal_mode("<A-S-o>", "<cmd>Telescope find_files<CR>")
 ms.keys.normal_mode("<A-S-f>", "<cmd>Telescope live_grep<CR>")
 ms.keys.normal_mode("<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 ms.keys.normal_mode("<A-m>", "<cmd>Telescope aerial<CR>")
-ms.keys.normal_mode("<A-v>", ":Telescope neoclip plus<CR>")
 ms.keys.normal_mode("<C-e>", ":Telescope oldfiles<CR>")
 
 ms.keys.normal_mode("<leader>l", "<cmd>lua require('plugins.lsp_lines').toggle()<cr>")
 ms.keys.normal_mode("<A-b>", ":MarksListAll<CR>")
+
+-- Snacks
+ms.keys.normal_mode("<leader>un", "<cmd>lua require('snacks').notifier.hide()<cr>")
+ms.keys.normal_mode("<leader>sh", "<cmd>lua require('snacks').notifier.show_history()<cr>")
+ms.keys.normal_mode("<leader>g", "<cmd>lua require('snacks').lazygit()<cr>")
 
 -- Stay in indent mode
 ms.keys.normal_mode("<Tab>", "v>gv<Esc>")
