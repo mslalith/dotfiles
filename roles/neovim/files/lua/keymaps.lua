@@ -32,20 +32,26 @@ ms.keys.normal_mode("<leader>bl", ":BufferLineMoveNext<CR>")
 ms.keys.normal_mode("<leader>/", ":HopWordMW<CR>")
 ms.keys.normal_mode("<leader>i", ":TroubleToggle workspace_diagnostics<CR>")
 
--- Telescope
-ms.keys.normal_mode("<A-S-o>", "<cmd>Telescope find_files<CR>")
-ms.keys.normal_mode("<A-S-f>", "<cmd>Telescope live_grep<CR>")
-ms.keys.normal_mode("<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
-ms.keys.normal_mode("<A-m>", "<cmd>Telescope aerial<CR>")
-ms.keys.normal_mode("<C-e>", ":Telescope oldfiles<CR>")
-
 ms.keys.normal_mode("<leader>l", "<cmd>lua require('plugins.lsp_lines').toggle()<cr>")
 ms.keys.normal_mode("<A-b>", ":MarksListAll<CR>")
+ms.keys.normal_mode("<A-j>", "30j")
+ms.keys.normal_mode("<A-k>", "30k")
 
 -- Snacks
 ms.keys.normal_mode("<leader>un", "<cmd>lua require('snacks').notifier.hide()<cr>")
 ms.keys.normal_mode("<leader>sh", "<cmd>lua require('snacks').notifier.show_history()<cr>")
 ms.keys.normal_mode("<leader>g", "<cmd>lua require('snacks').lazygit()<cr>")
+ms.keys.normal_mode("<leader>sde", "<cmd>lua require('snacks').dim.enable()<cr>")
+ms.keys.normal_mode("<leader>sdd", "<cmd>lua require('snacks').dim.disable()<cr>")
+ms.keys.normal_mode("<leader>sie", "<cmd>lua require('snacks').indent.enable()<cr>")
+ms.keys.normal_mode("<leader>sid", "<cmd>lua require('snacks').indent.disable()<cr>")
+ms.keys.normal_mode("<A-S-o>", "<cmd>lua require('snacks').picker.files()<CR>")
+ms.keys.normal_mode("<A-S-f>", "<cmd>lua require('snacks').picker.grep()<CR>")
+ms.keys.normal_mode("<C-e>", "<cmd>lua require('snacks').picker.buffers()<CR>")
+
+-- Telescope
+ms.keys.normal_mode("<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+ms.keys.normal_mode("<A-m>", "<cmd>Telescope aerial<CR>")
 
 -- Stay in indent mode
 ms.keys.normal_mode("<Tab>", "v>gv<Esc>")
