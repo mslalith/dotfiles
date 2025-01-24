@@ -29,12 +29,11 @@ function M.config()
                 enabled = true,
             },
             notify = true,
-            hop = true,
+            flash = true,
             aerial = true,
             bufferline = true,
             treesitter_context = true,
             fidget = true,
-            leap = true,
             navic = {
                 enabled = true,
                 custom_bg = "NONE",

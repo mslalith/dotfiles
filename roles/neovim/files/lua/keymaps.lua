@@ -29,7 +29,6 @@ ms.keys.normal_mode("<leader>bh", ":BufferLineMovePrev<CR>")
 ms.keys.normal_mode("<leader>bl", ":BufferLineMoveNext<CR>")
 
 -- Navigate in Editor
-ms.keys.normal_mode("<leader>/", ":HopWordMW<CR>")
 ms.keys.normal_mode("<leader>i", ":TroubleToggle workspace_diagnostics<CR>")
 
 ms.keys.normal_mode("<leader>l", "<cmd>lua require('plugins.lsp_lines').toggle()<cr>")
