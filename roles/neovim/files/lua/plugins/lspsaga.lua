@@ -40,6 +40,9 @@ function M.config()
             tabe = "<C-c>t",
             quit = "q",
         },
+        symbol_in_winbar = {
+            enable = false,
+        },
     }
 end
 
