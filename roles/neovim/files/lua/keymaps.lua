@@ -13,7 +13,7 @@ ms.keys.normal_mode("dh", "d^")
 ms.keys.normal_mode("dl", "d$")
 
 ms.keys.normal_mode("<ESC>", ":nohlsearch<CR>")
-ms.keys.normal_mode("<leader>e", ":NvimTreeToggle<CR>")
+ms.keys.normal_mode("<leader>fm", ":NvimTreeToggle<CR>")
 
 -- Resize with arrows
 ms.keys.normal_mode("<A-Up>", ":resize +2<CR>")
