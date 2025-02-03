@@ -1,0 +1,5 @@
+---
+- name: "{{ role_name }} | MacOSX | Install daktilo"
+  community.general.homebrew:
+    name: daktilo
+    state: present
