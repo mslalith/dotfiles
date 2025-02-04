@@ -21,6 +21,11 @@ local M = {
         },
         picker = {
             enabled = true,
+            sources = {
+                explorer = {
+                    auto_close = true,
+                },
+            },
         },
         quickfile = { enabled = true },
         scope = { enabled = true },
