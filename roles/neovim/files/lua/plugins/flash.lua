@@ -1,7 +1,13 @@
 local M = {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+        modes = {
+            treesitter = {
+                highlight = { backdrop = true },
+            },
+        },
+    },
     keys = {
         {
             "s",
