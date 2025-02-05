@@ -4,6 +4,7 @@ local M = {
     lazy = false,
     dependencies = {
         "nvim-treesitter/nvim-treesitter-context",
+        "nvim-treesitter/nvim-treesitter-textobjects",
         "kylechui/nvim-surround",
         "xiyaowong/nvim-transparent",
     },
