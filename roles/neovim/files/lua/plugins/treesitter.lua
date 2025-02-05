@@ -23,6 +23,7 @@ function M.config()
             "python",
             "regex",
             "typescript",
+            "dart",
         },
         sync_install = false,
         ignore_install = { "" },
