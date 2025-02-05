@@ -41,7 +41,9 @@ function M.config()
             quit = "q",
         },
         symbol_in_winbar = {
-            enable = false,
+            enable = true,
+            show_file = false,
+            folder_level = 1,
         },
     }
 end

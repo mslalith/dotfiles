@@ -34,6 +34,7 @@ function M.config()
             bufferline = true,
             treesitter_context = true,
             fidget = true,
+            lsp_saga = true,
         },
     }
     vim.cmd("colorscheme catppuccin")
