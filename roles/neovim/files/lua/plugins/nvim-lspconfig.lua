@@ -57,17 +57,10 @@ function M.config()
         require("plugins.lsp.commands.auto_format_on_save").enable_auto_format()
     end
 
-    local function attach_navic(client, bufnr)
-        if client.server_capabilities.documentSymbolProvider then
-            -- require("nvim-navic").attach(client, bufnr)
-        end
-    end
-
     local function on_attach(client, bufnr)
         lsp_diagnostics()
         disable_formatting(client)
         auto_format_on_save()
-        attach_navic(client, bufnr)
     end
 
     local opts = {

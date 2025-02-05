@@ -34,10 +34,6 @@ function M.config()
             bufferline = true,
             treesitter_context = true,
             fidget = true,
-            navic = {
-                enabled = true,
-                custom_bg = "NONE",
-            },
         },
     }
     vim.cmd("colorscheme catppuccin")

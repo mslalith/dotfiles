@@ -3,12 +3,10 @@ local M = {
     event = "BufReadPre",
     dependencies = {
         "kyazdani42/nvim-web-devicons",
-        "SmiteshP/nvim-navic",
     },
 }
 
 function M.config()
-    local navic = require("nvim-navic")
     local lualine = require("lualine")
 
     lualine.setup {
@@ -34,16 +32,6 @@ function M.config()
             lualine_b = {},
             lualine_c = { "filename" },
             lualine_x = { "location" },
-            lualine_y = {},
-            lualine_z = {},
-        },
-        winbar = {
-            lualine_a = {
-                { navic.get_location, cond = navic.is_available },
-            },
-            lualine_b = {},
-            lualine_c = {},
-            lualine_x = {},
             lualine_y = {},
             lualine_z = {},
         },
