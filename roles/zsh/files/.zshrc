@@ -1,6 +1,7 @@
-if [[ -f "/opt/homebrew/bin/brew" ]]; then
+HOMEBREW="$(which brew)"
+if [[ -f HOMEBREW ]]; then
   # If you're using macOS, you'll want this enabled
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  eval "$(HOMEBREW shellenv)"
 fi
 
 # Set the directory we want to store zinit and plugins
@@ -104,3 +105,9 @@ function fz() {
 if [[ -f ~/.machine.zsh ]]; then
   source ~/.machine.zsh
 fi
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/mslalith/.dart-cli-completion/zsh-config.zsh ]] && . /Users/mslalith/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
