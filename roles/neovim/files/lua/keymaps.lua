@@ -51,7 +51,7 @@ ms.keys.normal_mode("<C-e>", "<cmd>lua require('snacks').picker.buffers()<CR>")
 
 -- Telescope
 ms.keys.normal_mode("<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
-ms.keys.normal_mode("<A-m>", "<cmd>Telescope aerial<CR>")
+-- ms.keys.normal_mode("<A-m>", "<cmd>Telescope aerial<CR>")
 
 -- Stay in indent mode
 ms.keys.normal_mode("<Tab>", "v>gv<Esc>")

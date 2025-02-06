@@ -6,6 +6,7 @@ function M.config()
     ms.keys.normal_mode("ff", ":Lspsaga rename<CR>")
     ms.keys.normal_mode("K", ":Lspsaga hover_doc<CR>")
     ms.keys.normal_mode("<A-Enter>", ":Lspsaga code_action<CR>")
+    ms.keys.normal_mode("<A-m>", ":Lspsaga outline<CR>")
     ms.keys.normal_mode("gr", ":Lspsaga finder<CR>")
     ms.keys.normal_mode("gd", ":Lspsaga goto_definition<CR>")
     ms.keys.normal_mode("gp", ":Lspsaga peek_definition<CR>")
@@ -44,6 +45,14 @@ function M.config()
             enable = true,
             show_file = false,
             folder_level = 1,
+        },
+        -- breadcrumbs should be enabled for this feature
+        outline = {
+            layout = "float",
+            close_after_jump = true,
+            keys = {
+                toggle_or_jump = "<CR>",
+            },
         },
     }
 end
