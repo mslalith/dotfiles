@@ -36,19 +36,6 @@ ms.keys.normal_mode("<A-b>", ":MarksListAll<CR>")
 ms.keys.normal_mode("<A-j>", "30j")
 ms.keys.normal_mode("<A-k>", "30k")
 
--- Snacks
-ms.keys.normal_mode("<leader>un", "<cmd>lua require('snacks').notifier.hide()<cr>")
-ms.keys.normal_mode("<leader>sh", "<cmd>lua require('snacks').notifier.show_history()<cr>")
-ms.keys.normal_mode("<leader>g", "<cmd>lua require('snacks').lazygit()<cr>")
-ms.keys.normal_mode("<leader>sde", "<cmd>lua require('snacks').dim.enable()<cr>")
-ms.keys.normal_mode("<leader>sdd", "<cmd>lua require('snacks').dim.disable()<cr>")
-ms.keys.normal_mode("<leader>sie", "<cmd>lua require('snacks').indent.enable()<cr>")
-ms.keys.normal_mode("<leader>sid", "<cmd>lua require('snacks').indent.disable()<cr>")
-ms.keys.normal_mode("<leader>fm", "<cmd>lua require('snacks').picker.explorer()<cr>")
-ms.keys.normal_mode("<A-S-o>", "<cmd>lua require('snacks').picker.files()<CR>")
-ms.keys.normal_mode("<A-S-f>", "<cmd>lua require('snacks').picker.grep()<CR>")
-ms.keys.normal_mode("<C-e>", "<cmd>lua require('snacks').picker.buffers()<CR>")
-
 -- Telescope
 ms.keys.normal_mode("<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 
