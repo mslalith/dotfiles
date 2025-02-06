@@ -25,7 +25,6 @@ ms.keys.normal_mode("<A-Right>", ":vertical resize -2<CR>")
 ms.keys.normal_mode("<leader>i", ":TroubleToggle workspace_diagnostics<CR>")
 
 ms.keys.normal_mode("<leader>l", "<cmd>lua require('plugins.lsp_lines').toggle()<cr>")
-ms.keys.normal_mode("<A-b>", ":MarksListAll<CR>")
 ms.keys.normal_mode("<A-j>", "30j")
 ms.keys.normal_mode("<A-k>", "30k")
 
