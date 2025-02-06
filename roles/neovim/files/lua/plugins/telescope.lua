@@ -5,7 +5,6 @@ local M = {
         "nvim-lua/plenary.nvim",
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         "nvim-telescope/telescope-media-files.nvim",
-        "stevearc/aerial.nvim",
     },
 }
 
@@ -81,15 +80,11 @@ function M.config()
                 filetypes = { "png", "webp", "jpg", "jpeg" },
                 find_cmd = "rg", -- find command (defaults to `fd`)
             },
-            aerial = {
-                show_nesting = true,
-            },
         },
     }
 
     telescope.load_extension("fzf")
     telescope.load_extension("media_files")
-    telescope.load_extension("aerial")
 end
 
 return M
