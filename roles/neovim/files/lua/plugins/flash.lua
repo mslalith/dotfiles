@@ -26,21 +26,6 @@ local M = {
             desc = "Flash Treesitter",
         },
         {
-            "r",
-            function()
-                require("flash").remote()
-            end,
-            desc = "Remote Flash",
-        },
-        {
-            "R",
-            mode = { "o", "x" },
-            function()
-                require("flash").treesitter_search()
-            end,
-            desc = "Treesitter Search",
-        },
-        {
             "<c-s>",
             mode = { "c" },
             function()
