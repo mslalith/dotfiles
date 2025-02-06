@@ -4,6 +4,13 @@ local M = {
     dependencies = {
         "kyazdani42/nvim-web-devicons",
     },
+    keys = {
+        { "<S-l>", "<cmd>BufferLineCycleNext<CR>", desc = "Next buffer" },
+        { "<S-h>", "<cmd>BufferLineCyclePrev<CR>", desc = "Previous buffer" },
+        { "<leader>w", "<cmd>bdelete<CR>", desc = "Delete buffer" },
+        { "<leader>bh", "<cmd>BufferLineMovePrev<CR>", desc = "Move buffer to previous" },
+        { "<leader>bl", "<cmd>BufferLineMoveNext<CR>", desc = "Move buffer to next" },
+    },
 }
 
 function M.config()
@@ -29,9 +36,10 @@ function M.config()
             end,
             offsets = {
                 {
-                    filetype = "NvimTree",
-                    text = "",
-                    padding = 1,
+                    filetype = "snacks_layout_box",
+                    text = "File Explorer",
+                    text_align = "center",
+                    separator = true,
                 },
             },
             show_buffer_icons = true,

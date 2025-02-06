@@ -21,13 +21,6 @@ ms.keys.normal_mode("<A-Down>", ":resize -2<CR>")
 ms.keys.normal_mode("<A-Left>", ":vertical resize +2<CR>")
 ms.keys.normal_mode("<A-Right>", ":vertical resize -2<CR>")
 
--- Buffers
-ms.keys.normal_mode("<S-l>", ":BufferLineCycleNext<CR>")
-ms.keys.normal_mode("<S-h>", ":BufferLineCyclePrev<CR>")
-ms.keys.normal_mode("<leader>w", ":bdelete<CR>")
-ms.keys.normal_mode("<leader>bh", ":BufferLineMovePrev<CR>")
-ms.keys.normal_mode("<leader>bl", ":BufferLineMoveNext<CR>")
-
 -- Navigate in Editor
 ms.keys.normal_mode("<leader>i", ":TroubleToggle workspace_diagnostics<CR>")
 
