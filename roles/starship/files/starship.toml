@@ -16,6 +16,8 @@ $character"""
 
 right_format = """$cmd_duration"""
 
+# Timeout for commands executed by starship (in milliseconds).
+command_timeout = 3600000 # 1hr
 
 [package]
 disabled = true
