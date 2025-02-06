@@ -20,11 +20,6 @@ function M.config()
             telescope = true,
             treesitter = true,
             cmp = true,
-            nvimtree = {
-                enabled = true,
-                show_root = true,
-                transparent_panel = false,
-            },
             native_lsp = {
                 enabled = true,
             },

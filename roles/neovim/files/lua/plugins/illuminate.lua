@@ -13,7 +13,6 @@ function M.config()
         },
         delay = 120,
         filetypes_denylist = {
-            "NvimTree",
             "packer",
             "Trouble",
             "toggleterm",
