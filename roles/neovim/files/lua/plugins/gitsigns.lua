@@ -9,57 +9,65 @@ function M.config()
         on_attach = function(bufnr)
             local gitsigns = require("gitsigns")
 
-            local function map(mode, l, r, opts)
+            local function nmap(l, r, desc)
                 opts = opts or {}
+                opts.desc = desc
                 opts.buffer = bufnr
-                vim.keymap.set(mode, l, r, opts)
+                ms.keys.normal_mode(l, r, opts)
+            end
+
+            local function vmap(l, r, desc)
+                opts = opts or {}
+                opts.desc = desc
+                opts.buffer = bufnr
+                ms.keys.visual_mode(l, r, opts)
             end
 
             --------------------------------------
             -- Navigation
             --------------------------------------
-            map("n", "hj", function()
+            nmap("hj", function()
                 if vim.wo.diff then
                     vim.cmd.normal { "hj", bang = true }
                 else
                     gitsigns.nav_hunk("next")
                 end
-            end, { desc = "Next Hunk" })
+            end, "Next Hunk")
 
-            map("n", "hk", function()
+            nmap("hk", function()
                 if vim.wo.diff then
                     vim.cmd.normal { "hk", bang = true }
                 else
                     gitsigns.nav_hunk("prev")
                 end
-            end, { desc = "Previous Hunk" })
+            end, "Previous Hunk")
 
             --------------------------------------
             -- Actions
             --------------------------------------
-            map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "Stage Hunk" })
-            map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "Reset Hunk" })
+            nmap("<leader>hs", gitsigns.stage_hunk, "Stage Hunk")
+            nmap("<leader>hr", gitsigns.reset_hunk, "Reset Hunk")
 
-            map("v", "<leader>hs", function()
+            vmap("<leader>hs", function()
                 gitsigns.stage_hunk { vim.fn.line("."), vim.fn.line("v") }
-            end, { desc = "Stage Hunk" })
+            end, "Stage Hunk")
 
-            map("v", "<leader>hr", function()
+            vmap("<leader>hr", function()
                 gitsigns.reset_hunk { vim.fn.line("."), vim.fn.line("v") }
-            end, { desc = "Reset Hunk" })
+            end, "Reset Hunk")
 
-            map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "Stage Buffer" })
-            map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "Reset Buffer" })
-            map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "Preview Hunk" })
-            map("n", "<leader>hi", gitsigns.preview_hunk_inline, { desc = "Preview Hunk (inline)" })
+            nmap("<leader>hS", gitsigns.stage_buffer, "Stage Buffer")
+            nmap("<leader>hR", gitsigns.reset_buffer, "Reset Buffer")
+            nmap("<leader>hp", gitsigns.preview_hunk, "Preview Hunk")
+            nmap("<leader>hi", gitsigns.preview_hunk_inline, "Preview Hunk (inline)")
 
-            map("n", "<leader>hb", function()
+            nmap("<leader>hb", function()
                 gitsigns.blame_line { full = true }
-            end, { desc = "Blame Line" })
+            end, "Blame Line")
 
-            map("n", "<leader>hd", function()
+            nmap("<leader>hd", function()
                 gitsigns.diffthis("~")
-            end, { desc = "Diff" })
+            end, "Diff")
         end,
 
         signs = {
