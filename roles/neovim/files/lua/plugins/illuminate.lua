@@ -14,7 +14,6 @@ function M.config()
         delay = 120,
         filetypes_denylist = {
             "packer",
-            "Trouble",
             "toggleterm",
             "DressingSelect",
             "TelescopePrompt",
