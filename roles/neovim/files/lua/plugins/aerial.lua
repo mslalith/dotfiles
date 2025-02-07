@@ -12,8 +12,8 @@ function M.config()
 
     require("aerial").setup {
         on_attach = function(bufnr)
-            ms.keys.normal_mode("m", "<cmd>AerialPrev<CR>", { buffer = bufnr })
-            ms.keys.normal_mode("M", "<cmd>AerialNext<CR>", { buffer = bufnr })
+            ms.keys.normal_mode("m", "<cmd>AerialNext<CR>", { buffer = bufnr })
+            ms.keys.normal_mode("M", "<cmd>AerialPrev<CR>", { buffer = bufnr })
         end,
         close_on_select = true,
         layout = {

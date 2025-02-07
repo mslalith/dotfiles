@@ -8,11 +8,11 @@ function M.config()
     require("gitsigns").setup {
         on_attach = function(bufnr)
             -- Navigation
-            ms.keys.normal_mode("<C-A-S-j>", ":Gitsigns next_hunk<CR>")
-            ms.keys.normal_mode("<C-A-S-k>", ":Gitsigns prev_hunk<CR>")
-            ms.keys.normal_mode("<leader>hp", ":Gitsigns preview_hunk<CR>")
-            ms.keys.normal_mode("<leader>hd", ":Gitsigns diffthis<CR>")
-            ms.keys.normal_mode("<leader>hb", ":Gitsigns blame_line<CR>")
+            ms.keys.normal_mode("hj", ":Gitsigns next_hunk<CR>")
+            ms.keys.normal_mode("hk", ":Gitsigns prev_hunk<CR>")
+            ms.keys.normal_mode("hp", ":Gitsigns preview_hunk<CR>")
+            ms.keys.normal_mode("hd", ":Gitsigns diffthis<CR>")
+            ms.keys.normal_mode("hb", ":Gitsigns blame_line<CR>")
             ms.keys.normal_mode("<A-S-b>", ":Gitsigns toggle_current_line_blame<CR>")
         end,
 
