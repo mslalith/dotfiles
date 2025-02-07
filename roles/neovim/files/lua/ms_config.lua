@@ -1,12 +1,17 @@
 ms = {}
 
-local _opts = { noremap = true, silent = true }
 local keymap = function(mode, key, mapping, opts)
+    local _opts = { noremap = true, silent = true }
     opts = opts or _opts
     vim.keymap.set(mode, key, mapping, opts)
 end
 
 ms.keys = {
+    normal_mode2 = function(key, mapping, desc, opts)
+        opts = opts or {}
+        local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
+        vim.keymap.set("n", key, mapping, _opts)
+    end,
     normal_mode = function(key, mapping, opts)
         keymap("n", key, mapping, opts)
     end,

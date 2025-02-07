@@ -1,17 +1,11 @@
-local M = {
+return {
     "glepnir/lspsaga.nvim",
-}
-
-function M.config()
-    ms.keys.normal_mode("ff", ":Lspsaga rename<CR>")
-    ms.keys.normal_mode("K", ":Lspsaga hover_doc<CR>")
-    ms.keys.normal_mode("<A-Enter>", ":Lspsaga code_action<CR>")
-    ms.keys.normal_mode("gp", ":Lspsaga peek_definition<CR>")
-    ms.keys.normal_mode("gj", ":Lspsaga diagnostic_jump_next<CR>")
-    ms.keys.normal_mode("gk", ":Lspsaga diagnostic_jump_prev<CR>")
-    ms.keys.normal_mode("gl", ":Lspsaga show_line_diagnostics<CR>")
-
-    require("lspsaga").setup {
+    event = "LspAttach",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
         request_timeout = 2300,
         ui = {
             border = "rounded",
@@ -51,7 +45,14 @@ function M.config()
                 toggle_or_jump = "<CR>",
             },
         },
-    }
-end
-
-return M
+    },
+    keys = {
+        { "ff", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
+        { "K", "<cmd>Lspsaga hover_doc<CR>", desc = "Show Documentation" },
+        { "<A-Enter>", "<cmd>Lspsaga code_action<CR>", desc = "Code Actions" },
+        { "gp", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
+        { "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next Diagnostic" },
+        { "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous Diagnostic" },
+        { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show Line Diagnostic" },
+    },
+}
