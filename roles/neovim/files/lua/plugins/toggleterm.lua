@@ -1,6 +1,6 @@
 local M = {
     "akinsho/toggleterm.nvim",
-    keys = { "<C-t>", "<leader>g" },
+    keys = { "<C-t>" },
 }
 
 function M.config()

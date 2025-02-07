@@ -7,8 +7,8 @@ function M.config()
     ms.keys.normal_mode("K", ":Lspsaga hover_doc<CR>")
     ms.keys.normal_mode("<A-Enter>", ":Lspsaga code_action<CR>")
     ms.keys.normal_mode("gp", ":Lspsaga peek_definition<CR>")
-    ms.keys.normal_mode("g[", ":Lspsaga diagnostic_jump_prev<CR>")
-    ms.keys.normal_mode("g]", ":Lspsaga diagnostic_jump_next<CR>")
+    ms.keys.normal_mode("gj", ":Lspsaga diagnostic_jump_next<CR>")
+    ms.keys.normal_mode("gk", ":Lspsaga diagnostic_jump_prev<CR>")
     ms.keys.normal_mode("gl", ":Lspsaga show_line_diagnostics<CR>")
 
     require("lspsaga").setup {

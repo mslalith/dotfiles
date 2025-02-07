@@ -8,8 +8,6 @@ local M = {
 }
 
 function M.config()
-    ms.keys.normal_mode("<leader>a", "<cmd>AerialToggle<CR>")
-
     require("aerial").setup {
         on_attach = function(bufnr)
             ms.keys.normal_mode("m", "<cmd>AerialNext<CR>", { buffer = bufnr })
