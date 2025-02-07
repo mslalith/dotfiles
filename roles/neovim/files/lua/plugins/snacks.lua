@@ -51,6 +51,13 @@ local M = {
         toggle = { enabled = true },
         statuscolumn = { enabled = true },
         words = { enabled = true },
+
+        styles = {
+            lazygit = {
+                width = 0,
+                height = 0,
+            },
+        },
     },
     keys = {
         -- Notifications
@@ -70,7 +77,6 @@ local M = {
             "<leader>:",
             function()
                 Snacks.picker.command_history {
-                    name = "cmd",
                     layout = layout_vscode(),
                 }
             end,
