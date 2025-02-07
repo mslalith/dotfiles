@@ -11,6 +11,7 @@ ms.keys.normal_mode("<leader>s", ":w<CR>")
 ms.keys.insert_mode("<C-s>", "<Esc>:w<CR>a")
 ms.keys.normal_mode("dh", "d^")
 ms.keys.normal_mode("dl", "d$")
+ms.keys.normal_mode("n", "*")
 
 ms.keys.normal_mode("<ESC>", ":nohlsearch<CR>")
 
