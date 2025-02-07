@@ -6,8 +6,8 @@
   loop:
     - zsh
 
-- name: "{{ role_name }} | Set default terminal"
-  ansible.builtin.user:
-    name: "{{ host_user }}"
-    shell: /opt/homebrew/bin/zsh
-  become: true
+# - name: "{{ role_name }} | Set default terminal"
+#   ansible.builtin.user:
+#     name: "{{ host_user }}"
+#     shell: /opt/homebrew/bin/zsh
+#   become: true
