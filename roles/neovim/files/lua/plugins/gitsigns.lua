@@ -13,7 +13,6 @@ function M.config()
             ms.keys.normal_mode("hp", ":Gitsigns preview_hunk<CR>")
             ms.keys.normal_mode("hd", ":Gitsigns diffthis<CR>")
             ms.keys.normal_mode("hb", ":Gitsigns blame_line<CR>")
-            ms.keys.normal_mode("<A-S-b>", ":Gitsigns toggle_current_line_blame<CR>")
         end,
 
         signs = {

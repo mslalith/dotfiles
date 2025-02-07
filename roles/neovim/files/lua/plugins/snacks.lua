@@ -81,6 +81,13 @@ local M = {
         },
 
         --------------------------------------
+        -- Git
+        --------------------------------------
+        { "<leader>gb", "<cmd>lua require('snacks').git.blame_line()<cr>", desc = "Git Blame Line" },
+        { "<leader>gl", "<cmd>lua require('snacks').picker.git_log_line()<cr>", desc = "Git Log Line" },
+        { "<leader>gf", "<cmd>lua require('snacks').picker.git_log_file()<cr>", desc = "Git Log File" },
+
+        --------------------------------------
         -- LSP
         --------------------------------------
         { "gr", "<cmd>lua require('snacks').picker.lsp_references()<cr>", nowait = true, desc = "References" },
