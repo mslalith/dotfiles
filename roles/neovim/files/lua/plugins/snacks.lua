@@ -60,33 +60,56 @@ local M = {
         },
     },
     keys = {
+        --------------------------------------
+        -- Pickers
+        --------------------------------------
+        { "<leader>fm", "<cmd>lua require('snacks').explorer()<cr>", desc = "File Explorer" },
+        { "<leader>ff", "<cmd>lua require('snacks').picker.smart()<cr>", desc = "Smart Find Files" },
+        { "<A-S-o>", "<cmd>lua require('snacks').picker.smart()<cr>", desc = "Find Files" },
+        { "<leader>/", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
+        { "<A-S-f>", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
+        { "<leader>sg", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
+        { "<leader>sw", "<cmd>lua require('snacks').picker.grep_word()<cr>", desc = "Grep selected word" },
+        { "<leader>sD", "<cmd>lua require('snacks').picker.diagnostics()<cr>", desc = "Diagnostics" },
+        { "<leader>sd", "<cmd>lua require('snacks').picker.diagnostics_buffer()<cr>", desc = "Buffer diagnostics" },
+        {
+            "<leader>fb",
+            function()
+                Snacks.picker.buffers { layout = layout_vscode() }
+            end,
+            desc = "Buffers",
+        },
+
+        --------------------------------------
+        -- LSP
+        --------------------------------------
+        { "gr", "<cmd>lua require('snacks').picker.lsp_references()<cr>", nowait = true, desc = "References" },
+        { "gd", "<cmd>lua require('snacks').picker.lsp_definitions()<cr>", desc = "Goto Definition" },
+        { "gD", "<cmd>lua require('snacks').picker.lsp_declarations()<cr>", desc = "Goto Declaration" },
+        { "gI", "<cmd>lua require('snacks').picker.lsp_implementations()<cr>", desc = "Goto Implementation" },
+        { "<leader>a", "<cmd>lua require('snacks').picker.lsp_symbols()<cr>", desc = "LSP Symbols" },
+
+        --------------------------------------
         -- Notifications
+        --------------------------------------
         { "<leader>ns", "<cmd>lua require('snacks').notifier.show_history()<cr>", desc = "Notification History" },
         { "<leader>nh", "<cmd>lua require('snacks').notifier.hide()<cr>", desc = "Hide notifications" },
 
-        -- Pickers
-        { "<leader>ff", "<cmd>lua require('snacks').picker.smart()<cr>", desc = "Smart Find Files" },
-        { "<A-S-o>", "<cmd>lua require('snacks').picker.smart()<cr>", desc = "Find Files" },
-        { "<leader>fb", "<cmd>lua require('snacks').picker.buffers()<cr>", desc = "Buffers" },
-        { "<leader>/", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
-        { "<A-S-f>", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
-        { "<leader>fm", "<cmd>lua require('snacks').explorer()<cr>", desc = "File Explorer" },
-
+        --------------------------------------
         -- Other
+        --------------------------------------
         {
             "<leader>:",
             function()
-                Snacks.picker.command_history {
-                    layout = layout_vscode(),
-                }
+                Snacks.picker.command_history { layout = layout_vscode() }
             end,
             desc = "Command History",
         },
         { "<leader>gg", "<cmd>lua require('snacks').lazygit()<cr>", desc = "Lazygit" },
-        { "<leader>sde", "<cmd>lua require('snacks').dim.enable()<cr>", desc = "Enable dim" },
-        { "<leader>sdd", "<cmd>lua require('snacks').dim.disable()<cr>", desc = "Disable dim" },
-        { "<leader>sie", "<cmd>lua require('snacks').indent.enable()<cr>", desc = "Enable indent" },
-        { "<leader>sid", "<cmd>lua require('snacks').indent.disable()<cr>", desc = "Disable indent" },
+        { "<leader>tde", "<cmd>lua require('snacks').dim.enable()<cr>", desc = "Enable dim" },
+        { "<leader>tdd", "<cmd>lua require('snacks').dim.disable()<cr>", desc = "Disable dim" },
+        { "<leader>tie", "<cmd>lua require('snacks').indent.enable()<cr>", desc = "Enable indent" },
+        { "<leader>tid", "<cmd>lua require('snacks').indent.disable()<cr>", desc = "Disable indent" },
     },
 }
 
