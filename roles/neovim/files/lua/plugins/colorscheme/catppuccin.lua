@@ -3,6 +3,7 @@ local M = {
     lazy = false,
     name = "catppuccin",
     build = ":CatppuccinCompile",
+    -- enabled = false,
 }
 
 function M.config()

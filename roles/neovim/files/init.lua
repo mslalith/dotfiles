@@ -18,10 +18,14 @@ ms.keys.insert_mode("jk", "<ESC>")
 ms.disable_distribution_plugins()
 
 require("options")
-require("lazy").setup("plugins", {
+require("lazy").setup {
+    spec = {
+        { import = "plugins" },
+        { import = "plugins.colorscheme" },
+    },
     defaults = { lazy = true },
     ui = { border = "rounded" },
-})
+}
 
 require("keymaps")
 require("plugins.lsp.commands")
