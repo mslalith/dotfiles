@@ -4,7 +4,6 @@ return {
         event = "InsertEnter",
         build = "cargo build --release",
         dependencies = {
-            "moyiz/blink-emoji.nvim",
             "L3MON4D3/LuaSnip",
             "onsails/lspkind-nvim",
             "xzbdmw/colorful-menu.nvim",
@@ -78,15 +77,7 @@ return {
                 },
             },
             sources = {
-                default = { "lsp", "path", "snippets", "buffer", "emoji" },
-                providers = {
-                    emoji = {
-                        module = "blink-emoji",
-                        name = "Emoji",
-                        score_offset = 15, -- Tune by preference
-                        opts = { insert = true }, -- Insert emoji (default) or complete its name
-                    },
-                },
+                default = { "lsp", "path", "snippets", "buffer" },
             },
         },
         opts_extend = { "sources.default" },
@@ -105,19 +96,41 @@ return {
     },
 
     --------------------------------------
-    -- LazyDev
+    -- LazyDev source
     --------------------------------------
     {
         "saghen/blink.cmp",
         opts = {
             sources = {
-                -- add lazydev to your completion providers
                 default = { "lazydev" },
                 providers = {
                     lazydev = {
                         name = "LazyDev",
                         module = "lazydev.integrations.blink",
                         score_offset = 100, -- show at a higher priority than lsp
+                    },
+                },
+            },
+        },
+    },
+
+    --------------------------------------
+    -- Emoji source
+    --------------------------------------
+    {
+        "saghen/blink.cmp",
+        dependencies = {
+            "moyiz/blink-emoji.nvim",
+        },
+        opts = {
+            sources = {
+                default = { "emoji" },
+                providers = {
+                    emoji = {
+                        name = "Emoji",
+                        module = "blink-emoji",
+                        score_offset = 15,
+                        opts = { insert = true }, -- Insert emoji (default) or complete its name
                     },
                 },
             },
