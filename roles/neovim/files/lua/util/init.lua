@@ -1,21 +1,9 @@
 local LazyUtil = require("lazy.core.util")
 
----@class util: UtilCore
+---@class UtilCore
 ---@field keys util.keys
+---@field filetypes util.filetypes
 local M = {}
-
-M.filetypes = {
-    web_frontend = {
-        "html",
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-    },
-    rust = { "rust" },
-}
 
 function M.is_git_repo()
     vim.fn.system("git rev-parse " .. vim.fn.expand("%:p:h"))
