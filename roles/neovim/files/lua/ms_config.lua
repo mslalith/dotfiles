@@ -7,25 +7,30 @@ local keymap = function(mode, key, mapping, opts)
 end
 
 ms.keys = {
-    normal_mode2 = function(key, mapping, desc, opts)
+    normal_mode = function(key, mapping, desc, opts)
         opts = opts or {}
         local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
         vim.keymap.set("n", key, mapping, _opts)
     end,
-    normal_mode = function(key, mapping, opts)
-        keymap("n", key, mapping, opts)
+    insert_mode = function(key, mapping, desc, opts)
+        opts = opts or {}
+        local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
+        vim.keymap.set("i", key, mapping, _opts)
     end,
-    insert_mode = function(key, mapping, opts)
-        keymap("i", key, mapping, opts)
+    visual_mode = function(key, mapping, desc, opts)
+        opts = opts or {}
+        local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
+        vim.keymap.set("v", key, mapping, _opts)
     end,
-    visual_mode = function(key, mapping, opts)
-        keymap("v", key, mapping, opts)
+    visual_block_mode = function(key, mapping, desc, opts)
+        opts = opts or {}
+        local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
+        vim.keymap.set("x", key, mapping, _opts)
     end,
-    visual_block_mode = function(key, mapping, opts)
-        keymap("x", key, mapping, opts)
-    end,
-    terminal_mode = function(key, mapping, opts)
-        keymap("t", key, mapping, opts)
+    terminal_mode = function(key, mapping, desc, opts)
+        opts = opts or {}
+        local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
+        vim.keymap.set("t", key, mapping, _opts)
     end,
 }
 
