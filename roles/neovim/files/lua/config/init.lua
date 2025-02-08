@@ -22,6 +22,7 @@ require("lazy").setup {
     spec = {
         { import = "plugins" },
         { import = "plugins.colorscheme" },
+        { import = "plugins.completion" },
         { import = "plugins.extras" },
     },
     defaults = {

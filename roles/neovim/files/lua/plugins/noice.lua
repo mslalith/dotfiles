@@ -3,7 +3,6 @@ local M = {
     event = "VeryLazy",
     dependencies = {
         "MunifTanjim/nui.nvim",
-        "hrsh7th/cmp-cmdline",
     },
 }
 

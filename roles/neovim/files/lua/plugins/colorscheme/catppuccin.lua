@@ -20,7 +20,7 @@ function M.config()
             gitsigns = true,
             telescope = true,
             treesitter = true,
-            cmp = true,
+            blink_cmp = true,
             native_lsp = {
                 enabled = true,
             },

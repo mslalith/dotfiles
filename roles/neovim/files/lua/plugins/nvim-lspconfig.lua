@@ -4,7 +4,6 @@ local M = {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "hrsh7th/cmp-nvim-lsp",
     },
 }
 
@@ -47,7 +46,7 @@ function M.config()
     local mason_lspconfig = require("mason-lspconfig")
 
     -- Capabilities
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     local disable_formatting = function(client)
         client.server_capabilities.documentFormattingProvider = false
