@@ -104,7 +104,18 @@ local M = {
         { "gd", "<cmd>lua require('snacks').picker.lsp_definitions()<cr>", desc = "Goto Definition" },
         { "gD", "<cmd>lua require('snacks').picker.lsp_declarations()<cr>", desc = "Goto Declaration" },
         { "gI", "<cmd>lua require('snacks').picker.lsp_implementations()<cr>", desc = "Goto Implementation" },
-        { "<leader>a", "<cmd>lua require('snacks').picker.lsp_symbols()<cr>", desc = "LSP Symbols" },
+        -- { "<leader>a", "<cmd>lua require('snacks').picker.lsp_symbols()<cr>", desc = "LSP Symbols" },
+        {
+            "<leader>a",
+            function()
+                local layout = layout_vscode()
+                layout = vim.tbl_deep_extend("force", layout, { preview = "main" })
+                Snacks.picker.lsp_symbols {
+                    layout = layout,
+                }
+            end,
+            "LSP Symbols",
+        },
 
         --------------------------------------
         -- Notifications
