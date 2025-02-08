@@ -1,26 +1,53 @@
-require("config.lazy")
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system { "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath }
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out, "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
+end
+vim.opt.rtp:prepend(lazypath)
 
 _G.MsVim = require("util")
 
+-- Setup lazy and import plugins
+require("lazy").setup {
+    spec = {
+        { import = "plugins" },
+        { import = "plugins.colorscheme" },
+    },
+    defaults = {
+        lazy = true,
+    },
+    ui = { border = "rounded" },
+}
+
 local function disable_distribution_plugins()
-    MsVim.global("loaded_gzip", 1)
-    MsVim.global("loaded_tar", 1)
-    MsVim.global("loaded_tarPlugin", 1)
-    MsVim.global("loaded_zip", 1)
-    MsVim.global("loaded_zipPlugin", 1)
-    MsVim.global("loaded_getscript", 1)
-    MsVim.global("loaded_getscriptPlugin", 1)
-    MsVim.global("loaded_vimball", 1)
-    MsVim.global("loaded_vimballPlugin", 1)
-    MsVim.global("loaded_matchit", 1)
-    MsVim.global("loaded_matchparen", 1)
-    MsVim.global("loaded_2html_plugin", 1)
-    MsVim.global("loaded_logiPat", 1)
-    MsVim.global("loaded_rrhelper", 1)
-    MsVim.global("loaded_netrw", 1)
-    MsVim.global("loaded_netrwPlugin", 1)
-    MsVim.global("loaded_netrwSettings", 1)
-    MsVim.global("loaded_netrwFileHandlers", 1)
+    vim.g["loaded_gzip"] = 1
+    vim.g["loaded_tar"] = 1
+    vim.g["loaded_tarPlugin"] = 1
+    vim.g["loaded_zip"] = 1
+    vim.g["loaded_zipPlugin"] = 1
+    vim.g["loaded_getscript"] = 1
+    vim.g["loaded_getscriptPlugin"] = 1
+    vim.g["loaded_vimball"] = 1
+    vim.g["loaded_vimballPlugin"] = 1
+    vim.g["loaded_matchit"] = 1
+    vim.g["loaded_matchparen"] = 1
+    vim.g["loaded_2html_plugin"] = 1
+    vim.g["loaded_logiPat"] = 1
+    vim.g["loaded_rrhelper"] = 1
+    vim.g["loaded_netrw"] = 1
+    vim.g["loaded_netrwPlugin"] = 1
+    vim.g["loaded_netrwSettings"] = 1
+    vim.g["loaded_netrwFileHandlers"] = 1
 end
 
 disable_distribution_plugins()

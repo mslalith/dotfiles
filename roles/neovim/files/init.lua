@@ -1,10 +1,9 @@
-require("ms_config")
-ms.global("mapleader", " ")
-ms.keys.insert_mode("jk", "<ESC>", "Goto normal mode")
-ms.disable_distribution_plugins()
+vim.g["mapleader"] = " "
 
 require("options")
 require("config")
+
+MsVim.keys.insert_mode("jk", "<ESC>", "Goto normal mode")
 
 require("keymaps")
 require("plugins.lsp.commands")

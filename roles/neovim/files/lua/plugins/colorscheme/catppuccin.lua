@@ -7,7 +7,7 @@ local M = {
 }
 
 function M.config()
-    ms.global("catppuccin_flavour", "macchiato") -- latte, frappe, macchiato, mocha
+    vim.g["catppuccin_flavour"] = "macchiato" -- latte, frappe, macchiato, mocha
 
     require("catppuccin").setup {
         transparent_background = true,

@@ -1,7 +1,7 @@
 local M = {
     "sindrets/diffview.nvim",
     keys = { "<leader>", "d" },
-    cond = ms.is_git_repo,
+    cond = MsVim.is_git_repo,
     dependencies = { "nvim-lua/plenary.nvim" },
 }
 

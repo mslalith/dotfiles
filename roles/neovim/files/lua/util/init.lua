@@ -4,6 +4,24 @@ local LazyUtil = require("lazy.core.util")
 ---@field keys util.keys
 local M = {}
 
+M.filetypes = {
+    web_frontend = {
+        "html",
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+    },
+    rust = { "rust" },
+}
+
+function M.is_git_repo()
+    vim.fn.system("git rev-parse " .. vim.fn.expand("%:p:h"))
+    return vim.v.shell_error == 0
+end
+
 setmetatable(M, {
     __index = function(t, k)
         if LazyUtil[k] then
@@ -13,13 +31,5 @@ setmetatable(M, {
         return t[k]
     end,
 })
-
-function M.global(key, value)
-    vim.g[key] = value
-end
-
-function M.option(key, value)
-    vim.opt[key] = value
-end
 
 return M

@@ -41,5 +41,5 @@ local options = {
 vim.opt.shortmess:append("c")
 
 for key, value in pairs(options) do
-    ms.option(key, value)
+    vim.opt[key] = value
 end
