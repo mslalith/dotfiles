@@ -45,6 +45,9 @@ M.kinds = {
 }
 
 M.git = {
+    Added = " ",
+    Modified = " ",
+    Removed = " ",
     LineAdded = " ",
     LineModified = " ",
     LineRemoved = " ",
@@ -60,6 +63,17 @@ M.git = {
     Octoface = " ",
     Copilot = " ",
     Branch = "",
+}
+
+M.diagnostics = {
+    Error = " ",
+    Warn = " ",
+    Hint = " ",
+    Info = " ",
+}
+
+M.filetypes = {
+    octo = "",
 }
 
 M.ui = {
@@ -142,22 +156,16 @@ M.ui = {
     TriangleShortArrowUp = "",
 }
 
-M.diagnostics = {
-    BoldError = "",
-    Error = "",
-    BoldWarning = "",
-    Warning = "",
-    BoldInformation = "",
-    Information = "",
-    BoldQuestion = "",
-    Question = "",
-    BoldHint = "",
-    Hint = "󰌶",
-    Debug = "",
-    Trace = "✎",
+M.dap = {
+    Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+    Breakpoint = " ",
+    BreakpointCondition = " ",
+    BreakpointRejected = { " ", "DiagnosticError" },
+    LogPoint = ".>",
 }
 
 M.misc = {
+    Dots = "󰇘",
     Robot = "󰚩 ",
     Squirrel = " ",
     Tag = " ",
