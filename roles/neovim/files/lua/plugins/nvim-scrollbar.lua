@@ -9,9 +9,6 @@ function M.config()
             highlight = "PmenuSbar",
         },
     }
-
-    -- nvim-hlslens integration
-    require("scrollbar.handlers.search").setup()
 end
 
 return M
