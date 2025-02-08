@@ -44,6 +44,11 @@ local M = {
                     auto_close = true,
                 },
             },
+            formatters = {
+                file = {
+                    filename_first = true,
+                },
+            },
         },
         quickfile = { enabled = true },
         scope = { enabled = true },
@@ -64,14 +69,19 @@ local M = {
         -- Pickers
         --------------------------------------
         { "<leader>fm", "<cmd>lua require('snacks').explorer()<cr>", desc = "File Explorer" },
-        { "<leader>ff", "<cmd>lua require('snacks').picker.smart()<cr>", desc = "Smart Find Files" },
-        { "<A-S-o>", "<cmd>lua require('snacks').picker.smart()<cr>", desc = "Find Files" },
         { "<leader>/", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<A-S-f>", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<leader>sg", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<leader>sw", "<cmd>lua require('snacks').picker.grep_word()<cr>", desc = "Grep selected word" },
         { "<leader>sD", "<cmd>lua require('snacks').picker.diagnostics()<cr>", desc = "Diagnostics" },
         { "<leader>sd", "<cmd>lua require('snacks').picker.diagnostics_buffer()<cr>", desc = "Buffer diagnostics" },
+        {
+            "<leader>ff",
+            function()
+                Snacks.picker.smart { layout = layout_vscode() }
+            end,
+            desc = "Find Files (smart)",
+        },
         {
             "<leader>fb",
             function()
