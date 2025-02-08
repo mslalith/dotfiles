@@ -7,7 +7,6 @@ local M = {
     keys = {
         { "<S-l>", "<cmd>BufferLineCycleNext<CR>", desc = "Next buffer" },
         { "<S-h>", "<cmd>BufferLineCyclePrev<CR>", desc = "Previous buffer" },
-        { "<leader>w", "<cmd>bdelete<CR>", desc = "Delete buffer" },
         { "<leader>bh", "<cmd>BufferLineMovePrev<CR>", desc = "Move buffer to previous" },
         { "<leader>bl", "<cmd>BufferLineMoveNext<CR>", desc = "Move buffer to next" },
     },

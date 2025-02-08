@@ -113,6 +113,7 @@ local M = {
             desc = "Command History",
         },
         { "<leader>gg", "<cmd>lua require('snacks').lazygit()<cr>", desc = "Lazygit" },
+        { "<leader>w", "<cmd>lua require('snacks').bufdelete()<cr>", desc = "Delete Buffer" },
         { "<leader>tde", "<cmd>lua require('snacks').dim.enable()<cr>", desc = "Enable dim" },
         { "<leader>tdd", "<cmd>lua require('snacks').dim.disable()<cr>", desc = "Disable dim" },
         { "<leader>tie", "<cmd>lua require('snacks').indent.enable()<cr>", desc = "Enable indent" },
