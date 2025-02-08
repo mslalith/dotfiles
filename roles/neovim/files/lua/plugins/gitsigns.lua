@@ -10,11 +10,11 @@ function M.config()
             local gitsigns = require("gitsigns")
 
             local function nmap(l, r, desc)
-                ms.keys.normal_mode(l, r, desc, { buffer = bufnr })
+                MsVim.keys.normal_mode(l, r, desc, { buffer = bufnr })
             end
 
             local function vmap(l, r, desc)
-                ms.keys.visual_mode(l, r, desc, { buffer = bufnr })
+                MsVim.keys.visual_mode(l, r, desc, { buffer = bufnr })
             end
 
             --------------------------------------

@@ -1,1 +1,26 @@
 require("config.lazy")
+
+_G.MsVim = require("util")
+
+local function disable_distribution_plugins()
+    MsVim.global("loaded_gzip", 1)
+    MsVim.global("loaded_tar", 1)
+    MsVim.global("loaded_tarPlugin", 1)
+    MsVim.global("loaded_zip", 1)
+    MsVim.global("loaded_zipPlugin", 1)
+    MsVim.global("loaded_getscript", 1)
+    MsVim.global("loaded_getscriptPlugin", 1)
+    MsVim.global("loaded_vimball", 1)
+    MsVim.global("loaded_vimballPlugin", 1)
+    MsVim.global("loaded_matchit", 1)
+    MsVim.global("loaded_matchparen", 1)
+    MsVim.global("loaded_2html_plugin", 1)
+    MsVim.global("loaded_logiPat", 1)
+    MsVim.global("loaded_rrhelper", 1)
+    MsVim.global("loaded_netrw", 1)
+    MsVim.global("loaded_netrwPlugin", 1)
+    MsVim.global("loaded_netrwSettings", 1)
+    MsVim.global("loaded_netrwFileHandlers", 1)
+end
+
+disable_distribution_plugins()
