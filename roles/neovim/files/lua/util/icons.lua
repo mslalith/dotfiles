@@ -94,6 +94,7 @@ M.ui = {
     BookMark = "",
     BoxChecked = " ",
     Bug = " ",
+    Clock = " ",
     Stacks = "",
     Scopes = "",
     Watches = "󰂥",
