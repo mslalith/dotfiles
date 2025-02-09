@@ -52,14 +52,9 @@ function M.config()
         client.server_capabilities.documentFormattingProvider = false
     end
 
-    local auto_format_on_save = function()
-        require("plugins.lsp.commands.auto_format_on_save").enable_auto_format()
-    end
-
     local function on_attach(client, bufnr)
         lsp_diagnostics()
         disable_formatting(client)
-        auto_format_on_save()
     end
 
     local opts = {
