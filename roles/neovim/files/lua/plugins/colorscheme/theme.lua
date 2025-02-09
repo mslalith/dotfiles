@@ -1,5 +1,5 @@
---- @type "catppuccin" | "tokyonight" | "rosepine"
-local use_theme = "rosepine"
+--- @type "catppuccin" | "tokyonight" | "rosepine" | "kanagawa"
+local use_theme = "catppuccin"
 
 local theme = require("plugins.colorscheme." .. use_theme)
 return vim.tbl_deep_extend("force", theme, { lazy = false })
