@@ -20,17 +20,17 @@ function M.config()
             --------------------------------------
             -- Navigation
             --------------------------------------
-            nmap("hj", function()
+            nmap("<leader>hj", function()
                 if vim.wo.diff then
-                    vim.cmd.normal { "hj", bang = true }
+                    vim.cmd.normal { "<leader>hj", bang = true }
                 else
                     gitsigns.nav_hunk("next")
                 end
             end, "Next Hunk")
 
-            nmap("hk", function()
+            nmap("<leader>hk", function()
                 if vim.wo.diff then
-                    vim.cmd.normal { "hk", bang = true }
+                    vim.cmd.normal { "<leader>hk", bang = true }
                 else
                     gitsigns.nav_hunk("prev")
                 end

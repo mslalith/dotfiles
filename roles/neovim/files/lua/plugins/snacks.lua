@@ -68,7 +68,7 @@ local M = {
         --------------------------------------
         -- Pickers
         --------------------------------------
-        { "<leader>fm", "<cmd>lua require('snacks').explorer()<cr>", desc = "File Explorer" },
+        { "<leader>e", "<cmd>lua require('snacks').explorer()<cr>", desc = "File Explorer" },
         { "<leader>/", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<A-S-f>", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<leader>sg", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
