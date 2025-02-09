@@ -18,38 +18,53 @@ return {
                 preset = {
                     keys = {
                         {
-                            icon = " ",
+                            icon = MsVim.icons.ui.Search,
                             key = "f",
                             desc = "Find File",
-                            action = ":lua Snacks.dashboard.pick('files')",
+                            action = function()
+                                require("snacks").dashboard.pick("files")
+                            end,
                         },
-                        { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+                        {
+                            icon = MsVim.icons.ui.FileFilled,
+                            key = "n",
+                            desc = "New File",
+                            action = ":ene | startinsert",
+                        },
                         {
                             icon = " ",
                             key = "r",
                             desc = "Recent Files",
-                            action = ":lua Snacks.dashboard.pick('oldfiles')",
+                            action = function()
+                                require("snacks").dashboard.pick("oldfiles")
+                            end,
                         },
                         {
-                            icon = " ",
+                            icon = MsVim.icons.ui.Settings,
                             key = "c",
                             desc = "Config",
-                            action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+                            action = function()
+                                require("snacks").dashboard.pick("files", { cwd = vim.fn.stdpath("config") })
+                            end,
                         },
                         {
-                            icon = " ",
+                            icon = MsVim.icons.ui.ListOutline,
                             key = "l",
                             desc = "List Sessions",
-                            action = ":lua require('persistence').select()",
+                            action = function()
+                                require("persistence").select()
+                            end,
                         },
-                        { icon = " ", key = "s", desc = "Restore Session", section = "session" },
                         {
-                            icon = "󰒲 ",
-                            key = "L",
-                            desc = "Lazy",
-                            action = ":Lazy",
+                            icon = MsVim.icons.ui.Reset,
+                            key = "s",
+                            desc = "Restore Sessios",
+                            action = function()
+                                require("persistence").load()
+                            end,
                         },
-                        { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+                        { icon = MsVim.icons.ui.LazyVim, key = "L", desc = "Lazy", action = ":Lazy" },
+                        { icon = MsVim.icons.ui.Exit, key = "q", desc = "Quit", action = ":qa" },
                     },
                 },
             },
