@@ -23,6 +23,7 @@ require("lazy").setup {
         { import = "plugins" },
         { import = "plugins.colorscheme" },
         { import = "plugins.completion" },
+        { import = "plugins.mini" },
         { import = "plugins.extras" },
     },
     defaults = {
