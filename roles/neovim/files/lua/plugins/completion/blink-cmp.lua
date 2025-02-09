@@ -19,7 +19,7 @@ return {
             },
             appearance = {
                 use_nvim_cmp_as_default = false,
-                nerd_font_variant = "normal",
+                nerd_font_variant = "mono",
             },
             signature = {
                 enabled = true,
@@ -57,10 +57,18 @@ return {
                     border = "rounded",
                     draw = {
                         treesitter = { "lsp" },
-                        columns = {
-                            { "kind_icon", "label", "label_description", gap = 2 },
-                            { "kind", gap = 2, "source_name" },
-                        },
+                        columns = function(ctx)
+                            if ctx.mode == "cmdline" then
+                                return {
+                                    { "label", "label_description", gap = 2 },
+                                }
+                            else
+                                return {
+                                    { "kind_icon", "label", "label_description", gap = 2 },
+                                    { "kind", gap = 2, "source_name" },
+                                }
+                            end
+                        end,
                         components = {
                             label = {
                                 text = function(ctx)
