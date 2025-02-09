@@ -2,7 +2,21 @@ return {
     {
         "folke/persistence.nvim",
         event = "BufReadPre",
-        opts = {},
+        opts = function()
+            vim.opt.sessionoptions = {
+                "buffers",
+                "curdir",
+                "tabpages",
+                "winsize",
+                "help",
+                "globals",
+                "skiprtp",
+                "folds",
+                "winpos",
+                "terminal",
+            }
+            return {}
+        end,
     },
     {
         "folke/snacks.nvim",
