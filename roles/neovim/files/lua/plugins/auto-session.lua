@@ -1,6 +1,7 @@
 local M = {
     "rmagatti/auto-session",
     lazy = false,
+    enabled = false,
 }
 
 function M.config()
