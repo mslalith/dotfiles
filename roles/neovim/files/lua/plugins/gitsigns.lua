@@ -5,6 +5,8 @@ local M = {
 }
 
 function M.config()
+    local icons = MsVim.icons.git
+
     require("gitsigns").setup {
         on_attach = function(bufnr)
             local gitsigns = require("gitsigns")
@@ -22,7 +24,7 @@ function M.config()
             --------------------------------------
             nmap("<leader>hj", function()
                 if vim.wo.diff then
-                    vim.cmd.normal { "<leader>hj", bang = true }
+                    vim.cmd.normal { "]c", bang = true }
                 else
                     gitsigns.nav_hunk("next")
                 end
@@ -30,7 +32,7 @@ function M.config()
 
             nmap("<leader>hk", function()
                 if vim.wo.diff then
-                    vim.cmd.normal { "<leader>hk", bang = true }
+                    vim.cmd.normal { "[c", bang = true }
                 else
                     gitsigns.nav_hunk("prev")
                 end
@@ -59,41 +61,33 @@ function M.config()
                 gitsigns.blame_line { full = true }
             end, "Blame Line")
 
+            nmap("<leader>hB", function()
+                gitsigns.blame()
+            end, "Blame File")
+
             nmap("<leader>hd", function()
                 gitsigns.diffthis("~")
             end, "Diff")
         end,
 
         signs = {
-            add = { text = "│" },
-            change = { text = "│" },
-            delete = { text = "_" },
-            topdelete = { text = "‾" },
-            changedelete = { text = "~" },
+            add = { text = icons.LineAdded },
+            change = { text = icons.LineChanged },
+            delete = { text = icons.LineDeleted },
+            topdelete = { text = icons.LineDeleted },
+            changedelete = { text = icons.LineDeleted },
+            untracked = { text = icons.LineChanged },
         },
-        signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-        numhl = false, -- Toggle with `Gitsigns toggle_numhl`
-        linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-        word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
-        watch_gitdir = {
-            interval = 1000,
-            follow_files = true,
+        signs_staged = {
+            add = { text = icons.LineAdded },
+            change = { text = icons.LineChanged },
+            delete = { text = icons.LineDeleted },
+            topdelete = { text = icons.LineDeleted },
+            changedelete = { text = icons.LineDeleted },
         },
         attach_to_untracked = true,
-        current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-        current_line_blame_opts = {
-            virt_text = true,
-            virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-            delay = 1000,
-            ignore_whitespace = false,
-        },
-        sign_priority = 6,
-        update_debounce = 100,
-        status_formatter = nil, -- Use default
-        max_file_length = 40000,
         preview_config = {
-            -- Options passed to nvim_open_win
-            border = "single",
+            border = "rounded",
             style = "minimal",
             relative = "cursor",
             row = 0,
