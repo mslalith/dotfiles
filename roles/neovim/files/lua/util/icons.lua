@@ -107,6 +107,7 @@ M.ui = {
     ChevronShortRight = "",
     ChevronShortUp = "",
     Circle = " ",
+    CircleSmall = "●",
     Close = "󰅖",
     CloudDownload = " ",
     Code = "",
