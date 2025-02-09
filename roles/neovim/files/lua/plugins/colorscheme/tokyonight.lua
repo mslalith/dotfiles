@@ -1,8 +1,8 @@
 local M = {
     "folke/tokyonight.nvim",
-    lazy = false,
+    name = "tokyonight",
+    lazy = true,
     priority = 1000,
-    enabled = false,
     opts = {
         transparent = true,
         styles = {

@@ -1,9 +1,8 @@
 local M = {
     "catppuccin/nvim",
-    lazy = false,
+    lazy = true,
     name = "catppuccin",
     build = ":CatppuccinCompile",
-    -- enabled = false,
 }
 
 function M.config()
