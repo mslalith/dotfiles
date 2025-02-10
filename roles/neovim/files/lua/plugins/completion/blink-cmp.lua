@@ -69,7 +69,6 @@ return {
                             else
                                 return {
                                     { "kind_icon", "label", "label_description", gap = 2 },
-                                    { "kind", gap = 2, "source_name" },
                                 }
                             end
                         end,
