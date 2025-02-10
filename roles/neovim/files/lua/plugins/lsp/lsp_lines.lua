@@ -1,22 +1,13 @@
-local M = {
+return {
     url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    keys = {
+        { "<leader>ld", "<cmd>lua require('lsp_lines').toggle()<cr>", desc = "Toggle LSP lines diagnostics" },
+    },
+    config = function()
+        local lsp_lines = require("lsp_lines")
+        lsp_lines.setup()
+
+        -- disable
+        lsp_lines.toggle()
+    end,
 }
-
-function M.toggle()
-    local lsp_lines = require("lsp_lines")
-    vim.diagnostic.config {
-        virtual_text = not lsp_lines.toggle(),
-    }
-end
-
-function M.config()
-    local lsp_lines = require("lsp_lines")
-    lsp_lines.setup()
-    M.toggle()
-
-    MsVim.keys.normal_mode("<leader>ld", function()
-        M.toggle()
-    end, "Toggle virtual diagnostics")
-end
-
-return M
