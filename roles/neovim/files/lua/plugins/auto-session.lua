@@ -1,11 +1,21 @@
 local M = {
     "rmagatti/auto-session",
     lazy = false,
-    enabled = false,
 }
 
 function M.config()
-    vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+    vim.opt.sessionoptions = {
+        "buffers",
+        "curdir",
+        "tabpages",
+        "winsize",
+        "help",
+        "globals",
+        "skiprtp",
+        "folds",
+        "winpos",
+        "terminal",
+    }
 
     local function close_all_floating_wins()
         for _, win in ipairs(vim.api.nvim_list_wins()) do
@@ -18,8 +28,10 @@ function M.config()
 
     require("auto-session").setup {
         log_level = "error",
+        auto_restore = false,
         pre_save_cmds = { close_all_floating_wins },
-        auto_session_use_git_branch = false,
+        auto_session_use_git_branch = true,
+        bypass_save_filetypes = { "snacks_dashboard" },
     }
 end
 

@@ -27,7 +27,6 @@ require("lazy").setup {
         { import = "plugins.mini" },
         { import = "plugins.extras" },
         { import = "plugins.extras.languages" },
-        { import = "plugins.extras.session" },
     },
     defaults = {
         lazy = true,
