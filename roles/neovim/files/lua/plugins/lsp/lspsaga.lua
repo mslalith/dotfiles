@@ -51,8 +51,6 @@ return {
         { "K", "<cmd>Lspsaga hover_doc<CR>", desc = "Show Documentation" },
         { "<A-Enter>", "<cmd>Lspsaga code_action<CR>", desc = "Code Actions" },
         { "gp", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
-        { "gj", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "Next Diagnostic" },
-        { "gk", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "Previous Diagnostic" },
         { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show Line Diagnostic" },
     },
 }
