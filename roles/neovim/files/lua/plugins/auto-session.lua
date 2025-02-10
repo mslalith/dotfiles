@@ -5,6 +5,7 @@ local M = {
 
 function M.config()
     vim.opt.sessionoptions = {
+        "blank",
         "buffers",
         "curdir",
         "tabpages",
@@ -15,6 +16,7 @@ function M.config()
         "folds",
         "winpos",
         "terminal",
+        "localoptions",
     }
 
     local function close_all_floating_wins()
