@@ -21,7 +21,11 @@ MsVim.keys.normal_mode("<A-Down>", ":resize -2<CR>", "Resize down")
 MsVim.keys.normal_mode("<A-Left>", ":vertical resize +2<CR>", "Resize left")
 MsVim.keys.normal_mode("<A-Right>", ":vertical resize -2<CR>", "Resize right")
 
-MsVim.keys.normal_mode("<leader>ld", "<cmd>lua require('plugins.lsp_lines').toggle()<cr>", "Toggle virtual diagnostics")
+MsVim.keys.normal_mode(
+    "<leader>ld",
+    "<cmd>lua require('plugins.lsp.lsp_lines').toggle()<cr>",
+    "Toggle virtual diagnostics"
+)
 MsVim.keys.normal_mode("<A-j>", "30j", "Scroll down")
 MsVim.keys.normal_mode("<A-k>", "30k", "Scroll up")
 

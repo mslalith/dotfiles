@@ -29,7 +29,7 @@ function M.config()
         },
         sections = {
             lualine_a = { "mode" },
-            lualine_b = { "branch", "diff", "diagnostics" },
+            lualine_b = { "branch" },
             lualine_c = {
                 {
                     "diagnostics",
