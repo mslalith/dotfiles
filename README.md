@@ -1,6 +1,7 @@
-# dotfiles
+# @ms dotfiles
 
-@ms dotfiles
+Fully automated deployment of my development environment, based on Ansible.
+> This repo is heavily influenced by [TechDufus](https://github.com/TechDufus/dotfiles)'s repo
 
 ## Requirements
 
