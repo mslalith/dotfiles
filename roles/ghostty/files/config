@@ -1,7 +1,7 @@
 theme = catppuccin-mocha
 background-opacity = 0.9
 background-blur-radius = 12
-font-family = "Monaspace Radon Var"
+font-family = "Maple Mono NF"
 adjust-cell-height = 20%
 
 macos-option-as-alt = true

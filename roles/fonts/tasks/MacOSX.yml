@@ -9,3 +9,7 @@
     name: font-hack-nerd-font
     state: present
 
+- name: "{{ role_name }} | MacOSX | Install Maple Mono Nerd Font"
+  community.general.homebrew_cask:
+    name: font-maple-mono-nf
+    state: present
