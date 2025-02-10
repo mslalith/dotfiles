@@ -22,9 +22,12 @@ require("lazy").setup {
     spec = {
         { import = "plugins" },
         { import = "plugins.colorscheme" },
+        { import = "plugins.lsp" },
         { import = "plugins.completion" },
         { import = "plugins.mini" },
         { import = "plugins.extras" },
+        { import = "plugins.extras.languages" },
+        { import = "plugins.extras.session" },
     },
     defaults = {
         lazy = true,

@@ -8,7 +8,6 @@ local M = {
 }
 
 function M.config()
-    require("plugins.mason")
     require("lspconfig.ui.windows").default_options.border = "rounded"
 
     local function lsp_diagnostics()

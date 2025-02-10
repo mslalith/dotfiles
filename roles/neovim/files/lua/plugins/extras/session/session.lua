@@ -72,7 +72,7 @@ return {
                         {
                             icon = MsVim.icons.ui.Reset,
                             key = "s",
-                            desc = "Restore Sessios",
+                            desc = "Restore Session",
                             action = function()
                                 require("persistence").load()
                             end,
