@@ -46,6 +46,10 @@ return {
                         preselect = true,
                         auto_insert = false,
                     },
+                    cycle = {
+                        from_bottom = true,
+                        from_top = true,
+                    },
                 },
                 accept = {
                     auto_brackets = {
