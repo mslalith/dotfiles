@@ -4,6 +4,7 @@ local LazyUtil = require("lazy.core.util")
 ---@field keys util.keys
 ---@field filetypes util.filetypes
 ---@field icons util.icons
+---@field plugins util.plugins
 local M = {}
 
 function M.is_git_repo()
