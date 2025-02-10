@@ -49,11 +49,11 @@ return {
             callback = function(args)
                 local buf_id = args.data.buf_id
 
-                vim.keymap.set(
-                    "n",
+                MsVim.keys.normal_mode(
                     opts.mappings and opts.mappings.toggle_hidden or "g.",
                     toggle_dotfiles,
-                    { buffer = buf_id, desc = "Toggle hidden files" }
+                    "Toggle hidden files",
+                    { buffer = buf_id }
                 )
             end,
         })

@@ -44,7 +44,6 @@ function M.config()
                 { "filename" },
             },
             lualine_x = {
-                "encoding",
                 "filetype",
                 {
                     require("lazy.status").updates,
