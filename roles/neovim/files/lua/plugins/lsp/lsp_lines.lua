@@ -13,6 +13,10 @@ function M.config()
     local lsp_lines = require("lsp_lines")
     lsp_lines.setup()
     M.toggle()
+
+    MsVim.keys.normal_mode("<leader>ld", function()
+        M.toggle()
+    end, "Toggle virtual diagnostics")
 end
 
 return M
