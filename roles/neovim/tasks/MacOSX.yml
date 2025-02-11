@@ -11,6 +11,7 @@
       - ripgrep
       - luarocks
       - rustup
+      - chafa
     state: present
 
 - name: "{{ role_name }} | MacOSX | Install"

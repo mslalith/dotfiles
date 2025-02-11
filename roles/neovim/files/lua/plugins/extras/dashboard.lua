@@ -6,6 +6,12 @@ return {
         dashboard = {
             sections = {
                 { section = "header" },
+                -- {
+                --     section = "terminal",
+                --     cmd = "chafa $HOME/.config/nvim/assets/panda.png --size 60x56 --format symbols --align center",
+                --     height = 32,
+                --     width = 56,
+                -- },
                 { section = "keys", gap = 1, padding = 1 },
                 { section = "startup" },
             },
