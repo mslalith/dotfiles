@@ -27,6 +27,9 @@ function M.config()
             },
         },
     }
+
+    -- to disable duplicate error diagnostics, not sure of the cause
+    vim.diagnostic.config { virtual_text = false }
 end
 
 return M
