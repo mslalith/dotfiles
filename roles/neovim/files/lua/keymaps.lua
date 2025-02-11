@@ -24,6 +24,13 @@ MsVim.keys.normal_mode("<A-Right>", ":vertical resize -2<CR>", "Resize right")
 MsVim.keys.normal_mode("<A-j>", "30j", "Scroll down")
 MsVim.keys.normal_mode("<A-k>", "30k", "Scroll up")
 
+MsVim.keys.normal_mode("<leader>dj", function()
+    vim.diagnostic.goto_next { float = false }
+end, "Goto next diagnostic")
+MsVim.keys.normal_mode("<leader>dk", function()
+    vim.diagnostic.goto_prev { float = false }
+end, "Goto previous diagnostic")
+
 -- Telescope
 MsVim.keys.normal_mode("<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>", "Search file")
 

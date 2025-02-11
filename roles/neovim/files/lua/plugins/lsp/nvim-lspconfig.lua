@@ -41,15 +41,6 @@ function M.config()
         }
     end
 
-    local function set_keymaps()
-        MsVim.keys.normal_mode("<leader>dj", function()
-            vim.diagnostic.goto_next { float = false }
-        end, "Goto next diagnostic")
-        MsVim.keys.normal_mode("<leader>dk", function()
-            vim.diagnostic.goto_prev { float = false }
-        end, "Goto previous diagnostic")
-    end
-
     local lspconfig = require("lspconfig")
     local mason_lspconfig = require("mason-lspconfig")
 
@@ -61,7 +52,6 @@ function M.config()
     end
 
     local function on_attach(client, bufnr)
-        set_keymaps()
         lsp_diagnostics()
         disable_formatting(client)
     end
