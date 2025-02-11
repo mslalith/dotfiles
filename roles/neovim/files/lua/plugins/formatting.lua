@@ -2,7 +2,6 @@ local M = {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
     cmd = "ConformInfo",
-    dependencies = { "mason.nvim" },
 }
 
 --- @param message string
