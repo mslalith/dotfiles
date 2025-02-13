@@ -46,8 +46,8 @@ local M = {
         -- Git
         --------------------------------------
         { "<leader>gb", "<cmd>lua require('snacks').git.blame_line()<cr>", desc = "Git Blame Line" },
+        { "<leader>gf", "<cmd>lua require('snacks').lazygit.log_file()<cr>", desc = "Git Log File" },
         { "<leader>gl", "<cmd>lua require('snacks').picker.git_log_line()<cr>", desc = "Git Log Line" },
-        { "<leader>gf", "<cmd>lua require('snacks').picker.git_log_file()<cr>", desc = "Git Log File" },
 
         --------------------------------------
         -- LSP
@@ -62,9 +62,7 @@ local M = {
             function()
                 local layout = MsVim.snacks.layout_vscode_bordered
                 layout = vim.tbl_deep_extend("force", layout, { preview = "main" })
-                Snacks.picker.lsp_symbols {
-                    layout = layout,
-                }
+                Snacks.picker.lsp_symbols { layout = layout }
             end,
             "LSP Symbols",
         },
