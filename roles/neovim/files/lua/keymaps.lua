@@ -23,6 +23,8 @@ MsVim.keys.normal_mode("<A-Right>", ":vertical resize -2<CR>", "Resize right")
 
 MsVim.keys.normal_mode("<A-j>", "30j", "Scroll down")
 MsVim.keys.normal_mode("<A-k>", "30k", "Scroll up")
+MsVim.keys.visual_block_mode("<A-j>", "30j", "Scroll down")
+MsVim.keys.visual_block_mode("<A-k>", "30k", "Scroll up")
 
 MsVim.keys.normal_mode("<leader>dj", function()
     vim.diagnostic.goto_next { float = false }
@@ -47,10 +49,8 @@ MsVim.keys.visual_mode("<A-S-k>", ":move '<-2<CR>gv-gv", "Move selection up")
 MsVim.keys.visual_mode("p", '"_dP', "Paste")
 
 -- Move text up and down
-MsVim.keys.visual_block_mode("J", ":move '>+1<CR>gv-gv", "Move selection down")
-MsVim.keys.visual_block_mode("K", ":move '<-2<CR>gv-gv", "Move selection up")
-MsVim.keys.visual_block_mode("<A-j>", ":move '>+1<CR>gv-gv", "Move selection down")
-MsVim.keys.visual_block_mode("<A-k>", ":move '<-2<CR>gv-gv", "Move selection up")
+MsVim.keys.visual_block_mode("<A-S-j>", ":move '>+1<CR>gv-gv", "Move selection down")
+MsVim.keys.visual_block_mode("<A-S-k>", ":move '<-2<CR>gv-gv", "Move selection up")
 
 -- Better terminal navigation
 local term_opts = { silent = true }
