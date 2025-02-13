@@ -17,4 +17,13 @@ M.layout_vscode_bordered = {
     },
 }
 
+function M.yazi(opts)
+    opts = opts or {}
+
+    local cmd = { "yazi" }
+    vim.list_extend(cmd, opts.args or {})
+
+    return Snacks.terminal(cmd, opts)
+end
+
 return M

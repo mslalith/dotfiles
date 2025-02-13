@@ -2,6 +2,8 @@ local M = {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
+
+    ---@type snacks.Config
     opts = {
         bigfile = {
             enabled = true,
@@ -23,10 +25,16 @@ local M = {
         scope = { enabled = true },
         scroll = { enabled = true },
         toggle = { enabled = true },
+        terminal = {
+            win = {
+                border = "rounded",
+            },
+        },
         statuscolumn = { enabled = true },
         words = { enabled = true },
 
         styles = {
+            ---@diagnostic disable-next-line: missing-fields
             lazygit = {
                 width = 0,
                 height = 0,
@@ -78,6 +86,7 @@ local M = {
             desc = "Command History",
         },
         { "<leader>gg", "<cmd>lua require('snacks').lazygit()<cr>", desc = "Lazygit" },
+        { "<leader>ty", "<cmd>lua MsVim.snacks.yazi()<cr>", desc = "Yazi" },
         { "<leader>w", "<cmd>lua require('snacks').bufdelete()<cr>", desc = "Delete Buffer" },
         { "<leader>tde", "<cmd>lua require('snacks').dim.enable()<cr>", desc = "Enable dim" },
         { "<leader>tdd", "<cmd>lua require('snacks').dim.disable()<cr>", desc = "Disable dim" },
