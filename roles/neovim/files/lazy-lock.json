@@ -10,7 +10,6 @@
   "colorful-menu.nvim": { "branch": "master", "commit": "f7fb36467fb0a1ba1ce7c330aa59e9869403670f" },
   "conform.nvim": { "branch": "master", "commit": "59088eb6fea54e5a27e719df160329a0ead86b5c" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
-  "dressing.nvim": { "branch": "master", "commit": "56ef6a969a4990d938c5fed40c370f65e125fc97" },
   "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
   "flash.nvim": { "branch": "main", "commit": "f899265876ecdcf7352dbc9f0adf87068cedefbb" },
   "flutter-tools.nvim": { "branch": "main", "commit": "b2ec4e0e1cc8df188c9ae9d4a0332acb020508dd" },

@@ -15,7 +15,6 @@ function M.config()
         filetypes_denylist = {
             "packer",
             "toggleterm",
-            "DressingSelect",
             "TelescopePrompt",
         },
     }

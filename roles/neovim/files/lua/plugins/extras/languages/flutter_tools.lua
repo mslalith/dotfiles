@@ -4,7 +4,6 @@ local M = {
     ft = "dart",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "stevearc/dressing.nvim",
     },
     config = true,
 }
