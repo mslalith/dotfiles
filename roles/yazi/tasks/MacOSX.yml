@@ -51,6 +51,7 @@
 
 - name: "{{ role_name }} | Deleting {{ yazi_theme }} theme"
   ansible.builtin.command: "ya pack -d yazi-rs/flavors:{{ yazi_theme }}"
+  ignore_errors: true
 
 - name: "{{ role_name }} | MacOSX | Download theme"
   ansible.builtin.command: "ya pack -a yazi-rs/flavors:{{ yazi_theme }}"
