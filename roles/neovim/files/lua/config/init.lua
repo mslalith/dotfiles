@@ -24,6 +24,7 @@ require("lazy").setup {
         { import = "plugins.colorscheme" },
         { import = "plugins.lsp" },
         { import = "plugins.completion" },
+        { import = "plugins.snacks" },
         { import = "plugins.mini" },
         { import = "plugins.extras" },
         { import = "plugins.extras.languages" },

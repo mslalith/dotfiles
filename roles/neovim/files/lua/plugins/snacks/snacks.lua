@@ -1,21 +1,3 @@
-local function layout_vscode()
-    return {
-        preview = false,
-        layout = {
-            backdrop = false,
-            row = 1,
-            width = 0.4,
-            min_width = 80,
-            height = 0.4,
-            border = "none",
-            box = "vertical",
-            { win = "input", height = 1, border = "rounded", title = "{title} {live} {flags}", title_pos = "center" },
-            { win = "list", border = "rounded" },
-            { win = "preview", title = "{preview}", border = "rounded" },
-        },
-    }
-end
-
 local M = {
     "folke/snacks.nvim",
     priority = 1000,
@@ -37,19 +19,6 @@ local M = {
             enabled = true,
             timeout = 3000,
         },
-        picker = {
-            enabled = true,
-            sources = {
-                explorer = {
-                    auto_close = true,
-                },
-            },
-            formatters = {
-                file = {
-                    filename_first = true,
-                },
-            },
-        },
         quickfile = { enabled = true },
         scope = { enabled = true },
         scroll = { enabled = true },
@@ -65,31 +34,6 @@ local M = {
         },
     },
     keys = {
-        --------------------------------------
-        -- Pickers
-        --------------------------------------
-        { "<leader>e", "<cmd>lua require('snacks').explorer()<cr>", desc = "File Explorer" },
-        { "<leader>/", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
-        { "<A-S-f>", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
-        { "<leader>sg", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
-        { "<leader>sw", "<cmd>lua require('snacks').picker.grep_word()<cr>", desc = "Grep selected word" },
-        { "<leader>sD", "<cmd>lua require('snacks').picker.diagnostics()<cr>", desc = "Diagnostics" },
-        { "<leader>sd", "<cmd>lua require('snacks').picker.diagnostics_buffer()<cr>", desc = "Buffer diagnostics" },
-        {
-            "<leader>ff",
-            function()
-                Snacks.picker.smart { layout = layout_vscode() }
-            end,
-            desc = "Find Files (smart)",
-        },
-        {
-            "<leader>fb",
-            function()
-                Snacks.picker.buffers { layout = layout_vscode() }
-            end,
-            desc = "Buffers",
-        },
-
         --------------------------------------
         -- Git
         --------------------------------------
@@ -108,7 +52,7 @@ local M = {
         {
             "<leader>a",
             function()
-                local layout = layout_vscode()
+                local layout = MsVim.snacks.layout_vscode_bordered
                 layout = vim.tbl_deep_extend("force", layout, { preview = "main" })
                 Snacks.picker.lsp_symbols {
                     layout = layout,
@@ -129,7 +73,7 @@ local M = {
         {
             "<leader>:",
             function()
-                Snacks.picker.command_history { layout = layout_vscode() }
+                Snacks.picker.command_history { layout = MsVim.snacks.layout_vscode_bordered }
             end,
             desc = "Command History",
         },

@@ -5,6 +5,7 @@ local LazyUtil = require("lazy.core.util")
 ---@field filetypes util.filetypes
 ---@field icons util.icons
 ---@field plugins util.plugins
+---@field snacks util.snacks
 local M = {}
 
 ---@return boolean
