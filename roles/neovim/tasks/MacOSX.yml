@@ -19,5 +19,11 @@
     name: neovim
     state: present
 
+- name: "{{ role_name }} | MaxOSX | Check if cargo is installed"
+  ansible.builtin.stat:
+    path: "$HOME/.cargo/bin/rust-analyzer"
+  register: cargo_check
+
 - name: "{{ role_name }} | MacOSX | Install cargo"
   ansible.builtin.command: "rustup-init -y"
+  when: not cargo_check.stat.exists
