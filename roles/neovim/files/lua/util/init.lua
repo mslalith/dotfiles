@@ -7,9 +7,18 @@ local LazyUtil = require("lazy.core.util")
 ---@field plugins util.plugins
 local M = {}
 
+---@return boolean
 function M.is_git_repo()
     vim.fn.system("git rev-parse " .. vim.fn.expand("%:p:h"))
     return vim.v.shell_error == 0
+end
+
+---@return string
+function M.nvim_version()
+    local version = vim.version()
+    local v = "v" .. version.major .. "." .. version.minor .. "." .. version.patch
+    -- if version.prerelease ~= nil then v = v .. '-' .. version.prerelease end
+    return v
 end
 
 setmetatable(M, {

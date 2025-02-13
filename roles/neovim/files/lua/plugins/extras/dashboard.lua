@@ -2,6 +2,29 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
+    config = function(_, opts)
+        local snacks = require("snacks")
+        snacks.setup(opts)
+
+        vim.defer_fn(function()
+            snacks.dashboard.update()
+        end, 500)
+
+        local checker = require("lazy.manage.checker")
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "LazyCheck",
+            callback = function()
+                for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+                    if vim.api.nvim_get_option_value("filetype", { buf = bufnr }) == "snacks_dashboard" then
+                        snacks.dashboard.update()
+                    end
+                end
+            end,
+        })
+
+        checker.check()
+    end,
     opts = {
         dashboard = {
             sections = {
@@ -14,6 +37,36 @@ return {
                 -- },
                 { section = "keys", gap = 1, padding = 1 },
                 { section = "startup" },
+                function()
+                    local stats = MsVim.plugins.stats()
+
+                    local text = {}
+                    if stats.updates > 0 then
+                        local updates = MsVim.icons.ui.Plugin .. stats.updates
+                        local suffix = stats.updates == 1 and " update available" or " updates available"
+                        text = {
+                            { updates, hl = "special" },
+                            { suffix, hl = "footer" },
+                        }
+                    end
+
+                    return {
+                        align = "center",
+                        padding = 1,
+                        text = text,
+                    }
+                end,
+                function()
+                    local version = MsVim.nvim_version()
+                    return {
+                        align = "center",
+                        padding = 1,
+                        text = {
+                            { MsVim.icons.ui.NeoVim, hl = "footer" },
+                            { version, hl = "NonText" },
+                        },
+                    }
+                end,
             },
             preset = {
                 keys = {
