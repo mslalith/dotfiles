@@ -26,19 +26,33 @@ local M = {
         { "<A-S-f>", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<leader>sg", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<leader>sw", "<cmd>lua require('snacks').picker.grep_word()<cr>", desc = "Grep selected word" },
-        { "<leader>sD", "<cmd>lua require('snacks').picker.diagnostics()<cr>", desc = "Diagnostics" },
-        { "<leader>sd", "<cmd>lua require('snacks').picker.diagnostics_buffer()<cr>", desc = "Buffer diagnostics" },
+        -- { "<leader>sD", "<cmd>lua require('snacks').picker.diagnostics()<cr>", desc = "Diagnostics" },
+        -- { "<leader>sd", "<cmd>lua require('snacks').picker.diagnostics_buffer()<cr>", desc = "Buffer diagnostics" },
+        {
+            "<leader>sD",
+            function()
+                Snacks.picker.diagnostics { layout = MsVim.snacks.layouts.vertical }
+            end,
+            desc = "Diagnostics",
+        },
+        {
+            "<leader>sd",
+            function()
+                Snacks.picker.diagnostics_buffer { layout = MsVim.snacks.layouts.vertical }
+            end,
+            desc = "Buffer diagnostics",
+        },
         {
             "<leader>ff",
             function()
-                Snacks.picker.smart { layout = MsVim.snacks.layout_vscode_bordered }
+                Snacks.picker.smart { layout = MsVim.snacks.layouts.vscode_bordered }
             end,
             desc = "Find Files (smart)",
         },
         {
             "<leader>fb",
             function()
-                Snacks.picker.buffers { layout = MsVim.snacks.layout_vscode_bordered }
+                Snacks.picker.buffers { layout = MsVim.snacks.layouts.vscode_bordered }
             end,
             desc = "Buffers",
         },

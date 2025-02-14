@@ -60,7 +60,7 @@ local M = {
         {
             "<leader>a",
             function()
-                local layout = MsVim.snacks.layout_vscode_bordered
+                local layout = MsVim.snacks.layouts.vscode_bordered
                 layout = vim.tbl_deep_extend("force", layout, { preview = "main" })
                 Snacks.picker.lsp_symbols { layout = layout }
             end,
@@ -79,7 +79,7 @@ local M = {
         {
             "<leader>:",
             function()
-                Snacks.picker.command_history { layout = MsVim.snacks.layout_vscode_bordered }
+                Snacks.picker.command_history { layout = MsVim.snacks.layouts.vscode_bordered }
             end,
             desc = "Command History",
         },
