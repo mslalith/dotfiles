@@ -3,6 +3,7 @@ local M = {
     lazy = true,
     name = "catppuccin",
     build = ":CatppuccinCompile",
+    priority = 1000,
     specs = {
         {
             "akinsho/bufferline.nvim",

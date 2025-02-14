@@ -145,6 +145,7 @@ M.ui = {
     Note = " ",
     Package = " ",
     Pencil = "󰏫 ",
+    Pin = " ",
     Plugin = " ",
     Plus = " ",
     Project = " ",

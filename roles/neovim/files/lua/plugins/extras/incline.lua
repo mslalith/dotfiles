@@ -62,11 +62,16 @@ return {
                     --     contents,
                     --     { MsVim.icons.ui.BoldDividerLeft, guibg = "InclineNormal", guifg = "InclineNormal" }
                     -- )
-                    table.insert(contents, { " ", guibg = "none" })
+                    if vim.tbl_isempty(contents) then
+                        table.insert(contents, { " ", guibg = "none" })
+                    end
                     table.insert(contents, { diagnostic_label })
                 end
 
                 if not MsVim.plugins.has("bufferline.nvim") then
+                    if vim.tbl_isempty(contents) then
+                        table.insert(contents, { " ", guibg = "none" })
+                    end
                     table.insert(contents, { (ft_icon or "") .. " ", guifg = ft_color, guibg = "none" })
                     table.insert(
                         contents,
