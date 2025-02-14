@@ -10,10 +10,7 @@ local M = {
         { "<leader>bh", "<cmd>BufferLineMovePrev<CR>", desc = "Move buffer to previous" },
         { "<leader>bl", "<cmd>BufferLineMoveNext<CR>", desc = "Move buffer to next" },
     },
-}
-
-function M.config()
-    require("bufferline").setup {
+    opts = {
         options = {
             numbers = "none",
             close_command = function(n)
@@ -48,7 +45,7 @@ function M.config()
             enforce_regular_tabs = true,
             always_show_bufferline = true,
         },
-    }
-end
+    },
+}
 
 return M
