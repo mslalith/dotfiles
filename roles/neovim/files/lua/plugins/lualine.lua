@@ -31,15 +31,15 @@ function M.config()
             lualine_a = { "mode" },
             lualine_b = { "branch" },
             lualine_c = {
-                {
-                    "diagnostics",
-                    symbols = {
-                        error = MsVim.icons.diagnostics.Error,
-                        warn = MsVim.icons.diagnostics.Warn,
-                        info = MsVim.icons.diagnostics.Info,
-                        hint = MsVim.icons.diagnostics.Hint,
-                    },
-                },
+                -- {
+                --     "diagnostics",
+                --     symbols = {
+                --         error = MsVim.icons.diagnostics.Error,
+                --         warn = MsVim.icons.diagnostics.Warn,
+                --         info = MsVim.icons.diagnostics.Info,
+                --         hint = MsVim.icons.diagnostics.Hint,
+                --     },
+                -- },
                 { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
                 { "filename" },
             },
