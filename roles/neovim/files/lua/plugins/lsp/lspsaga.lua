@@ -47,7 +47,7 @@ return {
         },
     },
     keys = {
-        { "ff", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
+        { "ff", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
         { "K", "<cmd>Lspsaga hover_doc<CR>", desc = "Show Documentation" },
         { "<A-Enter>", "<cmd>Lspsaga code_action<CR>", desc = "Code Actions" },
         { "gp", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },

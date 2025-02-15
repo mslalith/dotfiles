@@ -11,6 +11,7 @@ return {
             "--globals",
             "vim",
             "MsVim",
+            "Snacks",
         }
         for _, v in ipairs(lint.linters.luacheck.args) do
             table.insert(args, v)

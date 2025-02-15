@@ -36,6 +36,7 @@ local options = {
     laststatus = 3, -- global statusline
     foldlevel = 99, -- initial fold level when file opens
     foldmethod = "indent", -- fold method to apply
+    diffopt = "internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram", -- diff options
 }
 
 vim.opt.shortmess:append("c")
