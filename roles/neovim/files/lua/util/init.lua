@@ -22,6 +22,15 @@ function M.nvim_version()
     return v
 end
 
+---@param tbl table
+---@param insert_tbl table
+---@return table
+function M.tbl_insert(tbl, insert_tbl)
+    for _, v in ipairs(insert_tbl) do
+        table.insert(tbl, v)
+    end
+end
+
 setmetatable(M, {
     __index = function(t, k)
         if LazyUtil[k] then
