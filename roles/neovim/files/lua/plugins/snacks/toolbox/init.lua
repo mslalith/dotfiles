@@ -1,73 +1,20 @@
----@class ms_toolbox.Command
+---@class toolbox.Command
 ---@field name string
 ---@field execute fun()
 ---
----@class ms_toolbox.finder.Item : snacks.picker.finder.Item
+---@class toolbox.finder.Item : snacks.picker.finder.Item
 ---@field idx number
 ---@field name string
 ---@field divider boolean
 ---@field execute fun()
 
----@return ms_toolbox.Command[]
-local function build_commands()
-    ---@type ms_toolbox.Command[]
-    local picker_cmds = {
-        {
-            name = "Jump history",
-            execute = function()
-                require("snacks").picker.jumps()
-            end,
-        },
-        {
-            name = "-",
-            execute = function() end,
-        },
-    }
-
-    ---@type ms_toolbox.Command[]
-    local toggle_cmds = {
-        {
-            name = "Toggle dim mode",
-            execute = function()
-                local snacks_dim = require("snacks").dim
-                if snacks_dim.enabled then
-                    snacks_dim.disable()
-                else
-                    snacks_dim.enable()
-                end
-            end,
-        },
-        {
-            name = "Toggle zen mode",
-            execute = function()
-                require("snacks").zen()
-            end,
-        },
-        {
-            name = "Toggle indent guides",
-            execute = function()
-                local snacks_indent = require("snacks").indent
-                if snacks_indent.enabled then
-                    snacks_indent.disable()
-                else
-                    snacks_indent.enable()
-                end
-            end,
-        },
-    }
-
-    local all_cmds = {}
-    MsConfig.tbl_insert(all_cmds, picker_cmds)
-    MsConfig.tbl_insert(all_cmds, toggle_cmds)
-    return all_cmds
-end
-
-local function show_toolbox()
-    ---@type ms_toolbox.finder.Item[]
+---@return toolbox.finder.Item[]
+local function get_items()
+    ---@type toolbox.finder.Item[]
     local items = {}
-    local commands = build_commands()
+    local commands = require("plugins.snacks.toolbox.commands").all_commands()
     for i, v in ipairs(commands) do
-        ---@type ms_toolbox.finder.Item
+        ---@type toolbox.finder.Item
         local item = {
             idx = i,
             text = v.name,
@@ -77,14 +24,29 @@ local function show_toolbox()
         }
         table.insert(items, item)
     end
+    return items
+end
 
+local function show_toolbox()
     local last_idx = 0
+    local items = get_items()
 
     Snacks.picker {
         title = "@ms Toolbox",
         source = "ms_toolbox",
         items = items,
-        format = "text",
+        format = function(item, picker)
+            local width = picker.layout.opts.layout.width * vim.o.columns
+            width = math.floor(width)
+            width = (width / 10) * 10 - 4
+
+            local text = items[item.idx].divider and string.rep(item.text, width) or item.text
+
+            ---@type snacks.picker.Highlight[]
+            return {
+                { text, item.text_hl },
+            }
+        end,
         on_change = function(picker, item)
             if items[item.idx].divider then
                 if last_idx < item.idx then
@@ -105,9 +67,13 @@ end
 
 return {
     "folke/snacks.nvim",
-    keys = function()
-        MsConfig.keys.normal("<leader>j", function()
-            show_toolbox()
-        end, "@ms Toolbox")
-    end,
+    keys = {
+        {
+            "<leader>j",
+            function()
+                show_toolbox()
+            end,
+            desc = "@ms Toolbox",
+        },
+    },
 }
