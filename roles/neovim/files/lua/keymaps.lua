@@ -1,3 +1,6 @@
+-- Unbind keymaps
+MsVim.keys.normal_mode("s", "<nop>")
+
 -- Better window navigation
 MsVim.keys.normal_mode("<C-h>", "<C-w>h", "Move left")
 MsVim.keys.normal_mode("<C-j>", "<C-w>j", "Move down")
