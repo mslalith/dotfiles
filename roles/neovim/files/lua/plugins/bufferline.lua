@@ -10,6 +10,14 @@ local M = {
         { "<leader>bh", "<cmd>BufferLineMovePrev<CR>", desc = "Move buffer to previous" },
         { "<leader>bl", "<cmd>BufferLineMoveNext<CR>", desc = "Move buffer to next" },
         { "<leader>bp", "<cmd>BufferLineTogglePin<CR>", desc = "Toggle buffer pinning" },
+        {
+            "<leader>bt",
+            function()
+                local status = vim.o.showtabline == 0 and 2 or 0
+                vim.o.showtabline = status
+            end,
+            desc = "Toggle showing buffers",
+        },
     },
     opts = {
         options = {
@@ -32,6 +40,7 @@ local M = {
             offsets = {
                 { filetype = "snacks_layout_box" },
             },
+            auto_toggle_bufferline = false,
             show_tab_indicators = true,
             enforce_regular_tabs = true,
             always_show_bufferline = true,
