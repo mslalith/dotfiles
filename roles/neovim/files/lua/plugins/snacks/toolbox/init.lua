@@ -5,6 +5,7 @@
 ---@class ms_toolbox.finder.Item : snacks.picker.finder.Item
 ---@field idx number
 ---@field name string
+---@field divider boolean
 ---@field execute fun()
 
 ---@return ms_toolbox.Command[]
@@ -16,6 +17,10 @@ local function build_commands()
             execute = function()
                 require("snacks").picker.jumps()
             end,
+        },
+        {
+            name = "-",
+            execute = function() end,
         },
     }
 
@@ -68,15 +73,28 @@ local function show_toolbox()
             text = v.name,
             name = v.name,
             execute = v.execute,
+            divider = v.name == "-",
         }
         table.insert(items, item)
     end
+
+    local last_idx = 0
 
     Snacks.picker {
         title = "@ms Toolbox",
         source = "ms_toolbox",
         items = items,
         format = "text",
+        on_change = function(picker, item)
+            if items[item.idx].divider then
+                if last_idx < item.idx then
+                    picker:action("list_down")
+                else
+                    picker:action("list_up")
+                end
+            end
+            last_idx = item.idx
+        end,
         layout = MsConfig.snacks.layouts.vscode_bordered,
         confirm = function(picker, item)
             picker:close()
