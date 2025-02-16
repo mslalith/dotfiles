@@ -38,11 +38,11 @@ return {
                 { section = "keys", gap = 1, padding = 1 },
                 { section = "startup" },
                 function()
-                    local stats = MsVim.plugins.stats()
+                    local stats = MsConfig.plugins.stats()
 
                     local text = {}
                     if stats.updates > 0 then
-                        local updates = MsVim.icons.ui.Plugin .. stats.updates
+                        local updates = MsConfig.icons.ui.Plugin .. stats.updates
                         local suffix = stats.updates == 1 and " update available" or " updates available"
                         text = {
                             { updates, hl = "special" },
@@ -57,12 +57,12 @@ return {
                     }
                 end,
                 function()
-                    local version = MsVim.nvim_version()
+                    local version = MsConfig.nvim_version()
                     return {
                         align = "center",
                         padding = 1,
                         text = {
-                            { MsVim.icons.ui.NeoVim, hl = "footer" },
+                            { MsConfig.icons.ui.NeoVim, hl = "footer" },
                             { version, hl = "NonText" },
                         },
                     }
@@ -71,7 +71,7 @@ return {
             preset = {
                 keys = {
                     {
-                        icon = MsVim.icons.ui.Search,
+                        icon = MsConfig.icons.ui.Search,
                         key = "f",
                         desc = "Find File",
                         action = function()
@@ -79,13 +79,13 @@ return {
                         end,
                     },
                     {
-                        icon = MsVim.icons.ui.File,
+                        icon = MsConfig.icons.ui.File,
                         key = "n",
                         desc = "New File",
                         action = ":ene | startinsert",
                     },
                     {
-                        icon = MsVim.icons.ui.Files,
+                        icon = MsConfig.icons.ui.Files,
                         key = "r",
                         desc = "Recent Files",
                         action = function()
@@ -93,7 +93,7 @@ return {
                         end,
                     },
                     {
-                        icon = MsVim.icons.ui.Settings,
+                        icon = MsConfig.icons.ui.Settings,
                         key = "c",
                         desc = "Config",
                         action = function()
@@ -101,19 +101,19 @@ return {
                         end,
                     },
                     {
-                        icon = MsVim.icons.ui.ListOutline,
+                        icon = MsConfig.icons.ui.ListOutline,
                         key = "l",
                         desc = "List Sessions",
                         action = ":SessionSearch",
                     },
                     {
-                        icon = MsVim.icons.ui.Reset,
+                        icon = MsConfig.icons.ui.Reset,
                         key = "s",
                         desc = "Restore Session",
                         action = ":SessionRestore",
                     },
-                    { icon = MsVim.icons.ui.LazyVim, key = "L", desc = "Lazy", action = ":Lazy" },
-                    { icon = MsVim.icons.ui.Exit, key = "q", desc = "Quit", action = ":qa" },
+                    { icon = MsConfig.icons.ui.LazyVim, key = "L", desc = "Lazy", action = ":Lazy" },
+                    { icon = MsConfig.icons.ui.Exit, key = "q", desc = "Quit", action = ":qa" },
                 },
             },
         },

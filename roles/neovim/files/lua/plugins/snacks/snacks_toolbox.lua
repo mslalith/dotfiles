@@ -52,8 +52,8 @@ local function build_commands()
     }
 
     local all_cmds = {}
-    MsVim.tbl_insert(all_cmds, picker_cmds)
-    MsVim.tbl_insert(all_cmds, toggle_cmds)
+    MsConfig.tbl_insert(all_cmds, picker_cmds)
+    MsConfig.tbl_insert(all_cmds, toggle_cmds)
     return all_cmds
 end
 
@@ -77,7 +77,7 @@ local function show_toolbox()
         source = "ms_toolbox",
         items = items,
         format = "text",
-        layout = MsVim.snacks.layouts.vscode_bordered,
+        layout = MsConfig.snacks.layouts.vscode_bordered,
         confirm = function(picker, item)
             picker:close()
             items[item.idx].execute()
@@ -88,7 +88,7 @@ end
 return {
     "folke/snacks.nvim",
     keys = function()
-        MsVim.keys.normal_mode("<leader>j", function()
+        MsConfig.keys.normal("<leader>j", function()
             show_toolbox()
         end, "@ms Toolbox")
     end,

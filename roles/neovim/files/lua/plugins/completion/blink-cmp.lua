@@ -110,7 +110,7 @@ return {
         opts = function(_, opts)
             opts.appearance = opts.appearance or {}
             opts.appearance.kind_icons = opts.appearance.kind_icons or {}
-            opts.appearance.kind_icons = vim.tbl_extend("force", opts.appearance.kind_icons, MsVim.icons.kinds)
+            opts.appearance.kind_icons = vim.tbl_extend("force", opts.appearance.kind_icons, MsConfig.icons.kinds)
         end,
     },
 

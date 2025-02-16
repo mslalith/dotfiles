@@ -15,7 +15,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-_G.MsVim = require("util")
+_G.MsConfig = require("util")
 
 -- Setup lazy and import plugins
 require("lazy").setup {

@@ -70,7 +70,7 @@ function M.config()
         }
     end, { desc = "Format file or range" })
 
-    MsVim.keys.normal_mode("<leader>ll", "<cmd>:Format<CR>", "Format file or range")
+    MsConfig.keys.normal("<leader>ll", "<cmd>:Format<CR>", "Format file or range")
 
     vim.api.nvim_create_user_command("ToggleAutoFormatOnSave", function(args)
         local is_global = not args.bang

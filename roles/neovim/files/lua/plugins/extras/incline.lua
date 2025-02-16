@@ -32,10 +32,10 @@ return {
 
                 local function get_diagnostic_label()
                     local icons = {
-                        error = MsVim.icons.diagnostics.Error,
-                        warn = MsVim.icons.diagnostics.Warn,
-                        info = MsVim.icons.diagnostics.Info,
-                        hint = MsVim.icons.diagnostics.Hint,
+                        error = MsConfig.icons.diagnostics.Error,
+                        warn = MsConfig.icons.diagnostics.Warn,
+                        info = MsConfig.icons.diagnostics.Info,
+                        hint = MsConfig.icons.diagnostics.Hint,
                     }
                     local label = {}
 
@@ -60,7 +60,7 @@ return {
                 if not vim.tbl_isempty(diagnostic_label) then
                     -- table.insert(
                     --     contents,
-                    --     { MsVim.icons.ui.BoldDividerLeft, guibg = "InclineNormal", guifg = "InclineNormal" }
+                    --     { MsConfig.icons.ui.BoldDividerLeft, guibg = "InclineNormal", guifg = "InclineNormal" }
                     -- )
                     if vim.tbl_isempty(contents) then
                         table.insert(contents, { " ", guibg = "none" })
@@ -68,7 +68,7 @@ return {
                     table.insert(contents, { diagnostic_label })
                 end
 
-                if not MsVim.plugins.has("bufferline.nvim") then
+                if not MsConfig.plugins.has("bufferline.nvim") then
                     if vim.tbl_isempty(contents) then
                         table.insert(contents, { " ", guibg = "none" })
                     end

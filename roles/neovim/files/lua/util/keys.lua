@@ -1,34 +1,39 @@
 ---@class util.keys
 local M = {}
 
-function M.normal_mode(key, mapping, desc, opts)
+function M.normal(key, mapping, desc, opts)
     opts = opts or {}
-    local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
-    vim.keymap.set("n", key, mapping, _opts)
+    opts = vim.tbl_deep_extend("force", opts, { desc = desc })
+    vim.keymap.set("n", key, mapping, opts)
 end
 
-function M.insert_mode(key, mapping, desc, opts)
+function M.insert(key, mapping, desc, opts)
     opts = opts or {}
-    local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
-    vim.keymap.set("i", key, mapping, _opts)
+    opts = vim.tbl_deep_extend("force", opts, { desc = desc })
+    vim.keymap.set("i", key, mapping, opts)
 end
 
-function M.visual_mode(key, mapping, desc, opts)
+function M.visual(key, mapping, desc, opts)
     opts = opts or {}
-    local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
-    vim.keymap.set("v", key, mapping, _opts)
+    opts = vim.tbl_deep_extend("force", opts, { desc = desc })
+    vim.keymap.set("v", key, mapping, opts)
 end
 
-function M.visual_block_mode(key, mapping, desc, opts)
+function M.visual_block(key, mapping, desc, opts)
     opts = opts or {}
-    local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
-    vim.keymap.set("x", key, mapping, _opts)
+    opts = vim.tbl_deep_extend("force", opts, { desc = desc })
+    vim.keymap.set("x", key, mapping, opts)
 end
 
-function M.terminal_mode(key, mapping, desc, opts)
+function M.terminal(key, mapping, desc, opts)
     opts = opts or {}
-    local _opts = vim.tbl_deep_extend("force", opts, { desc = desc })
-    vim.keymap.set("t", key, mapping, _opts)
+    opts = vim.tbl_deep_extend("force", opts, { desc = desc })
+    vim.keymap.set("t", key, mapping, opts)
+end
+
+function M.unbind_normal(key, opts)
+    opts = opts or {}
+    vim.keymap.set("n", key, "<nop>", opts)
 end
 
 return M

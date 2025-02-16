@@ -60,7 +60,7 @@ local M = {
         {
             "<leader>a",
             function()
-                local layout = MsVim.snacks.layouts.vscode_bordered
+                local layout = MsConfig.snacks.layouts.vscode_bordered
                 layout = vim.tbl_deep_extend("force", layout, { preview = "main" })
                 Snacks.picker.lsp_symbols { layout = layout }
             end,
@@ -79,13 +79,19 @@ local M = {
         {
             "<leader>:",
             function()
-                Snacks.picker.command_history { layout = MsVim.snacks.layouts.vscode_bordered }
+                Snacks.picker.command_history { layout = MsConfig.snacks.layouts.vscode_bordered }
             end,
             desc = "Command History",
         },
-        { "<leader>gg", "<cmd>lua require('snacks').lazygit()<cr>", desc = "Lazygit" },
-        { "<leader>ty", "<cmd>lua MsVim.snacks.yazi()<cr>", desc = "Yazi" },
         { "<leader>w", "<cmd>lua require('snacks').bufdelete()<cr>", desc = "Delete Buffer" },
+        { "<leader>gg", "<cmd>lua require('snacks').lazygit()<cr>", desc = "Lazygit" },
+        {
+            "<leader>ty",
+            function()
+                MsConfig.snacks.yazi()
+            end,
+            desc = "Yazi",
+        },
     },
 }
 

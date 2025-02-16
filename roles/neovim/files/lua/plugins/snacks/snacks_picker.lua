@@ -31,28 +31,28 @@ local M = {
         {
             "<leader>sD",
             function()
-                Snacks.picker.diagnostics { layout = MsVim.snacks.layouts.vertical }
+                Snacks.picker.diagnostics { layout = MsConfig.snacks.layouts.vertical }
             end,
             desc = "Diagnostics",
         },
         {
             "<leader>sd",
             function()
-                Snacks.picker.diagnostics_buffer { layout = MsVim.snacks.layouts.vertical }
+                Snacks.picker.diagnostics_buffer { layout = MsConfig.snacks.layouts.vertical }
             end,
             desc = "Buffer diagnostics",
         },
         {
             "<leader>ff",
             function()
-                Snacks.picker.smart { layout = MsVim.snacks.layouts.vscode_bordered }
+                Snacks.picker.smart { layout = MsConfig.snacks.layouts.vscode_bordered }
             end,
             desc = "Find Files (smart)",
         },
         {
             "<leader>fb",
             function()
-                Snacks.picker.buffers { layout = MsVim.snacks.layouts.vscode_bordered }
+                Snacks.picker.buffers { layout = MsConfig.snacks.layouts.vscode_bordered }
             end,
             desc = "Buffers",
         },

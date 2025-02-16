@@ -10,8 +10,8 @@ local M = {
 function M.config()
     require("aerial").setup {
         on_attach = function(bufnr)
-            MsVim.keys.normal_mode("m", "<cmd>AerialNext<CR>", "Aerial Next", { buffer = bufnr })
-            MsVim.keys.normal_mode("M", "<cmd>AerialPrev<CR>", "Aerial Previous", { buffer = bufnr })
+            MsConfig.keys.normal("m", "<cmd>AerialNext<CR>", "Aerial Next", { buffer = bufnr })
+            MsConfig.keys.normal("M", "<cmd>AerialPrev<CR>", "Aerial Previous", { buffer = bufnr })
         end,
         close_on_select = true,
         layout = {

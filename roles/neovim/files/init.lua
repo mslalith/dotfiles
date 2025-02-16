@@ -3,6 +3,6 @@ vim.g["mapleader"] = " "
 require("options")
 require("config")
 
-MsVim.keys.insert_mode("jk", "<ESC>", "Goto normal mode")
+MsConfig.keys.insert("jk", "<ESC>", "Goto normal mode")
 
 require("keymaps")

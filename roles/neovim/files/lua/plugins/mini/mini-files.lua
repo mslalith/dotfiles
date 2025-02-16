@@ -49,7 +49,7 @@ return {
             callback = function(args)
                 local buf_id = args.data.buf_id
 
-                MsVim.keys.normal_mode(
+                MsConfig.keys.normal(
                     opts.mappings and opts.mappings.toggle_hidden or "g.",
                     toggle_dotfiles,
                     "Toggle hidden files",

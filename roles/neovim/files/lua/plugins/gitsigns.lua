@@ -4,18 +4,18 @@ local M = {
 }
 
 function M.config()
-    local icons = MsVim.icons.git
+    local icons = MsConfig.icons.git
 
     require("gitsigns").setup {
         on_attach = function(bufnr)
             local gitsigns = require("gitsigns")
 
             local function nmap(l, r, desc)
-                MsVim.keys.normal_mode(l, r, desc, { buffer = bufnr })
+                MsConfig.keys.normal(l, r, desc, { buffer = bufnr })
             end
 
             local function vmap(l, r, desc)
-                MsVim.keys.visual_mode(l, r, desc, { buffer = bufnr })
+                MsConfig.keys.visual(l, r, desc, { buffer = bufnr })
             end
 
             --------------------------------------

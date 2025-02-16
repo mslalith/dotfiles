@@ -14,12 +14,12 @@ function M.config()
             icons_enabled = true,
             theme = "auto",
             component_separators = {
-                left = MsVim.icons.ui.DividerRight,
-                right = MsVim.icons.ui.DividerLeft,
+                left = MsConfig.icons.ui.DividerRight,
+                right = MsConfig.icons.ui.DividerLeft,
             },
             section_separators = {
-                left = MsVim.icons.ui.BoldDividerRight,
-                right = MsVim.icons.ui.BoldDividerLeft,
+                left = MsConfig.icons.ui.BoldDividerRight,
+                right = MsConfig.icons.ui.BoldDividerLeft,
             },
             always_divide_middle = true,
             globalstatus = vim.o.laststatus == 3,
@@ -34,10 +34,10 @@ function M.config()
                 -- {
                 --     "diagnostics",
                 --     symbols = {
-                --         error = MsVim.icons.diagnostics.Error,
-                --         warn = MsVim.icons.diagnostics.Warn,
-                --         info = MsVim.icons.diagnostics.Info,
-                --         hint = MsVim.icons.diagnostics.Hint,
+                --         error = MsConfig.icons.diagnostics.Error,
+                --         warn = MsConfig.icons.diagnostics.Warn,
+                --         info = MsConfig.icons.diagnostics.Info,
+                --         hint = MsConfig.icons.diagnostics.Hint,
                 --     },
                 -- },
                 { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
@@ -57,9 +57,9 @@ function M.config()
                 {
                     "diff",
                     symbols = {
-                        added = MsVim.icons.git.Added,
-                        modified = MsVim.icons.git.Modified,
-                        removed = MsVim.icons.git.Removed,
+                        added = MsConfig.icons.git.Added,
+                        modified = MsConfig.icons.git.Modified,
+                        removed = MsConfig.icons.git.Removed,
                     },
                     source = function()
                         local gitsigns = vim.b.gitsigns_status_dict
@@ -77,7 +77,7 @@ function M.config()
             },
             lualine_z = {
                 function()
-                    return MsVim.icons.ui.Clock .. os.date("%R")
+                    return MsConfig.icons.ui.Clock .. os.date("%R")
                 end,
             },
         },

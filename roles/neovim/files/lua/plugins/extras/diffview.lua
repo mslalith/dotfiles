@@ -1,14 +1,14 @@
 local M = {
     "sindrets/diffview.nvim",
     keys = { "<leader>", "d" },
-    cond = MsVim.is_git_repo,
+    cond = MsConfig.is_git_repo,
     dependencies = { "nvim-lua/plenary.nvim" },
 }
 
 function M.config()
     local actions = require("diffview.actions")
 
-    MsVim.keys.normal_mode("<leader>d", ":DiffviewToggle<CR>", "Toggle Git Diff")
+    MsConfig.keys.normal("<leader>d", ":DiffviewToggle<CR>", "Toggle Git Diff")
 
     vim.api.nvim_create_user_command("DiffviewToggle", function(e)
         local view = require("diffview.lib").get_current_view()

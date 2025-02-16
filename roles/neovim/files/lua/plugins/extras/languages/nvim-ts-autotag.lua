@@ -1,6 +1,6 @@
 local M = {
     "windwp/nvim-ts-autotag",
-    ft = MsVim.filetypes.web_frontend,
+    ft = MsConfig.filetypes.web_frontend,
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
     },

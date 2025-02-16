@@ -10,7 +10,7 @@ return {
         local args = {
             "--globals",
             "vim",
-            "MsVim",
+            "MsConfig",
             "Snacks",
         }
         for _, v in ipairs(lint.linters.luacheck.args) do
@@ -27,7 +27,7 @@ return {
             end,
         })
 
-        MsVim.keys.normal_mode("<leader>cl", function()
+        MsConfig.keys.normal("<leader>cl", function()
             lint.try_lint()
         end, "Trigger lint")
     end,
