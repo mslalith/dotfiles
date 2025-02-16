@@ -4,7 +4,7 @@
   "aerial.nvim": { "branch": "master", "commit": "4c57c5016a6553e0c6b5d93ed60e8fb3dfe69517" },
   "auto-session": { "branch": "main", "commit": "9c3f977aafb56bd73ba0d082c4dcbdba5666faf3" },
   "blink-emoji.nvim": { "branch": "master", "commit": "a77aebc092ebece1eed108f301452ae774d6b67a" },
-  "blink.cmp": { "branch": "main", "commit": "f22ca35d06b2210ebc84280be94caa11cf2ffe9f" },
+  "blink.cmp": { "branch": "main", "commit": "cc2f10e9d8b6420324d4743a4d9a428de427e2cf" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "catppuccin": { "branch": "main", "commit": "0b2437bcc12b4021614dc41fcea9d0f136d94063" },
   "colorful-menu.nvim": { "branch": "master", "commit": "43c04dd0cdf5c300a1f7eee43d4a02f9c9cdba88" },
