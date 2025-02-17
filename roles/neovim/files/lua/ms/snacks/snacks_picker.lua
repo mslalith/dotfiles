@@ -26,8 +26,6 @@ local M = {
         { "<A-S-f>", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<leader>sg", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<leader>sw", "<cmd>lua require('snacks').picker.grep_word()<cr>", desc = "Grep selected word" },
-        -- { "<leader>sD", "<cmd>lua require('snacks').picker.diagnostics()<cr>", desc = "Diagnostics" },
-        -- { "<leader>sd", "<cmd>lua require('snacks').picker.diagnostics_buffer()<cr>", desc = "Buffer diagnostics" },
         {
             "<leader>sD",
             function()

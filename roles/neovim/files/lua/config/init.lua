@@ -20,14 +20,14 @@ _G.MsConfig = require("util")
 -- Setup lazy and import plugins
 require("lazy").setup {
     spec = {
-        { import = "plugins" },
-        { import = "plugins.colorscheme" },
-        { import = "plugins.lsp" },
-        { import = "plugins.completion" },
-        { import = "plugins.snacks" },
-        { import = "plugins.mini" },
-        { import = "plugins.extras" },
-        { import = "plugins.extras.languages" },
+        { import = "ms" },
+        { import = "ms.colorscheme" },
+        { import = "ms.lsp" },
+        { import = "ms.completion" },
+        { import = "ms.snacks" },
+        { import = "ms.mini" },
+        { import = "ms.extras" },
+        { import = "ms.extras.languages" },
     },
     defaults = {
         lazy = true,

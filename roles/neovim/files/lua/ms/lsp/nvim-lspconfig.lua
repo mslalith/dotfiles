@@ -70,7 +70,7 @@ function M.config()
         end,
 
         ["lua_ls"] = function()
-            local lua_opts = require("plugins.lsp.providers.lua_ls")
+            local lua_opts = require("ms.lsp.providers.lua_ls")
             lspconfig.lua_ls.setup(vim.tbl_deep_extend("force", lua_opts, opts))
         end,
 
@@ -80,7 +80,7 @@ function M.config()
         -- end,
 
         ["rust_analyzer"] = function()
-            local rust_opts = require("plugins.lsp.providers.rust")
+            local rust_opts = require("ms.lsp.providers.rust")
             local rust_tools = require("rust-tools")
             rust_tools.setup(vim.tbl_deep_extend("force", rust_opts, { server = opts }))
         end,

@@ -12,7 +12,7 @@
 local function get_items()
     ---@type toolbox.finder.Item[]
     local items = {}
-    local commands = require("plugins.snacks.toolbox.commands").all_commands()
+    local commands = require("ms.snacks.toolbox.commands").all_commands()
     for i, v in ipairs(commands) do
         ---@type toolbox.finder.Item
         local item = {

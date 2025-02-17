@@ -15,8 +15,8 @@ local toggle_cmds = {
     {
         name = "Toggle distraction free mode",
         execute = function()
-            require("plugins.bufferline").toggle()
-            require("plugins.lualine").toggle()
+            require("ms.bufferline").toggle()
+            require("ms.lualine").toggle()
         end,
     },
     {
