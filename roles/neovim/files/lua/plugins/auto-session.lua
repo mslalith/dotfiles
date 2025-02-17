@@ -34,6 +34,7 @@ function M.config()
         pre_save_cmds = { close_all_floating_wins },
         auto_session_use_git_branch = true,
         bypass_save_filetypes = { "snacks_dashboard" },
+        show_auto_restore_notif = false,
     }
 end
 

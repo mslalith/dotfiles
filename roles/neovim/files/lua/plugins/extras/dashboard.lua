@@ -110,7 +110,9 @@ return {
                         icon = MsConfig.icons.ui.Reset,
                         key = "s",
                         desc = "Restore Session",
-                        action = ":SessionRestore",
+                        action = function()
+                            require("auto-session").RestoreSession(nil, { show_message = false })
+                        end,
                     },
                     { icon = MsConfig.icons.ui.LazyVim, key = "L", desc = "Lazy", action = ":Lazy" },
                     { icon = MsConfig.icons.ui.Exit, key = "q", desc = "Quit", action = ":qa" },
