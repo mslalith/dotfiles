@@ -4,12 +4,7 @@ local M = {
     dependencies = {
         "kyazdani42/nvim-web-devicons",
     },
-}
-
-function M.config()
-    local lualine = require("lualine")
-
-    lualine.setup {
+    opts = {
         options = {
             icons_enabled = true,
             theme = "auto",
@@ -91,7 +86,7 @@ function M.config()
         },
         tabline = {},
         extensions = {},
-    }
-end
+    },
+}
 
 return M
