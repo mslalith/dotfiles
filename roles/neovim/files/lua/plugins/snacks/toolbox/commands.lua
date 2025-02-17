@@ -13,6 +13,12 @@ local picker_cmds = {
 ---@type toolbox.Command[]
 local toggle_cmds = {
     {
+        name = "Toggle bufferline",
+        execute = function()
+            require("plugins.bufferline").toggle()
+        end,
+    },
+    {
         name = "Toggle dim mode",
         execute = function()
             local snacks_dim = require("snacks").dim
@@ -42,6 +48,22 @@ local toggle_cmds = {
     },
 }
 
+---@type toolbox.Command[]
+local notification_cmds = {
+    {
+        name = "Show notifications",
+        execute = function()
+            require("snacks").notifier.show_history()
+        end,
+    },
+    {
+        name = "Hide notifications",
+        execute = function()
+            require("snacks").notifier.hide()
+        end,
+    },
+}
+
 local divider = {
     name = "-",
     execute = function() end,
@@ -54,6 +76,8 @@ function M.all_commands()
     MsConfig.tbl_insert(cmds, picker_cmds)
     table.insert(cmds, divider)
     MsConfig.tbl_insert(cmds, toggle_cmds)
+    table.insert(cmds, divider)
+    MsConfig.tbl_insert(cmds, notification_cmds)
     return cmds
 end
 
