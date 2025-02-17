@@ -13,9 +13,10 @@ local picker_cmds = {
 ---@type toolbox.Command[]
 local toggle_cmds = {
     {
-        name = "Toggle bufferline",
+        name = "Toggle distraction free mode",
         execute = function()
             require("plugins.bufferline").toggle()
+            require("plugins.lualine").toggle()
         end,
     },
     {

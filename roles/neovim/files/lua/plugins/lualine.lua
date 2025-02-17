@@ -89,4 +89,8 @@ local M = {
     },
 }
 
+function M.toggle()
+    vim.o.laststatus = vim.o.laststatus == 0 and 3 or 0
+end
+
 return M
