@@ -12,6 +12,7 @@
       - luarocks
       - rustup
       - chafa
+      - imagemagick
     state: present
 
 - name: "{{ role_name }} | MacOSX | Install"

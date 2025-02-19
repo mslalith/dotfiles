@@ -29,6 +29,22 @@ function M.tbl_insert(tbl, insert_tbl)
     for _, v in ipairs(insert_tbl) do
         table.insert(tbl, v)
     end
+    return tbl
+end
+
+---@param tbls table[]
+---@return table
+function M.tbl_merge(tbls)
+    local list = {}
+
+    for _, tbl in ipairs(tbls) do
+        vim.notify(vim.inspect(tbl))
+        for _, v in ipairs(tbl) do
+            table.insert(list, v)
+        end
+    end
+
+    return list
 end
 
 setmetatable(M, {

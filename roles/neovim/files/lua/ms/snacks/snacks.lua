@@ -15,6 +15,13 @@ local M = {
             enabled = true,
             chunk = { enabled = true },
         },
+        image = {
+            doc = {
+                enabled = false,
+                inline = false,
+                float = true,
+            },
+        },
         input = { enabled = true },
         lazygit = { enabled = true },
         notifier = {
@@ -84,6 +91,7 @@ local M = {
             desc = "Command History",
         },
         { "<leader>w", "<cmd>lua require('snacks').bufdelete()<cr>", desc = "Delete Buffer" },
+        { "<leader>ii", "<cmd>lua require('snacks').image.hover()<cr>", desc = "Show image at cursor" },
         { "<leader>gg", "<cmd>lua require('snacks').lazygit()<cr>", desc = "Lazygit" },
         {
             "<leader>ty",

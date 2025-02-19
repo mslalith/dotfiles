@@ -65,6 +65,16 @@ local notification_cmds = {
     },
 }
 
+---@type toolbox.Command[]
+local other_cmds = {
+    {
+        name = "Show image under cursor",
+        execute = function()
+            require("snacks").image.hover()
+        end,
+    },
+}
+
 local divider = {
     name = "-",
     execute = function() end,
@@ -74,11 +84,21 @@ local divider = {
 function M.all_commands()
     ---@type toolbox.Command[]
     local cmds = {}
-    MsConfig.tbl_insert(cmds, picker_cmds)
-    table.insert(cmds, divider)
-    MsConfig.tbl_insert(cmds, toggle_cmds)
-    table.insert(cmds, divider)
-    MsConfig.tbl_insert(cmds, notification_cmds)
+
+    local groups = {
+        picker_cmds,
+        toggle_cmds,
+        notification_cmds,
+    }
+
+    for _, v in ipairs(groups) do
+        MsConfig.tbl_insert(cmds, v)
+        table.insert(cmds, divider)
+    end
+
+    -- remove last divider
+    table.remove(cmds, #cmds)
+
     return cmds
 end
 
