@@ -11,10 +11,6 @@ function M.config()
     require("noice").setup {
         routes = {
             {
-                view = "notify",
-                filter = { event = "msg_showmode" },
-            },
-            {
                 filter = {
                     event = "msg_show",
                     kind = "",
