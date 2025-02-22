@@ -95,14 +95,14 @@ end
 
 M.keys = {
     {
-        "<leader>jj",
+        "<leader>tt",
         function()
             show_toolbox()
         end,
         desc = M.toolbox_name,
     },
     {
-        "<leader>jg",
+        "<leader>tg",
         function()
             require("ms.toolbox.git").show_git_toolbox()
         end,
