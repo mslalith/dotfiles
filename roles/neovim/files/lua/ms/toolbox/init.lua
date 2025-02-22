@@ -8,6 +8,8 @@
 ---@field divider boolean
 ---@field execute fun()
 
+local toolbox_name = "@ms Toolbox"
+
 ---@return ms.toolbox.finder.Item[]
 local function get_items()
     ---@type ms.toolbox.finder.Item[]
@@ -32,7 +34,7 @@ local function show_toolbox()
     local items = get_items()
 
     Snacks.picker {
-        title = "@ms Toolbox",
+        title = toolbox_name,
         source = "ms_toolbox",
         items = items,
         format = function(item, picker)
@@ -65,7 +67,7 @@ local function show_toolbox()
     }
 end
 
-return {
+local M = {
     "folke/snacks.nvim",
     keys = {
         {
@@ -73,7 +75,14 @@ return {
             function()
                 show_toolbox()
             end,
-            desc = "@ms Toolbox",
+            desc = toolbox_name,
         },
     },
 }
+
+---@param msg string
+function M.notify_error(msg)
+    vim.notify(msg, vim.log.levels.ERROR, { title = toolbox_name })
+end
+
+return M

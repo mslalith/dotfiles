@@ -1,42 +1,38 @@
 ---@class ms.toolbox.sources.git
 local M = {}
 
-local group_name = "git"
-
-local function notify(key, msg)
-    local fidget = require("fidget")
-    fidget.notify(msg, nil, { group = group_name, key = key })
+---@param key string
+---@param title string
+---@param message string
+---@return FidgetNotifier
+local function get_or_create_task(key, title, message)
+    return require("ms.extras.fidget.notifier").get_or_create_task(key, "Git", title, message)
 end
 
----@type vim.SystemObj|nil
-local git_fetch_sys_obj = nil
----@type vim.SystemObj|nil
-local git_status_sys_obj = nil
-
 local function git_fetch()
-    if git_fetch_sys_obj ~= nil then
+    local git_fetch_task = get_or_create_task("git_fetch", "Git Fetch", "fetching")
+    if git_fetch_task.is_running then
         return
     end
 
-    notify("git_fetch", "Fetching")
-    git_fetch_sys_obj = vim.system({ "git", "fetch" }, { text = true }, function(obj)
-        git_fetch_sys_obj = nil
+    vim.system({ "git", "fetch" }, { text = true }, function(obj)
+        git_fetch_task:finish()
         if obj.code ~= 0 then
-            vim.notify("Git fetch failed")
+            require("ms.toolbox").notify_error("Git fetch failed")
         end
     end)
 end
 
-local function git_status()
-    if git_status_sys_obj ~= nil then
+local function git_pull()
+    local git_pull_task = get_or_create_task("git_pull", "Git Pull", "pulling")
+    if git_pull_task.is_running then
         return
     end
 
-    notify("git_status", "Fetching status")
-    git_status_sys_obj = vim.system({ "git", "status" }, { text = true }, function(obj)
-        git_status_sys_obj = nil
+    vim.system({ "git", "pull" }, { text = true }, function(obj)
+        git_pull_task:finish()
         if obj.code ~= 0 then
-            vim.notify("Git status failed")
+            require("ms.toolbox").notify_error("Git pull failed")
         end
     end)
 end
@@ -50,9 +46,9 @@ M.cmds = {
         end,
     },
     {
-        name = "Git Status",
+        name = "Git Pull",
         execute = function()
-            git_status()
+            git_pull()
         end,
     },
 }
