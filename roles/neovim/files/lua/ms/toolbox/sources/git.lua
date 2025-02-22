@@ -6,7 +6,7 @@ M.cmds = {
     {
         name = "Git Fetch",
         execute = function()
-            M:run_task {
+            M.run_task {
                 cmd = { "git", "fetch" },
                 group = "Git",
                 key = "git_fetch",
@@ -18,7 +18,7 @@ M.cmds = {
     {
         name = "Git Pull",
         execute = function()
-            M:run_task {
+            M.run_task {
                 cmd = { "git", "pull" },
                 group = "Git",
                 key = "git_pull",
@@ -30,7 +30,7 @@ M.cmds = {
     {
         name = "Git Push",
         execute = function()
-            M:run_task {
+            M.run_task {
                 cmd = { "git", "push" },
                 group = "Git",
                 key = "git_push",

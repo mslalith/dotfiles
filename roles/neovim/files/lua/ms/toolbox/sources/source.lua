@@ -18,7 +18,7 @@ function M:new()
 end
 
 ---@param opts ms.toolbox.source.SourceOptions
-function M:run_task(opts)
+function M.run_task(opts)
     if not opts.group then
         require("ms.toolbox").notify_error("group is required")
     end
