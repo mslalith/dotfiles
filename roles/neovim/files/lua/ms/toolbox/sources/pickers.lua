@@ -5,6 +5,7 @@ local M = {}
 M.cmds = {
     {
         name = "Jump history",
+        group = "Pickers",
         execute = function()
             require("snacks").picker.jumps()
         end,

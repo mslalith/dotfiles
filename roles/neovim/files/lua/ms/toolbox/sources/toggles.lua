@@ -5,6 +5,7 @@ local M = {}
 M.cmds = {
     {
         name = "Toggle distraction free mode",
+        group = "Toggles",
         execute = function()
             require("ms.bufferline").toggle()
             require("ms.lualine").toggle()
@@ -12,6 +13,7 @@ M.cmds = {
     },
     {
         name = "Toggle dim mode",
+        group = "Toggles",
         execute = function()
             local snacks_dim = require("snacks").dim
             if snacks_dim.enabled then
@@ -23,12 +25,14 @@ M.cmds = {
     },
     {
         name = "Toggle zen mode",
+        group = "Toggles",
         execute = function()
             require("snacks").zen()
         end,
     },
     {
         name = "Toggle indent guides",
+        group = "Toggles",
         execute = function()
             local snacks_indent = require("snacks").indent
             if snacks_indent.enabled then

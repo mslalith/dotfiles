@@ -1,17 +1,20 @@
 ---@class ms.toolbox.Command
 ---@field name string
+---@field group string
 ---@field execute fun()
 ---
 ---@class ms.toolbox.finder.Item : snacks.picker.finder.Item
 ---@field idx number
+---@field group string
 ---@field name string
 ---@field divider boolean
 ---@field execute fun()
 
 local toolbox_name = "@ms Toolbox"
 
+---@param group? string Show only group commands. Show all if nil
 ---@return ms.toolbox.finder.Item[]
-local function get_items()
+local function get_items(group)
     ---@type ms.toolbox.finder.Item[]
     local items = {}
     local commands = require("ms.toolbox.commands").all_commands()
@@ -19,19 +22,23 @@ local function get_items()
         ---@type ms.toolbox.finder.Item
         local item = {
             idx = i,
+            group = v.group,
             text = v.name,
             name = v.name,
             execute = v.execute,
             divider = v.name == "-",
         }
-        table.insert(items, item)
+        if not group or v.group == group then
+            table.insert(items, item)
+        end
     end
     return items
 end
 
-local function show_toolbox()
+---@param group? string Show only group commands. Show all if nil
+local function show_toolbox(group)
     local last_idx = 0
-    local items = get_items()
+    local items = get_items(group)
 
     Snacks.picker {
         title = toolbox_name,
@@ -71,9 +78,16 @@ local M = {
     "folke/snacks.nvim",
     keys = {
         {
-            "<leader>j",
+            "<leader>jj",
             function()
                 show_toolbox()
+            end,
+            desc = toolbox_name,
+        },
+        {
+            "<leader>jg",
+            function()
+                show_toolbox("Git")
             end,
             desc = toolbox_name,
         },

@@ -6,6 +6,7 @@ local M = {}
 local other_cmds = {
     {
         name = "Show image under cursor",
+        group = "Others",
         execute = function()
             require("snacks").image.hover()
         end,

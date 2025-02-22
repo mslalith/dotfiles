@@ -5,6 +5,7 @@ local M = require("ms.toolbox.sources.source"):new()
 M.cmds = {
     {
         name = "Git Fetch",
+        group = "Git",
         execute = function()
             M.run_task {
                 cmd = { "git", "fetch" },
@@ -17,6 +18,7 @@ M.cmds = {
     },
     {
         name = "Git Pull",
+        group = "Git",
         execute = function()
             M.run_task {
                 cmd = { "git", "pull" },
@@ -29,6 +31,7 @@ M.cmds = {
     },
     {
         name = "Git Push",
+        group = "Git",
         execute = function()
             M.run_task {
                 cmd = { "git", "push" },

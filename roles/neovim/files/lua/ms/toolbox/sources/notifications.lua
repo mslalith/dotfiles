@@ -5,12 +5,14 @@ local M = {}
 M.cmds = {
     {
         name = "Show notifications",
+        group = "Notifications",
         execute = function()
             require("snacks").notifier.show_history()
         end,
     },
     {
         name = "Hide notifications",
+        group = "Notifications",
         execute = function()
             require("snacks").notifier.hide()
         end,
