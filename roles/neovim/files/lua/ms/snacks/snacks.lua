@@ -55,6 +55,13 @@ local M = {
         { "<leader>gb", "<cmd>lua require('snacks').git.blame_line()<cr>", desc = "Git Blame Line" },
         { "<leader>gf", "<cmd>lua require('snacks').lazygit.log_file()<cr>", desc = "Git Log File" },
         { "<leader>gl", "<cmd>lua require('snacks').picker.git_log_line()<cr>", desc = "Git Log Line" },
+        {
+            "<leader>gs",
+            function()
+                Snacks.picker.git_status { layout = MsConfig.snacks.layouts.vertical }
+            end,
+            desc = "Git Status",
+        },
 
         --------------------------------------
         -- LSP

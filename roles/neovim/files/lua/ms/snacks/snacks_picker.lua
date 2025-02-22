@@ -26,6 +26,7 @@ local M = {
         { "<A-S-f>", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<leader>sg", "<cmd>lua require('snacks').picker.grep()<cr>", desc = "Grep" },
         { "<leader>sw", "<cmd>lua require('snacks').picker.grep_word()<cr>", desc = "Grep selected word" },
+        { "<leader>sr", "<cmd>lua require('snacks').picker.resume()<cr>", desc = "Resume last picker" },
         {
             "<leader>sD",
             function()
@@ -44,6 +45,19 @@ local M = {
             "<leader>ff",
             function()
                 Snacks.picker.smart { layout = MsConfig.snacks.layouts.vscode_bordered }
+            end,
+            desc = "Find Files (smart)",
+        },
+        {
+            mode = "v",
+            "<leader>ff",
+            function()
+                Snacks.picker.smart {
+                    layout = MsConfig.snacks.layouts.vscode_bordered,
+                    search = function(picker)
+                        return picker:word()
+                    end,
+                }
             end,
             desc = "Find Files (smart)",
         },
