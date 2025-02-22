@@ -1,3 +1,16 @@
+local M = {
+    "folke/snacks.nvim",
+}
+
+M.toolbox_name = "@ms Toolbox"
+
+---@param cmd string|ms.toolbox.Command
+---@return string
+function M.toolbox_name_for(cmd)
+    local group = type(cmd) == "string" and cmd or cmd.group
+    return M.toolbox_name .. " (" .. group .. ")"
+end
+
 ---@class ms.toolbox.Command
 ---@field name string
 ---@field group string
@@ -9,8 +22,6 @@
 ---@field name string
 ---@field divider boolean
 ---@field execute fun()
-
-local toolbox_name = "@ms Toolbox"
 
 ---@param group? string Show only group commands. Show all if nil
 ---@return ms.toolbox.finder.Item[]
@@ -36,12 +47,13 @@ local function get_items(group)
 end
 
 ---@param group? string Show only group commands. Show all if nil
-local function show_toolbox(group)
+local function show_toolbox(title, group)
+    title = title or toolbox_name
     local last_idx = 0
     local items = get_items(group)
 
     Snacks.picker {
-        title = toolbox_name,
+        title = title,
         source = "ms_toolbox",
         items = items,
         format = function(item, picker)
@@ -68,35 +80,37 @@ local function show_toolbox(group)
         end,
         layout = MsConfig.snacks.layouts.vscode_bordered,
         confirm = function(picker, item)
-            picker:close()
             items[item.idx].execute()
+            picker:close()
         end,
     }
 end
 
-local M = {
-    "folke/snacks.nvim",
-    keys = {
-        {
-            "<leader>jj",
-            function()
-                show_toolbox()
-            end,
-            desc = toolbox_name,
-        },
-        {
-            "<leader>jg",
-            function()
-                show_toolbox("Git")
-            end,
-            desc = toolbox_name,
-        },
+M.keys = {
+    {
+        "<leader>jj",
+        function()
+            show_toolbox()
+        end,
+        desc = M.toolbox_name,
+    },
+    {
+        "<leader>jg",
+        function()
+            show_toolbox(M.toolbox_name_for("Git"), "Git")
+        end,
+        desc = M.toolbox_name_for("Git"),
     },
 }
 
 ---@param msg string
+function M.notify_info(msg)
+    vim.notify(msg, vim.log.levels.INFO, { title = M.toolbox_name })
+end
+
+---@param msg string
 function M.notify_error(msg)
-    vim.notify(msg, vim.log.levels.ERROR, { title = toolbox_name })
+    vim.notify(msg, vim.log.levels.ERROR, { title = M.toolbox_name })
 end
 
 return M
