@@ -26,7 +26,6 @@ function M.all_commands()
     local sources = require("ms.toolbox.sources")
 
     local groups = {
-        sources.git.cmds,
         sources.pickers.cmds,
         sources.toggles.cmds,
         sources.notifications.cmds,

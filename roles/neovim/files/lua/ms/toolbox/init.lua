@@ -26,9 +26,18 @@ end
 ---@param group? string Show only group commands. Show all if nil
 ---@return ms.toolbox.finder.Item[]
 local function get_items(group)
+    local commands = require("ms.toolbox.commands").all_commands()
+    commands = vim.tbl_filter(function(cmd)
+        return not group or cmd.group == group
+    end, commands)
+    return M.commands_to_items(commands)
+end
+
+---@param commands ms.toolbox.Command[]
+---@return ms.toolbox.finder.Item[]
+function M.commands_to_items(commands)
     ---@type ms.toolbox.finder.Item[]
     local items = {}
-    local commands = require("ms.toolbox.commands").all_commands()
     for i, v in ipairs(commands) do
         ---@type ms.toolbox.finder.Item
         local item = {
@@ -39,16 +48,14 @@ local function get_items(group)
             execute = v.execute,
             divider = v.name == "-",
         }
-        if not group or v.group == group then
-            table.insert(items, item)
-        end
+        table.insert(items, item)
     end
     return items
 end
 
 ---@param group? string Show only group commands. Show all if nil
 local function show_toolbox(title, group)
-    title = title or toolbox_name
+    title = title or M.toolbox_name
     local last_idx = 0
     local items = get_items(group)
 
@@ -97,7 +104,7 @@ M.keys = {
     {
         "<leader>jg",
         function()
-            show_toolbox(M.toolbox_name_for("Git"), "Git")
+            require("ms.toolbox.git").show_git_toolbox()
         end,
         desc = M.toolbox_name_for("Git"),
     },

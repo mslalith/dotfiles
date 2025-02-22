@@ -3,6 +3,10 @@ local M = require("ms.toolbox.sources.source"):new()
 
 local toolbox = require("ms.toolbox")
 
+-- Git cli commands
+local current_branch_cmd = { "git", "rev-parse", "--abbrev-ref", "HEAD" }
+local local_branches_cmd = { "git", "for-each-ref", "--format='%(refname:short)'", "refs/heads/" }
+
 ---@type ms.toolbox.Command[]
 M.cmds = {
     {
@@ -36,7 +40,7 @@ M.cmds = {
         end,
     },
     {
-        name = "Git Fetch",
+        name = "Fetch",
         group = "Git",
         execute = function()
             M.run_task {
@@ -49,7 +53,7 @@ M.cmds = {
         end,
     },
     {
-        name = "Git Pull",
+        name = "Pull",
         group = "Git",
         execute = function()
             M.run_task {
@@ -62,7 +66,7 @@ M.cmds = {
         end,
     },
     {
-        name = "Git Push",
+        name = "Push",
         group = "Git",
         execute = function()
             M.run_task {
@@ -75,5 +79,21 @@ M.cmds = {
         end,
     },
 }
+
+function M.show_git_toolbox()
+    local items = toolbox.commands_to_items(M.cmds)
+
+    Snacks.picker {
+        title = toolbox.toolbox_name_for("Git"),
+        source = "ms_toolbox_git",
+        items = items,
+        format = "text",
+        layout = MsConfig.snacks.layouts.vscode_bordered,
+        confirm = function(picker, item)
+            items[item.idx].execute()
+            picker:close()
+        end,
+    }
+end
 
 return M
