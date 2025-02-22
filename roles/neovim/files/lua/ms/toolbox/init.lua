@@ -1,20 +1,20 @@
----@class toolbox.Command
+---@class ms.toolbox.Command
 ---@field name string
 ---@field execute fun()
 ---
----@class toolbox.finder.Item : snacks.picker.finder.Item
+---@class ms.toolbox.finder.Item : snacks.picker.finder.Item
 ---@field idx number
 ---@field name string
 ---@field divider boolean
 ---@field execute fun()
 
----@return toolbox.finder.Item[]
+---@return ms.toolbox.finder.Item[]
 local function get_items()
-    ---@type toolbox.finder.Item[]
+    ---@type ms.toolbox.finder.Item[]
     local items = {}
-    local commands = require("ms.snacks.toolbox.commands").all_commands()
+    local commands = require("ms.toolbox.commands").all_commands()
     for i, v in ipairs(commands) do
-        ---@type toolbox.finder.Item
+        ---@type ms.toolbox.finder.Item
         local item = {
             idx = i,
             text = v.name,
