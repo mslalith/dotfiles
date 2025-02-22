@@ -9,30 +9,32 @@ local function get_or_create_task(key, title, message)
     return require("ms.extras.fidget.notifier").get_or_create_task(key, "Git", title, message)
 end
 
-local function git_fetch()
-    local git_fetch_task = get_or_create_task("git_fetch", "Git Fetch", "fetching")
-    if git_fetch_task.is_running then
+---@param cmd string[]
+---@param key string
+---@param title string
+---@param message string
+---@param failure? fun(obj: vim.SystemCompleted): boolean
+local function run_task_if_required(cmd, key, title, message, failure)
+    if not key then
+        require("ms.toolbox").notify_error("key is required")
+    end
+    if not title then
+        require("ms.toolbox").notify_error("title is required")
+    end
+
+    local task = get_or_create_task(key, title, message)
+    if task.is_running then
         return
     end
 
-    vim.system({ "git", "fetch" }, { text = true }, function(obj)
-        git_fetch_task:finish()
-        if obj.code ~= 0 then
-            require("ms.toolbox").notify_error("Git fetch failed")
-        end
-    end)
-end
-
-local function git_pull()
-    local git_pull_task = get_or_create_task("git_pull", "Git Pull", "pulling")
-    if git_pull_task.is_running then
-        return
+    failure = failure or function(obj)
+        return obj.code ~= 0
     end
 
-    vim.system({ "git", "pull" }, { text = true }, function(obj)
-        git_pull_task:finish()
-        if obj.code ~= 0 then
-            require("ms.toolbox").notify_error("Git pull failed")
+    vim.system(cmd, { text = true }, function(obj)
+        task:finish()
+        if failure(obj) then
+            require("ms.toolbox").notify_error(title .. " failed")
         end
     end)
 end
@@ -42,13 +44,19 @@ M.cmds = {
     {
         name = "Git Fetch",
         execute = function()
-            git_fetch()
+            run_task_if_required({ "git", "fetch" }, "git_fetch", "Git Fetch", "fetching")
         end,
     },
     {
         name = "Git Pull",
         execute = function()
-            git_pull()
+            run_task_if_required({ "git", "pull" }, "git_pull", "Git Pull", "pulling")
+        end,
+    },
+    {
+        name = "Git Push",
+        execute = function()
+            run_task_if_required({ "git", "push" }, "git_push", "Git Push", "pushing")
         end,
     },
 }
