@@ -1,15 +1,10 @@
-local M = {
+return {
     "j-hui/fidget.nvim",
-}
-
-function M.config()
-    require("fidget").setup {
+    opts = {
         notification = {
             window = {
                 winblend = 0,
             },
         },
-    }
-end
-
-return M
+    },
+}
