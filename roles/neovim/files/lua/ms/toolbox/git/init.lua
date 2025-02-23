@@ -1,6 +1,8 @@
 ---@class ms.toolbox.sources.git : ms.toolbox.source.Source
 local M = require("ms.toolbox.sources.source"):new()
 
+M.picker_key = "toolbox_git"
+
 -- Git cli commands
 local current_branch_cmd = { "git", "rev-parse", "--abbrev-ref", "HEAD" }
 local local_branches_cmd = { "git", "for-each-ref", "--format='%(refname:short)'", "refs/heads/" }
@@ -78,12 +80,14 @@ M.cmds = {
     },
 }
 
-function M.show_git_toolbox()
+---@param opts? snacks.picker.Config
+---@return snacks.Picker
+function M.show(opts)
+    opts = opts or {}
     local items = Toolbox.commands_to_items(M.cmds)
 
-    Snacks.picker {
+    return Snacks.picker(vim.tbl_deep_extend("force", opts, {
         title = Toolbox.toolbox_name_for("Git"),
-        source = "ms_toolbox_git",
         items = items,
         format = "text",
         layout = MsConfig.snacks.layouts.vscode_bordered,
@@ -91,23 +95,7 @@ function M.show_git_toolbox()
             items[item.idx].execute()
             picker:close()
         end,
-        win = {
-            -- input window
-            input = {
-                keys = {
-                    ["<Esc>"] = function(win)
-                        local mode = vim.api.nvim_get_mode()["mode"]
-                        if mode ~= "n" then
-                            win:action("cancel")
-                        else
-                            win:close()
-                            Toolbox.on_close("git_toolbox")
-                        end
-                    end,
-                },
-            },
-        },
-    }
+    }))
 end
 
 return M

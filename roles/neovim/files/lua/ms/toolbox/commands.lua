@@ -32,7 +32,7 @@ function M.all_commands()
                 name = "Git Toolbox",
                 group = "Git",
                 execute = function()
-                    Toolbox.show_git_toolbox()
+                    Toolbox.git.show()
                 end,
             },
         },

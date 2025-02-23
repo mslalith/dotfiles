@@ -2,17 +2,12 @@ local M = {}
 
 M.toolbox_name = "@ms Toolbox"
 
+local Git = require("ms.toolbox.git")
+
 ---@type table<string, snacks.Picker>
 local track_pickers = {}
 
-function M.show_git_toolbox()
-    local current_picker = Snacks.picker.get()[1]
-    current_picker:close()
-    track_pickers["git_toolbox"] = current_picker
-    require("ms.toolbox.git").show_git_toolbox()
-end
-
-function M.on_close(picker_name)
+local function on_close(picker_name)
     local last = track_pickers[picker_name]
     if last then
         track_pickers[picker_name] = nil
@@ -20,6 +15,35 @@ function M.on_close(picker_name)
         picker:show()
     end
 end
+
+---@param key string
+---@param show_cb fun(opts: snacks.picker.Config): snacks.Picker
+local function update_track_picker(key, show_cb)
+    local current_picker = Snacks.picker.get()[1]
+    track_pickers[key] = current_picker
+
+    ---@type snacks.picker.Config
+    local opts = {
+        win = {
+            input = {
+                keys = {
+                    ["<Esc>"] = function(win)
+                        win:close()
+                        on_close(key)
+                    end,
+                },
+            },
+        },
+    }
+
+    show_cb(opts)
+end
+
+M.git = {
+    show = function()
+        update_track_picker(Git.picker_key, Git.show)
+    end,
+}
 
 ---@param cmd string|ms.toolbox.Command
 ---@return string
@@ -114,14 +138,14 @@ M.keys = {
     {
         "<leader>tt",
         function()
-            show_toolbox()
+            M.show_toolbox()
         end,
         desc = M.toolbox_name,
     },
     {
         "<leader>tg",
         function()
-            M.show_git_toolbox()
+            M.git.show()
         end,
         desc = M.toolbox_name_for("Git"),
     },

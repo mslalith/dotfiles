@@ -13,7 +13,7 @@ return {
         {
             "<leader>tg",
             function()
-                Toolbox.show_git_toolbox()
+                Toolbox.git.show()
             end,
             desc = Toolbox.toolbox_name_for("Git"),
         },
