@@ -1,17 +1,10 @@
 local M = {}
 
----@class toolbox.LastPicker
----@field opts snacks.picker.Config
----@field selected snacks.picker.Item[]
----@field cursor number
----@field top number
----@field filter snacks.picker.Filter
-
----@type table<string, toolbox.LastPicker>
+---@type table<string, snacks.picker.Last>
 local picker_history = {}
 
 ---@param picker snacks.Picker
----@return toolbox.LastPicker
+---@return snacks.picker.Last
 local function get_saveable_picker_details(picker)
     return {
         opts = picker.init_opts or {},
@@ -22,11 +15,12 @@ local function get_saveable_picker_details(picker)
     }
 end
 
----@param last toolbox.LastPicker
+---@param last snacks.picker.Last
 local function resume_picker(last)
+    last.opts = last.opts or {}
     last.opts.pattern = last.filter.pattern
     last.opts.search = last.filter.search
-    local new_picker = Snacks.picker.pick(last.opts)
+    local new_picker = Snacks.picker.pick(last.opts or {})
     new_picker:show()
     new_picker.list:set_selected(last.selected)
     new_picker.list:update()
@@ -37,7 +31,7 @@ local function resume_picker(last)
             if new_picker.closed then
                 return
             end
-            new_picker.list:view(last.cursor, last.top)
+            new_picker.list:view(last.cursor, last.topline)
         end)
     )
 end
