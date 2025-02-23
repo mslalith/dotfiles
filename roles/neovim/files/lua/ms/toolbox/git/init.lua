@@ -83,7 +83,7 @@ M.cmds = {
 ---@return snacks.Picker
 function M.show(opts)
     opts = opts or {}
-    local items = Toolbox.commands_to_items(M.cmds)
+    local items = Toolbox.command.get_finder_items(M.cmds)
 
     return Snacks.picker(vim.tbl_deep_extend("force", opts, {
         title = Toolbox.name_for("Git"),

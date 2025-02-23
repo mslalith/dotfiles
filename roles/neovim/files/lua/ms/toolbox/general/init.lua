@@ -85,10 +85,9 @@ local function all_commands()
     return cmds
 end
 
----@return ms.toolbox.finder.Item[]
 local function get_items()
     local commands = all_commands()
-    return Toolbox.commands_to_items(commands)
+    return Toolbox.command.get_finder_items(commands)
 end
 
 ---@param opts? snacks.picker.Config
