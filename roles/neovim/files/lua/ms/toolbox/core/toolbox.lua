@@ -2,6 +2,7 @@ local M = {}
 
 M.toolbox_name = "@ms Toolbox"
 
+local General = require("ms.toolbox.general")
 local Git = require("ms.toolbox.git")
 
 ---@type table<string, snacks.Picker>
@@ -39,6 +40,12 @@ local function update_track_picker(key, show_cb)
     show_cb(opts)
 end
 
+M.general = {
+    show = function()
+        update_track_picker(General.picker_key, General.show)
+    end,
+}
+
 M.git = {
     show = function()
         update_track_picker(Git.picker_key, Git.show)
@@ -64,16 +71,6 @@ end
 ---@field divider boolean
 ---@field execute fun()
 
----@param group? string Show only group commands. Show all if nil
----@return ms.toolbox.finder.Item[]
-local function get_items(group)
-    local commands = require("ms.toolbox.commands").all_commands()
-    commands = vim.tbl_filter(function(cmd)
-        return not group or cmd.group == group
-    end, commands)
-    return M.commands_to_items(commands)
-end
-
 ---@param commands ms.toolbox.Command[]
 ---@return ms.toolbox.finder.Item[]
 function M.commands_to_items(commands)
@@ -93,63 +90,6 @@ function M.commands_to_items(commands)
     end
     return items
 end
-
----@param group? string Show only group commands. Show all if nil
-function M.show_toolbox(title, group)
-    title = title or M.toolbox_name
-    local last_idx = 0
-    local items = get_items(group)
-
-    Snacks.picker {
-        title = title,
-        source = "ms_toolbox",
-        items = items,
-        format = function(item, picker)
-            local width = picker.layout.opts.layout.width * vim.o.columns
-            width = math.floor(width)
-            width = (width / 10) * 10 - 4
-
-            local text = items[item.idx].divider and string.rep(item.text, width) or item.text
-
-            ---@type snacks.picker.Highlight[]
-            return {
-                { text, item.text_hl },
-            }
-        end,
-        on_change = function(picker, item)
-            if items[item.idx].divider then
-                if last_idx < item.idx then
-                    picker:action("list_down")
-                else
-                    picker:action("list_up")
-                end
-            end
-            last_idx = item.idx
-        end,
-        layout = MsConfig.snacks.layouts.vscode_bordered,
-        confirm = function(picker, item)
-            items[item.idx].execute()
-            picker:close()
-        end,
-    }
-end
-
-M.keys = {
-    {
-        "<leader>tt",
-        function()
-            M.show_toolbox()
-        end,
-        desc = M.toolbox_name,
-    },
-    {
-        "<leader>tg",
-        function()
-            M.git.show()
-        end,
-        desc = M.toolbox_name_for("Git"),
-    },
-}
 
 ---@param msg string
 function M.notify_info(msg)

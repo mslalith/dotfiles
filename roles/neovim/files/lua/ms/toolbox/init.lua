@@ -5,16 +5,12 @@ return {
     keys = {
         {
             "<leader>tt",
-            function()
-                Toolbox.show_toolbox()
-            end,
+            Toolbox.general.show,
             desc = Toolbox.toolbox_name,
         },
         {
             "<leader>tg",
-            function()
-                Toolbox.git.show()
-            end,
+            Toolbox.git.show,
             desc = Toolbox.toolbox_name_for("Git"),
         },
     },
