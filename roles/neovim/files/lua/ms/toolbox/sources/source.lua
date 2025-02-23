@@ -20,13 +20,13 @@ end
 ---@param opts ms.toolbox.source.SourceOptions
 function M.run_task(opts)
     if not opts.group then
-        require("ms.toolbox").notify_error("group is required")
+        Toolbox.notify_error("group is required")
     end
     if not opts.key then
-        require("ms.toolbox").notify_error("key is required")
+        Toolbox.notify_error("key is required")
     end
     if not opts.title then
-        require("ms.toolbox").notify_error("title is required")
+        Toolbox.notify_error("title is required")
     end
 
     local task = require("ms.extras.fidget.notifier").get_or_create_task(opts.key, opts.group, opts.title, opts.message)
@@ -41,7 +41,7 @@ function M.run_task(opts)
     vim.system(opts.cmd, { text = true }, function(obj)
         task:finish()
         if opts.failure(obj) then
-            require("ms.toolbox").notify_error(opts.title .. " failed")
+            Toolbox.notify_error(opts.title .. " failed")
         end
     end)
 end

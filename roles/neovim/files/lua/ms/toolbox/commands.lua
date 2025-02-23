@@ -32,7 +32,7 @@ function M.all_commands()
                 name = "Git Toolbox",
                 group = "Git",
                 execute = function()
-                    require("ms.toolbox").show_git_toolbox()
+                    Toolbox.show_git_toolbox()
                 end,
             },
         },

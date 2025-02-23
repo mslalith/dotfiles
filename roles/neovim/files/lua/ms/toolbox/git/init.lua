@@ -1,8 +1,6 @@
 ---@class ms.toolbox.sources.git : ms.toolbox.source.Source
 local M = require("ms.toolbox.sources.source"):new()
 
-local toolbox = require("ms.toolbox")
-
 -- Git cli commands
 local current_branch_cmd = { "git", "rev-parse", "--abbrev-ref", "HEAD" }
 local local_branches_cmd = { "git", "for-each-ref", "--format='%(refname:short)'", "refs/heads/" }
@@ -20,20 +18,20 @@ M.cmds = {
                     return
                 end
                 if name == "" then
-                    toolbox.notify_error("Branch name cannot be empty")
+                    Toolbox.notify_error("Branch name cannot be empty")
                     return
                 end
 
                 local check_branch_cmd = { "git", "branch", "--list", name }
                 Snacks.picker.util.cmd(check_branch_cmd, function(data)
                     if data[1] ~= "" then
-                        toolbox.notify_error("Branch already exists")
+                        Toolbox.notify_error("Branch already exists")
                         return
                     end
 
                     local create_branch_cmd = { "git", "checkout", "-b", name }
                     Snacks.picker.util.cmd(create_branch_cmd, function()
-                        toolbox.notify_info("Branch created")
+                        Toolbox.notify_info("Branch created")
                     end)
                 end)
             end)
@@ -81,10 +79,10 @@ M.cmds = {
 }
 
 function M.show_git_toolbox()
-    local items = toolbox.commands_to_items(M.cmds)
+    local items = Toolbox.commands_to_items(M.cmds)
 
     Snacks.picker {
-        title = toolbox.toolbox_name_for("Git"),
+        title = Toolbox.toolbox_name_for("Git"),
         source = "ms_toolbox_git",
         items = items,
         format = "text",
@@ -103,7 +101,7 @@ function M.show_git_toolbox()
                             win:action("cancel")
                         else
                             win:close()
-                            require("ms.toolbox").on_close("git_toolbox")
+                            Toolbox.on_close("git_toolbox")
                         end
                     end,
                 },

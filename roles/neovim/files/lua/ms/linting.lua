@@ -12,6 +12,7 @@ return {
             "vim",
             "MsConfig",
             "Snacks",
+            "Toolbox",
         }
         for _, v in ipairs(lint.linters.luacheck.args) do
             table.insert(args, v)
