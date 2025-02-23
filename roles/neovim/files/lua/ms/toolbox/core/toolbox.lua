@@ -4,6 +4,7 @@ M.toolbox_name = "@ms Toolbox"
 
 local General = require("ms.toolbox.general")
 local Git = require("ms.toolbox.git")
+M.util = require("ms.toolbox.util")
 
 ---@type table<string, snacks.Picker>
 local track_pickers = {}
