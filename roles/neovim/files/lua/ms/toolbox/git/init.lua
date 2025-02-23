@@ -19,20 +19,20 @@ M.cmds = {
                     return
                 end
                 if name == "" then
-                    Toolbox.notify_error("Branch name cannot be empty")
+                    Toolbox.notifier.error("Branch name cannot be empty")
                     return
                 end
 
                 local check_branch_cmd = { "git", "branch", "--list", name }
                 Snacks.picker.util.cmd(check_branch_cmd, function(data)
                     if data[1] ~= "" then
-                        Toolbox.notify_error("Branch already exists")
+                        Toolbox.notifier.error("Branch already exists")
                         return
                     end
 
                     local create_branch_cmd = { "git", "checkout", "-b", name }
                     Snacks.picker.util.cmd(create_branch_cmd, function()
-                        Toolbox.notify_info("Branch created")
+                        Toolbox.notifier.info("Branch created")
                     end)
                 end)
             end)
@@ -86,7 +86,7 @@ function M.show(opts)
     local items = Toolbox.commands_to_items(M.cmds)
 
     return Snacks.picker(vim.tbl_deep_extend("force", opts, {
-        title = Toolbox.toolbox_name_for("Git"),
+        title = Toolbox.name_for("Git"),
         items = items,
         format = "text",
         layout = MsConfig.snacks.layouts.vscode_bordered,

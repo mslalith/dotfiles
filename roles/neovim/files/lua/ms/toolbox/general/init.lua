@@ -98,7 +98,7 @@ function M.show(opts)
     local items = get_items()
 
     return Snacks.picker(vim.tbl_deep_extend("force", opts, {
-        title = Toolbox.toolbox_name,
+        title = Toolbox.name,
         source = "ms_toolbox",
         items = items,
         format = function(item, picker)

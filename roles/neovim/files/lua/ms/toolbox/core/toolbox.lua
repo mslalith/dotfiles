@@ -1,6 +1,13 @@
 local M = {}
 
-M.toolbox_name = "@ms Toolbox"
+M.name = "@ms Toolbox"
+
+---@param cmd string|ms.toolbox.Command
+---@return string
+function M.name_for(cmd)
+    local group = type(cmd) == "string" and cmd or cmd.group
+    return M.name .. " (" .. group .. ")"
+end
 
 local General = require("ms.toolbox.general")
 local Git = require("ms.toolbox.git")
@@ -41,6 +48,24 @@ local function update_track_picker(key, show_cb)
     show_cb(opts)
 end
 
+M.notifier = {
+    ---@param msg string
+    ---@param level? number
+    notify = function(msg, level)
+        vim.notify(msg, level, { title = M.name })
+    end,
+
+    ---@param msg string
+    info = function(msg)
+        vim.notify(msg, vim.log.levels.INFO, { title = M.name })
+    end,
+
+    ---@param msg string
+    error = function(msg)
+        vim.notify(msg, vim.log.levels.ERROR, { title = M.name })
+    end,
+}
+
 M.general = {
     show = function()
         update_track_picker(General.picker_key, General.show)
@@ -52,13 +77,6 @@ M.git = {
         update_track_picker(Git.picker_key, Git.show)
     end,
 }
-
----@param cmd string|ms.toolbox.Command
----@return string
-function M.toolbox_name_for(cmd)
-    local group = type(cmd) == "string" and cmd or cmd.group
-    return M.toolbox_name .. " (" .. group .. ")"
-end
 
 ---@class ms.toolbox.Command
 ---@field name string
@@ -90,16 +108,6 @@ function M.commands_to_items(commands)
         table.insert(items, item)
     end
     return items
-end
-
----@param msg string
-function M.notify_info(msg)
-    vim.notify(msg, vim.log.levels.INFO, { title = M.toolbox_name })
-end
-
----@param msg string
-function M.notify_error(msg)
-    vim.notify(msg, vim.log.levels.ERROR, { title = M.toolbox_name })
 end
 
 return M

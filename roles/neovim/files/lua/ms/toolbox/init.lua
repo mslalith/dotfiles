@@ -6,12 +6,12 @@ return {
         {
             "<leader>tt",
             Toolbox.general.show,
-            desc = Toolbox.toolbox_name,
+            desc = Toolbox.name,
         },
         {
             "<leader>tg",
             Toolbox.git.show,
-            desc = Toolbox.toolbox_name_for("Git"),
+            desc = Toolbox.name_for("Git"),
         },
     },
 }

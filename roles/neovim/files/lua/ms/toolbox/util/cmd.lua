@@ -12,13 +12,13 @@ local M = {}
 ---@param opts toolbox.util.cmd.RunOpts
 function M.run(opts)
     if not opts.group then
-        Toolbox.notify_error("group is required")
+        Toolbox.notifier.error("group is required")
     end
     if not opts.key then
-        Toolbox.notify_error("key is required")
+        Toolbox.notifier.error("key is required")
     end
     if not opts.title then
-        Toolbox.notify_error("title is required")
+        Toolbox.notifier.error("title is required")
     end
 
     local task = require("ms.extras.fidget.notifier").get_or_create_task(opts.key, opts.group, opts.title, opts.message)
@@ -33,7 +33,7 @@ function M.run(opts)
     vim.system(opts.cmd, { text = true }, function(obj)
         task:finish()
         if opts.failure(obj) then
-            Toolbox.notify_error(opts.title .. " failed")
+            Toolbox.notifier.error(opts.title .. " failed")
         end
     end)
 end
