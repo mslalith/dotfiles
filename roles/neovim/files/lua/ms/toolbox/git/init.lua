@@ -42,7 +42,7 @@ M.cmds = {
         name = "Fetch",
         group = "Git",
         execute = function()
-            Toolbox.util.cmd.run {
+            Toolbox.util.cmd.run_with_progress {
                 cmd = { "git", "fetch" },
                 group = "Git",
                 key = "git_fetch",
@@ -55,7 +55,7 @@ M.cmds = {
         name = "Pull",
         group = "Git",
         execute = function()
-            Toolbox.util.cmd.run {
+            Toolbox.util.cmd.run_with_progress {
                 cmd = { "git", "pull" },
                 group = "Git",
                 key = "git_pull",
@@ -68,7 +68,7 @@ M.cmds = {
         name = "Push",
         group = "Git",
         execute = function()
-            Toolbox.util.cmd.run {
+            Toolbox.util.cmd.run_with_progress {
                 cmd = { "git", "push" },
                 group = "Git",
                 key = "git_push",

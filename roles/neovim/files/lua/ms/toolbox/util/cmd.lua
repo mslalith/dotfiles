@@ -7,10 +7,9 @@ local M = {}
 ---@field key string
 ---@field title string
 ---@field message string
----@field failure? fun(obj: vim.SystemCompleted): boolean
 
 ---@param opts toolbox.util.cmd.RunOpts
-function M.run(opts)
+function M.run_with_progress(opts)
     if not opts.group then
         Toolbox.notifier.error("group is required")
     end
@@ -26,15 +25,35 @@ function M.run(opts)
         return
     end
 
-    opts.failure = opts.failure or function(obj)
-        return obj.code ~= 0
-    end
-
-    vim.system(opts.cmd, { text = true }, function(obj)
+    M.run(opts.cmd, function()
         task:finish()
-        if opts.failure(obj) then
-            Toolbox.notifier.error(opts.title .. " failed")
+    end, function()
+        task:finish()
+    end)
+end
+
+---@param cmd string[]
+---@param callback fun(output: string[])
+---@param on_error? fun(code: number)
+function M.run(cmd, callback, on_error)
+    vim.system(cmd, { text = true }, function(obj)
+        if obj.code ~= 0 then
+            vim.notify(
+                ("Command execution failed\ncmd: %s\nFailed with code `%d`:\n\nOutput:\n%s"):format(
+                    table.concat(cmd, " "),
+                    obj.code,
+                    vim.trim(obj.stderr)
+                ),
+                vim.log.levels.ERROR
+            )
+            if on_error then
+                on_error(obj.code)
+            end
+            return
         end
+
+        local output = vim.split(obj.stdout, "\n")
+        callback(output)
     end)
 end
 
