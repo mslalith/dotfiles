@@ -1,8 +1,29 @@
+---@class Toolbox
+---@field git ms.toolbox.sources.git
 local M = {
     "folke/snacks.nvim",
 }
 
 M.toolbox_name = "@ms Toolbox"
+
+---@type table<string, snacks.Picker>
+local pickers = {}
+
+function M.show_git_toolbox()
+    local current_picker = Snacks.picker.get()[1]
+    current_picker:close()
+    pickers["git_toolbox"] = current_picker
+    require("ms.toolbox.git").show_git_toolbox()
+end
+
+function M.on_close(picker_name)
+    local last = pickers[picker_name]
+    if last then
+        pickers[picker_name] = nil
+        local picker = last.new(last.opts)
+        picker:show()
+    end
+end
 
 ---@param cmd string|ms.toolbox.Command
 ---@return string
@@ -104,7 +125,7 @@ M.keys = {
     {
         "<leader>tg",
         function()
-            require("ms.toolbox.git").show_git_toolbox()
+            M.show_git_toolbox()
         end,
         desc = M.toolbox_name_for("Git"),
     },

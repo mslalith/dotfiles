@@ -93,6 +93,22 @@ function M.show_git_toolbox()
             items[item.idx].execute()
             picker:close()
         end,
+        win = {
+            -- input window
+            input = {
+                keys = {
+                    ["<Esc>"] = function(win)
+                        local mode = vim.api.nvim_get_mode()["mode"]
+                        if mode ~= "n" then
+                            win:action("cancel")
+                        else
+                            win:close()
+                            require("ms.toolbox").on_close("git_toolbox")
+                        end
+                    end,
+                },
+            },
+        },
     }
 end
 

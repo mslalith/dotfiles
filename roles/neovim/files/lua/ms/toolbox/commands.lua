@@ -27,6 +27,15 @@ function M.all_commands()
 
     local groups = {
         sources.pickers.cmds,
+        {
+            {
+                name = "Git Toolbox",
+                group = "Git",
+                execute = function()
+                    require("ms.toolbox").show_git_toolbox()
+                end,
+            },
+        },
         sources.toggles.cmds,
         sources.notifications.cmds,
     }
