@@ -1,5 +1,4 @@
----@class ms.toolbox.sources.git : ms.toolbox.source.Source
-local M = require("ms.toolbox.general.sources.source"):new()
+local M = {}
 
 M.picker_key = "toolbox_git"
 
