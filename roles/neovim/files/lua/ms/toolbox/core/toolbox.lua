@@ -9,12 +9,10 @@ function M.name_for(cmd)
     return M.name .. " (" .. group .. ")"
 end
 
-local General = require("ms.toolbox.general")
-local Git = require("ms.toolbox.git")
 local PickerHistory = require("ms.toolbox.core.picker_history")
 
--- TODO: revisit
-M.git2 = require("ms.toolbox.git")
+M.general = require("ms.toolbox.general")
+M.git = require("ms.toolbox.git")
 M.util = require("ms.toolbox.util")
 M.command = require("ms.toolbox.core.command")
 
@@ -33,18 +31,6 @@ M.notifier = {
     ---@param msg string
     error = function(msg)
         vim.notify(msg, vim.log.levels.ERROR, { title = M.name })
-    end,
-}
-
-M.general = {
-    show = function()
-        PickerHistory.show_and_track(General.picker_key, General.show)
-    end,
-}
-
-M.git = {
-    show = function()
-        PickerHistory.show_and_track(Git.picker_key, Git.show)
     end,
 }
 

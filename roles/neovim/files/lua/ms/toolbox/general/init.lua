@@ -20,39 +20,6 @@ local divider = {
 }
 
 ---@return ms.toolbox.Command[]
-function M.all_commands()
-    ---@type ms.toolbox.Command[]
-    local cmds = {}
-
-    local sources = require("ms.toolbox.sources")
-
-    local groups = {
-        sources.pickers.cmds,
-        {
-            {
-                name = "Git Toolbox",
-                group = "Git",
-                execute = function()
-                    Toolbox.git.show()
-                end,
-            },
-        },
-        sources.toggles.cmds,
-        sources.notifications.cmds,
-    }
-
-    for _, v in ipairs(groups) do
-        MsConfig.tbl_insert(cmds, v)
-        table.insert(cmds, divider)
-    end
-
-    -- remove last divider
-    table.remove(cmds, #cmds)
-
-    return cmds
-end
-
----@return ms.toolbox.Command[]
 local function all_commands()
     ---@type ms.toolbox.Command[]
     local cmds = {}
@@ -93,6 +60,7 @@ end
 ---@param opts? snacks.picker.Config
 ---@return snacks.Picker
 function M.show(opts)
+    opts = opts or {}
     local last_idx = 0
     local items = get_items()
 

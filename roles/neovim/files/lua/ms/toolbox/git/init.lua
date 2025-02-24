@@ -125,6 +125,13 @@ M.cmds = {
             }
         end,
     },
+    {
+        name = "Status",
+        group = "Git",
+        execute = function()
+            Toolbox.git.check_status.show()
+        end,
+    },
 }
 
 ---@param opts? snacks.picker.Config
