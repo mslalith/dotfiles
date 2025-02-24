@@ -28,6 +28,19 @@ local M = {
         { "<leader>sw", "<cmd>lua require('snacks').picker.grep_word()<cr>", desc = "Grep selected word" },
         { "<leader>sr", "<cmd>lua require('snacks').picker.resume()<cr>", desc = "Resume last picker" },
         {
+            "<leader>sf",
+            function()
+                Snacks.picker.lines {
+                    layout = vim.tbl_deep_extend(
+                        "force",
+                        MsConfig.snacks.layouts.vscode_bordered,
+                        { preview = "main" }
+                    ),
+                }
+            end,
+            desc = "Buffer diagnostics",
+        },
+        {
             "<leader>sD",
             function()
                 Snacks.picker.diagnostics { layout = MsConfig.snacks.layouts.vertical }
