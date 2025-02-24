@@ -15,6 +15,7 @@ M.general = require("ms.toolbox.general")
 M.git = require("ms.toolbox.git")
 M.util = require("ms.toolbox.util")
 M.command = require("ms.toolbox.core.command")
+M.actions = require("ms.toolbox.actions")
 
 M.notifier = {
     ---@param msg string

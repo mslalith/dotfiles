@@ -17,6 +17,11 @@ function M.show(opts)
             picker:action("edit")
             picker:close()
         end,
+        actions = {
+            commit = function(picker)
+                Toolbox.actions.git.commit()
+            end,
+        },
         win = {
             list = {
                 keys = {
@@ -26,6 +31,7 @@ function M.show(opts)
                     ["<A-j>"] = "preview_scroll_down",
                     ["<A-p>"] = "toggle_preview",
                     ["<A-m>"] = "toggle_maximize",
+                    ["c"] = "commit",
                 },
             },
         },
