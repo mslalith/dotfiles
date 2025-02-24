@@ -36,7 +36,7 @@ local function resume_picker(last)
     )
 end
 
-local function on_close(picker_key)
+local function show_previous_picker_if_exists(picker_key)
     local prev_picker = picker_history[picker_key]
     if prev_picker then
         picker_history[picker_key] = nil
@@ -51,11 +51,16 @@ function M.show_and_track(key, show_cb)
 
     ---@type snacks.picker.Config
     local opts = {
-        on_close = function()
+        on_close = function(picker)
+            -- TODO: @ms: revisit: this needs to be updated when selected in each toolbox picker
+            if picker.was_picked then
+                return
+            end
+
             if last_picker then
                 picker_history[key] = get_saveable_picker_details(last_picker)
             end
-            on_close(key)
+            show_previous_picker_if_exists(key)
         end,
     }
 

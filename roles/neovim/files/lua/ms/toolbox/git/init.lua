@@ -91,6 +91,7 @@ function M.show(opts)
         format = "text",
         layout = MsConfig.snacks.layouts.vscode_bordered,
         confirm = function(picker, item)
+            picker.was_picked = true
             items[item.idx].execute()
             picker:close()
         end,
