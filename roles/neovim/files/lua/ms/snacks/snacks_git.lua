@@ -46,9 +46,7 @@ local M = {
         },
         {
             "<leader>gs",
-            function()
-                Snacks.picker.git_status { layout = MsConfig.snacks.layouts.vertical }
-            end,
+            Toolbox.git2.check_status.show,
             desc = "Git Status",
         },
     },

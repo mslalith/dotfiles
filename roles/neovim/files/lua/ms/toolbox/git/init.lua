@@ -1,4 +1,13 @@
+---@class toolbox
+---@field check_status toolbox.picker.git.CheckStatus
 local M = {}
+
+setmetatable(M, {
+    __index = function(t, k)
+        t[k] = require("ms.toolbox.git." .. k)
+        return t[k]
+    end,
+})
 
 M.picker_key = "toolbox_git"
 

@@ -13,6 +13,8 @@ local General = require("ms.toolbox.general")
 local Git = require("ms.toolbox.git")
 local PickerHistory = require("ms.toolbox.core.picker_history")
 
+-- TODO: revisit
+M.git2 = require("ms.toolbox.git")
 M.util = require("ms.toolbox.util")
 M.command = require("ms.toolbox.core.command")
 
