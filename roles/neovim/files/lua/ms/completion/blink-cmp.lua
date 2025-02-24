@@ -132,17 +132,17 @@ return {
             "moyiz/blink-emoji.nvim",
         },
         opts = {
-            sources = {
-                default = { "emoji" },
-                providers = {
-                    emoji = {
-                        name = "Emoji",
-                        module = "blink-emoji",
-                        score_offset = 15,
-                        opts = { insert = true }, -- Insert emoji (default) or complete its name
-                    },
-                },
-            },
+            -- sources = {
+            --     default = { "emoji" },
+            --     providers = {
+            --         emoji = {
+            --             name = "Emoji",
+            --             module = "blink-emoji",
+            --             score_offset = 15,
+            --             opts = { insert = true }, -- Insert emoji (default) or complete its name
+            --         },
+            --     },
+            -- },
         },
     },
 }
