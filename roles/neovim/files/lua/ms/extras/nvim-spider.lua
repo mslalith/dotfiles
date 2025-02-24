@@ -1,7 +1,9 @@
 return {
     "chrisgrieser/nvim-spider",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+        skipInsignificantPunctuation = false,
+    },
     keys = {
         {
             "w",
