@@ -19,7 +19,18 @@ function M.show(opts)
         end,
         actions = {
             commit = function(picker)
-                Toolbox.actions.git.commit()
+                Toolbox.actions.git.commit(function()
+                    vim.schedule(function()
+                        picker:close()
+                    end)
+                end)
+            end,
+            amend = function(picker)
+                Toolbox.actions.git.amend(function()
+                    vim.schedule(function()
+                        picker:close()
+                    end)
+                end)
             end,
         },
         win = {
@@ -32,6 +43,7 @@ function M.show(opts)
                     ["<A-p>"] = "toggle_preview",
                     ["<A-m>"] = "toggle_maximize",
                     ["c"] = "commit",
+                    ["a"] = "amend",
                 },
             },
         },

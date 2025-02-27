@@ -51,6 +51,11 @@ local M = {
             desc = "Git Status",
         },
         {
+            "<leader>gP",
+            Toolbox.actions.git.push,
+            desc = "Git Push",
+        },
+        {
             "<leader>fs",
             function()
                 Snacks.scratch.select()

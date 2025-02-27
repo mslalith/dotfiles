@@ -61,13 +61,7 @@ M.cmds = {
         name = "Push",
         group = "Git",
         execute = function()
-            Toolbox.util.cmd.run_with_progress {
-                cmd = { "git", "push" },
-                group = "Git",
-                key = "git_push",
-                title = "Git Push",
-                message = "pushing",
-            }
+            Toolbox.actions.git.push()
         end,
     },
     {
