@@ -12,6 +12,7 @@ local M = {
                 git = { builtin = false },
             },
         },
+        scratch = { enabled = true },
         styles = {
             ---@diagnostic disable-next-line: missing-fields
             lazygit = {
@@ -48,6 +49,20 @@ local M = {
             "<leader>gs",
             Toolbox.git.check_status.show,
             desc = "Git Status",
+        },
+        {
+            "<leader>fs",
+            function()
+                Snacks.scratch.select()
+            end,
+            desc = "List scratch buffers",
+        },
+        {
+            "<leader>ts",
+            function()
+                Snacks.scratch()
+            end,
+            desc = "Open scratch buffer",
         },
     },
 }
