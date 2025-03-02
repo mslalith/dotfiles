@@ -32,6 +32,10 @@ function M.show(opts)
                     end)
                 end)
             end,
+            lazygit_status = function(picker)
+                MsConfig.snacks.lazygit_status()
+                picker:close()
+            end,
         },
         win = {
             list = {
@@ -44,6 +48,7 @@ function M.show(opts)
                     ["<A-m>"] = "toggle_maximize",
                     ["c"] = "commit",
                     ["a"] = "amend",
+                    ["l"] = "lazygit_status",
                 },
             },
         },

@@ -35,6 +35,13 @@ M.layouts.vertical = {
     },
 }
 
+---@param opts? snacks.lazygit.Config
+function M.lazygit_status(opts)
+    opts = opts or {}
+    opts.args = { "--sm", "half" }
+    return Snacks.lazygit(opts)
+end
+
 function M.yazi(opts)
     opts = opts or {}
 
