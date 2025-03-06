@@ -30,6 +30,23 @@ return {
                     treesitter_highlighting = true,
                 },
             },
+            cmdline = {
+                keymap = {
+                    preset = "enter",
+                    ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
+                    ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
+                },
+                completion = {
+                    menu = { auto_show = true },
+                    ghost_text = { enabled = true },
+                    list = {
+                        selection = {
+                            preselect = true,
+                            auto_insert = false,
+                        },
+                    },
+                },
+            },
             completion = {
                 ghost_text = {
                     enabled = true,
