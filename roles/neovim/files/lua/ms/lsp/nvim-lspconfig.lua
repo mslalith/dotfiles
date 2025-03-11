@@ -5,6 +5,10 @@ local M = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
     },
+    keys = {
+        { "ff", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
+        { "<A-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Actions" },
+    },
 }
 
 function M.config()

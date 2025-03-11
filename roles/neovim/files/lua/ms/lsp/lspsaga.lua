@@ -46,10 +46,4 @@ return {
             },
         },
     },
-    keys = {
-        { "ff", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
-        { "<A-Enter>", "<cmd>Lspsaga code_action<CR>", desc = "Code Actions" },
-        { "gp", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
-        { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show Line Diagnostic" },
-    },
 }
