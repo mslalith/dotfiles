@@ -12,6 +12,13 @@ M.cmds = {
         end,
     },
     {
+        name = "Toggle Bufferline",
+        group = "Toggles",
+        execute = function()
+            require("ms.bufferline").toggle()
+        end,
+    },
+    {
         name = "Toggle dim mode",
         group = "Toggles",
         execute = function()
