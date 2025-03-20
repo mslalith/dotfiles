@@ -40,6 +40,7 @@ function M.show(opts)
         win = {
             list = {
                 keys = {
+                    ["e"] = "edit",
                     ["s"] = "git_stage",
                     ["<space>"] = "git_stage",
                     ["<A-k>"] = "preview_scroll_up",
