@@ -30,10 +30,10 @@ MsConfig.keys.visual_block("<A-j>", "<C-d>zz", "Scroll down")
 MsConfig.keys.visual_block("<A-k>", "<C-u>zz", "Scroll up")
 
 MsConfig.keys.normal("<leader>dj", function()
-    vim.diagnostic.goto_next { float = false }
+    vim.diagnostic.goto_next { float = false, _highest = true }
 end, "Goto next diagnostic")
 MsConfig.keys.normal("<leader>dk", function()
-    vim.diagnostic.goto_prev { float = false }
+    vim.diagnostic.goto_prev { float = false, _highest = true }
 end, "Goto previous diagnostic")
 
 -- Telescope
