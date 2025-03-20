@@ -24,6 +24,27 @@ function M.config()
                 analysisExcludedFolders = dartExcludedFolders,
                 updateImportsOnRename = true,
             },
+            capabilities = function(config)
+                config.textDocument.codeAction = {
+                    codeActionLiteralSupport = {
+                        codeActionKind = {
+                            valueSet = {
+                                "",
+                                "quickfix",
+                                "refactor",
+                                "refactor.extract",
+                                "refactor.inline",
+                                "refactor.rewrite",
+                                -- "source",
+                                -- "source.organizeImports",
+                                -- "source.fixAll",
+                            },
+                        },
+                    },
+                }
+
+                return config
+            end,
         },
     }
 
