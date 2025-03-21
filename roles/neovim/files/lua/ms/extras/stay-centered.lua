@@ -4,7 +4,7 @@ return {
     config = function()
         local sc = require("stay-centered")
         sc.setup {
-            enabled = true,
+            enabled = false,
             skip_filetypes = { "snacks_picker_list" },
         }
 
