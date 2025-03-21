@@ -24,10 +24,10 @@ MsConfig.keys.normal("<A-Down>", ":resize -2<CR>", "Resize down")
 MsConfig.keys.normal("<A-Left>", ":vertical resize +2<CR>", "Resize left")
 MsConfig.keys.normal("<A-Right>", ":vertical resize -2<CR>", "Resize right")
 
-MsConfig.keys.normal("<A-j>", "<C-d>zz", "Scroll down")
-MsConfig.keys.normal("<A-k>", "<C-u>zz", "Scroll up")
-MsConfig.keys.visual_block("<A-j>", "<C-d>zz", "Scroll down")
-MsConfig.keys.visual_block("<A-k>", "<C-u>zz", "Scroll up")
+MsConfig.keys.normal("<A-j>", "<C-d>", "Scroll down")
+MsConfig.keys.normal("<A-k>", "<C-u>", "Scroll up")
+MsConfig.keys.visual_block("<A-j>", "<C-d>", "Scroll down")
+MsConfig.keys.visual_block("<A-k>", "<C-u>", "Scroll up")
 
 MsConfig.keys.normal("<leader>dj", function()
     vim.diagnostic.goto_next { float = false, _highest = true }
