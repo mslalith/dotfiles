@@ -3,6 +3,7 @@ local M = {
     event = "BufReadPre",
     dependencies = {
         "kyazdani42/nvim-web-devicons",
+        "bwpge/lualine-pretty-path",
     },
     opts = {
         options = {
@@ -35,8 +36,7 @@ local M = {
                 --         hint = MsConfig.icons.diagnostics.Hint,
                 --     },
                 -- },
-                { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-                { "filename" },
+                { "pretty_path" },
             },
             lualine_x = {
                 {
