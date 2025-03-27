@@ -23,11 +23,4 @@ return {
             },
         },
     },
-    keys = {
-        {
-            "<leader>tdi",
-            "<cmd>lua require('tiny-inline-diagnostic').toggle()<cr>",
-            desc = "Toggle tiny inline diagnostics",
-        },
-    },
 }

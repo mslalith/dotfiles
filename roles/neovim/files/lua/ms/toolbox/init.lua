@@ -18,5 +18,10 @@ return {
             Toolbox.plugins.show,
             desc = Toolbox.name_for("Plugin Commands"),
         },
+        {
+            "<leader>td",
+            Toolbox.diagnostics.show,
+            desc = Toolbox.name_for("Diagnostics"),
+        },
     },
 }

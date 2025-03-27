@@ -8,21 +8,6 @@ local M = {
     keys = {
         { "ff", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename" },
         { "<A-Enter>", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code Actions" },
-        {
-            "<leader>tdt",
-            function()
-                if vim.diagnostic.config().virtual_lines then
-                    vim.diagnostic.config { virtual_lines = false }
-                else
-                    vim.diagnostic.config {
-                        virtual_lines = {
-                            current_line = true,
-                        },
-                    }
-                end
-            end,
-            desc = "Toggle LSP lines diagnostics",
-        },
     },
 }
 
@@ -42,7 +27,7 @@ function M.config()
         end
 
         vim.diagnostic.config {
-            virtual_text = true,
+            virtual_text = false,
             virtual_lines = false,
             signs = {
                 active = signs,
