@@ -1,7 +1,6 @@
 local M = {
     "williamboman/mason.nvim",
     dependencies = {
-        "lsp_lines.nvim",
         "glepnir/lspsaga.nvim",
         "j-hui/fidget.nvim",
     },
