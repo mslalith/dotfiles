@@ -2,24 +2,23 @@ local M = {}
 
 M.name = "@ms Toolbox"
 
----@param cmd string|ms.toolbox.Command
+---@param cmd string
 ---@return string
 function M.name_for(cmd)
     if cmd == "" then
         return M.name
     end
-    local group = type(cmd) == "string" and cmd or cmd.group
-    return M.name .. " (" .. group .. ")"
+    return M.name .. " (" .. cmd .. ")"
 end
 
 local PickerHistory = require("ms.toolbox.core.picker_history")
 
-M.general = require("ms.toolbox.pickers.general")
-M.git = require("ms.toolbox.pickers.git")
 M.util = require("ms.toolbox.util")
 M.command = require("ms.toolbox.core.command")
 M.actions = require("ms.toolbox.actions")
-M.plugins = require("ms.toolbox.plugins")
+M.general = require("ms.toolbox.pickers.general")
+M.git = require("ms.toolbox.pickers.git")
+M.plugins = require("ms.toolbox.pickers.plugins")
 M.diagnostics = require("ms.toolbox.pickers.diagnostics")
 
 M.notifier = {

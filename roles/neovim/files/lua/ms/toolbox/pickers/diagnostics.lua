@@ -1,4 +1,3 @@
----@class toolbox.picker.Diagnostics
 local M = {}
 
 ---@return boolean
@@ -104,20 +103,7 @@ local cmds = {
 ---@param opts? snacks.picker.Config
 ---@return snacks.Picker
 function M.show(opts)
-    opts = opts or {}
-    local items = Toolbox.command.get_finder_items(cmds)
-
-    return Snacks.picker(vim.tbl_deep_extend("force", opts, {
-        title = Toolbox.name_for("Diagnostics"),
-        items = items,
-        format = "text",
-        layout = MsConfig.snacks.layouts.vscode_bordered,
-        confirm = function(picker, item)
-            picker.was_picked = true
-            items[item.idx].execute()
-            picker:close()
-        end,
-    }))
+    Toolbox.show_picker("Diagnostics", cmds, opts)
 end
 
 return M

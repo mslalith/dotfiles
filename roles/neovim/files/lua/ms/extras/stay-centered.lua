@@ -13,10 +13,10 @@ return {
             commands = {
                 {
                     name = "Toggle",
+                    group = "stay-centered",
                     execute = function()
                         sc.toggle()
-                        local msg = sc.cfg.enabled and "Enabled" or "Disabled"
-                        msg = msg .. " stay-centered"
+                        local msg = "stay-centered " .. (sc.cfg.enabled and "enabled" or "disabled")
                         Toolbox.notifier.info(msg)
                     end,
                 },
