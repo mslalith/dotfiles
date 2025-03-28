@@ -1,8 +1,6 @@
 ---@class toolbox.picker.Diagnostics
 local M = {}
 
-M.picker_key = "toolbox_diagnostics"
-
 ---@return boolean
 local function is_virtual_lines_enabled()
     if vim.diagnostic.config().virtual_lines then
@@ -51,7 +49,7 @@ function M.show_hide_tiny_inline_diagnostics(show)
 end
 
 ---@type ms.toolbox.Command[]
-M.select_view_cmds = {
+local select_view_cmds = {
     {
         name = "In-built Line Diagnostics",
         group = "Diagnostics",
@@ -71,7 +69,7 @@ M.select_view_cmds = {
 }
 
 ---@type ms.toolbox.Command[]
-M.cmds = {
+local cmds = {
     {
         name = "Toggle virtual text",
         group = "Diagnostics",
@@ -98,7 +96,7 @@ M.cmds = {
         name = "Select diagnostic view",
         group = "Diagnostics",
         execute = function()
-            Toolbox.show_picker("Diagnostics", M.select_view_cmds)
+            Toolbox.show_picker("Diagnostics", select_view_cmds)
         end,
     },
 }
@@ -107,7 +105,7 @@ M.cmds = {
 ---@return snacks.Picker
 function M.show(opts)
     opts = opts or {}
-    local items = Toolbox.command.get_finder_items(M.cmds)
+    local items = Toolbox.command.get_finder_items(cmds)
 
     return Snacks.picker(vim.tbl_deep_extend("force", opts, {
         title = Toolbox.name_for("Diagnostics"),

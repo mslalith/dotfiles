@@ -28,15 +28,6 @@ local function all_commands()
 
     local groups = {
         sources.pickers.cmds,
-        {
-            {
-                name = "Git Toolbox",
-                group = "Git",
-                execute = function()
-                    Toolbox.git.show()
-                end,
-            },
-        },
         sources.toggles.cmds,
         sources.notifications.cmds,
     }

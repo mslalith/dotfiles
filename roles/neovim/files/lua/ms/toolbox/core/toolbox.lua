@@ -12,7 +12,7 @@ end
 local PickerHistory = require("ms.toolbox.core.picker_history")
 
 M.general = require("ms.toolbox.general")
-M.git = require("ms.toolbox.git")
+M.git = require("ms.toolbox.pickers.git")
 M.util = require("ms.toolbox.util")
 M.command = require("ms.toolbox.core.command")
 M.actions = require("ms.toolbox.actions")

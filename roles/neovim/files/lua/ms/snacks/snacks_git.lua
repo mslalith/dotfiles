@@ -47,7 +47,7 @@ local M = {
         },
         {
             "<leader>gs",
-            Toolbox.git.check_status.show,
+            Toolbox.git.show_status,
             desc = "Git Status",
         },
         {
