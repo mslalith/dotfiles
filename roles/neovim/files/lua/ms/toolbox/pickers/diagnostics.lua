@@ -1,7 +1,31 @@
----@class toolbox.picker.diagnostic.SelectView
+---@class toolbox.picker.Diagnostics
 local M = {}
 
-M.picker_key = "toolbox_diagnostic_select_view"
+M.picker_key = "toolbox_diagnostics"
+
+---@return boolean
+local function is_virtual_lines_enabled()
+    if vim.diagnostic.config().virtual_lines then
+        return true
+    end
+
+    local diagnostic = require("tiny-inline-diagnostic.diagnostic")
+    if diagnostic.user_toggle_state then
+        return true
+    end
+
+    return false
+end
+
+local function enable_default_diagnostics()
+    M.show_hide_inbuilt_line_diagnostics(false)
+    M.show_hide_tiny_inline_diagnostics(true)
+end
+
+local function disable_all_diagnostics()
+    M.show_hide_inbuilt_line_diagnostics(false)
+    M.show_hide_tiny_inline_diagnostics(false)
+end
 
 ---@param show boolean
 function M.show_hide_inbuilt_line_diagnostics(show)
@@ -27,7 +51,7 @@ function M.show_hide_tiny_inline_diagnostics(show)
 end
 
 ---@type ms.toolbox.Command[]
-M.cmds = {
+M.select_view_cmds = {
     {
         name = "In-built Line Diagnostics",
         group = "Diagnostics",
@@ -42,6 +66,39 @@ M.cmds = {
         execute = function()
             M.show_hide_inbuilt_line_diagnostics(false)
             M.show_hide_tiny_inline_diagnostics(true)
+        end,
+    },
+}
+
+---@type ms.toolbox.Command[]
+M.cmds = {
+    {
+        name = "Toggle virtual text",
+        group = "Diagnostics",
+        execute = function()
+            if vim.diagnostic.config().virtual_text then
+                vim.diagnostic.config { virtual_text = false }
+            else
+                vim.diagnostic.config { virtual_text = true }
+            end
+        end,
+    },
+    {
+        name = "Toggle virtual lines",
+        group = "Diagnostics",
+        execute = function()
+            if is_virtual_lines_enabled() then
+                disable_all_diagnostics()
+            else
+                enable_default_diagnostics()
+            end
+        end,
+    },
+    {
+        name = "Select diagnostic view",
+        group = "Diagnostics",
+        execute = function()
+            Toolbox.show_picker("Diagnostics", M.select_view_cmds)
         end,
     },
 }
