@@ -5,13 +5,16 @@ M.name = "@ms Toolbox"
 ---@param cmd string|ms.toolbox.Command
 ---@return string
 function M.name_for(cmd)
+    if cmd == "" then
+        return M.name
+    end
     local group = type(cmd) == "string" and cmd or cmd.group
     return M.name .. " (" .. group .. ")"
 end
 
 local PickerHistory = require("ms.toolbox.core.picker_history")
 
-M.general = require("ms.toolbox.general")
+M.general = require("ms.toolbox.pickers.general")
 M.git = require("ms.toolbox.pickers.git")
 M.util = require("ms.toolbox.util")
 M.command = require("ms.toolbox.core.command")
