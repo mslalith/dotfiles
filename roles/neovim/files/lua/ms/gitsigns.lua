@@ -21,7 +21,7 @@ function M.config()
             --------------------------------------
             -- Navigation
             --------------------------------------
-            nmap("<leader>hj", function()
+            nmap("]]", function()
                 if vim.wo.diff then
                     vim.cmd.normal { "]c", bang = true }
                 else
@@ -29,7 +29,7 @@ function M.config()
                 end
             end, "Next Hunk")
 
-            nmap("<leader>hk", function()
+            nmap("[[", function()
                 if vim.wo.diff then
                     vim.cmd.normal { "[c", bang = true }
                 else
