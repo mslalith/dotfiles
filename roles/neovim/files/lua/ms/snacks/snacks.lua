@@ -77,7 +77,7 @@ local M = {
         { "<leader>w", "<cmd>lua require('snacks').bufdelete()<cr>", desc = "Delete Buffer" },
         { "<leader>ii", "<cmd>lua require('snacks').image.hover()<cr>", desc = "Show image at cursor" },
         {
-            "<leader>ty",
+            "<leader>py",
             function()
                 MsConfig.snacks.yazi()
             end,

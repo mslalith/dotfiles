@@ -55,20 +55,20 @@ local M = {
             Toolbox.actions.git.push,
             desc = "Git Push",
         },
-        {
-            "<leader>fs",
-            function()
-                Snacks.scratch.select()
-            end,
-            desc = "List scratch buffers",
-        },
-        {
-            "<leader>ts",
-            function()
-                Snacks.scratch()
-            end,
-            desc = "Open scratch buffer",
-        },
+        -- {
+        --     "<leader>fs",
+        --     function()
+        --         Snacks.scratch.select()
+        --     end,
+        --     desc = "List scratch buffers",
+        -- },
+        -- {
+        --     "<leader>ts",
+        --     function()
+        --         Snacks.scratch()
+        --     end,
+        --     desc = "Open scratch buffer",
+        -- },
     },
 }
 

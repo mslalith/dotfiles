@@ -4,22 +4,22 @@ return {
     "folke/snacks.nvim",
     keys = {
         {
-            "<leader>tt",
+            "<leader>pt",
             Toolbox.general.show,
             desc = Toolbox.name,
         },
         {
-            "<leader>tg",
+            "<leader>pg",
             Toolbox.git.show,
             desc = Toolbox.name_for("Git"),
         },
         {
-            "<leader>tp",
+            "<leader>pp",
             Toolbox.plugins.show,
             desc = Toolbox.name_for("Plugin Commands"),
         },
         {
-            "<leader>td",
+            "<leader>pd",
             Toolbox.diagnostics.show,
             desc = Toolbox.name_for("Diagnostics"),
         },
