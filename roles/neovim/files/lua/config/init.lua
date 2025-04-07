@@ -27,6 +27,7 @@ require("lazy").setup {
         { import = "ms.snacks" },
         { import = "ms.mini" },
         { import = "ms.extras" },
+        { import = "ms.extras.test" },
         { import = "ms.extras.languages" },
         { import = "ms.extras.languages.dart" },
     },
