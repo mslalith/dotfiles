@@ -8,34 +8,38 @@ set sneak
 set easymotion
 
 let mapleader = ' '
-" source ~/.config/nvim/init.vim
 
 inoremap jk <Esc>
 
 " ------- AS Actions ----------
 nnoremap <leader>e :action ActivateProjectToolWindow<CR>
-nnoremap gb :action Back<CR>
-nnoremap gf :action Forward<CR>
-nnoremap <leader>u :action FindUsages<CR>
-nnoremap <leader>b :action ToggleLineBreakpoint<CR>
-nnoremap <leader>m :action ToggleBookmark<CR>
-" nnoremap <leader>w :action CloseContent<CR>
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>tt :action GotoAction<CR>
+nnoremap <leader>sg :action FindInPath<CR>
+nnoremap <leader>w :action CloseContent<CR>
 nnoremap ff :action RenameElement<CR>
 nnoremap gcc :action CommentByLineComment<CR>
-vnoremap gcc :action CommentByLineComment<CR>
-nnoremap gp :action ShowErrorDescription<CR>
-nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
-nnoremap <leader>ff :action SelectInProjectView<CR>
-
+vnoremap gc :action CommentByLineComment<CR>
 nnoremap ]] :action VcsShowNextChangeMarker<CR>
 nnoremap [[ :action VcsShowPrevChangeMarker<CR>
+nnoremap gb :action Back<CR>
+nnoremap gf :action Forward<CR>
+nnoremap <leader>hr :action Vcs.RollbackChangedLines<CR>
+nnoremap <leader>dj :action GotoNextError<CR>
+nnoremap <leader>dk :action GotoPreviousError<CR>
+
+nnoremap <leader>u :action FindUsages<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap <leader>b :action ToggleLineBreakpoint<CR>
+nnoremap <leader>m :action ToggleBookmark<CR>
+nnoremap gp :action ShowErrorDescription<CR>
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
 
 nnoremap <S-m> :action MethodUp<CR>
 nnoremap m :action MethodDown<CR>
 nnoremap <S-h> :action PreviousTab<CR>
 nnoremap <S-l> :action NextTab<CR>
 
-nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
 nnoremap <A-e> :action Switcher<CR>
 
 
@@ -61,7 +65,6 @@ nnoremap <leader>k O<Esc>
 nnoremap <leader>p viwp
 nnoremap dl d$
 nnoremap dh d^
-nnoremap n *
 
 
 " Split Tabs
