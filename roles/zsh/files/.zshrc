@@ -96,6 +96,8 @@ alias nvimdir="cd ~/.config/nvim/lua"
 alias dotf="cd ~/.dotfiles"
 alias adbr="adb kill-server && adb start-server"
 alias gw="./gradlew"
+alias brb="dart run build_runner build -d"
+alias brw="dart run build_runner watch -d"
 
 function fz() {
   z $(fd -t d | fzf)
