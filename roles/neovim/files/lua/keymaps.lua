@@ -9,12 +9,13 @@ MsConfig.keys.normal("<C-l>", "<C-w>l", "Move right")
 
 MsConfig.keys.normal("<F5>", ":so %<CR>", "Source file")
 MsConfig.keys.normal("<C-a>", "ggVG", "Select all")
-MsConfig.keys.normal("<leader><leader>q", ":q<CR>", "Quit")
-MsConfig.keys.normal("<leader><leader>s", ":w<CR>", "Save")
+MsConfig.keys.normal("<leader>qq", ":q<CR>", "Quit")
+MsConfig.keys.normal("<leader>ss", ":w<CR>", "Save")
+MsConfig.keys.normal("<leader>P", "viwpyiw", "Paste")
 MsConfig.keys.insert("<C-s>", "<Esc>:w<CR>a", "Save")
 MsConfig.keys.normal("dh", "d^", "Delete till end")
 MsConfig.keys.normal("dl", "d$", "Delete till start")
-MsConfig.keys.normal("n", "*", "Highlight search")
+-- MsConfig.keys.normal("n", "*", "Highlight search")
 
 MsConfig.keys.normal("<ESC>", ":nohlsearch<CR>", "Clear highlight")
 

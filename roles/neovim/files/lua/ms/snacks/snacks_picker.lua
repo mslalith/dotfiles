@@ -54,7 +54,7 @@ local M = {
             desc = "Buffer diagnostics",
         },
         {
-            "<leader>ff",
+            "<leader><leader>",
             function()
                 Snacks.picker.smart {
                     multi = { "buffers", "files" },
@@ -65,7 +65,7 @@ local M = {
         },
         {
             mode = "v",
-            "<leader>ff",
+            "<leader><leader>",
             function()
                 Snacks.picker.smart {
                     multi = { "buffers", "files" },

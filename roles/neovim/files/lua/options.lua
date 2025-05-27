@@ -37,6 +37,7 @@ local options = {
     foldlevel = 99, -- initial fold level when file opens
     foldmethod = "indent", -- fold method to apply
     diffopt = "internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram", -- diff options
+    winborder = "rounded", -- use rounded borders on all floating windows
 }
 
 vim.opt.shortmess:append("c")
