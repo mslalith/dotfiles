@@ -107,6 +107,32 @@ function M.config()
                     vim.cmd("FlutterLogClear")
                 end,
             },
+            {
+                name = "Clean",
+                group = "Flutter",
+                execute = function()
+                    Toolbox.util.cmd.run_with_progress {
+                        cmd = { "flutter", "clean" },
+                        group = "Flutter",
+                        key = "flutter_clean",
+                        title = "Clean",
+                        message = "cleaning",
+                    }
+                end,
+            },
+            {
+                name = "Build Runner (Build)",
+                group = "Flutter",
+                execute = function()
+                    Toolbox.util.cmd.run_with_progress {
+                        cmd = { "dart", "run", "build_runner", "build", "-d" },
+                        group = "Flutter",
+                        key = "flutter_build_runner_build",
+                        title = "Build Runner",
+                        message = "building",
+                    }
+                end,
+            },
         },
     }
 end
