@@ -14,6 +14,7 @@ local M = {
             indicator = {
                 style = "none",
             },
+            sort_by = "insert_after_current",
             buffer_close_icon = MsConfig.icons.ui.BoldClose,
             modified_icon = MsConfig.icons.ui.CircleSmall,
             close_icon = MsConfig.icons.ui.BoldClose,
