@@ -104,6 +104,13 @@ return {
             },
             sources = {
                 default = { "lsp", "path", "snippets", "buffer" },
+                providers = {
+                    snippets = {
+                        opts = {
+                            search_path = { vim.fn.stdpath("config") .. "/snippets" },
+                        },
+                    },
+                },
             },
         },
         opts_extend = { "sources.default" },

@@ -1,0 +1,36 @@
+{
+  "importpartfreezed": {
+    "body": "part '$TM_FILENAME_BASE.freezed.dart';",
+    "prefix": "importpartfreezed"
+  },
+  "printclipboard": {
+    "body": "print(\"$CLIPBOARD: \\$$CLIPBOARD\");",
+    "prefix": "printclipboard"
+  },
+  "rivgennot": {
+    "body": [
+      "@riverpod",
+      "class $1Notifier extends _\\$$1Notifier {",
+      "",
+      "  @override",
+      "  $2 build() {",
+      "    $0",
+      "  }",
+      "}"
+    ],
+    "prefix": "rivnotifierclass (Generator)"
+  },
+  "rivnotfun": {
+    "body": [
+      "@riverpod",
+      "$1 $2(Ref ref) {",
+      "  $0",
+      "}"
+    ],
+    "prefix": "rivnotifierfun"
+  },
+  "rivpartimport": {
+    "body": "part '$TM_FILENAME_BASE.g.dart';",
+    "prefix": "importpartg"
+  }
+}
