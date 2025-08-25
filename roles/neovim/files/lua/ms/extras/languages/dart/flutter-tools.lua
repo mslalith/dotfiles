@@ -19,6 +19,10 @@ function M.config()
     require("flutter-tools").setup {
         cmd = { "dart", "language-server", "--protocol=lsp" },
         widget_guides = { enabled = true },
+        -- dev_log = {
+        --     enabled = true,
+        --     open_cmd = "tabedit",
+        -- },
         lsp = {
             settings = {
                 analysisExcludedFolders = dartExcludedFolders,
