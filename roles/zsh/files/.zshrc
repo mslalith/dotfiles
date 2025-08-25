@@ -4,6 +4,8 @@ if [[ -f HOMEBREW ]]; then
   eval "$(HOMEBREW shellenv)"
 fi
 
+export LC_ALL=en_US.UTF-8
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
