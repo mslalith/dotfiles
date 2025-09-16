@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
+alias nvim-lazy="NVIM_APPNAME=lazyvim nvim"
 
 function nvims() {
   items=("default" "LazyVim")

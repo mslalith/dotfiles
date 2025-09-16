@@ -76,9 +76,9 @@ eval "$(atuin init zsh)"
 alias icat="kitty +kitten icat"
 
 # Map nvim as vim
-alias v="nvim"
-alias vim="nvim"
-export EDITOR="nvim"
+alias v="nvim-lazy"
+alias vim="nvim-lazy"
+export EDITOR="nvim-lazy"
 
 # Aliases
 # rc files
