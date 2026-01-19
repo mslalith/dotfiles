@@ -13,7 +13,7 @@ inoremap jk <Esc>
 
 " ------- AS Actions ----------
 nnoremap <leader>e :action ActivateProjectToolWindow<CR>
-nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader><leader> :action GotoFile<CR>
 nnoremap <leader>tt :action GotoAction<CR>
 nnoremap <leader>sg :action FindInPath<CR>
 nnoremap <leader>w :action CloseContent<CR>
@@ -24,7 +24,7 @@ nnoremap ]] :action VcsShowNextChangeMarker<CR>
 nnoremap [[ :action VcsShowPrevChangeMarker<CR>
 nnoremap gb :action Back<CR>
 nnoremap gf :action Forward<CR>
-nnoremap <leader>hr :action Vcs.RollbackChangedLines<CR>
+nnoremap <leader>ghr :action Vcs.RollbackChangedLines<CR>
 nnoremap <leader>dj :action GotoNextError<CR>
 nnoremap <leader>dk :action GotoPreviousError<CR>
 
