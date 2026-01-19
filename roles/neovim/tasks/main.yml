@@ -8,15 +8,28 @@
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: distribution_config.stat.exists
 
-- name: "{{ role_name }} | Config folder"
+- name: "{{ role_name }} | nvim config folder"
   ansible.builtin.file:
     mode: "0755"
     path: "{{ ansible_user_dir }}/.config/nvim"
     state: directory
 
-- name: "{{ role_name }} | Create symlink to role files directory"
+- name: "{{ role_name }} | Create symlink to msvim directory"
   ansible.builtin.file:
-    src: "{{ role_path }}/files"
+    src: "{{ role_path }}/files/msvim"
+    dest: "{{ ansible_user_dir }}/.config/nvim"
+    state: link
+    force: true
+
+- name: "{{ role_name }} | lazyvim config folder"
+  ansible.builtin.file:
+    mode: "0755"
+    path: "{{ ansible_user_dir }}/.config/lazyvim"
+    state: directory
+
+- name: "{{ role_name }} | Create symlink to lazyvim directory"
+  ansible.builtin.file:
+    src: "{{ role_path }}/files/lazyvim"
     dest: "{{ ansible_user_dir }}/.config/nvim"
     state: link
     force: true
