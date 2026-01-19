@@ -57,7 +57,7 @@ default_roles:
   # - tshark
   # - warp
   # - whalebrew
-  - yabai
+  # - yabai
   - yazi
   - zoxide
   - zsh
